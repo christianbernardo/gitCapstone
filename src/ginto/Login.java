@@ -137,7 +137,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 23);
+        jLabel2.setBounds(560, 70, 70, 24);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/real_bgt-removebg-preview.png"))); // NOI18N
         jLabel7.setToolTipText("");
@@ -202,7 +202,7 @@ public class Login extends javax.swing.JFrame {
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         String username = "CFSI_Admin";
-        String password = "cfsi2024";
+        String password = "JOBS2024";
 
         String user = u1.getText();
         String pass = p1.getText();

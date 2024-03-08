@@ -49,9 +49,9 @@ public class FINDSTUDENT extends javax.swing.JFrame {
              Class.forName("com.mysql.cj.jdbc.Driver");
              con = DriverManager.getConnection("jdbc:mysql://localhost/data","root","");
          } catch (ClassNotFoundException ex) {
-              Logger.getLogger(A3.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
          } catch (SQLException ex) {
-              Logger.getLogger(A3.class.getName()).log(Level.SEVERE,null, ex);            
+              Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE,null, ex);            
          }
      }
     

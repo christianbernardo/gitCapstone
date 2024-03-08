@@ -20,12 +20,12 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Camillebernardo
  */
-public class A3 extends javax.swing.JInternalFrame {
+public class MANAGESTUDENT extends javax.swing.JInternalFrame {
 
     DefaultTableModel model;
 
     
-    public A3() {
+    public MANAGESTUDENT() {
         initComponents();
         Connect();
         table_update();
@@ -54,9 +54,9 @@ public class A3 extends javax.swing.JInternalFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/data","root","");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(A3.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(A3.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -148,7 +148,6 @@ public class A3 extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -162,11 +161,13 @@ public class A3 extends javax.swing.JInternalFrame {
         txtSearch = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtGrandSec = new javax.swing.JComboBox<>();
         txtStrand = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1186, 701));
 
@@ -205,21 +206,6 @@ public class A3 extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Add a Student");
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("ADD");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
-            }
-        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-student-90.png"))); // NOI18N
 
@@ -359,26 +345,6 @@ public class A3 extends javax.swing.JInternalFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
-        jButton2.setBackground(new java.awt.Color(204, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("REMOVE");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(0, 0, 153));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("UPDATE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(6, 637));
 
@@ -396,6 +362,29 @@ public class A3 extends javax.swing.JInternalFrame {
         txtGrandSec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "12 JOBS", "12 GATES", "12 DELL" }));
 
         txtStrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "ICT", "HUMSS" }));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-48.png"))); // NOI18N
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -416,23 +405,25 @@ public class A3 extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel4)
-                                .addComponent(txtStudentID)
-                                .addComponent(txtStudentName)
-                                .addComponent(txtStrand, 0, 277, Short.MAX_VALUE))
-                            .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel14))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtStudentID)
+                                    .addComponent(txtStudentName)
+                                    .addComponent(txtStrand, 0, 277, Short.MAX_VALUE))
+                                .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -471,12 +462,13 @@ public class A3 extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(2251, 2251, 2251))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(2256, 2256, 2256))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -492,35 +484,6 @@ public class A3 extends javax.swing.JInternalFrame {
     private void txtStudentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStudentIDActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            String StudentID,StudentName,Strand,GrandSec;
-            StudentID = txtStudentID.getText();
-            StudentName = txtStudentName.getText();
-            Strand = txtStrand.getSelectedItem().toString();
-            GrandSec = txtGrandSec.getSelectedItem().toString();
-            pst = con.prepareStatement("insert into students (studentid,studentname,strand,gradeandsection)values(?,?,?,?)");
-            pst.setString(1, StudentID);
-            pst.setString(2, StudentName);
-            pst.setString(3, Strand);
-            pst.setString(4, GrandSec);
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Student Added");
-            table_update();
-            txtStudentID.setText("");
-            txtStudentName.setText("");
-            
-            txtGrandSec.requestFocus();
-        }catch (SQLException ex) {
-            Logger.getLogger(A3.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1KeyPressed
 
     private void jTable1jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1jTable1MouseClicked
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -542,8 +505,70 @@ public class A3 extends javax.swing.JInternalFrame {
         search(searchString);
     }//GEN-LAST:event_txtSearchKeyReleased
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+         String filterString = jComboBox3.getSelectedItem().toString();
+         filter(filterString);
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+         try {
+            String StudentID,StudentName,Strand,GrandSec;
+            StudentID = txtStudentID.getText();
+            StudentName = txtStudentName.getText();
+            Strand = txtStrand.getSelectedItem().toString();
+            GrandSec = txtGrandSec.getSelectedItem().toString();
+            pst = con.prepareStatement("insert into students (studentid,studentname,strand,gradeandsection)values(?,?,?,?)");
+            pst.setString(1, StudentID);
+            pst.setString(2, StudentName);
+            pst.setString(3, Strand);
+            pst.setString(4, GrandSec);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Student Added");
+            table_update();
+            txtStudentID.setText("");
+            txtStudentName.setText("");
+
+            txtGrandSec.requestFocus();
+        }catch (SQLException ex) {
+            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+          try {
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            int selectedIndex = jTable1.getSelectedRow();
+
+            String StudentID,StudentName,Strand,GrandSec;
+            StudentID = txtStudentID.getText();
+            StudentName = txtStudentName.getText();
+            Strand = txtStrand.getSelectedItem().toString();
+            GrandSec = txtGrandSec.getSelectedItem().toString();
+            pst = con.prepareStatement("update students set studentid=?,studentname=?,strand=?,gradeandsection=? where studentid = ?");
+            pst.setString (1, StudentID);
+            pst.setString(2, StudentName);
+            pst.setString(3, Strand);
+            pst.setString(4, GrandSec);
+            pst.setString(5, StudentID);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Student Updated");
+            table_update();
+            txtStudentID.setText("");
+            txtStudentName.setText("");
+            txtStrand.setSelectedIndex(0);
+            txtGrandSec.setSelectedIndex(0);
+
+        }catch (SQLException ex) {
+            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+          try {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             int selectedIndex = jTable1.getSelectedRow();
             int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
@@ -558,53 +583,19 @@ public class A3 extends javax.swing.JInternalFrame {
             txtGrandSec.setSelectedIndex(0);
             txtStudentName.requestFocus();
         }catch (SQLException ex) {
-            Logger.getLogger(A3.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            int selectedIndex = jTable1.getSelectedRow();
-            
-            String StudentID,StudentName,Strand,GrandSec;
-            StudentID = txtStudentID.getText();
-            StudentName = txtStudentName.getText();
-            Strand = txtStrand.getSelectedItem().toString();
-            GrandSec = txtGrandSec.getSelectedItem().toString();
-            pst = con.prepareStatement("update students set studentid=?,studentname=?,strand=?,gradeandsection=? where studentid = ?");
-            pst.setString (1, StudentID);
-            pst.setString(2, StudentName);
-            pst.setString(3, Strand);
-            pst.setString(4, GrandSec);
-            pst.setString(5, StudentID);
-            
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Student Updated");
-            table_update();
-            txtStudentID.setText("");
-            txtStudentName.setText("");
-            txtStrand.setSelectedIndex(0);
-            txtGrandSec.setSelectedIndex(0);
-            
-        }catch (SQLException ex) {
-            Logger.getLogger(A3.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-         String filterString = jComboBox3.getSelectedItem().toString();
-         filter(filterString);
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_jLabel13MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;

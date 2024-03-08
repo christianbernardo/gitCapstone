@@ -26,12 +26,12 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Camillebernardo
  */
-public class A4 extends javax.swing.JInternalFrame {
+public class TRANSACTION extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form A1
      */
-    public A4() {
+    public TRANSACTION() {
         initComponents();
         Connect();
         table_update();
@@ -61,9 +61,9 @@ public class A4 extends javax.swing.JInternalFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/data","root","");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(A4.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TRANSACTION.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(A4.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TRANSACTION.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
     private void table_update()

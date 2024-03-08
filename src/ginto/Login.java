@@ -209,7 +209,7 @@ public class Login extends javax.swing.JFrame {
 
         if(user.equals(username)&&pass.equals(password)){
             close();
-            pages pg = new pages();
+            HomePage pg = new HomePage();
             pg.setVisible(true);
         }
         else if (u1.getText().equals("")&&p1.getText().equals("")) {
@@ -250,7 +250,32 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void p1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_p1KeyPressed
-        
+       if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+
+            String username = "CFSI_Admin";
+            String password = "JOBS2024";
+            
+            String user = u1.getText();
+            String pass = p1.getText();
+            
+            if(user.equals(username)&&pass.equals(password)){
+                close();
+                HomePage pg = new HomePage();
+                pg.setVisible(true);
+            }
+            else if (u1.getText().equals("")&&p1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please input user and pass");
+            }
+            else if (u1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please input username");
+            }
+            else if (p1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please input password");
+            }
+            else if (!u1.getText().equals("")&&!p1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "invalid user or pass");
+            }
+        }                
        
     }//GEN-LAST:event_p1KeyPressed
 

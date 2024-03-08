@@ -26,12 +26,12 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Camillebernardo
  */
-public class A5 extends javax.swing.JInternalFrame {
+public class RECORDS extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form A1
      */
-    public A5() {
+    public RECORDS() {
         initComponents();
         Connect();
         table_update();
@@ -60,9 +60,9 @@ public class A5 extends javax.swing.JInternalFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/data","root","");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(A5.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RECORDS.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(A5.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RECORDS.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
      private void table_update()
@@ -216,7 +216,7 @@ public class A5 extends javax.swing.JInternalFrame {
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABM", "HUMSS", "ICT" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -15,12 +15,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class A11 extends javax.swing.JInternalFrame {
+public class DASHBOARD extends javax.swing.JInternalFrame {
 
    
-    public A11() {
+    public DASHBOARD() {
         initComponents();
         Connect();
+        book_count();
         this.setBorder(javax.swing.BorderFactory . createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
@@ -44,9 +45,9 @@ public class A11 extends javax.swing.JInternalFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/data","root","");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(A11.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DASHBOARD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(A11.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DASHBOARD.class.getName()).log(Level.SEVERE, null, ex);
         }
     
      }
@@ -63,6 +64,28 @@ public class A11 extends javax.swing.JInternalFrame {
            jTable1.setRowSorter(trs);
            trs.setRowFilter(RowFilter.regexFilter(str));
            }
+      
+      
+      private void book_count()
+      {
+          try {
+              pst = con.prepareStatement("SELECT COUNT(*) AS bookCount from books");
+              ResultSet Rs = pst.executeQuery();
+              
+              while (Rs.next())
+              {
+                  int bcount = Rs.getInt("bookcount");
+                  jLabel2.setText(String.valueOf(bcount));
+                  
+              }
+          }catch (Exception e) {
+              e.printStackTrace();
+              {
+                  
+              }
+          }
+          
+      }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -562,11 +562,12 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             int optionType = JOptionPane.YES_NO_OPTION;
             int result = JOptionPane.showConfirmDialog(null, "Are you Sure you want to remove this student?", "Delete", optionType);
             
-            if (result == JOptionPane.YES_OPTION) {
-                try {
+            
+            {try { 
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             int selectedIndex = jTable1.getSelectedRow();
-            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());     
+            if (result == JOptionPane.YES_OPTION) 
             pst = con.prepareStatement("delete from students where studentid= ?");
             pst.setInt(1, id);
             pst.executeUpdate();

@@ -1,9 +1,6 @@
 package ginto;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 
 import  java.sql.*;
 import java.awt.Color;
@@ -22,15 +19,10 @@ import javax.swing.table.TableRowSorter;
 
 
 
-/**
- *
- * @author Camillebernardo
- */
+
 public class TRANSACTION extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form A1
-     */
+   
     public TRANSACTION() {
         initComponents();
         Connect();
@@ -314,7 +306,7 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
         IssueBook ib = new IssueBook();
         ib.setVisible(true);
         
@@ -322,7 +314,7 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
+        
         
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -336,11 +328,11 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
         ReturnBook rb = new ReturnBook();
         rb.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

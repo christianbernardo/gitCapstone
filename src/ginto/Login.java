@@ -202,7 +202,7 @@ public class Login extends javax.swing.JFrame {
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         String username = "CFSI_Admin";
-        String password = "JOBS2024";
+        String password = "CFSI2024";
 
         String user = u1.getText();
         String pass = p1.getText();

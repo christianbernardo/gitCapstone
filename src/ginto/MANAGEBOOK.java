@@ -527,7 +527,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void txtBookIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookIDActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtBookIDActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -540,7 +540,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtQuantityActionPerformed
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked

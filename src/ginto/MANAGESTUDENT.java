@@ -354,6 +354,11 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         txtStrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "ICT", "HUMSS" }));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -414,7 +419,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                                     .addComponent(txtStudentName)
                                     .addComponent(txtStrand, 0, 277, Short.MAX_VALUE))
                                 .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -563,7 +568,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             int result = JOptionPane.showConfirmDialog(null, "Are you Sure you want to remove this student?", "Delete", optionType);
             
             
-            {try { 
+            try { 
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             int selectedIndex = jTable1.getSelectedRow();
             int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());     
@@ -581,9 +586,18 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         }catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
-            }
+            
         
     }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int selectedIndex = jTable1.getSelectedRow();
+        int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+        txtStudentName.setText(model.getValueAt(selectedIndex, 1).toString());
+        txtStrand.setSelectedItem(model.getValueAt(selectedIndex, 2).toString());
+        txtGrandSec.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
+    }//GEN-LAST:event_jLabel14MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

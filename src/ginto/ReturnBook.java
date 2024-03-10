@@ -85,6 +85,7 @@ public class ReturnBook extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -121,9 +122,23 @@ public class ReturnBook extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(102, 102, 102)));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 950, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 40));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
@@ -140,7 +155,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton7);
-        jButton7.setBounds(340, 260, 72, 22);
+        jButton7.setBounds(350, 210, 72, 22);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,7 +212,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtStudentName);
-        txtStudentName.setBounds(10, 330, 400, 35);
+        txtStudentName.setBounds(20, 330, 430, 35);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,10 +229,10 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtGrSec);
-        txtGrSec.setBounds(10, 400, 400, 35);
+        txtGrSec.setBounds(20, 400, 430, 35);
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 51));
-        jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
+        jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 0, new java.awt.Color(102, 102, 102)));
         jPanel7.setPreferredSize(new java.awt.Dimension(350, 500));
         jPanel7.setLayout(null);
 
@@ -240,20 +255,20 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(jButton6);
-        jButton6.setBounds(430, 10, 20, 20);
+        jButton6.setBounds(440, 10, 20, 20);
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Book ID :");
         jPanel7.add(jLabel15);
-        jLabel15.setBounds(10, 210, 51, 16);
+        jLabel15.setBounds(20, 210, 51, 16);
 
         jLabel16.setBackground(new java.awt.Color(153, 153, 255));
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Book Name :");
         jPanel7.add(jLabel16);
-        jLabel16.setBounds(10, 270, 71, 16);
+        jLabel16.setBounds(20, 270, 71, 16);
 
         txtBookName.setBackground(new java.awt.Color(0, 0, 51));
         txtBookName.setForeground(new java.awt.Color(255, 255, 255));
@@ -264,13 +279,13 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtBookName);
-        txtBookName.setBounds(10, 290, 390, 35);
+        txtBookName.setBounds(20, 290, 430, 35);
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Author :");
         jPanel7.add(jLabel17);
-        jLabel17.setBounds(10, 330, 45, 16);
+        jLabel17.setBounds(20, 330, 45, 16);
 
         txtAuthor.setBackground(new java.awt.Color(0, 0, 51));
         txtAuthor.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,13 +296,13 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtAuthor);
-        txtAuthor.setBounds(10, 350, 390, 35);
+        txtAuthor.setBounds(20, 350, 430, 35);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Quantity :");
         jPanel7.add(jLabel18);
-        jLabel18.setBounds(10, 390, 54, 16);
+        jLabel18.setBounds(20, 390, 54, 16);
 
         txtQuantity.setBackground(new java.awt.Color(0, 0, 51));
         txtQuantity.setForeground(new java.awt.Color(255, 255, 255));
@@ -298,14 +313,14 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtQuantity);
-        txtQuantity.setBounds(10, 410, 390, 35);
+        txtQuantity.setBounds(20, 410, 430, 35);
 
         jLabel19.setBackground(new java.awt.Color(153, 153, 255));
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Return Date :");
         jPanel7.add(jLabel19);
-        jLabel19.setBounds(10, 450, 80, 16);
+        jLabel19.setBounds(30, 450, 80, 16);
 
         txtIssueDate.setBackground(new java.awt.Color(0, 0, 51));
         txtIssueDate.setForeground(new java.awt.Color(255, 255, 255));
@@ -316,7 +331,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtIssueDate);
-        txtIssueDate.setBounds(10, 470, 390, 35);
+        txtIssueDate.setBounds(20, 470, 430, 35);
         jPanel7.add(jDateChooser1);
         jDateChooser1.setBounds(10, 520, 250, 30);
 
@@ -329,10 +344,10 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtBookID);
-        txtBookID.setBounds(10, 230, 390, 35);
+        txtBookID.setBounds(20, 230, 430, 35);
 
         jPanel2.add(jPanel7);
-        jPanel7.setBounds(470, 0, 480, 590);
+        jPanel7.setBounds(470, 0, 470, 610);
 
         txtStudentID.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentID.setForeground(new java.awt.Color(255, 255, 255));
@@ -343,21 +358,22 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtStudentID);
-        txtStudentID.setBounds(10, 260, 400, 36);
+        txtStudentID.setBounds(20, 260, 430, 36);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("RETURN", jPanel4);
@@ -397,35 +413,58 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(170);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(60);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setPreferredWidth(120);
+            jTable1.getColumnModel().getColumn(6).setResizable(false);
+            jTable1.getColumnModel().getColumn(6).setPreferredWidth(60);
+            jTable1.getColumnModel().getColumn(7).setResizable(false);
+            jTable1.getColumnModel().getColumn(7).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(8).setResizable(false);
+            jTable1.getColumnModel().getColumn(8).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(9).setResizable(false);
+            jTable1.getColumnModel().getColumn(9).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(10).setResizable(false);
+            jTable1.getColumnModel().getColumn(10).setPreferredWidth(50);
+        }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 960, Short.MAX_VALUE)
+            .addGap(0, 950, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 625, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(24, 24, 24)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(25, Short.MAX_VALUE)))
+                    .addContainerGap(55, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("DETAILS", jPanel5);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 630));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 660));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(967, 649));
+        setSize(new java.awt.Dimension(945, 646));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -474,7 +513,7 @@ public class ReturnBook extends javax.swing.JFrame {
 
                 Rs.close();
                 pst.close();*/
-                new FINDSTUDENT().setVisible(true);
+                 jTabbedPane1.setSelectedIndex(1);
 
                 /*}else{
                 JOptionPane.showMessageDialog(null, "Book is not Issued with this Student ID");
@@ -579,6 +618,7 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;

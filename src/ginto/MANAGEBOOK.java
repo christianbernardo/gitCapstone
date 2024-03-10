@@ -157,7 +157,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txtGenre = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -372,8 +372,8 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-book-28.png"))); // NOI18N
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        jComboBox2.setPreferredSize(new java.awt.Dimension(129, 35));
+        txtGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
+        txtGenre.setPreferredSize(new java.awt.Dimension(129, 35));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -431,7 +431,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                             .addComponent(txtBookID, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                             .addComponent(txtBookName)
                             .addComponent(txtBookAuthor)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtGenre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4)
                             .addComponent(txtQuantity)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -485,7 +485,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                                                 .addComponent(jLabel17))
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(txtGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
@@ -517,12 +517,9 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int selectedIndex = jTable1.getSelectedRow();
-        txtBookID.setText(model.getValueAt(selectedIndex, 0).toString());
-        txtBookName.setText(model.getValueAt(selectedIndex, 1).toString());
-        txtBookAuthor.setText(model.getValueAt(selectedIndex, 2).toString());
-        txtQuantity.setText(model.getValueAt(selectedIndex, 3).toString());
+       jTable1.setFocusable(true);
+       jLabel12.setEnabled(true);
+       jLabel19.setEnabled(true);
         
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -544,63 +541,84 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtQuantityActionPerformed
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            int selectedIndex = jTable1.getSelectedRow();
-            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
-            String BookID,BookName,BookAuthor,Quantity;
+        
+        int optionType = JOptionPane.YES_NO_OPTION;
+          int result = JOptionPane.showConfirmDialog(null, "Are you sure?","Update Book", optionType);
+          try { 
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();  
+            String BookID,BookName,BookAuthor,Quantity,Genre;
             BookID = txtBookID.getText();
             BookName = txtBookName.getText();
             BookAuthor = txtBookAuthor.getText();
             Quantity = txtQuantity.getText();
-            pst = con.prepareStatement("update books set bookid=?,bookname=?,bookauthor=?,quantity=? where id = ?");
-            pst.setString(1, BookID);
-            pst.setString(2, BookName);
-            pst.setString(3, BookAuthor);
-            pst.setString(4, Quantity);
-            pst.setInt(5, id);
+            Genre = txtGenre.getSelectedItem().toString();
+            
+            if (result == JOptionPane.YES_OPTION) 
+            pst = con.prepareStatement("update books set bookid = ?, bookname = ?,bookauthor = ?,genre = ?, quantity = ? where bookid = ?");            
+            pst.setString (1, BookID);
+            pst.setString (2, BookName);
+            pst.setString (3, BookAuthor);
+            pst.setString (4, Quantity);
+            pst.setString (5, Genre);
+            pst.setString (6, BookID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Updated");
             table_update();
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
+            txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
+            jLabel11.setVisible(true);
+            jLabel19.setVisible(true);
+            jLabel14.setVisible(true);
+            jLabel12.setVisible(false);
+            jTable1.clearSelection();
+            
         }catch (SQLException ex) {
-            Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int NumberRow = jTable1.getSelectedRow();
-        int id = Integer.parseInt(model.getValueAt(NumberRow, 0).toString());
-        txtBookID.setText(model.getValueAt(NumberRow, 1).toString());
-        txtBookName.setText(model.getValueAt(NumberRow, 2).toString());
-        txtBookAuthor.setText(model.getValueAt(NumberRow, 3).toString());
-        txtQuantity.setText(model.getValueAt(NumberRow, 4).toString());
+        int selectedIndex = jTable1.getSelectedRow();
+        
+        txtBookID.setText(model.getValueAt(selectedIndex, 0).toString());
+        txtBookName.setText(model.getValueAt(selectedIndex, 1).toString());
+        txtBookAuthor.setText(model.getValueAt(selectedIndex, 2).toString());
+        txtGenre.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
+        txtQuantity.setText(model.getValueAt(selectedIndex, 4).toString());
+        
+        jLabel11.setVisible(false);
+        jLabel19.setVisible(false);
+        jLabel12.setVisible(false);
+        jLabel14.setVisible(true);
 
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
           try {
-            String BookID,BookName,BookAuthor,Quantity;
+            String BookID,BookName,BookAuthor,Quantity,Genre;
             BookID = txtBookID.getText();
             BookName = txtBookName.getText();
             BookAuthor = txtBookAuthor.getText();
             Quantity = txtQuantity.getText();
-            pst = con.prepareStatement("insert into books (bookid,bookname,bookauthor,quantity)values(?,?,?,?)");
+            Genre = txtGenre.getSelectedItem().toString();
+            pst = con.prepareStatement("insert into books (bookid,bookname,bookauthor,genre,quantity)values(?,?,?,?,?)");
             pst.setString(1, BookID);
             pst.setString(2, BookName);
             pst.setString(3, BookAuthor);
-            pst.setString(4, Quantity);
+            pst.setString(4,Genre);
+            pst.setString(5, Quantity);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Added");
             table_update();
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
+            txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
         }catch (SQLException ex) {
@@ -626,6 +644,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
+            txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
         }catch (SQLException ex) {
@@ -636,7 +655,6 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -664,6 +682,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBookAuthor;
     private javax.swing.JTextField txtBookID;
     private javax.swing.JTextField txtBookName;
+    private javax.swing.JComboBox<String> txtGenre;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables

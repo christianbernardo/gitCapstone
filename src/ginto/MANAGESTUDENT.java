@@ -595,7 +595,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         int selectedIndex = jTable1.getSelectedRow();
-       
+        txtStudentID.setText(model.getValueAt(selectedIndex, 0).toString());
         txtStudentName.setText(model.getValueAt(selectedIndex, 1).toString());
         txtStrand.setSelectedItem(model.getValueAt(selectedIndex, 2).toString());
         txtGrandSec.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());

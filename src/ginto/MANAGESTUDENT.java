@@ -154,10 +154,10 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         txtGrandSec = new javax.swing.JComboBox<>();
         txtStrand = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        editbutton = new javax.swing.JLabel();
+        addbutton = new javax.swing.JLabel();
+        updatebutton = new javax.swing.JLabel();
+        deletebutton = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1186, 701));
 
@@ -353,31 +353,31 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
 
         txtStrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "ICT", "HUMSS" }));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+        editbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
+        editbutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
+                editbuttonMouseClicked(evt);
             }
         });
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        addbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
+        addbutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                addbuttonMouseClicked(evt);
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-48.png"))); // NOI18N
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+        updatebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-48.png"))); // NOI18N
+        updatebutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
+                updatebuttonMouseClicked(evt);
             }
         });
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+        deletebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
+        deletebutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
+                deletebuttonMouseClicked(evt);
             }
         });
 
@@ -402,13 +402,13 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(addbutton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel12)
+                                .addComponent(updatebutton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel13)
+                                .addComponent(deletebutton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel14))
+                                .addComponent(editbutton))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3)
@@ -459,10 +459,10 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                     .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(addbutton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(updatebutton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(deletebutton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(editbutton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(2256, 2256, 2256))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,8 +483,8 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     private void jTable1jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1jTable1MouseClicked
         
         jTable1.setFocusable(true);
-        jLabel14.setEnabled(true);
-        jLabel13.setEnabled(true);
+        editbutton.setEnabled(true);
+        deletebutton.setEnabled(true);
         
         
 
@@ -504,7 +504,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
          filter(filterString);
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void addbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseClicked
          try {
             String StudentID,StudentName,Strand,GrandSec;
             StudentID = txtStudentID.getText();
@@ -521,16 +521,17 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             table_update();
             txtStudentID.setText("");
             txtStudentName.setText("");
-
+            txtStrand.setSelectedIndex(0);
+            txtGrandSec.setSelectedIndex(0);
             txtGrandSec.requestFocus();
         }catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
 
         }
 
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_addbuttonMouseClicked
 
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+    private void updatebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseClicked
           int optionType = JOptionPane.YES_NO_OPTION;
           int result = JOptionPane.showConfirmDialog(null, "Are you sure?","Update Student", optionType);
           try { 
@@ -556,18 +557,18 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             txtStrand.setSelectedIndex(0);
             txtGrandSec.setSelectedIndex(0);
             txtStudentName.requestFocus();
-            jLabel11.setVisible(true);
-            jLabel13.setVisible(true);
-            jLabel14.setVisible(true);
-            jLabel12.setVisible(false);
+            addbutton.setVisible(true);
+            deletebutton.setVisible(true);
+            editbutton.setVisible(true);
+            updatebutton.setVisible(false);
             jTable1.clearSelection();
             
         }catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel12MouseClicked
+    }//GEN-LAST:event_updatebuttonMouseClicked
 
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+    private void deletebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseClicked
             int optionType = JOptionPane.YES_NO_OPTION;
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this student?", "Delete", optionType);           
             try { 
@@ -590,9 +591,9 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         }
             
         
-    }//GEN-LAST:event_jLabel13MouseClicked
+    }//GEN-LAST:event_deletebuttonMouseClicked
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+    private void editbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseClicked
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         int selectedIndex = jTable1.getSelectedRow();
         txtStudentID.setText(model.getValueAt(selectedIndex, 0).toString());
@@ -600,21 +601,20 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         txtStrand.setSelectedItem(model.getValueAt(selectedIndex, 2).toString());
         txtGrandSec.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
         
-        jLabel11.setVisible(false);
-        jLabel13.setVisible(false);
-        jLabel14.setVisible(false);
-        jLabel12.setVisible(true);
-    }//GEN-LAST:event_jLabel14MouseClicked
+        addbutton.setVisible(false);
+        deletebutton.setVisible(false);
+        editbutton.setVisible(false);
+        updatebutton.setVisible(true);
+    }//GEN-LAST:event_editbuttonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addbutton;
+    private javax.swing.JLabel deletebutton;
+    private javax.swing.JLabel editbutton;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
@@ -636,5 +636,6 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> txtStrand;
     private javax.swing.JTextField txtStudentID;
     private javax.swing.JTextField txtStudentName;
+    private javax.swing.JLabel updatebutton;
     // End of variables declaration//GEN-END:variables
 }

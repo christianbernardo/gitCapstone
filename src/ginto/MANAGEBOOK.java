@@ -158,10 +158,10 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         txtGenre = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        addbutton = new javax.swing.JLabel();
+        updatebutton = new javax.swing.JLabel();
+        deletebutton = new javax.swing.JLabel();
+        editbutton = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1186, 701));
@@ -375,31 +375,31 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         txtGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
         txtGenre.setPreferredSize(new java.awt.Dimension(129, 35));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        addbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
+        addbutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                addbuttonMouseClicked(evt);
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-48.png"))); // NOI18N
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+        updatebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-48.png"))); // NOI18N
+        updatebutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
+                updatebuttonMouseClicked(evt);
             }
         });
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
-        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+        deletebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
+        deletebutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel19MouseClicked(evt);
+                deletebuttonMouseClicked(evt);
             }
         });
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+        editbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
+        editbutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
+                editbuttonMouseClicked(evt);
             }
         });
 
@@ -435,13 +435,13 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4)
                             .addComponent(txtQuantity)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(addbutton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel12)
+                                .addComponent(updatebutton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel19)
+                                .addComponent(deletebutton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel14)))))
+                                .addComponent(editbutton)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -497,12 +497,12 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
-                                .addComponent(jLabel14))
+                                .addComponent(editbutton))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11))))
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel19))
+                                .addComponent(addbutton))))
+                    .addComponent(updatebutton)
+                    .addComponent(deletebutton))
                 .addGap(2170, 2170, 2170))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,8 +518,8 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
        jTable1.setFocusable(true);
-       jLabel12.setEnabled(true);
-       jLabel19.setEnabled(true);
+       editbutton.setEnabled(true);
+       deletebutton.setEnabled(true);
         
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -540,7 +540,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtQuantityActionPerformed
 
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+    private void updatebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseClicked
         
         int optionType = JOptionPane.YES_NO_OPTION;
           int result = JOptionPane.showConfirmDialog(null, "Are you sure?","Update Book", optionType);
@@ -570,18 +570,18 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
-            jLabel11.setVisible(true);
-            jLabel19.setVisible(true);
-            jLabel14.setVisible(true);
-            jLabel12.setVisible(false);
+            addbutton.setVisible(true);
+            deletebutton.setVisible(true);
+            editbutton.setVisible(true);
+            updatebutton.setVisible(false);
             jTable1.clearSelection();
             
         }catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel12MouseClicked
+    }//GEN-LAST:event_updatebuttonMouseClicked
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+    private void editbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseClicked
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         int selectedIndex = jTable1.getSelectedRow();
         
@@ -591,14 +591,14 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         txtGenre.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
         txtQuantity.setText(model.getValueAt(selectedIndex, 4).toString());
         
-        jLabel11.setVisible(false);
-        jLabel19.setVisible(false);
-        jLabel12.setVisible(false);
-        jLabel14.setVisible(true);
+        addbutton.setVisible(false);
+        deletebutton.setVisible(false);
+        editbutton.setVisible(false);
+        updatebutton.setVisible(true);
 
-    }//GEN-LAST:event_jLabel14MouseClicked
+    }//GEN-LAST:event_editbuttonMouseClicked
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void addbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseClicked
           try {
             String BookID,BookName,BookAuthor,Quantity,Genre;
             BookID = txtBookID.getText();
@@ -625,9 +625,9 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_addbuttonMouseClicked
 
-    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+    private void deletebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseClicked
          
             int optionType = JOptionPane.YES_NO_OPTION;
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
@@ -650,21 +650,20 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         }catch (SQLException ex) {
             Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel19MouseClicked
+    }//GEN-LAST:event_deletebuttonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addbutton;
+    private javax.swing.JLabel deletebutton;
+    private javax.swing.JLabel editbutton;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -685,5 +684,6 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> txtGenre;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearch;
+    private javax.swing.JLabel updatebutton;
     // End of variables declaration//GEN-END:variables
 }

@@ -76,6 +76,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                     v2.add(Rs.getString("bookid"));
                     v2.add(Rs.getString("bookname"));
                     v2.add(Rs.getString("bookauthor"));
+                    v2.add(Rs.getString("genre"));
                     v2.add(Rs.getString("quantity"));
                 }
            DFT.addRow(v2);
@@ -98,9 +99,10 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                 String BookID = rs.getString("Book_ID");
                 String BookName = rs.getString("Book_Name");
                 String BookAuthor = rs.getString("Book_Author");
+                String Genre = rs.getString("Genre");
                 String Quantity = rs.getString("Quantity");
                 
-                Object [] obj = {BookID,BookName,BookAuthor,Quantity};
+                Object [] obj = {BookID,BookName,BookAuthor,Genre,Quantity};
                 model =  (DefaultTableModel)jTable1.getModel();
                 model.addRow(obj);
             }

@@ -459,12 +459,15 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5)
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBookID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(deletebutton)
+                        .addGap(2170, 2170, 2170))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -497,15 +500,19 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                                 .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel10))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(editbutton))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(addbutton))))
-                    .addComponent(updatebutton)
-                    .addComponent(deletebutton))
-                .addGap(2170, 2170, 2170))
+                                .addComponent(addbutton)
+                                .addGap(2170, 2170, 2170))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(editbutton))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(updatebutton)))
+                                .addContainerGap())))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -560,8 +567,8 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             pst.setString (1, BookID);
             pst.setString (2, BookName);
             pst.setString (3, BookAuthor);
-            pst.setString (4, Quantity);
-            pst.setString (5, Genre);
+            pst.setString (4, Genre);
+            pst.setString (5, Quantity);
             pst.setString (6, BookID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Updated");

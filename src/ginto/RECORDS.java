@@ -289,11 +289,11 @@ public class RECORDS extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
  
-        MessageFormat header = new MessageFormat("Form Title");
-        MessageFormat footer = new MessageFormat("Hi (0,number,integer)");
+        MessageFormat header = new MessageFormat("Records");
+        MessageFormat footer = new MessageFormat("(0,number,integer)");
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
-            set.add(OrientationRequested.LANDSCAPE);
+            set.add(OrientationRequested.PORTRAIT);
             jTable1.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
             JOptionPane.showMessageDialog(null, "\n" + "Downloaded Succesfully");
         } catch (java.awt.print.PrinterException e) {

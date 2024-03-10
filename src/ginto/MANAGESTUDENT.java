@@ -481,12 +481,11 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtStudentIDActionPerformed
 
     private void jTable1jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1jTable1MouseClicked
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int selectedIndex = jTable1.getSelectedRow();
-        txtStudentID.setText(model.getValueAt(selectedIndex, 0).toString());
-        txtStudentName.setText(model.getValueAt(selectedIndex, 1).toString());
-        txtStrand.setSelectedItem(model.getValueAt(selectedIndex, 2).toString());
-        txtGrandSec.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
+        
+        jTable1.setFocusable(true);
+        jLabel14.setEnabled(true);
+        jLabel13.setEnabled(true);
+        
         
 
     }//GEN-LAST:event_jTable1jTable1MouseClicked
@@ -532,50 +531,51 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-          try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            int selectedIndex = jTable1.getSelectedRow();
-
+          int optionType = JOptionPane.YES_NO_OPTION;
+          int result = JOptionPane.showConfirmDialog(null, "Are you sure?","Update Student", optionType);
+          try { 
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();  
             String StudentID,StudentName,Strand,GrandSec;
             StudentID = txtStudentID.getText();
             StudentName = txtStudentName.getText();
             Strand = txtStrand.getSelectedItem().toString();
             GrandSec = txtGrandSec.getSelectedItem().toString();
-            pst = con.prepareStatement("update students set studentid=?,studentname=?,strand=?,gradeandsection=? where studentid = ?");
+            
+            if (result == JOptionPane.YES_OPTION) 
+            pst = con.prepareStatement("update students set studentid = ?, studentname = ?,strand = ?,gradeandsection = ? where studentid = ?");            
             pst.setString (1, StudentID);
-            pst.setString(2, StudentName);
-            pst.setString(3, Strand);
-            pst.setString(4, GrandSec);
-            pst.setString(5, StudentID);
-
+            pst.setString (2, StudentName);
+            pst.setString (3, Strand);
+            pst.setString (4, GrandSec);
+            pst.setString (5, StudentID);
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Student Updated");
+            JOptionPane.showMessageDialog(this, "Book Updated");
             table_update();
             txtStudentID.setText("");
             txtStudentName.setText("");
             txtStrand.setSelectedIndex(0);
             txtGrandSec.setSelectedIndex(0);
-
+            txtStudentName.requestFocus();
+            jLabel11.setVisible(true);
+            jLabel13.setVisible(true);
+            jLabel14.setVisible(true);
+            jLabel12.setVisible(false);
+            jTable1.clearSelection();
+            
         }catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-          
             int optionType = JOptionPane.YES_NO_OPTION;
-            int result = JOptionPane.showConfirmDialog(null, "Are you Sure you want to remove this student?", "Delete", optionType);
-            
-            
+            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this student?", "Delete", optionType);           
             try { 
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-           
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();  
             String StudentID;
             StudentID = txtStudentID.getText();
             if (result == JOptionPane.YES_OPTION) 
-            pst = con.prepareStatement("delete from students where studentid= ?");
-            
+            pst = con.prepareStatement("delete from students where studentid= ?");            
             pst.setString (1, StudentID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Student Deleted");
@@ -599,6 +599,11 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         txtStudentName.setText(model.getValueAt(selectedIndex, 1).toString());
         txtStrand.setSelectedItem(model.getValueAt(selectedIndex, 2).toString());
         txtGrandSec.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
+        
+        jLabel11.setVisible(false);
+        jLabel13.setVisible(false);
+        jLabel14.setVisible(false);
+        jLabel12.setVisible(true);
     }//GEN-LAST:event_jLabel14MouseClicked
 
 

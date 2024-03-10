@@ -610,12 +610,16 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-         try {
+         
+        int optionType = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
+        try {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            int selectedIndex = jTable1.getSelectedRow();
-            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+            String BookID;
+            BookID = txtBookID.getText();
+            if (result == JOptionPane.YES_OPTION) 
             pst = con.prepareStatement("delete from books where bookid= ?");
-            pst.setInt(1, id);
+            pst.setString(1, BookID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Deleted");
             table_update();

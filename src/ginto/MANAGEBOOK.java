@@ -611,9 +611,9 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
          
-        int optionType = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
-        try {
+            int optionType = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
+            try {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             String BookID;
             BookID = txtBookID.getText();

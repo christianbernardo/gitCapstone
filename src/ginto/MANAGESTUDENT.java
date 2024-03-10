@@ -570,8 +570,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             
             try { 
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            int selectedIndex = jTable1.getSelectedRow();
-            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());  
+           
             String StudentID;
             StudentID = txtStudentID.getText();
             if (result == JOptionPane.YES_OPTION) 

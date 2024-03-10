@@ -253,7 +253,7 @@ public class Login extends javax.swing.JFrame {
        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
 
             String username = "CFSI_Admin";
-            String password = "JOBS2024";
+            String password = "CFSI2024";
             
             String user = u1.getText();
             String pass = p1.getText();

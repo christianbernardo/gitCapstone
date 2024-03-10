@@ -573,7 +573,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             int selectedIndex = jTable1.getSelectedRow();
             int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());     
             if (result == JOptionPane.YES_OPTION) 
-            pst = con.prepareStatement("delete from students where studentid= ?");
+            pst = con.prepareStatement("delete from students where id= ?");
             pst.setInt(1, id);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Student Deleted");

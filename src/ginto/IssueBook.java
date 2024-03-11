@@ -2,15 +2,13 @@
 package ginto;
 
 
-import java.awt.Color;
-import java.awt.Font;
 import java.sql.*;
+import java.util.Vector;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class IssueBook extends javax.swing.JFrame {
@@ -19,23 +17,8 @@ public class IssueBook extends javax.swing.JFrame {
     public IssueBook() {
         initComponents();
         Connect();
-        
-        setBackground(new Color(0,0,0,0));
-        
-        jTable1.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
-        jTable1.getTableHeader().setOpaque(false);
-        jTable1.getTableHeader().setBackground(new Color(19,22,40));
-        jTable1.getTableHeader().setForeground(new Color(0,0,0));
-        jTable1.setRowHeight(25);
-  
-        setBackground(new Color(0,0,0,0));
-        
-        jTable2.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
-        jTable2.getTableHeader().setOpaque(false);
-        jTable2.getTableHeader().setBackground(new Color(19,22,40));
-        jTable2.getTableHeader().setForeground(new Color(0,0,0));
-        jTable2.setRowHeight(25);
-        
+        table_update();
+        booktable_update();
     }
     
     Connection con;
@@ -52,6 +35,74 @@ public class IssueBook extends javax.swing.JFrame {
         }catch (SQLException ex) {
             Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    
+    private void table_update()
+    {
+        int CC;
+        try {
+            
+            pst = con.prepareStatement("SELECT * FROM students");
+            ResultSet Rs = pst.executeQuery();
+            
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DFT.setRowCount(0);
+            
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                
+                for (int ii = 1; ii <= CC; ii++) {
+                  
+                    v2.add(Rs.getString("studentid"));
+                    v2.add(Rs.getString("studentname"));
+                    v2.add(Rs.getString("strand"));
+                    v2.add(Rs.getString("gradeandsection"));
+                }
+           DFT.addRow(v2);
+            }
+        }catch (Exception e) {
+            
+            
+        
+    }
+    }
+    
+    
+    
+    private void booktable_update()
+    {
+        int CC;
+        try {
+            
+            pst = con.prepareStatement("SELECT * FROM books");
+            ResultSet Rs = pst.executeQuery();
+            
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DFT.setRowCount(0);
+            
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                
+                for (int ii = 1; ii <= CC; ii++) {
+                  
+                    v2.add(Rs.getString("bookid"));
+                    v2.add(Rs.getString("bookname"));
+                    v2.add(Rs.getString("bookauthor"));
+                    v2.add(Rs.getString("genre"));
+                    v2.add(Rs.getString("quantity"));
+                }
+           DFT.addRow(v2);
+            }
+        }catch (Exception e) {
+            
+            
+        
+    }
     }
 
     
@@ -85,6 +136,8 @@ public class IssueBook extends javax.swing.JFrame {
         txtAuthor = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtGenre = new javax.swing.JTextField();
         jPanel14 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
@@ -92,12 +145,18 @@ public class IssueBook extends javax.swing.JFrame {
         issuebook = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txtIssueDate = new com.toedter.calendar.JDateChooser();
+        txtDueDate = new com.toedter.calendar.JDateChooser();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtStrand = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -212,13 +271,13 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txtGrSec);
-        txtGrSec.setBounds(10, 420, 310, 35);
+        txtGrSec.setBounds(10, 490, 310, 35);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Gr. & Sec.  :");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(10, 400, 65, 16);
+        jLabel11.setBounds(10, 470, 65, 16);
 
         jPanel15.setBackground(new java.awt.Color(0, 0, 51));
         jPanel15.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
@@ -241,7 +300,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(Search2);
-        Search2.setBounds(240, 280, 72, 23);
+        Search2.setBounds(240, 230, 72, 23);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,7 +324,7 @@ public class IssueBook extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Book ID :");
         jPanel15.add(jLabel4);
-        jLabel4.setBounds(10, 260, 51, 16);
+        jLabel4.setBounds(10, 210, 51, 16);
 
         txtBookID.setBackground(new java.awt.Color(0, 0, 51));
         txtBookID.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,14 +335,14 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(txtBookID);
-        txtBookID.setBounds(10, 280, 310, 35);
+        txtBookID.setBounds(10, 230, 310, 35);
 
         jLabel5.setBackground(new java.awt.Color(153, 153, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Book Name :");
         jPanel15.add(jLabel5);
-        jLabel5.setBounds(10, 330, 71, 16);
+        jLabel5.setBounds(10, 280, 71, 16);
 
         txtBookName.setBackground(new java.awt.Color(0, 0, 51));
         txtBookName.setForeground(new java.awt.Color(255, 255, 255));
@@ -294,13 +353,13 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(txtBookName);
-        txtBookName.setBounds(10, 350, 310, 35);
+        txtBookName.setBounds(10, 300, 310, 35);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Author :");
         jPanel15.add(jLabel6);
-        jLabel6.setBounds(10, 390, 45, 16);
+        jLabel6.setBounds(10, 340, 45, 16);
 
         txtAuthor.setBackground(new java.awt.Color(0, 0, 51));
         txtAuthor.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,13 +370,13 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(txtAuthor);
-        txtAuthor.setBounds(10, 420, 310, 35);
+        txtAuthor.setBounds(10, 370, 310, 35);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Quantity :");
         jPanel15.add(jLabel7);
-        jLabel7.setBounds(10, 460, 54, 16);
+        jLabel7.setBounds(10, 500, 54, 16);
 
         txtQuantity.setBackground(new java.awt.Color(0, 0, 51));
         txtQuantity.setForeground(new java.awt.Color(255, 255, 255));
@@ -328,7 +387,24 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(txtQuantity);
-        txtQuantity.setBounds(10, 490, 310, 35);
+        txtQuantity.setBounds(10, 520, 310, 35);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Genre :");
+        jPanel15.add(jLabel10);
+        jLabel10.setBounds(10, 420, 41, 16);
+
+        txtGenre.setBackground(new java.awt.Color(0, 0, 51));
+        txtGenre.setForeground(new java.awt.Color(255, 255, 255));
+        txtGenre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtGenre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGenreActionPerformed(evt);
+            }
+        });
+        jPanel15.add(txtGenre);
+        txtGenre.setBounds(10, 450, 310, 35);
 
         jPanel3.add(jPanel15);
         jPanel15.setBounds(340, 0, 350, 590);
@@ -382,6 +458,11 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setBackground(new java.awt.Color(0, 0, 102));
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Due Date :");
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
@@ -396,18 +477,21 @@ public class IssueBook extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(issuebook, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtIssueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(issuebook, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -422,13 +506,34 @@ public class IssueBook extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(issuebook, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel14);
         jPanel14.setBounds(690, 0, 320, 590);
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Strand :");
+        jPanel3.add(jLabel12);
+        jLabel12.setBounds(10, 400, 43, 16);
+
+        txtStrand.setBackground(new java.awt.Color(0, 0, 51));
+        txtStrand.setForeground(new java.awt.Color(255, 255, 255));
+        txtStrand.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtStrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStrandActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtStrand);
+        txtStrand.setBounds(10, 420, 310, 35);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -478,17 +583,32 @@ public class IssueBook extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTable1);
 
+        jButton4.setBackground(new java.awt.Color(255, 0, 0));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
+        jButton4.setText("FIND");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(429, 429, 429)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("STUDENT", jPanel5);
@@ -525,26 +645,41 @@ public class IssueBook extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jTable2);
 
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("FIND");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(434, 434, 434)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(15, 15, 15))
         );
 
         jTabbedPane1.addTab("BOOK", jPanel6);
 
-        A4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 1020, 680));
+        A4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 1020, 620));
 
         getContentPane().add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 620));
 
-        setSize(new java.awt.Dimension(1020, 621));
+        setSize(new java.awt.Dimension(1020, 617));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -567,17 +702,20 @@ public class IssueBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtGrSecActionPerformed
 
     private void issuebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebookActionPerformed
-        String sql= "insert into issue(Student_ID,Student_Name,Grade_Section,Book_ID,Book_Name,Book_Author,Book_Quantity,Issue_Date)values (?,?,?,?,?,?,?,?)";
+        String sql= "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date)values (?,?,?,?,?,?,?,?,?,?,?)";
         try{
             pst= con.prepareStatement(sql);
             pst.setString(1, txtStudentID.getText());
             pst.setString(2, txtStudentName.getText());
-            pst.setString(3, txtGrSec.getText());
-            pst.setString(4, txtBookID.getText());
-            pst.setString(5, txtBookName.getText());
-            pst.setString(6, txtAuthor.getText());
-            pst.setString(7, txtQuantity.getText());
-            pst.setString(8, ((JTextField)txtIssueDate.getDateEditor().getUiComponent()).getText());
+             pst.setString(3, txtStrand.getText());
+            pst.setString(4, txtGrSec.getText());
+            pst.setString(5, txtBookID.getText());
+            pst.setString(6, txtBookName.getText());
+            pst.setString(7, txtAuthor.getText());
+            pst.setString(8, txtGenre.getText());
+            pst.setString(9, txtQuantity.getText());
+            pst.setString(10, ((JTextField)txtIssueDate.getDateEditor().getUiComponent()).getText());
+            pst.setString(11, ((JTextField)txtDueDate.getDateEditor().getUiComponent()).getText());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Book Issued");
         }catch (Exception e) {
@@ -657,6 +795,48 @@ public class IssueBook extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_Search1ActionPerformed
 
+    private void txtStrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStrandActionPerformed
+
+    private void txtGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGenreActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int SelectedRows = jTable1.convertRowIndexToModel( jTable1.getSelectedRow() );  
+        
+        txtStudentID.setText(model.getValueAt(SelectedRows, 0).toString());
+        txtStudentName.setText(model.getValueAt(SelectedRows, 1).toString());
+        txtStrand.setText(model.getValueAt(SelectedRows, 2).toString());
+        txtGrSec.setText(model.getValueAt(SelectedRows, 3).toString());
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int SelectedRows = jTable1.convertRowIndexToModel( jTable1.getSelectedRow() );  
+        
+        txtBookID.setText(model.getValueAt(SelectedRows, 0).toString());
+        txtBookName.setText(model.getValueAt(SelectedRows, 1).toString());
+        txtAuthor.setText(model.getValueAt(SelectedRows, 2).toString());
+        txtGenre.setText(model.getValueAt(SelectedRows, 3).toString());
+        txtQuantity.setText(model.getValueAt(SelectedRows, 4).toString());
+        
+        
+        
+        
+
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -697,9 +877,14 @@ public class IssueBook extends javax.swing.JFrame {
     private javax.swing.JButton Search;
     private javax.swing.JButton Search2;
     private javax.swing.JButton issuebook;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -727,9 +912,12 @@ public class IssueBook extends javax.swing.JFrame {
     private javax.swing.JTextField txtAuthor;
     private javax.swing.JTextField txtBookID;
     private javax.swing.JTextField txtBookName;
+    private com.toedter.calendar.JDateChooser txtDueDate;
+    private javax.swing.JTextField txtGenre;
     private javax.swing.JTextField txtGrSec;
     private com.toedter.calendar.JDateChooser txtIssueDate;
     private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtStrand;
     private javax.swing.JTextField txtStudentID;
     private javax.swing.JTextField txtStudentName;
     // End of variables declaration//GEN-END:variables

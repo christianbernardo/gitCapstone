@@ -729,19 +729,12 @@ public class IssueBook extends javax.swing.JFrame {
 
     private void jTable1jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1jTable1MouseClicked
 
-        jTable1.setFocusable(true);
-        jLabel14.setEnabled(true);
        
 
     }//GEN-LAST:event_jTable1jTable1MouseClicked
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        int selectedIndex = jTable2.getSelectedRow();
-        txtBookID.setText(model.getValueAt(selectedIndex, 0).toString());
-        txtBookName.setText(model.getValueAt(selectedIndex, 1).toString());
-        txtAuthor.setText(model.getValueAt(selectedIndex, 2).toString());
-        txtQuantity.setText(model.getValueAt(selectedIndex, 3).toString());
+        
 
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -762,37 +755,9 @@ public class IssueBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBookIDActionPerformed
 
     private void Search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search1ActionPerformed
-        String sql = ("SELECT * FROM books where bookid=?");
-        try {
-            /* pst = con.prepareStatement(sql);
-            pst.setString(1, txtBookID.getText());
-            Rs= pst.executeQuery();
-            if(Rs.next()) {
-                String add1=Rs.getString("bookname");
-                txtBookName.setText(add1);
-                String add2=Rs.getString("bookauthor");
-                txtAuthor.setText(add2);
-                String add3=Rs.getString("quantity");
-                txtQuantity.setText(add3);
-                Rs.close();
-                pst.close();*/
-                 jTabbedPane1.setSelectedIndex(2); {
-                }
-                /*else {
-                    JOptionPane.showMessageDialog(null, "Book ID not found");
-                }*/
-
-            }catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }finally {
-                try{
-                    Rs.close();
-                    pst.close();
-                }catch (SQLException ex) {
-                    Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
+        
+                 jTabbedPane1.setSelectedIndex(2); 
+              
     }//GEN-LAST:event_Search1ActionPerformed
 
     private void txtStrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrandActionPerformed
@@ -820,8 +785,8 @@ public class IssueBook extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
 
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int SelectedRows = jTable1.convertRowIndexToModel( jTable1.getSelectedRow() );  
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        int SelectedRows = jTable2.convertRowIndexToModel( jTable2.getSelectedRow() );  
         
         txtBookID.setText(model.getValueAt(SelectedRows, 0).toString());
         txtBookName.setText(model.getValueAt(SelectedRows, 1).toString());

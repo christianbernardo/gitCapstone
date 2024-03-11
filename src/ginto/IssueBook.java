@@ -2,12 +2,15 @@
 package ginto;
 
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class IssueBook extends javax.swing.JFrame {
@@ -16,6 +19,23 @@ public class IssueBook extends javax.swing.JFrame {
     public IssueBook() {
         initComponents();
         Connect();
+        
+        setBackground(new Color(0,0,0,0));
+        
+        jTable1.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+        jTable1.getTableHeader().setOpaque(false);
+        jTable1.getTableHeader().setBackground(new Color(19,22,40));
+        jTable1.getTableHeader().setForeground(new Color(0,0,0));
+        jTable1.setRowHeight(25);
+  
+        setBackground(new Color(0,0,0,0));
+        
+        jTable2.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+        jTable2.getTableHeader().setOpaque(false);
+        jTable2.getTableHeader().setBackground(new Color(19,22,40));
+        jTable2.getTableHeader().setForeground(new Color(0,0,0));
+        jTable2.setRowHeight(25);
+        
     }
     
     Connection con;

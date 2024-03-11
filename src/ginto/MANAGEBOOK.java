@@ -234,7 +234,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                " Book ID", "                                   Book Name", "                                   Book Author", "Genre", " Quantity"
+                " Book ID", "Book Name", "Book Author", "Genre", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {

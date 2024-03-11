@@ -598,6 +598,10 @@ public class HomePage extends javax.swing.JFrame {
         jTable1.getTableHeader().setResizingAllowed(false);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(250);
+        }
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
 

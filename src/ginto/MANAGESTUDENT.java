@@ -222,7 +222,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Student ID", "                                   Student Name", "Strand", "Gr. & Sec."
+                "Student ID", "Student Name", "Strand", "Gr. & Sec."
             }
         ) {
             boolean[] canEdit = new boolean [] {

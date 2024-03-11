@@ -98,10 +98,10 @@ public class IssueBook extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        A4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 40));
+        A4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 10));
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 102, 102));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,7 +153,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel3.add(Search);
-        Search.setBounds(240, 280, 72, 22);
+        Search.setBounds(240, 280, 72, 23);
 
         txtStudentID.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentID.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,7 +221,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(Search2);
-        Search2.setBounds(240, 280, 72, 22);
+        Search2.setBounds(240, 280, 72, 23);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -529,36 +529,9 @@ public class IssueBook extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
-        String sql = ("SELECT * FROM students where studentid=?");
+        
+        jTabbedPane1.setSelectedIndex(1);
 
-        try {
-            /* pst = con.prepareStatement(sql);
-            pst.setString(1, txtStudentID.getText());
-            Rs= pst.executeQuery();*/
-            // if(Rs.next()) {
-                //String add1=Rs.getString("studentname");
-                //txtStudentName.setText(add1);
-                // String add2=Rs.getString("gradeandsection");
-                //txtGrSec.setText(add2);
-                // Rs.close();
-                //pst.close();
-               jTabbedPane1.setSelectedIndex(1);
-
-                //}
-            //else {
-                //JOptionPane.showMessageDialog(null, "Student ID not found");
-                // }
-
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }finally {
-            try{
-                Rs.close();
-                pst.close();
-            }catch (SQLException ex) {
-                Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }//GEN-LAST:event_SearchActionPerformed
 
     private void txtStudentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentIDActionPerformed

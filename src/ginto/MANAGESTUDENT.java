@@ -158,6 +158,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         addbutton = new javax.swing.JLabel();
         updatebutton = new javax.swing.JLabel();
         deletebutton = new javax.swing.JLabel();
+        textadd = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1186, 701));
 
@@ -361,13 +362,20 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         });
 
         addbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
+        addbutton.setToolTipText("");
         addbutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addbuttonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addbuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addbuttonMouseExited(evt);
+            }
         });
 
-        updatebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-48.png"))); // NOI18N
+        updatebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
         updatebutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updatebuttonMouseClicked(evt);
@@ -380,6 +388,9 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                 deletebuttonMouseClicked(evt);
             }
         });
+
+        textadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textadd.setText("ADD");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -401,14 +412,6 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(addbutton)
-                                .addGap(18, 18, 18)
-                                .addComponent(updatebutton)
-                                .addGap(18, 18, 18)
-                                .addComponent(deletebutton)
-                                .addGap(18, 18, 18)
-                                .addComponent(editbutton))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3)
@@ -418,7 +421,17 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                                     .addComponent(txtStudentID)
                                     .addComponent(txtStudentName)
                                     .addComponent(txtStrand, 0, 277, Short.MAX_VALUE))
-                                .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addbutton)
+                                    .addComponent(textadd, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addComponent(updatebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(deletebutton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(editbutton)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -434,7 +447,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5)
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -458,18 +471,22 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addbutton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(updatebutton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(deletebutton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(editbutton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(2256, 2256, 2256))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(deletebutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updatebutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textadd)
+                .addGap(2234, 2234, 2234))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        textadd.setVisible(false);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
 
@@ -505,7 +522,9 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void addbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseClicked
-         try {
+         
+        
+        try {
             String StudentID,StudentName,Strand,GrandSec;
             StudentID = txtStudentID.getText();
             StudentName = txtStudentName.getText();
@@ -607,6 +626,14 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         updatebutton.setVisible(true);
     }//GEN-LAST:event_editbuttonMouseClicked
 
+    private void addbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseEntered
+        textadd.setVisible(true);
+    }//GEN-LAST:event_addbuttonMouseEntered
+
+    private void addbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseExited
+        textadd.setVisible(false);
+    }//GEN-LAST:event_addbuttonMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addbutton;
@@ -631,6 +658,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel textadd;
     private javax.swing.JComboBox<String> txtGrandSec;
     private javax.swing.JTextField txtSearch;
     private javax.swing.JComboBox<String> txtStrand;

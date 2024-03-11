@@ -82,7 +82,7 @@ public class IssueBook extends javax.swing.JFrame {
             
             ResultSetMetaData RSMD = Rs.getMetaData();
             CC = RSMD.getColumnCount();
-            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel DFT = (DefaultTableModel) jTable2.getModel();
             DFT.setRowCount(0);
             
             while (Rs.next()) {
@@ -177,10 +177,10 @@ public class IssueBook extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        A4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 10));
+        A4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 20));
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 102, 102));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,7 +232,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel3.add(Search);
-        Search.setBounds(240, 280, 72, 23);
+        Search.setBounds(240, 280, 72, 22);
 
         txtStudentID.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentID.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,7 +300,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(Search2);
-        Search2.setBounds(240, 230, 72, 23);
+        Search2.setBounds(240, 230, 72, 22);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -467,16 +467,10 @@ public class IssueBook extends javax.swing.JFrame {
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))))
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(issuebook, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -488,17 +482,23 @@ public class IssueBook extends javax.swing.JFrame {
                             .addComponent(jLabel15))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(issuebook, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addGap(0, 25, Short.MAX_VALUE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(96, 96, 96))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(16, 16, 16)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel18)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -608,7 +608,7 @@ public class IssueBook extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("STUDENT", jPanel5);
@@ -668,7 +668,7 @@ public class IssueBook extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(15, 15, 15))
         );
@@ -721,6 +721,8 @@ public class IssueBook extends javax.swing.JFrame {
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        
+        dispose();
     }//GEN-LAST:event_issuebookActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -777,7 +779,7 @@ public class IssueBook extends javax.swing.JFrame {
         txtStrand.setText(model.getValueAt(SelectedRows, 2).toString());
         txtGrSec.setText(model.getValueAt(SelectedRows, 3).toString());
         
-        
+         jTabbedPane1.setSelectedIndex(0);
         
         
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -798,7 +800,7 @@ public class IssueBook extends javax.swing.JFrame {
         
         
 
-
+        jTabbedPane1.setSelectedIndex(0);
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

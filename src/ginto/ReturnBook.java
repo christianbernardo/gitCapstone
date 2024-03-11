@@ -2,10 +2,12 @@
 package ginto;
 
 import java.sql.*;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -16,6 +18,7 @@ public class ReturnBook extends javax.swing.JFrame {
     public ReturnBook() {
        initComponents();
        Connect(); 
+       table_update();
        
        
     }
@@ -72,6 +75,50 @@ public class ReturnBook extends javax.swing.JFrame {
             Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
+    
+    private void table_update()
+    {
+        int CC;
+        try {
+            
+            pst = con.prepareStatement("SELECT * FROM issue");
+            ResultSet Rs = pst.executeQuery();
+            
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DFT.setRowCount(0);
+            
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                
+                for (int ii = 1; ii <= CC; ii++) {
+                  
+                    v2.add(Rs.getString("Student_ID"));
+                    v2.add(Rs.getString("Student_Name"));
+                    v2.add(Rs.getString("Strand"));
+                    v2.add(Rs.getString("Grade_Section"));
+                    v2.add(Rs.getString("Book_ID"));
+                    v2.add(Rs.getString("Book_Name"));
+                    v2.add(Rs.getString("Book_Author"));
+                    v2.add(Rs.getString("Genre"));
+                    v2.add(Rs.getString("Book_Quantity"));
+                    v2.add(Rs.getString("Issue_Date"));
+                    v2.add(Rs.getString("Due_Date"));
+                    
+                    
+                }
+           DFT.addRow(v2);
+            }
+        }catch (Exception e) {
+            
+            
+        
+    }
+    }
 
     
 
@@ -93,7 +140,6 @@ public class ReturnBook extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtStudentName = new javax.swing.JTextField();
@@ -114,10 +160,15 @@ public class ReturnBook extends javax.swing.JFrame {
         txtIssueDate = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         txtBookID = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        txtGenre = new javax.swing.JTextField();
         txtStudentID = new javax.swing.JTextField();
+        txtStrand = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -135,10 +186,10 @@ public class ReturnBook extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 40));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 10));
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -157,7 +208,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton7);
-        jButton7.setBounds(350, 210, 72, 23);
+        jButton7.setBounds(360, 250, 72, 22);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,19 +230,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(160, 480, 124, 29);
-
-        jButton2.setBackground(new java.awt.Color(204, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Details");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(160, 520, 124, 29);
+        jButton1.setBounds(160, 530, 124, 28);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,7 +242,7 @@ public class ReturnBook extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Student Name :");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(20, 310, 87, 16);
+        jLabel12.setBounds(20, 300, 87, 30);
 
         txtStudentName.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentName.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,7 +259,7 @@ public class ReturnBook extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Gr. & Sec.  :");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(20, 380, 65, 16);
+        jLabel13.setBounds(20, 440, 65, 16);
 
         txtGrSec.setBackground(new java.awt.Color(0, 0, 51));
         txtGrSec.setForeground(new java.awt.Color(255, 255, 255));
@@ -231,7 +270,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtGrSec);
-        txtGrSec.setBounds(20, 400, 430, 35);
+        txtGrSec.setBounds(20, 470, 430, 35);
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 51));
         jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 0, new java.awt.Color(102, 102, 102)));
@@ -263,14 +302,14 @@ public class ReturnBook extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Book ID :");
         jPanel7.add(jLabel15);
-        jLabel15.setBounds(20, 210, 51, 16);
+        jLabel15.setBounds(20, 200, 51, 16);
 
         jLabel16.setBackground(new java.awt.Color(153, 153, 255));
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Book Name :");
         jPanel7.add(jLabel16);
-        jLabel16.setBounds(20, 270, 71, 16);
+        jLabel16.setBounds(20, 260, 71, 16);
 
         txtBookName.setBackground(new java.awt.Color(0, 0, 51));
         txtBookName.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,13 +320,13 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtBookName);
-        txtBookName.setBounds(20, 290, 430, 35);
+        txtBookName.setBounds(20, 280, 430, 35);
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Author :");
         jPanel7.add(jLabel17);
-        jLabel17.setBounds(20, 330, 45, 16);
+        jLabel17.setBounds(20, 320, 45, 16);
 
         txtAuthor.setBackground(new java.awt.Color(0, 0, 51));
         txtAuthor.setForeground(new java.awt.Color(255, 255, 255));
@@ -298,13 +337,13 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtAuthor);
-        txtAuthor.setBounds(20, 350, 430, 35);
+        txtAuthor.setBounds(20, 340, 430, 35);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Quantity :");
         jPanel7.add(jLabel18);
-        jLabel18.setBounds(20, 390, 54, 16);
+        jLabel18.setBounds(20, 440, 54, 16);
 
         txtQuantity.setBackground(new java.awt.Color(0, 0, 51));
         txtQuantity.setForeground(new java.awt.Color(255, 255, 255));
@@ -315,14 +354,14 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtQuantity);
-        txtQuantity.setBounds(20, 410, 430, 35);
+        txtQuantity.setBounds(20, 460, 430, 35);
 
         jLabel19.setBackground(new java.awt.Color(153, 153, 255));
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Return Date :");
+        jLabel19.setText("Due Date :");
         jPanel7.add(jLabel19);
-        jLabel19.setBounds(30, 450, 80, 16);
+        jLabel19.setBounds(20, 500, 80, 16);
 
         txtIssueDate.setBackground(new java.awt.Color(0, 0, 51));
         txtIssueDate.setForeground(new java.awt.Color(255, 255, 255));
@@ -333,9 +372,9 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtIssueDate);
-        txtIssueDate.setBounds(20, 470, 430, 35);
+        txtIssueDate.setBounds(20, 530, 430, 30);
         jPanel7.add(jDateChooser1);
-        jDateChooser1.setBounds(20, 530, 240, 30);
+        jDateChooser1.setBounds(30, 570, 240, 30);
 
         txtBookID.setBackground(new java.awt.Color(0, 0, 51));
         txtBookID.setForeground(new java.awt.Color(255, 255, 255));
@@ -346,7 +385,24 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel7.add(txtBookID);
-        txtBookID.setBounds(20, 230, 430, 35);
+        txtBookID.setBounds(20, 220, 430, 35);
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Genre ;");
+        jPanel7.add(jLabel20);
+        jLabel20.setBounds(20, 380, 41, 16);
+
+        txtGenre.setBackground(new java.awt.Color(0, 0, 51));
+        txtGenre.setForeground(new java.awt.Color(255, 255, 255));
+        txtGenre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtGenre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGenreActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtGenre);
+        txtGenre.setBounds(20, 400, 430, 35);
 
         jPanel2.add(jPanel7);
         jPanel7.setBounds(470, 0, 470, 610);
@@ -361,6 +417,23 @@ public class ReturnBook extends javax.swing.JFrame {
         });
         jPanel2.add(txtStudentID);
         txtStudentID.setBounds(20, 260, 430, 36);
+
+        txtStrand.setBackground(new java.awt.Color(0, 0, 51));
+        txtStrand.setForeground(new java.awt.Color(255, 255, 255));
+        txtStrand.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtStrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStrandActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtStrand);
+        txtStrand.setBounds(20, 400, 430, 35);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Strand");
+        jPanel2.add(jLabel14);
+        jLabel14.setBounds(20, 370, 37, 30);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -438,11 +511,21 @@ public class ReturnBook extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(10).setPreferredWidth(50);
         }
 
+        jButton3.setText("FIND");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 950, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(423, 423, 423)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(410, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
@@ -450,7 +533,10 @@ public class ReturnBook extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(579, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(24, 24, 24))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -479,55 +565,13 @@ public class ReturnBook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStudentIDActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Delete();
         ReturnUpdate();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        String sql="select * from issue where Student_ID=?";
-        try{
-            /*pst=con.prepareStatement(sql);
-            pst.setString(1, txtStudentID.getText());
-            Rs=pst.executeQuery();
-            if(Rs.next()) {
-                String add1=Rs.getString("Student_Name");
-                txtStudentName.setText(add1);
-                String add2=Rs.getString("Grade_Section");
-                txtGrSec.setText(add2);
-                String add3=Rs.getString("Book_ID");
-                txtBookID.setText(add3);
-                String add4=Rs.getString("Book_Name");
-                txtBookName.setText(add4);
-                String add5=Rs.getString("Book_Author");
-                txtAuthor.setText(add5);
-                String add6=Rs.getString("Book_Quantity");
-                txtQuantity.setText(add6);
-                String add7=Rs.getString("Issue_Date");
-                txtIssueDate.setText(add7);
-
-                Rs.close();
-                pst.close();*/
-                 jTabbedPane1.setSelectedIndex(1);
-
-                /*}else{
-                JOptionPane.showMessageDialog(null, "Book is not Issued with this Student ID");
-            }*/
-
-        }catch(Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }finally{
-            try{
-                Rs.close();
-                pst.close();
-            }catch(Exception e) {
-
-            }
-        }
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -555,11 +599,43 @@ public class ReturnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIssueDateActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        /*DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
-        TableRowSorter sorter = new TableRowSorter(model);
-        jTable1.setRowSorter(sorter);*/
+        
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void txtStrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStrandActionPerformed
+
+    private void txtGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGenreActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int SelectedRows = jTable1.convertRowIndexToModel( jTable1.getSelectedRow() );  
+        
+        txtStudentID.setText(model.getValueAt(SelectedRows, 0).toString());
+        txtStudentName.setText(model.getValueAt(SelectedRows, 1).toString());
+        txtStrand.setText(model.getValueAt(SelectedRows, 2).toString());
+        txtGrSec.setText(model.getValueAt(SelectedRows, 3).toString());
+        txtBookID.setText(model.getValueAt(SelectedRows, 4).toString());
+        txtBookName.setText(model.getValueAt(SelectedRows, 5).toString());
+        txtAuthor.setText(model.getValueAt(SelectedRows, 6).toString());
+        txtGenre.setText(model.getValueAt(SelectedRows, 7).toString());
+        txtQuantity.setText(model.getValueAt(SelectedRows, 8).toString());
+        
+        
+         jTabbedPane1.setSelectedIndex(0);
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
       
     /**
      * @param args the command line arguments
@@ -599,7 +675,7 @@ public class ReturnBook extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -608,12 +684,14 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -627,9 +705,11 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JTextField txtAuthor;
     private javax.swing.JTextField txtBookID;
     private javax.swing.JTextField txtBookName;
+    private javax.swing.JTextField txtGenre;
     private javax.swing.JTextField txtGrSec;
     private javax.swing.JTextField txtIssueDate;
     private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtStrand;
     private javax.swing.JTextField txtStudentID;
     private javax.swing.JTextField txtStudentName;
     // End of variables declaration//GEN-END:variables

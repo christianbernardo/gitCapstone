@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
@@ -75,19 +76,27 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
                 Vector v2 = new Vector();
                 
                 for (int ii = 1; ii <= CC; ii++) {
+                  
                     v2.add(Rs.getString("Student_ID"));
                     v2.add(Rs.getString("Student_Name"));
+                    v2.add(Rs.getString("Strand"));
                     v2.add(Rs.getString("Grade_Section"));
                     v2.add(Rs.getString("Book_ID"));
                     v2.add(Rs.getString("Book_Name"));
                     v2.add(Rs.getString("Book_Author"));
+                    v2.add(Rs.getString("Genre"));
                     v2.add(Rs.getString("Book_Quantity"));
                     v2.add(Rs.getString("Issue_Date"));
+                    v2.add(Rs.getString("Due_Date"));
+                    
                     
                 }
            DFT.addRow(v2);
             }
-        }catch (Exception e) {  
+        }catch (Exception e) {
+            
+            
+        
     }
     }
     
@@ -152,19 +161,14 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Student ID", "Student Name", "Gr. & Sec.", "Book ID", "Book Name", "Author", "Quantity", "Issue Date", "Due Date", "Date Return", "Status"
+                "Student ID", "Student Name", "Strand", "Gr. & Sec.", "Book ID", "Book Name", "Author", "Genre", "Quantity", "Issue Date", "Due Date", "Date Return", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -189,22 +193,24 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(170);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(80);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(60);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(60);
             jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(120);
             jTable1.getColumnModel().getColumn(6).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setPreferredWidth(60);
+            jTable1.getColumnModel().getColumn(6).setPreferredWidth(120);
             jTable1.getColumnModel().getColumn(7).setResizable(false);
-            jTable1.getColumnModel().getColumn(7).setPreferredWidth(90);
             jTable1.getColumnModel().getColumn(8).setResizable(false);
-            jTable1.getColumnModel().getColumn(8).setPreferredWidth(90);
+            jTable1.getColumnModel().getColumn(8).setPreferredWidth(60);
             jTable1.getColumnModel().getColumn(9).setResizable(false);
             jTable1.getColumnModel().getColumn(9).setPreferredWidth(90);
             jTable1.getColumnModel().getColumn(10).setResizable(false);
-            jTable1.getColumnModel().getColumn(10).setPreferredWidth(50);
+            jTable1.getColumnModel().getColumn(10).setPreferredWidth(90);
+            jTable1.getColumnModel().getColumn(11).setResizable(false);
+            jTable1.getColumnModel().getColumn(11).setPreferredWidth(90);
+            jTable1.getColumnModel().getColumn(12).setResizable(false);
+            jTable1.getColumnModel().getColumn(12).setPreferredWidth(50);
         }
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
@@ -339,11 +345,24 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            
+            String sql= "select from returnbook(student_id,student_name,strand,grade_section,book_id,book_name,book_author,genre,book_quantity,issue_date,due_date,return_date,status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            
+            try{
+                pst= con.prepareStatement(sql);
+                pst.setString(12, "-");
+                pst.setString(13, "-");
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+           
+
+        
+        
+            
+        
        
-        
-        
-        TableRowSorter sorter = new TableRowSorter(model);
-        jTable1.setRowSorter(sorter);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

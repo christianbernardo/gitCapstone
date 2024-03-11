@@ -140,6 +140,8 @@ public class ReturnBook extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 40));
 
+        jPanel4.setBackground(new java.awt.Color(102, 102, 102));
+
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 500));
@@ -333,7 +335,7 @@ public class ReturnBook extends javax.swing.JFrame {
         jPanel7.add(txtIssueDate);
         txtIssueDate.setBounds(20, 470, 430, 35);
         jPanel7.add(jDateChooser1);
-        jDateChooser1.setBounds(10, 520, 250, 30);
+        jDateChooser1.setBounds(20, 530, 240, 30);
 
         txtBookID.setBackground(new java.awt.Color(0, 0, 51));
         txtBookID.setForeground(new java.awt.Color(255, 255, 255));
@@ -371,9 +373,8 @@ public class ReturnBook extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("RETURN", jPanel4);

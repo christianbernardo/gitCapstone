@@ -159,6 +159,9 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         updatebutton = new javax.swing.JLabel();
         deletebutton = new javax.swing.JLabel();
         textadd = new javax.swing.JLabel();
+        txtupdate = new javax.swing.JLabel();
+        txtremove = new javax.swing.JLabel();
+        txtedit = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1186, 701));
 
@@ -359,8 +362,18 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editbuttonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editbuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editbuttonMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                editbuttonMousePressed(evt);
+            }
         });
 
+        addbutton.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         addbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
         addbutton.setToolTipText("");
         addbutton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -380,6 +393,12 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updatebuttonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updatebuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updatebuttonMouseExited(evt);
+            }
         });
 
         deletebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
@@ -387,10 +406,41 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deletebuttonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deletebuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deletebuttonMouseExited(evt);
+            }
         });
 
+        textadd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        textadd.setForeground(new java.awt.Color(255, 255, 255));
         textadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textadd.setText("ADD");
+
+        txtupdate.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        txtupdate.setForeground(new java.awt.Color(255, 255, 255));
+        txtupdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtupdate.setText("UPDATE");
+        txtupdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtupdateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtupdateMouseExited(evt);
+            }
+        });
+
+        txtremove.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        txtremove.setForeground(new java.awt.Color(255, 255, 255));
+        txtremove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtremove.setText("DELETE");
+
+        txtedit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        txtedit.setForeground(new java.awt.Color(255, 255, 255));
+        txtedit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtedit.setText("EDIT");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -423,15 +473,26 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                                     .addComponent(txtStrand, 0, 277, Short.MAX_VALUE))
                                 .addComponent(txtGrandSec, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addbutton)
-                                    .addComponent(textadd, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24)
-                                .addComponent(updatebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(updatebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtupdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(deletebutton)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(deletebutton)
+                                    .addComponent(txtremove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(editbutton)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(txtedit, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(editbutton))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -477,7 +538,11 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
                     .addComponent(updatebutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textadd)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textadd)
+                    .addComponent(txtupdate)
+                    .addComponent(txtremove)
+                    .addComponent(txtedit))
                 .addGap(2234, 2234, 2234))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -487,6 +552,9 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         );
 
         textadd.setVisible(false);
+        txtupdate.setVisible(false);
+        txtremove.setVisible(false);
+        txtedit.setVisible(false);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
 
@@ -631,8 +699,44 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_addbuttonMouseEntered
 
     private void addbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseExited
-        textadd.setVisible(false);
+       textadd.setVisible(false);
     }//GEN-LAST:event_addbuttonMouseExited
+
+    private void txtupdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtupdateMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtupdateMouseExited
+
+    private void deletebuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseEntered
+        txtremove.setVisible(true);
+    }//GEN-LAST:event_deletebuttonMouseEntered
+
+    private void deletebuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseExited
+          txtremove.setVisible(false);
+    }//GEN-LAST:event_deletebuttonMouseExited
+
+    private void editbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseEntered
+           txtedit.setVisible(true);      
+    }//GEN-LAST:event_editbuttonMouseEntered
+
+    private void updatebuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseEntered
+        txtupdate.setVisible(true);      
+    }//GEN-LAST:event_updatebuttonMouseEntered
+
+    private void updatebuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseExited
+          txtupdate.setVisible(false);          
+    }//GEN-LAST:event_updatebuttonMouseExited
+
+    private void editbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseExited
+       txtedit.setVisible(false);              
+    }//GEN-LAST:event_editbuttonMouseExited
+
+    private void txtupdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtupdateMouseEntered
+       
+    }//GEN-LAST:event_txtupdateMouseEntered
+
+    private void editbuttonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editbuttonMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -664,6 +768,9 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> txtStrand;
     private javax.swing.JTextField txtStudentID;
     private javax.swing.JTextField txtStudentName;
+    private javax.swing.JLabel txtedit;
+    private javax.swing.JLabel txtremove;
+    private javax.swing.JLabel txtupdate;
     private javax.swing.JLabel updatebutton;
     // End of variables declaration//GEN-END:variables
 }

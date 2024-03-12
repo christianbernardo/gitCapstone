@@ -148,8 +148,6 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
 
         A1 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -159,6 +157,9 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -166,62 +167,86 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1186, 701));
+        setPreferredSize(new java.awt.Dimension(1189, 701));
 
         A1.setBackground(new java.awt.Color(31, 25, 60));
         A1.setPreferredSize(new java.awt.Dimension(1192, 799));
 
-        jPanel1.setBackground(new java.awt.Color(19, 22, 40));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("TOTAL BOOKS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 40));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("100");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 70, 50));
-
-        jPanel2.setBackground(new java.awt.Color(19, 22, 40));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("TOTAL STUDENTS");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 250, 40));
+        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, 30));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("559");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, 60));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 110));
 
-        jPanel5.setBackground(new java.awt.Color(19, 22, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 280, 110));
+
+        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ISSUED BOOKS");
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 40));
+        jLabel9.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 30));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("459");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, 60));
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 110));
 
-        jPanel4.setBackground(new java.awt.Color(19, 22, 40));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 280, 110));
+
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("OVERDUE");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 180, 40));
+        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 30));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("599");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, 60));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 110));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 280, 110));
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
+        jPanel3.setPreferredSize(new java.awt.Dimension(340, 92));
+        jPanel3.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("TOTAL BOOKS");
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(10, 20, 126, 30);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("100");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(180, 0, 87, 110);
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 110));
 
         jTextField1.setBackground(new java.awt.Color(31, 25, 60));
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
@@ -286,44 +311,24 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         A1Layout.setHorizontalGroup(
             A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A1Layout.createSequentialGroup()
-                .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(15, 15, 15)
+                .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(A1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2))
-                    .addGroup(A1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(A1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(A1Layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)))))
-                .addContainerGap())
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1158, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         A1Layout.setVerticalGroup(
             A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, A1Layout.createSequentialGroup()
-                        .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)))
-                .addGap(7, 7, 7)
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -336,7 +341,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
 
         getContentPane().add(A1, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 1190, 702);
+        setBounds(0, 0, 1195, 701);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -358,6 +363,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;

@@ -164,6 +164,10 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         updatebutton = new javax.swing.JLabel();
         deletebutton = new javax.swing.JLabel();
         editbutton = new javax.swing.JLabel();
+        txtremove = new javax.swing.JLabel();
+        textadd = new javax.swing.JLabel();
+        txtupdate = new javax.swing.JLabel();
+        txtedit = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1186, 701));
@@ -333,14 +337,14 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)))
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel16)
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -383,6 +387,12 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addbuttonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addbuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addbuttonMouseExited(evt);
+            }
         });
 
         updatebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
@@ -391,12 +401,24 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updatebuttonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updatebuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updatebuttonMouseExited(evt);
+            }
         });
 
         deletebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
         deletebutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deletebuttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deletebuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deletebuttonMouseExited(evt);
             }
         });
 
@@ -405,7 +427,33 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editbuttonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editbuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editbuttonMouseExited(evt);
+            }
         });
+
+        txtremove.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        txtremove.setForeground(new java.awt.Color(255, 255, 255));
+        txtremove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtremove.setText("DELETE");
+
+        textadd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        textadd.setForeground(new java.awt.Color(255, 255, 255));
+        textadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textadd.setText("ADD");
+
+        txtupdate.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        txtupdate.setForeground(new java.awt.Color(255, 255, 255));
+        txtupdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtupdate.setText("UPDATE");
+
+        txtedit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        txtedit.setForeground(new java.awt.Color(255, 255, 255));
+        txtedit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtedit.setText("EDIT");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -427,26 +475,37 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel17))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtBookID, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                             .addComponent(txtBookName)
                             .addComponent(txtBookAuthor)
                             .addComponent(txtGenre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4)
                             .addComponent(txtQuantity)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(addbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(updatebutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deletebutton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(editbutton)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(addbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(textadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(updatebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtupdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(6, 6, 6)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtremove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtedit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(editbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -504,13 +563,24 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                         .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(updatebutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(addbutton))
-                .addGap(2145, 2145, 2145))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtupdate)
+                    .addComponent(txtedit)
+                    .addComponent(textadd)
+                    .addComponent(txtremove))
+                .addGap(2123, 2123, 2123))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 2139, Short.MAX_VALUE))
+                .addGap(0, 2103, Short.MAX_VALUE))
         );
+
+        txtremove.setVisible(false);
+        textadd.setVisible(false);
+        txtupdate.setVisible(false);
+        txtedit.setVisible(false);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
 
@@ -653,6 +723,38 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_deletebuttonMouseClicked
 
+    private void addbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseEntered
+        textadd.setVisible(true);
+    }//GEN-LAST:event_addbuttonMouseEntered
+
+    private void addbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseExited
+       textadd.setVisible(false);
+    }//GEN-LAST:event_addbuttonMouseExited
+
+    private void deletebuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseEntered
+        txtremove.setVisible(true);
+    }//GEN-LAST:event_deletebuttonMouseEntered
+
+    private void deletebuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseExited
+        txtremove.setVisible(false);
+    }//GEN-LAST:event_deletebuttonMouseExited
+
+    private void updatebuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseEntered
+         txtupdate.setVisible(true);
+    }//GEN-LAST:event_updatebuttonMouseEntered
+
+    private void updatebuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseExited
+        txtupdate.setVisible(false);
+    }//GEN-LAST:event_updatebuttonMouseExited
+
+    private void editbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseEntered
+        txtedit.setVisible(true);
+    }//GEN-LAST:event_editbuttonMouseEntered
+
+    private void editbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseExited
+         txtedit.setVisible(false);
+    }//GEN-LAST:event_editbuttonMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addbutton;
@@ -679,12 +781,16 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel textadd;
     private javax.swing.JTextField txtBookAuthor;
     private javax.swing.JTextField txtBookID;
     private javax.swing.JTextField txtBookName;
     private javax.swing.JComboBox<String> txtGenre;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearch;
+    private javax.swing.JLabel txtedit;
+    private javax.swing.JLabel txtremove;
+    private javax.swing.JLabel txtupdate;
     private javax.swing.JLabel updatebutton;
     // End of variables declaration//GEN-END:variables
 }

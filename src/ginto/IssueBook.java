@@ -187,17 +187,19 @@ public class IssueBook extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 1000, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(994, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        aa4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 30));
+        aa4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 40));
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 102, 102));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,7 +251,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel3.add(Search);
-        Search.setBounds(240, 280, 72, 23);
+        Search.setBounds(240, 280, 72, 22);
 
         txtStudentID.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentID.setForeground(new java.awt.Color(255, 255, 255));
@@ -317,7 +319,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(Search2);
-        Search2.setBounds(240, 230, 72, 23);
+        Search2.setBounds(240, 230, 72, 22);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setForeground(new java.awt.Color(255, 255, 255));

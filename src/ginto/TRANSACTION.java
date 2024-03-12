@@ -27,7 +27,7 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
     public TRANSACTION() {
         initComponents();
         Connect();
-        table_update();
+        transactiontableupdate();
         setRecordsTable();
 
         
@@ -35,18 +35,20 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
         setBackground(new Color(0,0,0,0));
-        jTable1.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
-        jTable1.getTableHeader().setOpaque(false);
-        jTable1.getTableHeader().setBackground(new Color(19,22,40));
-        jTable1.getTableHeader().setForeground(new Color(0,0,0));
-        jTable1.setRowHeight(25);
+        transactiontable.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+        transactiontable.getTableHeader().setOpaque(false);
+        transactiontable.getTableHeader().setBackground(new Color(19,22,40));
+        transactiontable.getTableHeader().setForeground(new Color(0,0,0));
+        transactiontable.setRowHeight(25);       
 
     }
     
     DefaultTableModel model;
-    
     Connection con;
     PreparedStatement pst;
+    
+    
+    
     
      public void Connect()
      {
@@ -59,7 +61,7 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
             Logger.getLogger(TRANSACTION.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-    private void table_update()
+     private void transactiontableupdate()
     {
         int CC;
         try {
@@ -69,7 +71,7 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
             
             ResultSetMetaData RSMD = Rs.getMetaData();
             CC = RSMD.getColumnCount();
-            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel DFT = (DefaultTableModel) transactiontable.getModel();
             DFT.setRowCount(0);
             
             while (Rs.next()) {
@@ -88,6 +90,8 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
                     v2.add(Rs.getString("Book_Quantity"));
                     v2.add(Rs.getString("Issue_Date"));
                     v2.add(Rs.getString("Due_Date"));
+                    v2.add(Rs.getString("Date_Return"));
+                    v2.add(Rs.getString("Status"));
                     
                     
                 }
@@ -102,15 +106,15 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
     
      
     public void search(String str) {
-        model = (DefaultTableModel) jTable1.getModel();
+        model = (DefaultTableModel) transactiontable.getModel();
         TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-        jTable1.setRowSorter(trs);
+        transactiontable.setRowSorter(trs);
         trs.setRowFilter(RowFilter.regexFilter("(?i)" + str));
     }
       public void filter(String str) {
-           model = (DefaultTableModel) jTable1.getModel();
+           model = (DefaultTableModel) transactiontable.getModel();
            TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-           jTable1.setRowSorter(trs);
+           transactiontable.setRowSorter(trs);
            trs.setRowFilter(RowFilter.regexFilter(str));
            }
     
@@ -124,14 +128,13 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
             while(rs.next()) {
                 String StudentID = rs.getString("Student_ID");
                 String StudentName = rs.getString("Student_Name");
-                String GradeSection = rs.getString("Grade_Section");
                 String BookID = rs.getString("Book_ID");
                 String BookName = rs.getString("Book_Name");
                 String BookAuthor = rs.getString("Book_Author");
-                String BookQuantity = rs.getString("Book_Quantity");
                 
-                Object [] obj = {StudentID,StudentName,GradeSection,BookID,BookName,BookAuthor,BookQuantity};
-                model =  (DefaultTableModel)jTable1.getModel();
+                
+                Object [] obj = {StudentID,StudentName,BookID,BookName,BookAuthor};
+                model =  (DefaultTableModel)transactiontable.getModel();
                 model.addRow(obj);
             }
         }catch (Exception e) {
@@ -145,21 +148,23 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        transactiontable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1186, 701));
 
         jPanel2.setBackground(new java.awt.Color(31, 25, 60));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        transactiontable.setAutoCreateRowSorter(true);
+        transactiontable.setBackground(new java.awt.Color(255, 255, 255));
+        transactiontable.setForeground(new java.awt.Color(0, 0, 0));
+        transactiontable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -175,42 +180,42 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setShowGrid(true);
-        jTable1.getTableHeader().setResizingAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        transactiontable.setGridColor(new java.awt.Color(0, 0, 0));
+        transactiontable.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        transactiontable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        transactiontable.setShowGrid(true);
+        transactiontable.getTableHeader().setResizingAllowed(false);
+        transactiontable.getTableHeader().setReorderingAllowed(false);
+        transactiontable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                transactiontableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(170);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(60);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setPreferredWidth(120);
-            jTable1.getColumnModel().getColumn(7).setResizable(false);
-            jTable1.getColumnModel().getColumn(8).setResizable(false);
-            jTable1.getColumnModel().getColumn(8).setPreferredWidth(60);
-            jTable1.getColumnModel().getColumn(9).setResizable(false);
-            jTable1.getColumnModel().getColumn(9).setPreferredWidth(90);
-            jTable1.getColumnModel().getColumn(10).setResizable(false);
-            jTable1.getColumnModel().getColumn(10).setPreferredWidth(90);
-            jTable1.getColumnModel().getColumn(11).setResizable(false);
-            jTable1.getColumnModel().getColumn(11).setPreferredWidth(90);
-            jTable1.getColumnModel().getColumn(12).setResizable(false);
-            jTable1.getColumnModel().getColumn(12).setPreferredWidth(50);
+        jScrollPane1.setViewportView(transactiontable);
+        if (transactiontable.getColumnModel().getColumnCount() > 0) {
+            transactiontable.getColumnModel().getColumn(0).setResizable(false);
+            transactiontable.getColumnModel().getColumn(0).setPreferredWidth(100);
+            transactiontable.getColumnModel().getColumn(1).setResizable(false);
+            transactiontable.getColumnModel().getColumn(1).setPreferredWidth(170);
+            transactiontable.getColumnModel().getColumn(2).setResizable(false);
+            transactiontable.getColumnModel().getColumn(3).setResizable(false);
+            transactiontable.getColumnModel().getColumn(3).setPreferredWidth(80);
+            transactiontable.getColumnModel().getColumn(4).setResizable(false);
+            transactiontable.getColumnModel().getColumn(4).setPreferredWidth(60);
+            transactiontable.getColumnModel().getColumn(5).setResizable(false);
+            transactiontable.getColumnModel().getColumn(6).setResizable(false);
+            transactiontable.getColumnModel().getColumn(6).setPreferredWidth(120);
+            transactiontable.getColumnModel().getColumn(7).setResizable(false);
+            transactiontable.getColumnModel().getColumn(8).setResizable(false);
+            transactiontable.getColumnModel().getColumn(8).setPreferredWidth(60);
+            transactiontable.getColumnModel().getColumn(9).setResizable(false);
+            transactiontable.getColumnModel().getColumn(9).setPreferredWidth(90);
+            transactiontable.getColumnModel().getColumn(10).setResizable(false);
+            transactiontable.getColumnModel().getColumn(10).setPreferredWidth(90);
+            transactiontable.getColumnModel().getColumn(11).setResizable(false);
+            transactiontable.getColumnModel().getColumn(11).setPreferredWidth(90);
+            transactiontable.getColumnModel().getColumn(12).setResizable(false);
+            transactiontable.getColumnModel().getColumn(12).setPreferredWidth(50);
         }
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
@@ -267,6 +272,13 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setText("REFRESH");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -284,7 +296,9 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(jButton3)))
                 .addContainerGap(252, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -296,7 +310,8 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
                     .addComponent(jLabel16)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -343,42 +358,29 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
         rb.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            
-            String sql= "select from returnbook(student_id,student_name,strand,grade_section,book_id,book_name,book_author,genre,book_quantity,issue_date,due_date,return_date,status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-            
-            try{
-                pst= con.prepareStatement(sql);
-                pst.setString(12, "-");
-                pst.setString(13, "-");
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(null, e);
-            }
-           
-
-        
-        
-            
-        
-       
-    }//GEN-LAST:event_jTable1MouseClicked
+    private void transactiontableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactiontableMouseClicked
+             
+    }//GEN-LAST:event_transactiontableMouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         String filterString = jComboBox1.getSelectedItem().toString();
         filter(filterString);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       transactiontableupdate();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable transactiontable;
     // End of variables declaration//GEN-END:variables
 }

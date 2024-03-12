@@ -1,13 +1,17 @@
 
 package ginto;
 
+import java.awt.Component;
 import java.sql.*;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 
 
@@ -19,6 +23,8 @@ public class ReturnBook extends javax.swing.JFrame {
        initComponents();
        Connect(); 
        table_update();
+        
+
        
        
     }
@@ -26,45 +32,11 @@ public class ReturnBook extends javax.swing.JFrame {
     Connection con;
     PreparedStatement pst;
     ResultSet Rs;
-   
-    public void Delete(){
-        String sql="delete from issue where Student_ID=?";
-        
-        try{
-            pst=con.prepareStatement(sql);
-            pst.setString(1, txtStudentID.getText());
-            pst.execute ();        
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-    
-    public void ReturnUpdate(){
-         String sql= "insert into returnbook(student_id,student_name,grade_section,book_id,book_name,book_author,book_quantity,issue_date,return_date)values (?,?,?,?,?,?,?,?,?)";
-        try{
-            pst= con.prepareStatement(sql);
-            pst.setString(1, txtStudentID.getText());
-            pst.setString(2, txtStudentName.getText());
-            pst.setString(3, txtGrSec.getText());
-            pst.setString(4, txtBookID.getText());
-            pst.setString(5, txtBookName.getText());
-            pst.setString(6, txtAuthor.getText());
-            pst.setString(7, txtQuantity.getText());
-            pst.setString(8, txtIssueDate.getText());
-            pst.setString(9, ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
-
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Book Returned");
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
     
     
     
     
-    
-    public void Connect()
+     public void Connect()
     {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -75,6 +47,63 @@ public class ReturnBook extends javax.swing.JFrame {
             Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   
+    public void Delete(){
+        String sql="delete from issue where Student_ID=?";
+        
+        try{
+            pst=con.prepareStatement(sql);
+            pst.setString(1, txtStudentID.getText());
+            pst.execute();        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    public void ReturnUpdate(){
+         String sql= "insert into returnbook(student_id,student_name,strand,grade_section,book_id,book_name,book_author,genre,book_quantity,issue_date,due_date,return_date,status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try{
+            pst= con.prepareStatement(sql);
+            pst.setString(1, txtStudentID.getText());
+            pst.setString(2, txtStudentName.getText());
+            pst.setString(3, txtStrand.getText());
+            pst.setString(4, txtGrSec.getText());
+            pst.setString(5, txtBookID.getText());
+            pst.setString(6, txtBookName.getText());
+            pst.setString(7, txtAuthor.getText());
+            pst.setString(8, txtGenre.getText());
+            pst.setString(9, txtQuantity.getText());
+            pst.setString(10, txtIssueDate.getText());
+            pst.setString(11, txtDueDate.getText());
+            pst.setString(12, ((JTextField)txtReturnDate.getDateEditor().getUiComponent()).getText());
+            pst.setString(13, "Returned");
+
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Book Returned");
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    
+    public void resizeColumnWidth(JTable findreturndetails) {
+    final TableColumnModel columnModel = findreturndetails.getColumnModel();
+    for (int column = 0; column < findreturndetails.getColumnCount(); column++) {
+        int width = 15; 
+        for (int row = 0; row < findreturndetails.getRowCount(); row++) {
+            TableCellRenderer renderer = findreturndetails.getCellRenderer(row, column);
+            Component comp = findreturndetails.prepareRenderer(renderer, row, column);
+            width = Math.max(comp.getPreferredSize().width +1 , width);
+        }
+        if(width > 300)
+            width=300;
+        columnModel.getColumn(column).setPreferredWidth(width);
+    }
+}
+    
+    
+    
+   
     
     
     
@@ -89,7 +118,7 @@ public class ReturnBook extends javax.swing.JFrame {
             
             ResultSetMetaData RSMD = Rs.getMetaData();
             CC = RSMD.getColumnCount();
-            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel DFT = (DefaultTableModel) findreturndetails.getModel();
             DFT.setRowCount(0);
             
             while (Rs.next()) {
@@ -108,6 +137,8 @@ public class ReturnBook extends javax.swing.JFrame {
                     v2.add(Rs.getString("Book_Quantity"));
                     v2.add(Rs.getString("Issue_Date"));
                     v2.add(Rs.getString("Due_Date"));
+                    v2.add(Rs.getString("Date_Return"));
+                    v2.add(Rs.getString("Status"));
                     
                     
                 }
@@ -157,17 +188,19 @@ public class ReturnBook extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        txtIssueDate = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        txtReturnDate = new com.toedter.calendar.JDateChooser();
         txtBookID = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtGenre = new javax.swing.JTextField();
+        txtDueDate = new javax.swing.JTextField();
         txtStudentID = new javax.swing.JTextField();
         txtStrand = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        txtIssueDate = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        findreturndetails = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -186,10 +219,10 @@ public class ReturnBook extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 10));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 40));
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -208,7 +241,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton7);
-        jButton7.setBounds(360, 250, 72, 22);
+        jButton7.setBounds(360, 200, 72, 23);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,19 +263,19 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(160, 530, 124, 28);
+        jButton1.setBounds(180, 530, 124, 29);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Student ID :");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(20, 240, 67, 16);
+        jLabel11.setBounds(20, 190, 67, 16);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Student Name :");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(20, 300, 87, 30);
+        jLabel12.setBounds(20, 250, 87, 30);
 
         txtStudentName.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentName.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,13 +286,13 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtStudentName);
-        txtStudentName.setBounds(20, 330, 430, 35);
+        txtStudentName.setBounds(20, 280, 430, 35);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Gr. & Sec.  :");
+        jLabel13.setText("Issue Date:");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(20, 440, 65, 16);
+        jLabel13.setBounds(20, 460, 61, 16);
 
         txtGrSec.setBackground(new java.awt.Color(0, 0, 51));
         txtGrSec.setForeground(new java.awt.Color(255, 255, 255));
@@ -270,7 +303,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtGrSec);
-        txtGrSec.setBounds(20, 470, 430, 35);
+        txtGrSec.setBounds(20, 420, 430, 35);
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 51));
         jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 0, new java.awt.Color(102, 102, 102)));
@@ -362,19 +395,8 @@ public class ReturnBook extends javax.swing.JFrame {
         jLabel19.setText("Due Date :");
         jPanel7.add(jLabel19);
         jLabel19.setBounds(20, 500, 80, 16);
-
-        txtIssueDate.setBackground(new java.awt.Color(0, 0, 51));
-        txtIssueDate.setForeground(new java.awt.Color(255, 255, 255));
-        txtIssueDate.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtIssueDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIssueDateActionPerformed(evt);
-            }
-        });
-        jPanel7.add(txtIssueDate);
-        txtIssueDate.setBounds(20, 530, 430, 30);
-        jPanel7.add(jDateChooser1);
-        jDateChooser1.setBounds(30, 570, 240, 30);
+        jPanel7.add(txtReturnDate);
+        txtReturnDate.setBounds(30, 570, 240, 30);
 
         txtBookID.setBackground(new java.awt.Color(0, 0, 51));
         txtBookID.setForeground(new java.awt.Color(255, 255, 255));
@@ -404,6 +426,17 @@ public class ReturnBook extends javax.swing.JFrame {
         jPanel7.add(txtGenre);
         txtGenre.setBounds(20, 400, 430, 35);
 
+        txtDueDate.setBackground(new java.awt.Color(0, 0, 51));
+        txtDueDate.setForeground(new java.awt.Color(255, 255, 255));
+        txtDueDate.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtDueDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDueDateActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtDueDate);
+        txtDueDate.setBounds(20, 530, 430, 30);
+
         jPanel2.add(jPanel7);
         jPanel7.setBounds(470, 0, 470, 610);
 
@@ -416,7 +449,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtStudentID);
-        txtStudentID.setBounds(20, 260, 430, 36);
+        txtStudentID.setBounds(20, 210, 430, 36);
 
         txtStrand.setBackground(new java.awt.Color(0, 0, 51));
         txtStrand.setForeground(new java.awt.Color(255, 255, 255));
@@ -427,88 +460,91 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtStrand);
-        txtStrand.setBounds(20, 400, 430, 35);
+        txtStrand.setBounds(20, 350, 430, 35);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Strand");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(20, 370, 37, 30);
+        jLabel14.setBounds(20, 320, 37, 30);
+
+        txtIssueDate.setBackground(new java.awt.Color(0, 0, 51));
+        txtIssueDate.setForeground(new java.awt.Color(255, 255, 255));
+        txtIssueDate.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtIssueDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIssueDateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtIssueDate);
+        txtIssueDate.setBounds(20, 480, 430, 30);
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Gr. & Sec.  :");
+        jPanel2.add(jLabel21);
+        jLabel21.setBounds(20, 390, 65, 16);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 39, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("RETURN", jPanel4);
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        findreturndetails.setAutoCreateRowSorter(true);
+        findreturndetails.setBackground(new java.awt.Color(255, 255, 255));
+        findreturndetails.setForeground(new java.awt.Color(0, 0, 0));
+        findreturndetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Student ID", "Student Name", "Gr. & Sec.", "Book ID", "Book Name", "Author", "Quantity", "Issue Date", "Due Date", "Date Return", "Status"
+                "Student ID", "Student Name", "Strand", "Gr. & Sec.", "Book ID", "Book Name", "Genre", "Author", "Quantity", "Issue Date", "Due Date", "Return Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setShowGrid(true);
-        jTable1.getTableHeader().setResizingAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        findreturndetails.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        findreturndetails.setGridColor(new java.awt.Color(0, 0, 0));
+        findreturndetails.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        findreturndetails.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        findreturndetails.setShowGrid(true);
+        findreturndetails.getTableHeader().setResizingAllowed(false);
+        findreturndetails.getTableHeader().setReorderingAllowed(false);
+        findreturndetails.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                findreturndetailsMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(170);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(60);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(120);
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setPreferredWidth(60);
-            jTable1.getColumnModel().getColumn(7).setResizable(false);
-            jTable1.getColumnModel().getColumn(7).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(8).setResizable(false);
-            jTable1.getColumnModel().getColumn(8).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(9).setResizable(false);
-            jTable1.getColumnModel().getColumn(9).setPreferredWidth(80);
-            jTable1.getColumnModel().getColumn(10).setResizable(false);
-            jTable1.getColumnModel().getColumn(10).setPreferredWidth(50);
+        jScrollPane1.setViewportView(findreturndetails);
+        if (findreturndetails.getColumnModel().getColumnCount() > 0) {
+            findreturndetails.getColumnModel().getColumn(0).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(1).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(3).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(4).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(5).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(7).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(8).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(9).setPreferredWidth(50);
+            findreturndetails.getColumnModel().getColumn(10).setPreferredWidth(50);
         }
 
         jButton3.setText("FIND");
@@ -522,30 +558,27 @@ public class ReturnBook extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(423, 423, 423)
+                .addGap(415, 415, 415)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(410, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(579, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(24, 24, 24))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 55, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("DETAILS", jPanel5);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 660));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 690));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -568,6 +601,7 @@ public class ReturnBook extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Delete();
         ReturnUpdate();
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -575,7 +609,7 @@ public class ReturnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void txtBookIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookIDActionPerformed
@@ -598,9 +632,9 @@ public class ReturnBook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIssueDateActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void findreturndetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findreturndetailsMouseClicked
         
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_findreturndetailsMouseClicked
 
     private void txtStrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrandActionPerformed
         // TODO add your handling code here:
@@ -612,8 +646,8 @@ public class ReturnBook extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int SelectedRows = jTable1.convertRowIndexToModel( jTable1.getSelectedRow() );  
+        DefaultTableModel model = (DefaultTableModel) findreturndetails.getModel();
+        int SelectedRows = findreturndetails.convertRowIndexToModel( findreturndetails.getSelectedRow() );  
         
         txtStudentID.setText(model.getValueAt(SelectedRows, 0).toString());
         txtStudentName.setText(model.getValueAt(SelectedRows, 1).toString());
@@ -624,6 +658,10 @@ public class ReturnBook extends javax.swing.JFrame {
         txtAuthor.setText(model.getValueAt(SelectedRows, 6).toString());
         txtGenre.setText(model.getValueAt(SelectedRows, 7).toString());
         txtQuantity.setText(model.getValueAt(SelectedRows, 8).toString());
+        txtIssueDate.setText(model.getValueAt(SelectedRows, 9).toString());
+        txtDueDate.setText(model.getValueAt(SelectedRows, 10).toString());
+        
+        
         
         
          jTabbedPane1.setSelectedIndex(0);
@@ -636,6 +674,10 @@ public class ReturnBook extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtDueDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDueDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDueDateActionPerformed
       
     /**
      * @param args the command line arguments
@@ -674,11 +716,11 @@ public class ReturnBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable findreturndetails;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -692,6 +734,7 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -701,14 +744,15 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAuthor;
     private javax.swing.JTextField txtBookID;
     private javax.swing.JTextField txtBookName;
+    private javax.swing.JTextField txtDueDate;
     private javax.swing.JTextField txtGenre;
     private javax.swing.JTextField txtGrSec;
     private javax.swing.JTextField txtIssueDate;
     private javax.swing.JTextField txtQuantity;
+    private com.toedter.calendar.JDateChooser txtReturnDate;
     private javax.swing.JTextField txtStrand;
     private javax.swing.JTextField txtStudentID;
     private javax.swing.JTextField txtStudentName;

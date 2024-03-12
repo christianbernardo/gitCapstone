@@ -17,13 +17,17 @@ public class IssueBook extends javax.swing.JFrame {
     public IssueBook() {
         initComponents();
         Connect();
-        table_update();
+        studenttable_update();
         booktable_update();
     }
     
     Connection con;
     PreparedStatement pst;
     ResultSet Rs;
+    
+    
+    
+    
     
     public void Connect()
     {
@@ -38,7 +42,7 @@ public class IssueBook extends javax.swing.JFrame {
     }
     
     
-    private void table_update()
+    private void studenttable_update()
     {
         int CC;
         try {
@@ -110,8 +114,9 @@ public class IssueBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        A4 = new javax.swing.JPanel();
+        aa4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -143,7 +148,6 @@ public class IssueBook extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         issuebook = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         txtIssueDate = new com.toedter.calendar.JDateChooser();
         txtDueDate = new com.toedter.calendar.JDateChooser();
         jLabel15 = new javax.swing.JLabel();
@@ -162,25 +166,38 @@ public class IssueBook extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        A4.setBackground(new java.awt.Color(255, 255, 255));
-        A4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(102, 102, 102)));
-        A4.setForeground(new java.awt.Color(255, 255, 255));
-        A4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        aa4.setBackground(new java.awt.Color(255, 255, 255));
+        aa4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(102, 102, 102)));
+        aa4.setForeground(new java.awt.Color(255, 255, 255));
+        aa4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+
+        jButton3.setBackground(new java.awt.Color(204, 0, 0));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1020, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 1000, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        A4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 20));
+        aa4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 30));
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 102, 102));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,7 +249,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel3.add(Search);
-        Search.setBounds(240, 280, 72, 22);
+        Search.setBounds(240, 280, 72, 23);
 
         txtStudentID.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentID.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,7 +317,7 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
         jPanel15.add(Search2);
-        Search2.setBounds(240, 230, 72, 22);
+        Search2.setBounds(240, 230, 72, 23);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -449,15 +466,6 @@ public class IssueBook extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 0, 0));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jLabel15.setBackground(new java.awt.Color(0, 0, 102));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -468,41 +476,40 @@ public class IssueBook extends javax.swing.JFrame {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(issuebook, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIssueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtDueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIssueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15))
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(issuebook, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(jLabel18)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel18)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
+                .addGap(117, 117, 117)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -675,9 +682,9 @@ public class IssueBook extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("BOOK", jPanel6);
 
-        A4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 1020, 620));
+        aa4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 1020, 620));
 
-        getContentPane().add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 620));
+        getContentPane().add(aa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 620));
 
         setSize(new java.awt.Dimension(1020, 617));
         setLocationRelativeTo(null);
@@ -702,12 +709,12 @@ public class IssueBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtGrSecActionPerformed
 
     private void issuebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebookActionPerformed
-        String sql= "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date)values (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql= "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date,Date_Return,Status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try{
             pst= con.prepareStatement(sql);
             pst.setString(1, txtStudentID.getText());
             pst.setString(2, txtStudentName.getText());
-             pst.setString(3, txtStrand.getText());
+            pst.setString(3, txtStrand.getText());
             pst.setString(4, txtGrSec.getText());
             pst.setString(5, txtBookID.getText());
             pst.setString(6, txtBookName.getText());
@@ -716,13 +723,18 @@ public class IssueBook extends javax.swing.JFrame {
             pst.setString(9, txtQuantity.getText());
             pst.setString(10, ((JTextField)txtIssueDate.getDateEditor().getUiComponent()).getText());
             pst.setString(11, ((JTextField)txtDueDate.getDateEditor().getUiComponent()).getText());
-            pst.execute();
+            pst.setString(12, "---");
+            pst.setString(13, "---");
+            pst.executeUpdate();   
+            
             JOptionPane.showMessageDialog(null, "Book Issued");
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         
+        
         dispose();
+        
     }//GEN-LAST:event_issuebookActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -840,9 +852,9 @@ public class IssueBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel A4;
     private javax.swing.JButton Search;
     private javax.swing.JButton Search2;
+    private javax.swing.JPanel aa4;
     private javax.swing.JButton issuebook;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

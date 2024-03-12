@@ -177,11 +177,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ISSUED BOOKS"/>
+                <Property name="text" type="java.lang.String" value="TOTAL STUDENTS"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="0" width="200" height="40"/>
+                  <AbsoluteConstraints x="10" y="0" width="250" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -222,11 +222,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="AVAILABLE BOOKS"/>
+                <Property name="text" type="java.lang.String" value="ISSUED BOOKS"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="0" width="260" height="40"/>
+                  <AbsoluteConstraints x="10" y="0" width="200" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -336,7 +336,7 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="8" rowCount="7">
+                  <Table columnCount="8" rowCount="0">
                     <Column editable="false" title="#" type="java.lang.Integer"/>
                     <Column editable="false" title="Student&apos;s Name" type="java.lang.Object"/>
                     <Column editable="false" title="Book Name" type="java.lang.Object"/>

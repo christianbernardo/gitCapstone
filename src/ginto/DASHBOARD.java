@@ -22,6 +22,8 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         initComponents();
         Connect();
         book_count();
+        student_count();
+        issue_count();
         this.setBorder(javax.swing.BorderFactory . createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
@@ -86,6 +88,60 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
           }
           
       }
+      
+      
+      
+      
+      
+       private void student_count()
+      {
+          try {
+              pst = con.prepareStatement("SELECT COUNT(*) AS studentCount from students");
+              ResultSet Rs = pst.executeQuery();
+              
+              while (Rs.next())
+              {
+                  int scount = Rs.getInt("studentcount");
+                  jLabel4.setText(String.valueOf(scount));
+                  
+              }
+          }catch (Exception e) {
+              e.printStackTrace();
+              {
+                  
+              }
+          }
+          
+      }
+       
+       private void issue_count()
+      {
+          try {
+              pst = con.prepareStatement("SELECT COUNT(*) AS issueCount from issue");
+              ResultSet Rs = pst.executeQuery();
+              
+              while (Rs.next())
+              {
+                  int icount = Rs.getInt("issuecount");
+                  jLabel10.setText(String.valueOf(icount));
+                  
+              }
+          }catch (Exception e) {
+              e.printStackTrace();
+              {
+                  
+              }
+          }
+          
+      }
+       
+       
+       
+       
+      
+      
+      
+      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -133,8 +189,8 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ISSUED BOOKS");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 40));
+        jLabel3.setText("TOTAL STUDENTS");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 250, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,8 +202,8 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("AVAILABLE BOOKS");
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 40));
+        jLabel9.setText("ISSUED BOOKS");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 40));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,13 +238,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "#", "Student's Name", "Book Name", "Book ID", "Date Borrow", "Due Date", "Days Overdue", "Status"

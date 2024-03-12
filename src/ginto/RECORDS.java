@@ -82,13 +82,18 @@ public class RECORDS extends javax.swing.JInternalFrame {
                 for (int ii = 1; ii <= CC; ii++) {
                     v2.add(Rs.getString("student_id"));
                     v2.add(Rs.getString("student_name"));
+                    v2.add(Rs.getString("strand"));
                     v2.add(Rs.getString("grade_section"));
                     v2.add(Rs.getString("book_id"));
                     v2.add(Rs.getString("book_name"));
                     v2.add(Rs.getString("book_author"));
+                    v2.add(Rs.getString("genre"));
                     v2.add(Rs.getString("book_quantity"));
                     v2.add(Rs.getString("issue_date"));
+                    v2.add(Rs.getString("due_date"));
                     v2.add(Rs.getString("return_date"));
+                    v2.add(Rs.getString("status"));
+                    
                 }
            DFT.addRow(v2);
             }
@@ -158,11 +163,7 @@ public class RECORDS extends javax.swing.JInternalFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Student ID", "Student Name", "Gr. & Sec", "Book ID", "Book Name", "Author", "Quantity", "Issue Date", "Return Date"

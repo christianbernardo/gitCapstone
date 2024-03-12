@@ -234,11 +234,11 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                " Book ID", "Book Name", "Book Author", "Genre", "Quantity"
+                "#", " Book ID", "Book Name", "Book Author", "Genre", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -258,12 +258,13 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(5).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setPreferredWidth(80);
         }
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
@@ -632,12 +633,12 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             int optionType = JOptionPane.YES_NO_OPTION;
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
             try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            String BookID;
-            BookID = txtBookID.getText();
-            if (result == JOptionPane.YES_OPTION) 
-            pst = con.prepareStatement("delete from books where bookid= ?");
-            pst.setString(1, BookID);
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();         
+            int selectedIndex = jTable1.getSelectedRow();
+            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+            if (result == JOptionPane.YES_OPTION)      
+            pst = con.prepareStatement("delete from books where id= ?");
+            pst.setInt(1, id);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Deleted");
             table_update();
@@ -646,7 +647,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             txtBookAuthor.setText("");
             txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
-            txtBookName.requestFocus();
+      
         }catch (SQLException ex) {
             Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -166,11 +166,11 @@ public class RECORDS extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Student ID", "Student Name", "Gr. & Sec", "Book ID", "Book Name", "Author", "Quantity", "Issue Date", "Return Date"
+                "Student ID", "Student Name", "Strand", "Gr. & Sec", "Book ID", "Book Name", "Author", "Genre", "Quantity", "Issue Date", "Due Date", "Return Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -185,15 +185,27 @@ public class RECORDS extends javax.swing.JInternalFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
-            jTable1.getColumnModel().getColumn(7).setResizable(false);
-            jTable1.getColumnModel().getColumn(8).setResizable(false);
+            jTable1.getColumnModel().getColumn(0).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(3).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(3).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(4).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(4).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(6).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(6).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(6).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(7).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(7).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(7).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(8).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(8).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(8).setMaxWidth(0);
         }
 
         jTextField1.setBackground(new java.awt.Color(31, 25, 60));

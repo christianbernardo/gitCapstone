@@ -553,6 +553,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         );
 
         updatebutton.setVisible(false);
+        deletebutton.setVisible(false);
         textadd.setVisible(false);
         txtupdate.setVisible(false);
         txtremove.setVisible(false);
@@ -658,28 +659,28 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_updatebuttonMouseClicked
 
     private void deletebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseClicked
-            int optionType = JOptionPane.YES_NO_OPTION;
-            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this student?", "Delete", optionType);           
-            try { 
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();  
-            String StudentID;
-            StudentID = txtStudentID.getText();
-            if (result == JOptionPane.YES_OPTION) 
-            pst = con.prepareStatement("delete from students where studentid= ?");            
-            pst.setString (1, StudentID);
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Student Deleted");
-            table_update();
-            txtStudentID.setText("");
-            txtStudentName.setText("");
-            txtStrand.setSelectedIndex(0);
-            txtGrandSec.setSelectedIndex(0);
-            txtStudentName.requestFocus();
-        }catch (SQLException ex) {
-            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+           int optionType = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this student", "Delete", optionType);
         
+           
+           try {
+               String StudentID;
+               StudentID = txtStudentID.getText();
+               if (result == JOptionPane.YES_OPTION)
+               pst = con.prepareStatement("DELETE FROM students WHERE studentid= ?");
+               pst.setString(1, StudentID);
+               pst.executeUpdate();
+               JOptionPane.showMessageDialog(this, "Student Removed");
+               table_update();
+               txtStudentID.setText("");
+               txtStudentName.setText("");
+               txtStrand.setSelectedIndex(0);
+               txtGrandSec.setSelectedIndex(0);
+               txtStudentName.requestFocus();
+                   
+           }catch (SQLException ex) {
+               Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
+           }
     }//GEN-LAST:event_deletebuttonMouseClicked
 
     private void editbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseClicked
@@ -691,7 +692,7 @@ public class MANAGESTUDENT extends javax.swing.JInternalFrame {
         txtGrandSec.setSelectedItem(model.getValueAt(SelectedRows, 3).toString());
         
         addbutton.setVisible(false);
-        deletebutton.setVisible(false);
+        deletebutton.setVisible(true);
         editbutton.setVisible(false);
         updatebutton.setVisible(true);
         

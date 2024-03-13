@@ -238,11 +238,11 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "#", " Book ID", "Book Name", "Book Author", "Genre", "Quantity"
+                " Book ID", "Book Name", "Book Author", "Genre", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -262,13 +262,12 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(80);
         }
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
@@ -494,17 +493,17 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                                             .addComponent(addbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(textadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(updatebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtupdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(6, 6, 6)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(editbutton)
+                                            .addComponent(txtedit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(txtremove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtedit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(editbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(updatebutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -558,17 +557,19 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                     .addComponent(jLabel10))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(editbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updatebutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(addbutton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtupdate)
-                    .addComponent(txtedit)
-                    .addComponent(textadd)
-                    .addComponent(txtremove))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(editbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(addbutton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textadd)
+                            .addComponent(txtremove)
+                            .addComponent(txtedit)
+                            .addComponent(txtupdate)))
+                    .addComponent(updatebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2123, 2123, 2123))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,6 +578,7 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
                 .addGap(0, 2103, Short.MAX_VALUE))
         );
 
+        deletebutton.setVisible(false);
         txtremove.setVisible(false);
         textadd.setVisible(false);
         txtupdate.setVisible(false);
@@ -588,7 +590,11 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-       jTable1.setFocusable(true);
+      
+    
+
+        
+        jTable1.setFocusable(true);
        editbutton.setEnabled(true);
        deletebutton.setEnabled(true);
         
@@ -653,7 +659,8 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_updatebuttonMouseClicked
 
     private void editbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseClicked
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         int selectedIndex = jTable1.getSelectedRow();
         
         txtBookID.setText(model.getValueAt(selectedIndex, 0).toString());
@@ -662,9 +669,12 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
         txtGenre.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
         txtQuantity.setText(model.getValueAt(selectedIndex, 4).toString());
         
+        
+        
+        
         addbutton.setVisible(false);
-        deletebutton.setVisible(false);
-        editbutton.setVisible(false);
+        deletebutton.setVisible(true);
+        editbutton.setVisible(true);
         updatebutton.setVisible(true);
 
     }//GEN-LAST:event_editbuttonMouseClicked
@@ -704,11 +714,11 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
             try {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();         
-            int selectedIndex = jTable1.getSelectedRow();
-            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+            String BookID;
+            BookID = txtBookID.getText();
             if (result == JOptionPane.YES_OPTION)      
-            pst = con.prepareStatement("delete from books where id= ?");
-            pst.setInt(1, id);
+            pst = con.prepareStatement("delete from books where bookid= ?");
+            pst.setString(1, BookID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Deleted");
             table_update();
@@ -755,6 +765,10 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
          txtedit.setVisible(false);
     }//GEN-LAST:event_editbuttonMouseExited
 
+   
+   
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addbutton;

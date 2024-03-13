@@ -193,15 +193,18 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(transactiontable);
         if (transactiontable.getColumnModel().getColumnCount() > 0) {
-            transactiontable.getColumnModel().getColumn(0).setResizable(false);
-            transactiontable.getColumnModel().getColumn(0).setPreferredWidth(100);
+            transactiontable.getColumnModel().getColumn(0).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(0).setPreferredWidth(0);
+            transactiontable.getColumnModel().getColumn(0).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(1).setResizable(false);
             transactiontable.getColumnModel().getColumn(1).setPreferredWidth(170);
             transactiontable.getColumnModel().getColumn(2).setResizable(false);
-            transactiontable.getColumnModel().getColumn(3).setResizable(false);
-            transactiontable.getColumnModel().getColumn(3).setPreferredWidth(80);
-            transactiontable.getColumnModel().getColumn(4).setResizable(false);
-            transactiontable.getColumnModel().getColumn(4).setPreferredWidth(60);
+            transactiontable.getColumnModel().getColumn(3).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(3).setPreferredWidth(0);
+            transactiontable.getColumnModel().getColumn(3).setMaxWidth(0);
+            transactiontable.getColumnModel().getColumn(4).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(4).setPreferredWidth(0);
+            transactiontable.getColumnModel().getColumn(4).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(5).setResizable(false);
             transactiontable.getColumnModel().getColumn(6).setResizable(false);
             transactiontable.getColumnModel().getColumn(6).setPreferredWidth(120);

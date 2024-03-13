@@ -273,16 +273,20 @@ public class HomePage extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(177, 177, 177)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(a7, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addGap(188, 188, 188)
+                .addComponent(a7, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -294,7 +298,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(a7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -345,7 +349,7 @@ public class HomePage extends javax.swing.JFrame {
             .addComponent(a1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        menu.add(t1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 190, 100));
+        menu.add(t1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 100));
 
         t2.setBackground(new java.awt.Color(21, 0, 73));
 
@@ -385,7 +389,7 @@ public class HomePage extends javax.swing.JFrame {
             .addComponent(a2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        menu.add(t2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 190, 100));
+        menu.add(t2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 190, 100));
 
         t3.setBackground(new java.awt.Color(21, 0, 73));
 
@@ -422,7 +426,7 @@ public class HomePage extends javax.swing.JFrame {
             .addComponent(a3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        menu.add(t3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 190, 100));
+        menu.add(t3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 190, 100));
 
         t4.setBackground(new java.awt.Color(21, 0, 73));
 
@@ -456,10 +460,10 @@ public class HomePage extends javax.swing.JFrame {
         );
         t4Layout.setVerticalGroup(
             t4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(a4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        menu.add(t4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 190, 100));
+        menu.add(t4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 190, 100));
 
         t5.setBackground(new java.awt.Color(21, 0, 73));
 
@@ -496,13 +500,13 @@ public class HomePage extends javax.swing.JFrame {
             .addComponent(a5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        menu.add(t5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 190, 100));
+        menu.add(t5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, 100));
 
-        a6.setBackground(new java.awt.Color(0, 0, 51));
+        a6.setBackground(new java.awt.Color(21, 0, 73));
 
-        A6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        A6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         A6.setForeground(new java.awt.Color(255, 255, 255));
-        A6.setText("Log out");
+        A6.setText(" Log out");
         A6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 A6MouseClicked(evt);
@@ -520,18 +524,16 @@ public class HomePage extends javax.swing.JFrame {
         a6Layout.setHorizontalGroup(
             a6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(a6Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(A6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(A6)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         a6Layout.setVerticalGroup(
             a6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, a6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(A6))
+            .addComponent(A6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        menu.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 180, -1));
+        menu.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 605, 190, 30));
 
         javax.swing.GroupLayout SideLayout = new javax.swing.GroupLayout(Side);
         Side.setLayout(SideLayout);
@@ -550,8 +552,10 @@ public class HomePage extends javax.swing.JFrame {
         A1.setOpaque(false);
         A1.setLayout(new java.awt.BorderLayout());
 
+        A9.setBackground(new java.awt.Color(31, 25, 60));
+
         A2.setBackground(new java.awt.Color(31, 25, 60));
-        A2.setPreferredSize(new java.awt.Dimension(1200, 799));
+        A2.setPreferredSize(new java.awt.Dimension(1178, 701));
 
         jPanel4.setBackground(new java.awt.Color(31, 25, 60));
         jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 2, new java.awt.Color(255, 255, 255)));
@@ -575,7 +579,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel5.add(jLabel5);
         jLabel5.setBounds(180, 0, 90, 110);
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 280, 110));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 290, 110));
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 51));
         jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 2, new java.awt.Color(255, 255, 255)));
@@ -592,9 +596,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("459");
         jPanel7.add(jLabel10);
-        jLabel10.setBounds(184, 4, 87, 102);
+        jLabel10.setBounds(180, 0, 87, 110);
 
-        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 290, 110));
+        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 290, 110));
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 51));
         jPanel8.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 2, new java.awt.Color(255, 255, 255)));
@@ -611,9 +615,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("599");
         jPanel8.add(jLabel8);
-        jLabel8.setBounds(182, 4, 87, 102);
+        jLabel8.setBounds(180, 0, 87, 110);
 
-        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 290, 110));
+        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 290, 110));
 
         jPanel9.setBackground(new java.awt.Color(0, 0, 51));
         jPanel9.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 2, new java.awt.Color(255, 255, 255)));
@@ -696,33 +700,36 @@ public class HomePage extends javax.swing.JFrame {
         A2Layout.setHorizontalGroup(
             A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(A2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(15, 15, 15)
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(A2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(A2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         A2Layout.setVerticalGroup(
             A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A2Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         A9.setLayer(A2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -731,14 +738,12 @@ public class HomePage extends javax.swing.JFrame {
         A9.setLayout(A9Layout);
         A9Layout.setHorizontalGroup(
             A9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, A9Layout.createSequentialGroup()
-                .addComponent(A2, javax.swing.GroupLayout.DEFAULT_SIZE, 1172, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         A9Layout.setVerticalGroup(
             A9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, A9Layout.createSequentialGroup()
-                .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

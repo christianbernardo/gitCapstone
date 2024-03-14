@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.border.Border;
@@ -211,7 +212,7 @@ public class HomePage extends javax.swing.JFrame {
         Header.setPreferredSize(new java.awt.Dimension(1185, 100));
         Header.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel2.setBackground(new java.awt.Color(21, 0, 73));
 
         jButton7.setBackground(new java.awt.Color(255, 0, 0));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -253,7 +254,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("LIBRARY MANAGEMENT SYSTEM");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-school-50.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/small.png"))); // NOI18N
 
         jPanel6.setBackground(new java.awt.Color(31, 25, 60));
 
@@ -335,6 +336,9 @@ public class HomePage extends javax.swing.JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 a1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                a1MouseReleased(evt);
             }
         });
 
@@ -524,16 +528,15 @@ public class HomePage extends javax.swing.JFrame {
         a6Layout.setHorizontalGroup(
             a6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(a6Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(A6)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(A6, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                .addContainerGap())
         );
         a6Layout.setVerticalGroup(
             a6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(A6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        menu.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 605, 190, 30));
+        menu.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 605, 80, 30));
 
         javax.swing.GroupLayout SideLayout = new javax.swing.GroupLayout(Side);
         Side.setLayout(SideLayout);
@@ -571,7 +574,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel4.setText("TOTAL STUDENTS");
         jLabel4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel5.add(jLabel4);
-        jLabel4.setBounds(10, 20, 160, 35);
+        jLabel4.setBounds(10, 10, 160, 35);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -590,7 +593,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel9.setText("ISSUED BOOKS");
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel7.add(jLabel9);
-        jLabel9.setBounds(10, 20, 134, 30);
+        jLabel9.setBounds(10, 10, 134, 30);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -609,7 +612,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel7.setText("OVERDUE");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel8.add(jLabel7);
-        jLabel7.setBounds(10, 20, 87, 30);
+        jLabel7.setBounds(10, 10, 87, 30);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -635,7 +638,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel2.setText("TOTAL BOOKS");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel9.add(jLabel2);
-        jLabel2.setBounds(10, 20, 126, 30);
+        jLabel2.setBounds(10, 10, 126, 30);
 
         jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 110));
 
@@ -700,36 +703,31 @@ public class HomePage extends javax.swing.JFrame {
         A2Layout.setHorizontalGroup(
             A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(A2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
                         .addComponent(jLabel11)
+                        .addGap(3, 3, 3)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(A2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(A2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         A2Layout.setVerticalGroup(
             A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
                     .addGroup(A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel11))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         A9.setLayer(A2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -796,6 +794,7 @@ public class HomePage extends javax.swing.JFrame {
         DASHBOARD a1=new DASHBOARD();
          A9.removeAll();
          A9.add(a1).setVisible(true);
+         
     }//GEN-LAST:event_a1MouseClicked
 
     private void a1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MousePressed
@@ -836,6 +835,7 @@ public class HomePage extends javax.swing.JFrame {
         MANAGEBOOK a2=new MANAGEBOOK();
         A9.removeAll();
         A9.add(a2).setVisible(true);
+       
     }//GEN-LAST:event_a2MouseClicked
 
     private void A6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseClicked
@@ -892,6 +892,10 @@ public class HomePage extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void a1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a1MouseReleased
 
     /**
      * @param args the command line arguments

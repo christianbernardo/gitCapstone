@@ -34,12 +34,12 @@ public class Login extends javax.swing.JFrame {
         b1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
@@ -131,21 +131,13 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Welcome!");
         Rigth.add(jLabel1);
-        jLabel1.setBounds(90, 30, 240, 70);
+        jLabel1.setBounds(90, 30, 230, 70);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
         jLabel2.setBounds(560, 70, 70, 24);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/real_bgt-removebg-preview.png"))); // NOI18N
-        jLabel7.setToolTipText("");
-        jLabel7.setMaximumSize(new java.awt.Dimension(300, 250));
-        jLabel7.setMinimumSize(new java.awt.Dimension(300, 250));
-        jLabel7.setPreferredSize(new java.awt.Dimension(300, 250));
-        Rigth.add(jLabel7);
-        jLabel7.setBounds(80, 130, 260, 260);
 
         jButton3.setBackground(new java.awt.Color(204, 0, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -162,7 +154,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("LIBRARY MANAGEMENT SYSTEM");
         Rigth.add(jLabel6);
-        jLabel6.setBounds(30, 420, 750, 60);
+        jLabel6.setBounds(30, 410, 750, 60);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-user-32.png"))); // NOI18N
         Rigth.add(jLabel3);
@@ -172,15 +164,13 @@ public class Login extends javax.swing.JFrame {
         Rigth.add(jLabel8);
         jLabel8.setBounds(420, 220, 30, 40);
 
-        jToggleButton1.setBackground(new java.awt.Color(0, 0, 51));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-circled-i-20.png"))); // NOI18N
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        Rigth.add(jToggleButton1);
-        jToggleButton1.setBounds(10, 10, 20, 20);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-circled-i-20.png"))); // NOI18N
+        Rigth.add(jLabel9);
+        jLabel9.setBounds(10, 10, 20, 20);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1710378165978.png"))); // NOI18N
+        Rigth.add(jLabel7);
+        jLabel7.setBounds(80, 100, 256, 274);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
@@ -234,10 +224,6 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_u1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected())
         {
@@ -283,9 +269,9 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_b1KeyPressed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        JOptionPane.showMessageDialog(this, "Aropo,Kristine\nBernardo,Christian\nCastro,Mark Ivan\nCastro,Raphael\nCruz,Alden\nGalvez,Mitchie\nGarcia,Kyron\nLacson,Tiffany\nPerlas,Angelo");
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,8 +321,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPasswordField p1;
     private javax.swing.JTextField u1;
     // End of variables declaration//GEN-END:variables

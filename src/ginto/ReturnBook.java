@@ -256,7 +256,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton7);
-        jButton7.setBounds(360, 200, 72, 22);
+        jButton7.setBounds(360, 200, 72, 23);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -278,7 +278,7 @@ public class ReturnBook extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(180, 530, 124, 28);
+        jButton1.setBounds(180, 530, 124, 29);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -442,7 +442,7 @@ public class ReturnBook extends javax.swing.JFrame {
         txtDueDate.setBounds(20, 530, 430, 30);
 
         jPanel2.add(jPanel7);
-        jPanel7.setBounds(470, 0, 470, 610);
+        jPanel7.setBounds(460, 0, 480, 610);
 
         txtStudentID.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentID.setForeground(new java.awt.Color(255, 255, 255));
@@ -494,9 +494,8 @@ public class ReturnBook extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

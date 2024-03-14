@@ -185,7 +185,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("TOTAL STUDENTS");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,7 +202,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ISSUED BOOKS");
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 30));
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 30));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,7 +219,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("OVERDUE");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 30));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,7 +239,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jLabel1.setText("TOTAL BOOKS");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(10, 20, 126, 30);
+        jLabel1.setBounds(10, 10, 126, 30);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -289,6 +289,7 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         jTable1.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jTable1.setShowGrid(true);
+        jTable1.setSurrendersFocusOnKeystroke(true);
         jTable1.getTableHeader().setResizingAllowed(false);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable1);
@@ -312,36 +313,30 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
         A1Layout.setHorizontalGroup(
             A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(A1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(A1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(A1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         A1Layout.setVerticalGroup(
             A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(A1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5))
+                .addGroup(A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         getContentPane().add(A1, java.awt.BorderLayout.CENTER);

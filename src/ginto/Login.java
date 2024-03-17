@@ -40,6 +40,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        Change = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
@@ -137,7 +138,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 24);
+        jLabel2.setBounds(560, 70, 70, 23);
 
         jButton3.setBackground(new java.awt.Color(204, 0, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -171,6 +172,21 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1710378165978.png"))); // NOI18N
         Rigth.add(jLabel7);
         jLabel7.setBounds(80, 100, 256, 274);
+
+        Change.setForeground(new java.awt.Color(255, 255, 255));
+        Change.setText("Forgot/Change Password");
+        Change.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ChangeMouseClicked(evt);
+            }
+        });
+        Change.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ChangeKeyPressed(evt);
+            }
+        });
+        Rigth.add(Change);
+        Change.setBounds(530, 330, 140, 16);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
@@ -273,6 +289,17 @@ public class Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void ChangeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChangeKeyPressed
+
+         
+    }//GEN-LAST:event_ChangeKeyPressed
+
+    private void ChangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChangeMouseClicked
+        Forgot Forgot=new Forgot();
+         Change.removeAll();
+         Change.add(Forgot).setVisible(true);
+    }//GEN-LAST:event_ChangeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -309,6 +336,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Change;
     private javax.swing.JPanel Rigth;
     private javax.swing.JButton b1;
     private javax.swing.JButton jButton3;

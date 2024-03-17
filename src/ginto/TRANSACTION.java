@@ -49,6 +49,11 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
     
     
     
+   
+    
+    
+    
+    
     
      public void Connect()
      {
@@ -61,7 +66,7 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
             Logger.getLogger(TRANSACTION.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-     private void transactiontableupdate()
+     public void transactiontableupdate()
     {
         int CC;
         try {

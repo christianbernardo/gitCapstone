@@ -3,6 +3,7 @@ package ginto;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Rectangle;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
@@ -699,6 +700,10 @@ public class MANAGEBOOK extends javax.swing.JInternalFrame {
             txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
+            int lastRow = jTable1.convertRowIndexToView(jTable1.getRowCount()- 1);
+            jTable1.setRowSelectionInterval(lastRow, lastRow);
+            Rectangle cellrect = jTable1.getCellRect (lastRow, 0, true);
+            jTable1.scrollRectToVisible(cellrect);
         }catch (SQLException ex) {
             Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
 

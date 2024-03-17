@@ -732,8 +732,7 @@ public class ReturnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        String searchString = txtSearch.getText();
-        search(searchString);
+        
     }//GEN-LAST:event_txtSearchKeyReleased
       
     /**

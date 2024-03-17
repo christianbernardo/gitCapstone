@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+
+
 public class IssueBook extends javax.swing.JFrame {
 
     
@@ -19,6 +21,9 @@ public class IssueBook extends javax.swing.JFrame {
         Connect();
         studenttable_update();
         booktable_update();
+        
+        
+    
     }
     
     Connection con;
@@ -26,7 +31,7 @@ public class IssueBook extends javax.swing.JFrame {
     ResultSet Rs;
     
     
-    
+  
     
     
     public void Connect()
@@ -848,6 +853,9 @@ public class IssueBook extends javax.swing.JFrame {
             pst.executeUpdate();   
             
             JOptionPane.showMessageDialog(null, "Book Issued");
+            TRANSACTION transaction = new TRANSACTION();
+            transaction.transactiontableupdate();
+            
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -941,8 +949,7 @@ public class IssueBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        String searchString = txtSearch.getText();
-        search(searchString);
+        
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void txtSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch1ActionPerformed

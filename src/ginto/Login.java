@@ -295,9 +295,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ChangeKeyPressed
 
     private void ChangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChangeMouseClicked
-        Forgot Forgot=new Forgot();
-         Change.removeAll();
-         Change.add(Forgot).setVisible(true);
+       
     }//GEN-LAST:event_ChangeMouseClicked
 
     /**

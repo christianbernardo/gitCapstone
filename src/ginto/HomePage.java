@@ -238,7 +238,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton7)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         Header.add(jPanel2, java.awt.BorderLayout.LINE_END);
@@ -262,7 +262,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1092, Short.MAX_VALUE)
+            .addGap(0, 1088, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -749,7 +749,7 @@ public class HomePage extends javax.swing.JFrame {
 
         getContentPane().add(A1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(1368, 801));
+        setSize(new java.awt.Dimension(1364, 769));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

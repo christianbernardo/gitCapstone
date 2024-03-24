@@ -1,27 +1,163 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ginto;
 
-/**
- *
- * @author Camillebernardo
- */
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Rectangle;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
+import  java.sql.*;
+import java.text.MessageFormat;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.OrientationRequested;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
+
+
+
+
 public class BOARD extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BOARD
-     */
+    
     public BOARD() {
         initComponents();
+        Connect();
+        table_update();
+        setRecordsTable();
     }
+    
+    Connection con;
+    PreparedStatement pst;
+    DefaultTableModel model;
+    
+    
+    
+    public void Connect()
+     {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/data","root","");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BOARD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(BOARD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
+    
+    private void table_update()
+    {
+        int CC;
+        try {
+            
+            pst = con.prepareStatement("SELECT * FROM students");
+            ResultSet Rs = pst.executeQuery();
+            
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DFT.setRowCount(0);
+            
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                
+                for (int ii = 1; ii <= CC; ii++) {
+                  
+                    v2.add(Rs.getString("studentid"));
+                    v2.add(Rs.getString("studentname"));
+                    v2.add(Rs.getString("strand"));
+                    v2.add(Rs.getString("gradeandsection"));
+                }
+           DFT.addRow(v2);
+            }
+        }catch (Exception e) {
+            
+            
+        
+    }
+    }
+    
+     public void setRecordsTable() 
+    {
+        try {
+            pst = con.prepareStatement("select * from students");
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()) {
+                String StudentID = rs.getString("studentid");
+                String StudentName = rs.getString("studentname");
+                String Strand = rs.getString("strand");
+                String GradeAndSection = rs.getString("gradeandsection");
+                
+                Object [] obj = {StudentID,StudentName,Strand,GradeAndSection};
+                model =  (DefaultTableModel)jTable1.getModel();
+                model.addRow(obj);
+            }
+        }catch (Exception e) {
+            
+    }
+    }
+     
+     public void Delete(){
+        String sql="delete from issue where Student_ID=?";
+        
+        try{
+            pst=con.prepareStatement(sql);
+            pst.setString(1, txtStudentID.getText());
+            pst.execute();        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+     
+     public void ReturnUpdate(){
+         String sql= "insert into returnbook(student_id,student_name,strand,grade_section,book_id,book_name,book_author,genre,book_quantity,issue_date,due_date,return_date,status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try{
+            pst= con.prepareStatement(sql);
+            pst.setString(1, txtStudentID.getText());
+            pst.setString(2, txtStudentName.getText());
+            pst.setString(3, txtStrand.getSelectedItem().toString());
+            pst.setString(4, txtGrSec.getText());
+            pst.setString(5, txtBookID.getText());
+            pst.setString(6, txtBookName.getText());
+            pst.setString(7, txtAuthor.getText());
+            pst.setString(8, txtGenre.getSelectedItem().toString());
+            pst.setString(9, txtQuantity.getText());
+            pst.setString(10, ((JTextField)txtIssueDate.getDateEditor().getUiComponent()).getText());
+            pst.setString(11, ((JTextField)txtDueDate.getDateEditor().getUiComponent()).getText());
+            pst.setString(12, ((JTextField)txtReturnDate.getDateEditor().getUiComponent()).getText());
+            pst.setString(13, "Returned");
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Book Returned");
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+     
+     public void search(String str) {
+        model = (DefaultTableModel) jTable1.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        jTable1.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter("(?i)" + str));
+    }
+        
+    public void filter(String str) {
+           model = (DefaultTableModel) jTable1.getModel();
+           TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+           jTable1.setRowSorter(trs);
+           trs.setRowFilter(RowFilter.regexFilter(str));
+           }
+
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -2326,7 +2462,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBookIDActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -2396,7 +2532,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_editbutton1MouseExited
 
     private void editbutton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbutton1MousePressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_editbutton1MousePressed
 
     private void deletebutton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebutton1MouseClicked
@@ -2481,7 +2617,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_txtupdate1MouseEntered
 
     private void txtupdate1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtupdate1MouseExited
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtupdate1MouseExited
 
     private void txtSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch1ActionPerformed
@@ -2516,7 +2652,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2KeyReleased
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        transactiontableupdate();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
@@ -2587,11 +2723,11 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void A6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseExited
-        resetColor(a6);
+        
     }//GEN-LAST:event_A6MouseExited
 
     private void A6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseEntered
-        setColor(a6);
+
     }//GEN-LAST:event_A6MouseEntered
 
     private void A6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseClicked
@@ -2603,60 +2739,54 @@ public class BOARD extends javax.swing.JFrame {
 
     private void a5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MousePressed
 
-        a7.setText("RECORDS");
+        
     }//GEN-LAST:event_a5MousePressed
 
     private void a5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MouseExited
-        resetColor(t5);
+        
     }//GEN-LAST:event_a5MouseExited
 
     private void a5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MouseEntered
-        setColor(t5);
+        
     }//GEN-LAST:event_a5MouseEntered
 
     private void a5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MouseClicked
-        RECORDS a5=new RECORDS();
-        A9.removeAll();
-        A9.add(a5).setVisible(true);
+       
     }//GEN-LAST:event_a5MouseClicked
 
     private void a4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MousePressed
 
-        a7.setText("TRANSACTION");
+       
     }//GEN-LAST:event_a4MousePressed
 
     private void a4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MouseExited
-        resetColor(t4);
+      
     }//GEN-LAST:event_a4MouseExited
 
     private void a4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MouseEntered
-        setColor(t4);
+       
     }//GEN-LAST:event_a4MouseEntered
 
     private void a4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MouseClicked
 
-        TRANSACTION a4=new TRANSACTION();
-        A9.removeAll();
-        A9.add(a4).setVisible(true);
+       
     }//GEN-LAST:event_a4MouseClicked
 
     private void a3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MousePressed
 
-        a7.setText("MANAGE STUDENTS");
+        
     }//GEN-LAST:event_a3MousePressed
 
     private void a3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseExited
-        resetColor(t3);
+       
     }//GEN-LAST:event_a3MouseExited
 
     private void a3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseEntered
-        setColor(t3);
+      
     }//GEN-LAST:event_a3MouseEntered
 
     private void a3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseClicked
-        MANAGESTUDENT a3=new MANAGESTUDENT();
-        A9.removeAll();
-        A9.add(a3).setVisible(true);
+        
     }//GEN-LAST:event_a3MouseClicked
 
     private void a2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseReleased
@@ -2665,30 +2795,27 @@ public class BOARD extends javax.swing.JFrame {
 
     private void a2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MousePressed
 
-        a7.setText("MANAGE BOOKS");
+        
     }//GEN-LAST:event_a2MousePressed
 
     private void a2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseExited
-        resetColor(t2);
+       
     }//GEN-LAST:event_a2MouseExited
 
     private void a2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseEntered
-        setColor(t2);
+       
     }//GEN-LAST:event_a2MouseEntered
 
     private void a2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseClicked
-        MANAGEBOOK a2=new MANAGEBOOK();
-        A9.removeAll();
-        A9.add(a2).setVisible(true);
+       
     }//GEN-LAST:event_a2MouseClicked
 
     private void a1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseReleased
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_a1MouseReleased
 
     private void a1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MousePressed
-        resetColor(t1);
-        a7.setText("DASHBOARD");
+        
     }//GEN-LAST:event_a1MousePressed
 
     private void a1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseExited
@@ -2696,29 +2823,27 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_a1MouseExited
 
     private void a1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseEntered
-        setColor(t1);
+        
     }//GEN-LAST:event_a1MouseEntered
 
     private void a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseClicked
-        DASHBOARD a1=new DASHBOARD();
-        A9.removeAll();
-        A9.add(a1).setVisible(true);
+     
     }//GEN-LAST:event_a1MouseClicked
 
     private void txtStudentID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentID1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtStudentID1ActionPerformed
 
     private void txtStudentName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentName1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtStudentName1ActionPerformed
 
     private void txtGrSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrSecActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtGrSecActionPerformed
 
     private void txtStrand1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrand1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtStrand1ActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
@@ -2733,23 +2858,23 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_Search2Search1ActionPerformed
 
     private void txtBookID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookID1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtBookID1ActionPerformed
 
     private void txtBookName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookName1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtBookName1ActionPerformed
 
     private void txtAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAuthorActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtAuthorActionPerformed
 
     private void txtQuantity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantity1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtQuantity1ActionPerformed
 
     private void txtGenre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenre1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtGenre1ActionPerformed
 
     private void issuebook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebook1ActionPerformed
@@ -2758,12 +2883,12 @@ public class BOARD extends javax.swing.JFrame {
             pst= con.prepareStatement(sql);
             pst.setString(1, txtStudentID.getText());
             pst.setString(2, txtStudentName.getText());
-            pst.setString(3, txtStrand.getText());
+            pst.setString(3, txtStrand.getSelectedItem().toString());
             pst.setString(4, txtGrSec.getText());
             pst.setString(5, txtBookID.getText());
             pst.setString(6, txtBookName.getText());
             pst.setString(7, txtAuthor.getText());
-            pst.setString(8, txtGenre.getText());
+            pst.setString(8, txtGenre.getSelectedItem().toString());
             pst.setString(9, txtQuantity.getText());
             pst.setString(10, ((JTextField)txtIssueDate.getDateEditor().getUiComponent()).getText());
             pst.setString(11, ((JTextField)txtDueDate.getDateEditor().getUiComponent()).getText());
@@ -2788,23 +2913,23 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void txtStudentID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentID2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtStudentID2ActionPerformed
 
     private void txtStudentName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentName2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtStudentName2ActionPerformed
 
     private void txtStrand2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrand2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtStrand2ActionPerformed
 
     private void txtGrSec1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrSec1ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtGrSec1ActionPerformed
 
     private void txtIssueDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIssueDate1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtIssueDate1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -2814,27 +2939,27 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void txtBookName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookName2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtBookName2ActionPerformed
 
     private void txtAuthor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAuthor1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtAuthor1ActionPerformed
 
     private void txtQuantity2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantity2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtQuantity2ActionPerformed
 
     private void txtBookID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookID2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtBookID2ActionPerformed
 
     private void txtGenre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenre2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtGenre2ActionPerformed
 
     private void txtDueDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDueDate1ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtDueDate1ActionPerformed
 
     private void jTable5jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5jTable1MouseClicked
@@ -2854,11 +2979,11 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable6MouseClicked
 
     private void txtSearch3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch3ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtSearch3ActionPerformed
 
     private void txtSearch3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch3KeyReleased
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtSearch3KeyReleased
 
     private void findreturndetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findreturndetailsMouseClicked

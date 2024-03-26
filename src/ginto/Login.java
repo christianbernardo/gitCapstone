@@ -132,7 +132,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Welcome!");
         Rigth.add(jLabel1);
-        jLabel1.setBounds(90, 30, 230, 70);
+        jLabel1.setBounds(90, 30, 240, 70);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

@@ -242,6 +242,7 @@ public class BOARD extends javax.swing.JFrame {
         txtedit1 = new javax.swing.JLabel();
         txtupdate1 = new javax.swing.JLabel();
         txtremove1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
@@ -256,8 +257,9 @@ public class BOARD extends javax.swing.JFrame {
         jComboBox4 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         transactiontable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        issue = new javax.swing.JButton();
+        returns = new javax.swing.JButton();
+        a8 = new javax.swing.JLabel();
         records = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jComboBox5 = new javax.swing.JComboBox<>();
@@ -266,6 +268,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        a9 = new javax.swing.JLabel();
         issuebook = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
@@ -307,12 +310,14 @@ public class BOARD extends javax.swing.JFrame {
         jLabel70 = new javax.swing.JLabel();
         txtSearch2 = new javax.swing.JTextField();
         jComboBox6 = new javax.swing.JComboBox<>();
+        a10 = new javax.swing.JLabel();
         book = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
         jLabel71 = new javax.swing.JLabel();
         txtSearch3 = new javax.swing.JTextField();
         jComboBox7 = new javax.swing.JComboBox<>();
+        a11 = new javax.swing.JLabel();
         returnbook = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
@@ -351,21 +356,22 @@ public class BOARD extends javax.swing.JFrame {
         findreturndetails = new javax.swing.JTable();
         txtSearch4 = new javax.swing.JTextField();
         jComboBox8 = new javax.swing.JComboBox<>();
+        a12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         t1 = new javax.swing.JPanel();
-        a1 = new javax.swing.JLabel();
+        dash = new javax.swing.JLabel();
         t2 = new javax.swing.JPanel();
-        a2 = new javax.swing.JLabel();
+        books = new javax.swing.JLabel();
         t3 = new javax.swing.JPanel();
-        a3 = new javax.swing.JLabel();
+        students = new javax.swing.JLabel();
         t4 = new javax.swing.JPanel();
-        a4 = new javax.swing.JLabel();
+        trans = new javax.swing.JLabel();
         t5 = new javax.swing.JPanel();
-        a5 = new javax.swing.JLabel();
+        rec = new javax.swing.JLabel();
         a6 = new javax.swing.JPanel();
         A6 = new javax.swing.JLabel();
 
@@ -506,10 +512,10 @@ public class BOARD extends javax.swing.JFrame {
 
         dashboard.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1080, 480));
 
-        a7.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        a7.setFont(new java.awt.Font("Century Gothic", 1, 50)); // NOI18N
         a7.setForeground(new java.awt.Color(255, 255, 255));
         a7.setText("DASHBOARD");
-        dashboard.add(a7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 425, -1));
+        dashboard.add(a7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 425, -1));
 
         jButton7.setBackground(new java.awt.Color(255, 0, 0));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -520,7 +526,7 @@ public class BOARD extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        dashboard.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, -1, -1));
+        dashboard.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, -1, -1));
 
         jTabbedPane1.addTab("DASHBOARD", dashboard);
 
@@ -531,20 +537,20 @@ public class BOARD extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-books-90.png"))); // NOI18N
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Add a Book");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 110, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Book ID :");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 60, 20));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 60, 20));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-contact-28 (1).png"))); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 30, 40));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 30, 40));
 
         txtBookID.setBackground(new java.awt.Color(31, 25, 60));
         txtBookID.setForeground(new java.awt.Color(255, 255, 255));
@@ -554,53 +560,53 @@ public class BOARD extends javax.swing.JFrame {
                 txtBookIDActionPerformed(evt);
             }
         });
-        jPanel4.add(txtBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 290, 40));
+        jPanel4.add(txtBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 290, 40));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-moleskine-28 (1).png"))); // NOI18N
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 40));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 40));
 
         txtBookName.setBackground(new java.awt.Color(31, 25, 60));
         txtBookName.setForeground(new java.awt.Color(255, 255, 255));
         txtBookName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jPanel4.add(txtBookName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 290, 40));
+        jPanel4.add(txtBookName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 290, 40));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Book Name :");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 80, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 80, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-collaborator-28 (1).png"))); // NOI18N
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 40));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, 40));
 
         txtBookAuthor.setBackground(new java.awt.Color(31, 25, 60));
         txtBookAuthor.setForeground(new java.awt.Color(255, 255, 255));
         txtBookAuthor.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jPanel4.add(txtBookAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 290, 40));
+        jPanel4.add(txtBookAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 290, 40));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Book Author :");
-        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 90, -1));
+        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 90, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Genre :");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 50, -1));
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 50, -1));
 
         txtGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
         txtGenre.setPreferredSize(new java.awt.Dimension(129, 35));
-        jPanel4.add(txtGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 290, 40));
+        jPanel4.add(txtGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 240, 40));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-book-28.png"))); // NOI18N
-        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, 40));
+        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, 40));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-unit-28 (1).png"))); // NOI18N
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, 40));
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, -1, 40));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Quantity :");
-        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 70, -1));
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 70, -1));
 
         txtQuantity.setBackground(new java.awt.Color(31, 25, 60));
         txtQuantity.setForeground(new java.awt.Color(255, 255, 255));
@@ -610,7 +616,7 @@ public class BOARD extends javax.swing.JFrame {
                 txtQuantityActionPerformed(evt);
             }
         });
-        jPanel4.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 290, 40));
+        jPanel4.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, 290, 40));
 
         addbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
         addbutton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -624,7 +630,7 @@ public class BOARD extends javax.swing.JFrame {
                 addbuttonMouseExited(evt);
             }
         });
-        jPanel4.add(addbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, -1, -1));
+        jPanel4.add(addbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, -1, -1));
 
         editbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
         editbutton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -638,7 +644,7 @@ public class BOARD extends javax.swing.JFrame {
                 editbuttonMouseExited(evt);
             }
         });
-        jPanel4.add(editbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
+        jPanel4.add(editbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 640, -1, -1));
 
         deletebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
         deletebutton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -652,7 +658,7 @@ public class BOARD extends javax.swing.JFrame {
                 deletebuttonMouseExited(evt);
             }
         });
-        jPanel4.add(deletebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 50, 50));
+        jPanel4.add(deletebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, 50, 50));
         deletebutton.setVisible(false);
 
         updatebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
@@ -668,48 +674,48 @@ public class BOARD extends javax.swing.JFrame {
                 updatebuttonMouseExited(evt);
             }
         });
-        jPanel4.add(updatebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, -1, -1));
+        jPanel4.add(updatebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, -1, -1));
         updatebutton.setVisible(false);
 
         textadd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         textadd.setForeground(new java.awt.Color(255, 255, 255));
         textadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textadd.setText("ADD");
-        jPanel4.add(textadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 50, -1));
+        jPanel4.add(textadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 700, 50, -1));
         textadd.setVisible(false);
 
         txtedit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtedit.setForeground(new java.awt.Color(255, 255, 255));
         txtedit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtedit.setText("EDIT");
-        jPanel4.add(txtedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 630, 50, -1));
+        jPanel4.add(txtedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 700, 50, -1));
         txtedit.setVisible(false);
 
         txtremove.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtremove.setForeground(new java.awt.Color(255, 255, 255));
         txtremove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtremove.setText("DELETE");
-        jPanel4.add(txtremove, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 630, 50, -1));
+        jPanel4.add(txtremove, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 50, -1));
         txtremove.setVisible(false);
 
         txtupdate.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtupdate.setForeground(new java.awt.Color(255, 255, 255));
         txtupdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtupdate.setText("UPDATE");
-        jPanel4.add(txtupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, -1, -1));
+        jPanel4.add(txtupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 700, -1, -1));
         txtupdate.setVisible(false);
 
-        managebook.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 710));
+        managebook.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 810));
 
         jPanel10.setBackground(new java.awt.Color(31, 25, 60));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 204));
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-book-50.png"))); // NOI18N
         jLabel25.setText(" Manage Books");
         jLabel25.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 255, 255)));
-        jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 340, 90));
+        jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 400, 90));
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
         jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
@@ -769,9 +775,9 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTable2);
 
-        jPanel10.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 730, 500));
+        jPanel10.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 730, 600));
 
-        managebook.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 770, 710));
+        managebook.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 770, 810));
 
         jTabbedPane1.addTab("MANAGEBOOK", managebook);
 
@@ -782,20 +788,20 @@ public class BOARD extends javax.swing.JFrame {
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-student-90.png"))); // NOI18N
-        jPanel11.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        jPanel11.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         jLabel28.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Add a Student");
-        jPanel11.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+        jPanel11.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Student ID :");
-        jPanel11.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 70, 20));
+        jPanel11.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 20));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-security-pass-32.png"))); // NOI18N
-        jPanel11.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 30, 40));
+        jPanel11.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 30, 40));
 
         txtStudentID.setBackground(new java.awt.Color(31, 25, 60));
         txtStudentID.setForeground(new java.awt.Color(255, 255, 255));
@@ -805,42 +811,42 @@ public class BOARD extends javax.swing.JFrame {
                 txtStudentIDActionPerformed(evt);
             }
         });
-        jPanel11.add(txtStudentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 290, 40));
+        jPanel11.add(txtStudentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 290, 40));
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-person-28.png"))); // NOI18N
-        jPanel11.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 40));
+        jPanel11.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 40));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Student Name :");
-        jPanel11.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 90, -1));
+        jPanel11.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 90, -1));
 
         txtStudentName.setBackground(new java.awt.Color(31, 25, 60));
         txtStudentName.setForeground(new java.awt.Color(255, 255, 255));
         txtStudentName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jPanel11.add(txtStudentName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 290, 40));
+        jPanel11.add(txtStudentName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 290, 40));
 
         txtStrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "ICT", "HUMSS" }));
-        jPanel11.add(txtStrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 290, 40));
+        jPanel11.add(txtStrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 250, 40));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-security-pass-28.png"))); // NOI18N
-        jPanel11.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 40));
+        jPanel11.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, 40));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("Strand ;");
-        jPanel11.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 50, -1));
+        jPanel11.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 50, -1));
 
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-user-groups-28.png"))); // NOI18N
-        jPanel11.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 30, 40));
+        jPanel11.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 30, 40));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("Gr. & Sec. :");
-        jPanel11.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 70, -1));
+        jPanel11.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 70, -1));
 
         txtGrandSec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "12 JOBS", "12 GATES", "12 DELL" }));
-        jPanel11.add(txtGrandSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 290, 40));
+        jPanel11.add(txtGrandSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 250, 40));
 
         addbutton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         addbutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
@@ -856,7 +862,7 @@ public class BOARD extends javax.swing.JFrame {
                 addbutton1MouseExited(evt);
             }
         });
-        jPanel11.add(addbutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, 50));
+        jPanel11.add(addbutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, -1, 50));
 
         editbutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
         editbutton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -873,7 +879,7 @@ public class BOARD extends javax.swing.JFrame {
                 editbutton1MousePressed(evt);
             }
         });
-        jPanel11.add(editbutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, -1, 50));
+        jPanel11.add(editbutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, 50));
 
         deletebutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
         deletebutton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -887,7 +893,7 @@ public class BOARD extends javax.swing.JFrame {
                 deletebutton1MouseExited(evt);
             }
         });
-        jPanel11.add(deletebutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, -1, 50));
+        jPanel11.add(deletebutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, -1, 50));
         deletebutton.setVisible(false);
 
         updatebutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
@@ -902,21 +908,21 @@ public class BOARD extends javax.swing.JFrame {
                 updatebutton1MouseExited(evt);
             }
         });
-        jPanel11.add(updatebutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 50, 50));
+        jPanel11.add(updatebutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, 50, 50));
         updatebutton.setVisible(false);
 
         textadd1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         textadd1.setForeground(new java.awt.Color(255, 255, 255));
         textadd1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textadd1.setText("ADD");
-        jPanel11.add(textadd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 50, -1));
+        jPanel11.add(textadd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 50, -1));
         textadd.setVisible(false);
 
         txtedit1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtedit1.setForeground(new java.awt.Color(255, 255, 255));
         txtedit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtedit1.setText("EDIT");
-        jPanel11.add(txtedit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, 50, -1));
+        jPanel11.add(txtedit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 630, 50, -1));
         txtedit.setVisible(false);
 
         txtupdate1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -931,27 +937,30 @@ public class BOARD extends javax.swing.JFrame {
                 txtupdate1MouseExited(evt);
             }
         });
-        jPanel11.add(txtupdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 50, -1));
+        jPanel11.add(txtupdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, 50, -1));
         txtupdate.setVisible(false);
 
         txtremove1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtremove1.setForeground(new java.awt.Color(255, 255, 255));
         txtremove1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtremove1.setText("DELETE");
-        jPanel11.add(txtremove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 50, -1));
+        jPanel11.add(txtremove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 630, 50, -1));
         txtremove.setVisible(false);
 
-        managestudent.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 710));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1.png"))); // NOI18N
+        jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 20, -1));
+
+        managestudent.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 810));
 
         jPanel12.setBackground(new java.awt.Color(31, 25, 60));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 204));
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-manage-80.png"))); // NOI18N
         jLabel37.setText("Manage Student");
         jLabel37.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 255, 255)));
-        jPanel12.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, 90));
+        jPanel12.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, 90));
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
         jPanel12.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
@@ -1016,9 +1025,9 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jTable3);
 
-        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 730, 500));
+        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 730, 600));
 
-        managestudent.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 770, 710));
+        managestudent.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 770, 810));
 
         jTabbedPane1.addTab("MANAGESTUDENT", managestudent);
 
@@ -1026,7 +1035,7 @@ public class BOARD extends javax.swing.JFrame {
         transaction.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
-        transaction.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        transaction.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jTextField2.setBackground(new java.awt.Color(31, 25, 60));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1042,7 +1051,7 @@ public class BOARD extends javax.swing.JFrame {
                 jTextField2KeyReleased(evt);
             }
         });
-        transaction.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 270, 30));
+        transaction.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 270, 30));
 
         jButton3.setText("REFRESH");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -1050,7 +1059,7 @@ public class BOARD extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        transaction.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, 30));
+        transaction.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, 30));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "JOBS", "GATES", "ROBERTS", "DELL" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
@@ -1058,7 +1067,7 @@ public class BOARD extends javax.swing.JFrame {
                 jComboBox4ActionPerformed(evt);
             }
         });
-        transaction.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 150, 30));
+        transaction.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 150, 30));
 
         transactiontable.setAutoCreateRowSorter(true);
         transactiontable.setBackground(new java.awt.Color(255, 255, 255));
@@ -1092,39 +1101,44 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(transactiontable);
 
-        transaction.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1080, 550));
+        transaction.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1080, 550));
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ISSUE BOOK");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        issue.setBackground(new java.awt.Color(255, 0, 0));
+        issue.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        issue.setForeground(new java.awt.Color(255, 255, 255));
+        issue.setText("ISSUE BOOK");
+        issue.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                issueMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        issue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                issueActionPerformed(evt);
             }
         });
-        transaction.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 250, 40));
+        transaction.add(issue, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, 250, 40));
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("RETURN BOOK");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        returns.setBackground(new java.awt.Color(255, 0, 0));
+        returns.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        returns.setForeground(new java.awt.Color(255, 255, 255));
+        returns.setText("RETURN BOOK");
+        returns.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                returnsMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        returns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                returnsActionPerformed(evt);
             }
         });
-        transaction.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 620, 250, 40));
+        transaction.add(returns, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 720, 250, 40));
+
+        a8.setFont(new java.awt.Font("Century Gothic", 1, 50)); // NOI18N
+        a8.setForeground(new java.awt.Color(255, 255, 255));
+        a8.setText("TRANSACTION");
+        transaction.add(a8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 425, -1));
 
         jTabbedPane1.addTab("TRANSACTION", transaction);
 
@@ -1137,10 +1151,10 @@ public class BOARD extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        records.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, -1, 20));
+        records.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 120, -1, 20));
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT" }));
-        records.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 170, 30));
+        records.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 170, 30));
 
         jTextField3.setBackground(new java.awt.Color(31, 25, 60));
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1156,7 +1170,7 @@ public class BOARD extends javax.swing.JFrame {
                 jTextField3KeyReleased(evt);
             }
         });
-        records.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 290, 30));
+        records.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 290, 30));
 
         jCheckBox1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-select-18.png"))); // NOI18N
         jCheckBox1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-select-18 (1).png"))); // NOI18N
@@ -1165,10 +1179,10 @@ public class BOARD extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        records.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, 20));
+        records.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, -1, 20));
 
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
-        records.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 30));
+        records.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 30));
 
         jTable4.setBackground(new java.awt.Color(255, 255, 255));
         jTable4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1197,7 +1211,12 @@ public class BOARD extends javax.swing.JFrame {
         jTable4.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable4);
 
-        records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1080, 600));
+        records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1080, 600));
+
+        a9.setFont(new java.awt.Font("Century Gothic", 1, 50)); // NOI18N
+        a9.setForeground(new java.awt.Color(255, 255, 255));
+        a9.setText("RECORDS");
+        records.add(a9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 425, -1));
 
         jTabbedPane1.addTab("RECORDS", records);
 
@@ -1281,7 +1300,12 @@ public class BOARD extends javax.swing.JFrame {
         Search.setBackground(new java.awt.Color(255, 0, 0));
         Search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Search.setForeground(new java.awt.Color(255, 255, 255));
-        Search.setText("Search");
+        Search.setText("Find");
+        Search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SearchMouseClicked(evt);
+            }
+        });
         Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchActionPerformed(evt);
@@ -1344,10 +1368,10 @@ public class BOARD extends javax.swing.JFrame {
                 .addComponent(jLabel42)
                 .addGap(4, 4, 4)
                 .addComponent(txtGrSec, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
 
-        issuebook.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 350, 640));
+        issuebook.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 350, 780));
 
         jPanel18.setBackground(new java.awt.Color(0, 0, 96));
         jPanel18.setLayout(null);
@@ -1362,14 +1386,19 @@ public class BOARD extends javax.swing.JFrame {
         Search2.setBackground(new java.awt.Color(255, 0, 0));
         Search2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Search2.setForeground(new java.awt.Color(255, 255, 255));
-        Search2.setText("Search");
+        Search2.setText("Find");
+        Search2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Search2MouseClicked(evt);
+            }
+        });
         Search2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Search2Search1ActionPerformed(evt);
             }
         });
         jPanel18.add(Search2);
-        Search2.setBounds(240, 180, 72, 22);
+        Search2.setBounds(260, 160, 72, 22);
 
         jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -1475,7 +1504,7 @@ public class BOARD extends javax.swing.JFrame {
         jPanel18.add(txtGenre1);
         txtGenre1.setBounds(10, 390, 330, 35);
 
-        issuebook.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 350, 640));
+        issuebook.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 350, 780));
 
         jPanel20.setBackground(new java.awt.Color(0, 0, 81));
 
@@ -1568,10 +1597,10 @@ public class BOARD extends javax.swing.JFrame {
                 .addComponent(txtDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(issuebook1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(357, Short.MAX_VALUE))
         );
 
-        issuebook.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 350, 640));
+        issuebook.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 350, 780));
 
         jTabbedPane1.addTab("ISSUEBOOK", issuebook);
 
@@ -1611,10 +1640,10 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(jTable5);
 
-        student.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1080, 600));
+        student.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1070, 650));
 
         jLabel70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
-        student.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        student.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         txtSearch2.setBackground(new java.awt.Color(31, 25, 60));
         txtSearch2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1634,10 +1663,15 @@ public class BOARD extends javax.swing.JFrame {
                 txtSearch2KeyReleased(evt);
             }
         });
-        student.add(txtSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 320, 30));
+        student.add(txtSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 320, 30));
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        student.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 160, 30));
+        student.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 160, 30));
+
+        a10.setFont(new java.awt.Font("Century Gothic", 1, 50)); // NOI18N
+        a10.setForeground(new java.awt.Color(255, 255, 255));
+        a10.setText("STUDENT LIST");
+        student.add(a10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 425, 60));
 
         jTabbedPane1.addTab("STUDENT", student);
 
@@ -1676,10 +1710,10 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(jTable6);
 
-        book.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1080, 600));
+        book.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1070, 650));
 
         jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
-        book.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        book.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         txtSearch3.setBackground(new java.awt.Color(31, 25, 60));
         txtSearch3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1699,10 +1733,15 @@ public class BOARD extends javax.swing.JFrame {
                 txtSearch3KeyReleased(evt);
             }
         });
-        book.add(txtSearch3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 250, 30));
+        book.add(txtSearch3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 250, 30));
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        book.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 150, 30));
+        book.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 150, 30));
+
+        a11.setFont(new java.awt.Font("Century Gothic", 1, 50)); // NOI18N
+        a11.setForeground(new java.awt.Color(255, 255, 255));
+        a11.setText("BOOK LIST");
+        book.add(a11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 425, 60));
 
         jTabbedPane1.addTab("BOOK", book);
 
@@ -1731,7 +1770,12 @@ public class BOARD extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(255, 0, 0));
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Search");
+        jButton8.setText("Find");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -1831,7 +1875,7 @@ public class BOARD extends javax.swing.JFrame {
         jPanel6.add(jButton5);
         jButton5.setBounds(160, 510, 124, 28);
 
-        returnbook.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 650));
+        returnbook.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 790));
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 86));
         jPanel8.setPreferredSize(new java.awt.Dimension(350, 500));
@@ -1953,7 +1997,7 @@ public class BOARD extends javax.swing.JFrame {
         jPanel8.add(txtDueDate1);
         txtDueDate1.setBounds(20, 480, 420, 35);
 
-        returnbook.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 530, 650));
+        returnbook.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 530, 790));
 
         jTabbedPane1.addTab("RETURNBOOK", returnbook);
 
@@ -1961,7 +2005,7 @@ public class BOARD extends javax.swing.JFrame {
         details.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
-        details.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        details.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         findreturndetails.setAutoCreateRowSorter(true);
         findreturndetails.setBackground(new java.awt.Color(255, 255, 255));
@@ -1996,7 +2040,7 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(findreturndetails);
 
-        details.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1080, 600));
+        details.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1070, 650));
 
         txtSearch4.setEditable(false);
         txtSearch4.setBackground(new java.awt.Color(31, 25, 60));
@@ -2017,10 +2061,15 @@ public class BOARD extends javax.swing.JFrame {
                 txtSearch4KeyReleased(evt);
             }
         });
-        details.add(txtSearch4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 260, 30));
+        details.add(txtSearch4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 260, 30));
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        details.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 150, 30));
+        details.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 150, 30));
+
+        a12.setFont(new java.awt.Font("Century Gothic", 1, 50)); // NOI18N
+        a12.setForeground(new java.awt.Color(255, 255, 255));
+        a12.setText("DETAILS");
+        details.add(a12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 425, 50));
 
         jTabbedPane1.addTab("DETAILS", details);
 
@@ -2052,28 +2101,28 @@ public class BOARD extends javax.swing.JFrame {
 
         t1.setBackground(new java.awt.Color(21, 0, 73));
 
-        a1.setBackground(new java.awt.Color(145, 145, 145));
-        a1.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        a1.setForeground(new java.awt.Color(255, 255, 255));
-        a1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        a1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/dash-removebg-preview.png"))); // NOI18N
-        a1.setText("       DASHBOARD");
-        a1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        a1.addMouseListener(new java.awt.event.MouseAdapter() {
+        dash.setBackground(new java.awt.Color(145, 145, 145));
+        dash.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        dash.setForeground(new java.awt.Color(255, 255, 255));
+        dash.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/dash-removebg-preview.png"))); // NOI18N
+        dash.setText("       DASHBOARD");
+        dash.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        dash.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                a1MouseClicked(evt);
+                dashMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                a1MouseEntered(evt);
+                dashMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                a1MouseExited(evt);
+                dashMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                a1MousePressed(evt);
+                dashMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                a1MouseReleased(evt);
+                dashMouseReleased(evt);
             }
         });
 
@@ -2081,39 +2130,39 @@ public class BOARD extends javax.swing.JFrame {
         t1.setLayout(t1Layout);
         t1Layout.setHorizontalGroup(
             t1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(dash, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
         t1Layout.setVerticalGroup(
             t1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(dash, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
         jPanel2.add(t1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 260, 80));
 
         t2.setBackground(new java.awt.Color(21, 0, 73));
 
-        a2.setBackground(new java.awt.Color(0, 5, 87));
-        a2.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        a2.setForeground(new java.awt.Color(255, 255, 255));
-        a2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        a2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/book-removebg-preview.png"))); // NOI18N
-        a2.setText("       MANAGE BOOKS");
-        a2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        a2.addMouseListener(new java.awt.event.MouseAdapter() {
+        books.setBackground(new java.awt.Color(0, 5, 87));
+        books.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        books.setForeground(new java.awt.Color(255, 255, 255));
+        books.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        books.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/book-removebg-preview.png"))); // NOI18N
+        books.setText("       MANAGE BOOKS");
+        books.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        books.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                a2MouseClicked(evt);
+                booksMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                a2MouseEntered(evt);
+                booksMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                a2MouseExited(evt);
+                booksMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                a2MousePressed(evt);
+                booksMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                a2MouseReleased(evt);
+                booksMouseReleased(evt);
             }
         });
 
@@ -2121,36 +2170,36 @@ public class BOARD extends javax.swing.JFrame {
         t2.setLayout(t2Layout);
         t2Layout.setHorizontalGroup(
             t2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(books, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
         t2Layout.setVerticalGroup(
             t2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(books, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
         jPanel2.add(t2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 260, 80));
 
         t3.setBackground(new java.awt.Color(21, 0, 73));
 
-        a3.setBackground(new java.awt.Color(0, 5, 87));
-        a3.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        a3.setForeground(new java.awt.Color(255, 255, 255));
-        a3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        a3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/student-removebg-preview.png"))); // NOI18N
-        a3.setText("       MANAGE STUDENTS");
-        a3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
-        a3.addMouseListener(new java.awt.event.MouseAdapter() {
+        students.setBackground(new java.awt.Color(0, 5, 87));
+        students.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        students.setForeground(new java.awt.Color(255, 255, 255));
+        students.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        students.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/student-removebg-preview.png"))); // NOI18N
+        students.setText("       MANAGE STUDENTS");
+        students.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        students.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                a3MouseClicked(evt);
+                studentsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                a3MouseEntered(evt);
+                studentsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                a3MouseExited(evt);
+                studentsMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                a3MousePressed(evt);
+                studentsMousePressed(evt);
             }
         });
 
@@ -2158,12 +2207,12 @@ public class BOARD extends javax.swing.JFrame {
         t3.setLayout(t3Layout);
         t3Layout.setHorizontalGroup(
             t3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(students, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
         t3Layout.setVerticalGroup(
             t3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(t3Layout.createSequentialGroup()
-                .addComponent(a3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(students, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -2171,25 +2220,25 @@ public class BOARD extends javax.swing.JFrame {
 
         t4.setBackground(new java.awt.Color(21, 0, 73));
 
-        a4.setBackground(new java.awt.Color(0, 5, 87));
-        a4.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        a4.setForeground(new java.awt.Color(255, 255, 255));
-        a4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        a4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/trans-removebg-preview.png"))); // NOI18N
-        a4.setText("       TRANSACTION");
-        a4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        a4.addMouseListener(new java.awt.event.MouseAdapter() {
+        trans.setBackground(new java.awt.Color(0, 5, 87));
+        trans.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        trans.setForeground(new java.awt.Color(255, 255, 255));
+        trans.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        trans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/trans-removebg-preview.png"))); // NOI18N
+        trans.setText("       TRANSACTION");
+        trans.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        trans.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                a4MouseClicked(evt);
+                transMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                a4MouseEntered(evt);
+                transMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                a4MouseExited(evt);
+                transMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                a4MousePressed(evt);
+                transMousePressed(evt);
             }
         });
 
@@ -2197,36 +2246,36 @@ public class BOARD extends javax.swing.JFrame {
         t4.setLayout(t4Layout);
         t4Layout.setHorizontalGroup(
             t4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a4, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(trans, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
         t4Layout.setVerticalGroup(
             t4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a4, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(trans, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
         jPanel2.add(t4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 260, 80));
 
         t5.setBackground(new java.awt.Color(21, 0, 73));
 
-        a5.setBackground(new java.awt.Color(255, 255, 255));
-        a5.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        a5.setForeground(new java.awt.Color(255, 255, 255));
-        a5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        a5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/rec-removebg-preview.png"))); // NOI18N
-        a5.setText("       RECORDS");
-        a5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        a5.addMouseListener(new java.awt.event.MouseAdapter() {
+        rec.setBackground(new java.awt.Color(255, 255, 255));
+        rec.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        rec.setForeground(new java.awt.Color(255, 255, 255));
+        rec.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/rec-removebg-preview.png"))); // NOI18N
+        rec.setText("       RECORDS");
+        rec.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        rec.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                a5MouseClicked(evt);
+                recMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                a5MouseEntered(evt);
+                recMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                a5MouseExited(evt);
+                recMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                a5MousePressed(evt);
+                recMousePressed(evt);
             }
         });
 
@@ -2234,11 +2283,11 @@ public class BOARD extends javax.swing.JFrame {
         t5.setLayout(t5Layout);
         t5Layout.setHorizontalGroup(
             t5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a5, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(rec, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
         t5Layout.setVerticalGroup(
             t5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(rec, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
         jPanel2.add(t5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 260, 80));
@@ -2664,26 +2713,26 @@ public class BOARD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_transactiontableMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void issueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issueMouseClicked
+        jTabbedPane1.setSelectedIndex(5);
 
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_issueMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void issueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issueActionPerformed
+        jTabbedPane1.setSelectedIndex(5);
+       
 
-        IssueBook ib = new IssueBook();
-        ib.setVisible(true);
+    }//GEN-LAST:event_issueActionPerformed
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void returnsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnsMouseClicked
+        jTabbedPane1.setSelectedIndex(8);
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    }//GEN-LAST:event_returnsMouseClicked
 
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        ReturnBook rb = new ReturnBook();
-        rb.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void returnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnsActionPerformed
+        jTabbedPane1.setSelectedIndex(8);
+        
+    }//GEN-LAST:event_returnsActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
@@ -2737,98 +2786,98 @@ public class BOARD extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_A6MouseClicked
 
-    private void a5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MousePressed
+    private void recMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMousePressed
 
         
-    }//GEN-LAST:event_a5MousePressed
+    }//GEN-LAST:event_recMousePressed
 
-    private void a5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MouseExited
+    private void recMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseExited
         
-    }//GEN-LAST:event_a5MouseExited
+    }//GEN-LAST:event_recMouseExited
 
-    private void a5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MouseEntered
+    private void recMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseEntered
         
-    }//GEN-LAST:event_a5MouseEntered
+    }//GEN-LAST:event_recMouseEntered
 
-    private void a5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a5MouseClicked
+    private void recMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseClicked
+       jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_recMouseClicked
+
+    private void transMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMousePressed
+
        
-    }//GEN-LAST:event_a5MouseClicked
+    }//GEN-LAST:event_transMousePressed
 
-    private void a4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MousePressed
-
-       
-    }//GEN-LAST:event_a4MousePressed
-
-    private void a4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MouseExited
+    private void transMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseExited
       
-    }//GEN-LAST:event_a4MouseExited
+    }//GEN-LAST:event_transMouseExited
 
-    private void a4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MouseEntered
+    private void transMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseEntered
        
-    }//GEN-LAST:event_a4MouseEntered
+    }//GEN-LAST:event_transMouseEntered
 
-    private void a4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a4MouseClicked
-
+    private void transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseClicked
+    jTabbedPane1.setSelectedIndex(3);
        
-    }//GEN-LAST:event_a4MouseClicked
+    }//GEN-LAST:event_transMouseClicked
 
-    private void a3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MousePressed
+    private void studentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMousePressed
 
         
-    }//GEN-LAST:event_a3MousePressed
+    }//GEN-LAST:event_studentsMousePressed
 
-    private void a3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseExited
+    private void studentsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseExited
        
-    }//GEN-LAST:event_a3MouseExited
+    }//GEN-LAST:event_studentsMouseExited
 
-    private void a3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseEntered
+    private void studentsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseEntered
       
-    }//GEN-LAST:event_a3MouseEntered
+    }//GEN-LAST:event_studentsMouseEntered
 
-    private void a3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseClicked
+    private void studentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseClicked
+    jTabbedPane1.setSelectedIndex(2);        
+    }//GEN-LAST:event_studentsMouseClicked
+
+    private void booksMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseReleased
+
+    }//GEN-LAST:event_booksMouseReleased
+
+    private void booksMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMousePressed
+
         
-    }//GEN-LAST:event_a3MouseClicked
+    }//GEN-LAST:event_booksMousePressed
 
-    private void a2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseReleased
+    private void booksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseExited
+       
+    }//GEN-LAST:event_booksMouseExited
 
-    }//GEN-LAST:event_a2MouseReleased
+    private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
+       
+    }//GEN-LAST:event_booksMouseEntered
 
-    private void a2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MousePressed
+    private void booksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseClicked
+    jTabbedPane1.setSelectedIndex(1);       
+    }//GEN-LAST:event_booksMouseClicked
 
+    private void dashMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseReleased
+       
+    }//GEN-LAST:event_dashMouseReleased
+
+    private void dashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMousePressed
         
-    }//GEN-LAST:event_a2MousePressed
+    }//GEN-LAST:event_dashMousePressed
 
-    private void a2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseExited
-       
-    }//GEN-LAST:event_a2MouseExited
+    private void dashMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseExited
 
-    private void a2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseEntered
-       
-    }//GEN-LAST:event_a2MouseEntered
+    }//GEN-LAST:event_dashMouseExited
 
-    private void a2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseClicked
-       
-    }//GEN-LAST:event_a2MouseClicked
-
-    private void a1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseReleased
-       
-    }//GEN-LAST:event_a1MouseReleased
-
-    private void a1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MousePressed
+    private void dashMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseEntered
         
-    }//GEN-LAST:event_a1MousePressed
+    }//GEN-LAST:event_dashMouseEntered
 
-    private void a1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseExited
-
-    }//GEN-LAST:event_a1MouseExited
-
-    private void a1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseEntered
-        
-    }//GEN-LAST:event_a1MouseEntered
-
-    private void a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseClicked
-     
-    }//GEN-LAST:event_a1MouseClicked
+    private void dashMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseClicked
+    jTabbedPane1.setSelectedIndex(0);     
+    }//GEN-LAST:event_dashMouseClicked
 
     private void txtStudentID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentID1ActionPerformed
         
@@ -2847,13 +2896,13 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_txtStrand1ActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
-
-        jTabbedPane1.setSelectedIndex(1);
+       jTabbedPane1.setSelectedIndex(6);
+        
     }//GEN-LAST:event_SearchActionPerformed
 
     private void Search2Search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search2Search1ActionPerformed
 
-        jTabbedPane1.setSelectedIndex(2);
+        jTabbedPane1.setSelectedIndex(7);
 
     }//GEN-LAST:event_Search2Search1ActionPerformed
 
@@ -2909,7 +2958,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_issuebook1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(9);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void txtStudentID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentID2ActionPerformed
@@ -2998,6 +3047,19 @@ public class BOARD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtSearch4KeyReleased
 
+    private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
+        jTabbedPane1.setSelectedIndex(6);
+    }//GEN-LAST:event_SearchMouseClicked
+
+    private void Search2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search2MouseClicked
+        jTabbedPane1.setSelectedIndex(7);
+
+    }//GEN-LAST:event_Search2MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        jTabbedPane1.setSelectedIndex(9);
+    }//GEN-LAST:event_jButton8MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -3037,16 +3099,18 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel A6;
     private javax.swing.JButton Search;
     private javax.swing.JButton Search2;
-    private javax.swing.JLabel a1;
-    private javax.swing.JLabel a2;
-    private javax.swing.JLabel a3;
-    private javax.swing.JLabel a4;
-    private javax.swing.JLabel a5;
+    private javax.swing.JLabel a10;
+    private javax.swing.JLabel a11;
+    private javax.swing.JLabel a12;
     private javax.swing.JPanel a6;
     private javax.swing.JLabel a7;
+    private javax.swing.JLabel a8;
+    private javax.swing.JLabel a9;
     private javax.swing.JLabel addbutton;
     private javax.swing.JLabel addbutton1;
     private javax.swing.JPanel book;
+    private javax.swing.JLabel books;
+    private javax.swing.JLabel dash;
     private javax.swing.JPanel dashboard;
     private javax.swing.JLabel deletebutton;
     private javax.swing.JLabel deletebutton1;
@@ -3054,10 +3118,10 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel editbutton;
     private javax.swing.JLabel editbutton1;
     private javax.swing.JTable findreturndetails;
+    private javax.swing.JButton issue;
     private javax.swing.JPanel issuebook;
     private javax.swing.JButton issuebook1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3183,9 +3247,12 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel managebook;
     private javax.swing.JPanel managestudent;
+    private javax.swing.JLabel rec;
     private javax.swing.JPanel records;
     private javax.swing.JPanel returnbook;
+    private javax.swing.JButton returns;
     private javax.swing.JPanel student;
+    private javax.swing.JLabel students;
     private javax.swing.JPanel t1;
     private javax.swing.JPanel t2;
     private javax.swing.JPanel t3;
@@ -3193,6 +3260,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JPanel t5;
     private javax.swing.JLabel textadd;
     private javax.swing.JLabel textadd1;
+    private javax.swing.JLabel trans;
     private javax.swing.JPanel transaction;
     private javax.swing.JTable transactiontable;
     private javax.swing.JTextField txtAuthor;

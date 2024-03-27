@@ -1398,7 +1398,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel18.add(Search2);
-        Search2.setBounds(260, 160, 72, 22);
+        Search2.setBounds(260, 160, 72, 23);
 
         jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -1782,7 +1782,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton8);
-        jButton8.setBounds(360, 170, 80, 22);
+        jButton8.setBounds(360, 170, 80, 23);
 
         txtStudentID2.setBackground(new java.awt.Color(0, 0, 51));
         txtStudentID2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1873,7 +1873,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton5);
-        jButton5.setBounds(160, 510, 124, 28);
+        jButton5.setBounds(160, 510, 124, 29);
 
         returnbook.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 790));
 

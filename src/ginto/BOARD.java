@@ -1,6 +1,4 @@
-
 package ginto;
-
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,7 +6,7 @@ import java.awt.Rectangle;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
-import  java.sql.*;
+import java.sql.*;
 import java.text.MessageFormat;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -22,142 +20,320 @@ import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
-
-
-
 public class BOARD extends javax.swing.JFrame {
 
-    
     public BOARD() {
         initComponents();
         Connect();
-        table_update();
-        setRecordsTable();
+        booktable_update();
+        stud_table_update();
+        transactiontableupdate();
+        recordstable_update();
+        return_details();
+        studenttable_update();
+        issuebooktable_update();
+
     }
-    
+
     Connection con;
     PreparedStatement pst;
     DefaultTableModel model;
-    
-    
-    
-    public void Connect()
-     {
+
+    public void Connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/data","root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/data", "root", "");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(BOARD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(BOARD.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
-    
-    private void table_update()
-    {
+    }
+
+    private void booktable_update() {
         int CC;
         try {
-            
-            pst = con.prepareStatement("SELECT * FROM students");
+
+            pst = con.prepareStatement("SELECT * FROM books");
             ResultSet Rs = pst.executeQuery();
-            
+
             ResultSetMetaData RSMD = Rs.getMetaData();
             CC = RSMD.getColumnCount();
-            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel DFT = (DefaultTableModel) manageb_table.getModel();
             DFT.setRowCount(0);
-            
+
             while (Rs.next()) {
                 Vector v2 = new Vector();
-                
+
                 for (int ii = 1; ii <= CC; ii++) {
-                  
+
+                    v2.add(Rs.getString("bookid"));
+                    v2.add(Rs.getString("bookname"));
+                    v2.add(Rs.getString("bookauthor"));
+                    v2.add(Rs.getString("genre"));
+                    v2.add(Rs.getString("quantity"));
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
+    private void stud_table_update() {
+        int CC;
+        try {
+
+            pst = con.prepareStatement("SELECT * FROM students");
+            ResultSet Rs = pst.executeQuery();
+
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) studtable.getModel();
+            DFT.setRowCount(0);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+
+                for (int ii = 1; ii <= CC; ii++) {
+
                     v2.add(Rs.getString("studentid"));
                     v2.add(Rs.getString("studentname"));
                     v2.add(Rs.getString("strand"));
                     v2.add(Rs.getString("gradeandsection"));
                 }
-           DFT.addRow(v2);
+                DFT.addRow(v2);
             }
-        }catch (Exception e) {
-            
-            
-        
+        } catch (Exception e) {
+
+        }
     }
-    }
-    
-     public void setRecordsTable() 
-    {
+
+    private void issuebooktable_update() {
+        int CC;
         try {
-            pst = con.prepareStatement("select * from students");
-            ResultSet rs = pst.executeQuery();
-            
-            while(rs.next()) {
-                String StudentID = rs.getString("studentid");
-                String StudentName = rs.getString("studentname");
-                String Strand = rs.getString("strand");
-                String GradeAndSection = rs.getString("gradeandsection");
-                
-                Object [] obj = {StudentID,StudentName,Strand,GradeAndSection};
-                model =  (DefaultTableModel)jTable1.getModel();
-                model.addRow(obj);
+
+            pst = con.prepareStatement("SELECT * FROM books");
+            ResultSet Rs = pst.executeQuery();
+
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) issuebooklist.getModel();
+            DFT.setRowCount(0);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+
+                for (int ii = 1; ii <= CC; ii++) {
+
+                    v2.add(Rs.getString("bookid"));
+                    v2.add(Rs.getString("bookname"));
+                    v2.add(Rs.getString("bookauthor"));
+                    v2.add(Rs.getString("genre"));
+                    v2.add(Rs.getString("quantity"));
+                }
+                DFT.addRow(v2);
             }
-        }catch (Exception e) {
-            
+        } catch (Exception e) {
+
+        }
     }
+
+    public void transactiontableupdate() {
+        int CC;
+        try {
+
+            pst = con.prepareStatement("SELECT * FROM issue");
+            ResultSet Rs = pst.executeQuery();
+
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) transactiontable.getModel();
+            DFT.setRowCount(0);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+
+                for (int ii = 1; ii <= CC; ii++) {
+
+                    v2.add(Rs.getString("Student_ID"));
+                    v2.add(Rs.getString("Student_Name"));
+                    v2.add(Rs.getString("Strand"));
+                    v2.add(Rs.getString("Grade_Section"));
+                    v2.add(Rs.getString("Book_ID"));
+                    v2.add(Rs.getString("Book_Name"));
+                    v2.add(Rs.getString("Book_Author"));
+                    v2.add(Rs.getString("Genre"));
+                    v2.add(Rs.getString("Book_Quantity"));
+                    v2.add(Rs.getString("Issue_Date"));
+                    v2.add(Rs.getString("Due_Date"));
+                    v2.add(Rs.getString("Date_Return"));
+                    v2.add(Rs.getString("Status"));
+
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+
+        }
     }
-     
-     public void Delete(){
-        String sql="delete from issue where Student_ID=?";
-        
-        try{
-            pst=con.prepareStatement(sql);
-            pst.setString(1, txtStudentID.getText());
-            pst.execute();        
-        }catch(Exception e){
+
+    private void recordstable_update() {
+        int CC;
+        try {
+
+            pst = con.prepareStatement("SELECT * FROM returnbook");
+            ResultSet Rs = pst.executeQuery();
+
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) recordstable.getModel();
+            DFT.setRowCount(0);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+
+                for (int ii = 1; ii <= CC; ii++) {
+                    v2.add(Rs.getString("student_id"));
+                    v2.add(Rs.getString("student_name"));
+                    v2.add(Rs.getString("strand"));
+                    v2.add(Rs.getString("grade_section"));
+                    v2.add(Rs.getString("book_id"));
+                    v2.add(Rs.getString("book_name"));
+                    v2.add(Rs.getString("book_author"));
+                    v2.add(Rs.getString("genre"));
+                    v2.add(Rs.getString("book_quantity"));
+                    v2.add(Rs.getString("issue_date"));
+                    v2.add(Rs.getString("due_date"));
+                    v2.add(Rs.getString("return_date"));
+                    v2.add(Rs.getString("status"));
+
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void return_details() {
+        int CC;
+        try {
+
+            pst = con.prepareStatement("SELECT * FROM issue");
+            ResultSet Rs = pst.executeQuery();
+
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) findreturndetails.getModel();
+            DFT.setRowCount(0);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+
+                for (int ii = 1; ii <= CC; ii++) {
+
+                    v2.add(Rs.getString("Student_ID"));
+                    v2.add(Rs.getString("Student_Name"));
+                    v2.add(Rs.getString("Strand"));
+                    v2.add(Rs.getString("Grade_Section"));
+                    v2.add(Rs.getString("Book_ID"));
+                    v2.add(Rs.getString("Book_Name"));
+                    v2.add(Rs.getString("Book_Author"));
+                    v2.add(Rs.getString("Genre"));
+                    v2.add(Rs.getString("Book_Quantity"));
+                    v2.add(Rs.getString("Issue_Date"));
+                    v2.add(Rs.getString("Due_Date"));
+                    v2.add(Rs.getString("Date_Return"));
+                    v2.add(Rs.getString("Status"));
+
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
+    private void studenttable_update() {
+        int CC;
+        try {
+
+            pst = con.prepareStatement("SELECT * FROM students");
+            ResultSet Rs = pst.executeQuery();
+
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) issuestudlist.getModel();
+            DFT.setRowCount(0);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+
+                for (int ii = 1; ii <= CC; ii++) {
+
+                    v2.add(Rs.getString("studentid"));
+                    v2.add(Rs.getString("studentname"));
+                    v2.add(Rs.getString("strand"));
+                    v2.add(Rs.getString("gradeandsection"));
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void Delete() {
+        String sql = "delete from issue where Student_ID=?";
+
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, returnstudid.getText());
+            pst.execute();
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-     
-     public void ReturnUpdate(){
-         String sql= "insert into returnbook(student_id,student_name,strand,grade_section,book_id,book_name,book_author,genre,book_quantity,issue_date,due_date,return_date,status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try{
-            pst= con.prepareStatement(sql);
-            pst.setString(1, txtStudentID.getText());
-            pst.setString(2, txtStudentName.getText());
-            pst.setString(3, txtStrand.getSelectedItem().toString());
-            pst.setString(4, txtGrSec.getText());
-            pst.setString(5, txtBookID.getText());
-            pst.setString(6, txtBookName.getText());
-            pst.setString(7, txtAuthor.getText());
-            pst.setString(8, txtGenre.getSelectedItem().toString());
-            pst.setString(9, txtQuantity.getText());
-            pst.setString(10, ((JTextField)txtIssueDate.getDateEditor().getUiComponent()).getText());
-            pst.setString(11, ((JTextField)txtDueDate.getDateEditor().getUiComponent()).getText());
-            pst.setString(12, ((JTextField)txtReturnDate.getDateEditor().getUiComponent()).getText());
+
+    public void ReturnUpdate() {
+        String sql = "insert into returnbook(student_id,student_name,strand,grade_section,book_id,book_name,book_author,genre,book_quantity,issue_date,due_date,return_date,status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, returnstudid.getText());
+            pst.setString(2, returnstudnm.getText());
+            pst.setString(3, returnstudstr.getText());
+            pst.setString(4, returnstudgrsec.getText());
+            pst.setString(5, returnbookid.getText());
+            pst.setString(6, returnbooknm.getText());
+            pst.setString(7, returnbookau.getText());
+            pst.setString(8, returnbookgnr.getText());
+            pst.setString(9, returnbookqua.getText());
+            pst.setString(10, returnissudate.getText());
+            pst.setString(11, returnduedate.getText());
+            pst.setString(12, ((JTextField) return_datereturned.getDateEditor().getUiComponent()).getText());
             pst.setString(13, "Returned");
 
             pst.execute();
             JOptionPane.showMessageDialog(null, "Book Returned");
-        }catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-     
-     public void search(String str) {
-        model = (DefaultTableModel) jTable1.getModel();
+
+    public void search(String str) {
+        model = (DefaultTableModel) db_table.getModel();
         TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-        jTable1.setRowSorter(trs);
+        db_table.setRowSorter(trs);
         trs.setRowFilter(RowFilter.regexFilter("(?i)" + str));
     }
-        
-    public void filter(String str) {
-           model = (DefaultTableModel) jTable1.getModel();
-           TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-           jTable1.setRowSorter(trs);
-           trs.setRowFilter(RowFilter.regexFilter(str));
-           }
 
-    
+    public void filter(String str) {
+        model = (DefaultTableModel) db_table.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        db_table.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -178,10 +354,10 @@ public class BOARD extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        db_search = new javax.swing.JTextField();
+        db_filter = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        db_table = new javax.swing.JTable();
         a7 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         managebook = new javax.swing.JPanel();
@@ -203,21 +379,21 @@ public class BOARD extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
-        addbutton = new javax.swing.JLabel();
-        editbutton = new javax.swing.JLabel();
-        deletebutton = new javax.swing.JLabel();
-        updatebutton = new javax.swing.JLabel();
-        textadd = new javax.swing.JLabel();
-        txtedit = new javax.swing.JLabel();
-        txtremove = new javax.swing.JLabel();
-        txtupdate = new javax.swing.JLabel();
+        book_add = new javax.swing.JLabel();
+        book_edit = new javax.swing.JLabel();
+        book_delete = new javax.swing.JLabel();
+        book_update = new javax.swing.JLabel();
+        btextadd = new javax.swing.JLabel();
+        btxtedit = new javax.swing.JLabel();
+        btxtremove = new javax.swing.JLabel();
+        btxtupdate = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        txtSearch = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        manageb_search = new javax.swing.JTextField();
+        manageb_filter = new javax.swing.JComboBox<>();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        manageb_table = new javax.swing.JTable();
         managestudent = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -249,7 +425,7 @@ public class BOARD extends javax.swing.JFrame {
         txtSearch1 = new javax.swing.JTextField();
         jComboBox3 = new javax.swing.JComboBox<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        studtable = new javax.swing.JTable();
         transaction = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -267,19 +443,19 @@ public class BOARD extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel40 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        recordstable = new javax.swing.JTable();
         a9 = new javax.swing.JLabel();
         issuebook = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
-        txtStudentID1 = new javax.swing.JTextField();
+        issuestudid = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        txtStudentName1 = new javax.swing.JTextField();
+        issuestudnm = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
-        txtGrSec = new javax.swing.JTextField();
-        txtStrand1 = new javax.swing.JTextField();
+        issuestudgrsec = new javax.swing.JTextField();
+        issuestudstr = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         Search = new javax.swing.JButton();
         jPanel18 = new javax.swing.JPanel();
@@ -287,69 +463,71 @@ public class BOARD extends javax.swing.JFrame {
         Search2 = new javax.swing.JButton();
         jPanel19 = new javax.swing.JPanel();
         jLabel47 = new javax.swing.JLabel();
-        txtBookID1 = new javax.swing.JTextField();
+        issuebookid = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
-        txtBookName1 = new javax.swing.JTextField();
+        issuebooknm = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
-        txtAuthor = new javax.swing.JTextField();
+        issuebookau = new javax.swing.JTextField();
         jLabel50 = new javax.swing.JLabel();
-        txtQuantity1 = new javax.swing.JTextField();
+        issuebookqua = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
-        txtGenre1 = new javax.swing.JTextField();
+        issuebookgnr = new javax.swing.JTextField();
         jPanel20 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
         jPanel21 = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
-        issuebook1 = new javax.swing.JButton();
-        txtIssueDate = new com.toedter.calendar.JDateChooser();
-        txtDueDate = new com.toedter.calendar.JDateChooser();
+        issuebk_button = new javax.swing.JButton();
+        issue_issuedate = new com.toedter.calendar.JDateChooser();
+        issue_duedate = new com.toedter.calendar.JDateChooser();
         jLabel54 = new javax.swing.JLabel();
         student = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        issuestudlist = new javax.swing.JTable();
         jLabel70 = new javax.swing.JLabel();
         txtSearch2 = new javax.swing.JTextField();
         jComboBox6 = new javax.swing.JComboBox<>();
         a10 = new javax.swing.JLabel();
+        issuefindstud = new javax.swing.JButton();
         book = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        issuebooklist = new javax.swing.JTable();
         jLabel71 = new javax.swing.JLabel();
         txtSearch3 = new javax.swing.JTextField();
         jComboBox7 = new javax.swing.JComboBox<>();
         a11 = new javax.swing.JLabel();
+        issuefindbooklist = new javax.swing.JButton();
         returnbook = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        txtStudentID2 = new javax.swing.JTextField();
+        finddetailsreturn = new javax.swing.JButton();
+        returnstudid = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
-        txtStudentName2 = new javax.swing.JTextField();
+        returnstudnm = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
-        txtStrand2 = new javax.swing.JTextField();
+        returnstudstr = new javax.swing.JTextField();
         jLabel60 = new javax.swing.JLabel();
-        txtGrSec1 = new javax.swing.JTextField();
+        returnstudgrsec = new javax.swing.JTextField();
         jLabel61 = new javax.swing.JLabel();
-        txtIssueDate1 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        returnissudate = new javax.swing.JTextField();
+        return_button = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
-        txtBookName2 = new javax.swing.JTextField();
+        returnbooknm = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
-        txtAuthor1 = new javax.swing.JTextField();
+        returnbookau = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
-        txtQuantity2 = new javax.swing.JTextField();
+        returnbookqua = new javax.swing.JTextField();
         jLabel68 = new javax.swing.JLabel();
-        txtReturnDate = new com.toedter.calendar.JDateChooser();
-        txtBookID2 = new javax.swing.JTextField();
+        return_datereturned = new com.toedter.calendar.JDateChooser();
+        returnbookid = new javax.swing.JTextField();
         jLabel69 = new javax.swing.JLabel();
-        txtGenre2 = new javax.swing.JTextField();
-        txtDueDate1 = new javax.swing.JTextField();
+        returnbookgnr = new javax.swing.JTextField();
+        returnduedate = new javax.swing.JTextField();
         details = new javax.swing.JPanel();
         jLabel72 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -357,6 +535,7 @@ public class BOARD extends javax.swing.JFrame {
         txtSearch4 = new javax.swing.JTextField();
         jComboBox8 = new javax.swing.JComboBox<>();
         a12 = new javax.swing.JLabel();
+        ret_find_but = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -458,27 +637,27 @@ public class BOARD extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
         dashboard.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(31, 25, 60));
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        db_search.setBackground(new java.awt.Color(31, 25, 60));
+        db_search.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        db_search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                db_searchActionPerformed(evt);
             }
         });
-        dashboard.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 250, 30));
+        dashboard.add(db_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 250, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        db_filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
+        db_filter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                db_filterActionPerformed(evt);
             }
         });
-        dashboard.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, 30));
+        dashboard.add(db_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, 30));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        db_table.setBackground(new java.awt.Color(255, 255, 255));
+        db_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        db_table.setForeground(new java.awt.Color(0, 0, 0));
+        db_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -501,14 +680,14 @@ public class BOARD extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setShowGrid(true);
-        jTable1.setSurrendersFocusOnKeystroke(true);
-        jTable1.getTableHeader().setResizingAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable1);
+        db_table.setGridColor(new java.awt.Color(0, 0, 0));
+        db_table.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        db_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        db_table.setShowGrid(true);
+        db_table.setSurrendersFocusOnKeystroke(true);
+        db_table.getTableHeader().setResizingAllowed(false);
+        db_table.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(db_table);
 
         dashboard.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1080, 480));
 
@@ -618,92 +797,92 @@ public class BOARD extends javax.swing.JFrame {
         });
         jPanel4.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, 290, 40));
 
-        addbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
-        addbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+        book_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
+        book_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addbuttonMouseClicked(evt);
+                book_addMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addbuttonMouseEntered(evt);
+                book_addMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                addbuttonMouseExited(evt);
+                book_addMouseExited(evt);
             }
         });
-        jPanel4.add(addbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, -1, -1));
+        jPanel4.add(book_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, -1, -1));
 
-        editbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
-        editbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+        book_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
+        book_edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editbuttonMouseClicked(evt);
+                book_editMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                editbuttonMouseEntered(evt);
+                book_editMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                editbuttonMouseExited(evt);
+                book_editMouseExited(evt);
             }
         });
-        jPanel4.add(editbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 640, -1, -1));
+        jPanel4.add(book_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 640, -1, -1));
 
-        deletebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
-        deletebutton.addMouseListener(new java.awt.event.MouseAdapter() {
+        book_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
+        book_delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deletebuttonMouseClicked(evt);
+                book_deleteMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                deletebuttonMouseEntered(evt);
+                book_deleteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                deletebuttonMouseExited(evt);
+                book_deleteMouseExited(evt);
             }
         });
-        jPanel4.add(deletebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, 50, 50));
-        deletebutton.setVisible(false);
+        jPanel4.add(book_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, 50, 50));
+        book_delete.setVisible(false);
 
-        updatebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
-        updatebutton.setPreferredSize(new java.awt.Dimension(48, 48));
-        updatebutton.addMouseListener(new java.awt.event.MouseAdapter() {
+        book_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
+        book_update.setPreferredSize(new java.awt.Dimension(48, 48));
+        book_update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updatebuttonMouseClicked(evt);
+                book_updateMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                updatebuttonMouseEntered(evt);
+                book_updateMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                updatebuttonMouseExited(evt);
+                book_updateMouseExited(evt);
             }
         });
-        jPanel4.add(updatebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, -1, -1));
-        updatebutton.setVisible(false);
+        jPanel4.add(book_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, -1, -1));
+        book_update.setVisible(false);
 
-        textadd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        textadd.setForeground(new java.awt.Color(255, 255, 255));
-        textadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textadd.setText("ADD");
-        jPanel4.add(textadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 700, 50, -1));
-        textadd.setVisible(false);
+        btextadd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btextadd.setForeground(new java.awt.Color(255, 255, 255));
+        btextadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btextadd.setText("ADD");
+        jPanel4.add(btextadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 700, 50, -1));
+        btextadd.setVisible(false);
 
-        txtedit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        txtedit.setForeground(new java.awt.Color(255, 255, 255));
-        txtedit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtedit.setText("EDIT");
-        jPanel4.add(txtedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 700, 50, -1));
-        txtedit.setVisible(false);
+        btxtedit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btxtedit.setForeground(new java.awt.Color(255, 255, 255));
+        btxtedit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btxtedit.setText("EDIT");
+        jPanel4.add(btxtedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 700, 50, -1));
+        btxtedit.setVisible(false);
 
-        txtremove.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        txtremove.setForeground(new java.awt.Color(255, 255, 255));
-        txtremove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtremove.setText("DELETE");
-        jPanel4.add(txtremove, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 50, -1));
-        txtremove.setVisible(false);
+        btxtremove.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btxtremove.setForeground(new java.awt.Color(255, 255, 255));
+        btxtremove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btxtremove.setText("DELETE");
+        jPanel4.add(btxtremove, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 50, -1));
+        btxtremove.setVisible(false);
 
-        txtupdate.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        txtupdate.setForeground(new java.awt.Color(255, 255, 255));
-        txtupdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtupdate.setText("UPDATE");
-        jPanel4.add(txtupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 700, -1, -1));
-        txtupdate.setVisible(false);
+        btxtupdate.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btxtupdate.setForeground(new java.awt.Color(255, 255, 255));
+        btxtupdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btxtupdate.setText("UPDATE");
+        jPanel4.add(btxtupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 700, -1, -1));
+        btxtupdate.setVisible(false);
 
         managebook.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 810));
 
@@ -720,34 +899,34 @@ public class BOARD extends javax.swing.JFrame {
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
         jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        txtSearch.setBackground(new java.awt.Color(31, 25, 60));
-        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
-        txtSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
-        txtSearch.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtSearch.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        txtSearch.setDragEnabled(true);
-        txtSearch.setSelectedTextColor(new java.awt.Color(255, 255, 255));
-        txtSearch.setSelectionColor(new java.awt.Color(60, 63, 65));
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+        manageb_search.setBackground(new java.awt.Color(31, 25, 60));
+        manageb_search.setForeground(new java.awt.Color(255, 255, 255));
+        manageb_search.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        manageb_search.setCaretColor(new java.awt.Color(255, 255, 255));
+        manageb_search.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        manageb_search.setDragEnabled(true);
+        manageb_search.setSelectedTextColor(new java.awt.Color(255, 255, 255));
+        manageb_search.setSelectionColor(new java.awt.Color(60, 63, 65));
+        manageb_search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
+                manageb_searchActionPerformed(evt);
             }
         });
-        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+        manageb_search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchKeyReleased(evt);
+                manageb_searchKeyReleased(evt);
             }
         });
-        jPanel10.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 260, 30));
+        jPanel10.add(manageb_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 260, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        jPanel10.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, 30));
+        manageb_filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
+        jPanel10.add(manageb_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, 30));
 
-        jTable2.setAutoCreateRowSorter(true);
-        jTable2.setBackground(new java.awt.Color(255, 255, 255));
-        jTable2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable2.setForeground(new java.awt.Color(0, 0, 0));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        manageb_table.setAutoCreateRowSorter(true);
+        manageb_table.setBackground(new java.awt.Color(255, 255, 255));
+        manageb_table.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        manageb_table.setForeground(new java.awt.Color(0, 0, 0));
+        manageb_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -763,17 +942,17 @@ public class BOARD extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable2.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable2.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable2.setShowGrid(true);
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        manageb_table.setGridColor(new java.awt.Color(0, 0, 0));
+        manageb_table.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        manageb_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        manageb_table.setShowGrid(true);
+        manageb_table.getTableHeader().setReorderingAllowed(false);
+        manageb_table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                manageb_tableMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(jTable2);
+        jScrollPane5.setViewportView(manageb_table);
 
         jPanel10.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 730, 600));
 
@@ -894,7 +1073,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel11.add(deletebutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, -1, 50));
-        deletebutton.setVisible(false);
+        book_delete.setVisible(false);
 
         updatebutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
         updatebutton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -909,21 +1088,21 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel11.add(updatebutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, 50, 50));
-        updatebutton.setVisible(false);
+        book_update.setVisible(false);
 
         textadd1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         textadd1.setForeground(new java.awt.Color(255, 255, 255));
         textadd1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textadd1.setText("ADD");
         jPanel11.add(textadd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 50, -1));
-        textadd.setVisible(false);
+        btextadd.setVisible(false);
 
         txtedit1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtedit1.setForeground(new java.awt.Color(255, 255, 255));
         txtedit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtedit1.setText("EDIT");
         jPanel11.add(txtedit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 630, 50, -1));
-        txtedit.setVisible(false);
+        btxtedit.setVisible(false);
 
         txtupdate1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtupdate1.setForeground(new java.awt.Color(255, 255, 255));
@@ -938,14 +1117,14 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel11.add(txtupdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, 50, -1));
-        txtupdate.setVisible(false);
+        btxtupdate.setVisible(false);
 
         txtremove1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtremove1.setForeground(new java.awt.Color(255, 255, 255));
         txtremove1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtremove1.setText("DELETE");
         jPanel11.add(txtremove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 630, 50, -1));
-        txtremove.setVisible(false);
+        btxtremove.setVisible(false);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1.png"))); // NOI18N
         jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 20, -1));
@@ -993,11 +1172,11 @@ public class BOARD extends javax.swing.JFrame {
         });
         jPanel12.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 130, 30));
 
-        jTable3.setAutoCreateRowSorter(true);
-        jTable3.setBackground(new java.awt.Color(255, 255, 255));
-        jTable3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable3.setForeground(new java.awt.Color(0, 0, 0));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        studtable.setAutoCreateRowSorter(true);
+        studtable.setBackground(new java.awt.Color(255, 255, 255));
+        studtable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        studtable.setForeground(new java.awt.Color(0, 0, 0));
+        studtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1013,17 +1192,17 @@ public class BOARD extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable3.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable3.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable3.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable3.setShowGrid(true);
-        jTable3.getTableHeader().setReorderingAllowed(false);
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        studtable.setGridColor(new java.awt.Color(0, 0, 0));
+        studtable.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        studtable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        studtable.setShowGrid(true);
+        studtable.getTableHeader().setReorderingAllowed(false);
+        studtable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3jTable1MouseClicked(evt);
+                studtablejTable1MouseClicked(evt);
             }
         });
-        jScrollPane6.setViewportView(jTable3);
+        jScrollPane6.setViewportView(studtable);
 
         jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 730, 600));
 
@@ -1184,10 +1363,10 @@ public class BOARD extends javax.swing.JFrame {
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
         records.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 30));
 
-        jTable4.setBackground(new java.awt.Color(255, 255, 255));
-        jTable4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable4.setForeground(new java.awt.Color(0, 0, 0));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        recordstable.setBackground(new java.awt.Color(255, 255, 255));
+        recordstable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        recordstable.setForeground(new java.awt.Color(0, 0, 0));
+        recordstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1203,13 +1382,13 @@ public class BOARD extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable4.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable4.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable4.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable4.setShowGrid(true);
-        jTable4.getTableHeader().setResizingAllowed(false);
-        jTable4.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTable4);
+        recordstable.setGridColor(new java.awt.Color(0, 0, 0));
+        recordstable.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        recordstable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        recordstable.setShowGrid(true);
+        recordstable.getTableHeader().setResizingAllowed(false);
+        recordstable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(recordstable);
 
         records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1080, 600));
 
@@ -1229,12 +1408,12 @@ public class BOARD extends javax.swing.JFrame {
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("Student Name :");
 
-        txtStudentID1.setBackground(new java.awt.Color(0, 0, 117));
-        txtStudentID1.setForeground(new java.awt.Color(255, 255, 255));
-        txtStudentID1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtStudentID1.addActionListener(new java.awt.event.ActionListener() {
+        issuestudid.setBackground(new java.awt.Color(0, 0, 117));
+        issuestudid.setForeground(new java.awt.Color(255, 255, 255));
+        issuestudid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuestudid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStudentID1ActionPerformed(evt);
+                issuestudidActionPerformed(evt);
             }
         });
 
@@ -1251,12 +1430,12 @@ public class BOARD extends javax.swing.JFrame {
         jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-student-registration-85.png"))); // NOI18N
         jLabel44.setText("Student Details");
 
-        txtStudentName1.setBackground(new java.awt.Color(0, 0, 117));
-        txtStudentName1.setForeground(new java.awt.Color(255, 255, 255));
-        txtStudentName1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtStudentName1.addActionListener(new java.awt.event.ActionListener() {
+        issuestudnm.setBackground(new java.awt.Color(0, 0, 117));
+        issuestudnm.setForeground(new java.awt.Color(255, 255, 255));
+        issuestudnm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuestudnm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStudentName1ActionPerformed(evt);
+                issuestudnmActionPerformed(evt);
             }
         });
 
@@ -1275,21 +1454,21 @@ public class BOARD extends javax.swing.JFrame {
             .addGap(0, 8, Short.MAX_VALUE)
         );
 
-        txtGrSec.setBackground(new java.awt.Color(0, 0, 117));
-        txtGrSec.setForeground(new java.awt.Color(255, 255, 255));
-        txtGrSec.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtGrSec.addActionListener(new java.awt.event.ActionListener() {
+        issuestudgrsec.setBackground(new java.awt.Color(0, 0, 117));
+        issuestudgrsec.setForeground(new java.awt.Color(255, 255, 255));
+        issuestudgrsec.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuestudgrsec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGrSecActionPerformed(evt);
+                issuestudgrsecActionPerformed(evt);
             }
         });
 
-        txtStrand1.setBackground(new java.awt.Color(0, 0, 117));
-        txtStrand1.setForeground(new java.awt.Color(255, 255, 255));
-        txtStrand1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtStrand1.addActionListener(new java.awt.event.ActionListener() {
+        issuestudstr.setBackground(new java.awt.Color(0, 0, 117));
+        issuestudstr.setForeground(new java.awt.Color(255, 255, 255));
+        issuestudstr.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuestudstr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStrand1ActionPerformed(evt);
+                issuestudstrActionPerformed(evt);
             }
         });
 
@@ -1327,10 +1506,10 @@ public class BOARD extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtStudentID1)
-                    .addComponent(txtStudentName1)
-                    .addComponent(txtStrand1)
-                    .addComponent(txtGrSec)
+                    .addComponent(issuestudid)
+                    .addComponent(issuestudnm)
+                    .addComponent(issuestudstr)
+                    .addComponent(issuestudgrsec)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel41)
@@ -1355,19 +1534,19 @@ public class BOARD extends javax.swing.JFrame {
                     .addComponent(jLabel43)
                     .addComponent(Search))
                 .addGap(1, 1, 1)
-                .addComponent(txtStudentID1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(issuestudid, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(jLabel41)
                 .addGap(4, 4, 4)
-                .addComponent(txtStudentName1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(issuestudnm, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jLabel45)
                 .addGap(4, 4, 4)
-                .addComponent(txtStrand1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(issuestudstr, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jLabel42)
                 .addGap(4, 4, 4)
-                .addComponent(txtGrSec, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(issuestudgrsec, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(327, Short.MAX_VALUE))
         );
 
@@ -1424,16 +1603,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel18.add(jLabel47);
         jLabel47.setBounds(10, 160, 51, 16);
 
-        txtBookID1.setBackground(new java.awt.Color(0, 0, 96));
-        txtBookID1.setForeground(new java.awt.Color(255, 255, 255));
-        txtBookID1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtBookID1.addActionListener(new java.awt.event.ActionListener() {
+        issuebookid.setBackground(new java.awt.Color(0, 0, 96));
+        issuebookid.setForeground(new java.awt.Color(255, 255, 255));
+        issuebookid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuebookid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBookID1ActionPerformed(evt);
+                issuebookidActionPerformed(evt);
             }
         });
-        jPanel18.add(txtBookID1);
-        txtBookID1.setBounds(10, 180, 330, 35);
+        jPanel18.add(issuebookid);
+        issuebookid.setBounds(10, 180, 330, 35);
 
         jLabel48.setBackground(new java.awt.Color(153, 153, 255));
         jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1442,16 +1621,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel18.add(jLabel48);
         jLabel48.setBounds(10, 220, 71, 16);
 
-        txtBookName1.setBackground(new java.awt.Color(0, 0, 96));
-        txtBookName1.setForeground(new java.awt.Color(255, 255, 255));
-        txtBookName1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtBookName1.addActionListener(new java.awt.event.ActionListener() {
+        issuebooknm.setBackground(new java.awt.Color(0, 0, 96));
+        issuebooknm.setForeground(new java.awt.Color(255, 255, 255));
+        issuebooknm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuebooknm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBookName1ActionPerformed(evt);
+                issuebooknmActionPerformed(evt);
             }
         });
-        jPanel18.add(txtBookName1);
-        txtBookName1.setBounds(10, 250, 330, 35);
+        jPanel18.add(issuebooknm);
+        issuebooknm.setBounds(10, 250, 330, 35);
 
         jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(255, 255, 255));
@@ -1459,16 +1638,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel18.add(jLabel49);
         jLabel49.setBounds(10, 290, 45, 16);
 
-        txtAuthor.setBackground(new java.awt.Color(0, 0, 96));
-        txtAuthor.setForeground(new java.awt.Color(255, 255, 255));
-        txtAuthor.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtAuthor.addActionListener(new java.awt.event.ActionListener() {
+        issuebookau.setBackground(new java.awt.Color(0, 0, 96));
+        issuebookau.setForeground(new java.awt.Color(255, 255, 255));
+        issuebookau.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuebookau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAuthorActionPerformed(evt);
+                issuebookauActionPerformed(evt);
             }
         });
-        jPanel18.add(txtAuthor);
-        txtAuthor.setBounds(10, 320, 330, 35);
+        jPanel18.add(issuebookau);
+        issuebookau.setBounds(10, 320, 330, 35);
 
         jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(255, 255, 255));
@@ -1476,16 +1655,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel18.add(jLabel50);
         jLabel50.setBounds(10, 430, 54, 16);
 
-        txtQuantity1.setBackground(new java.awt.Color(0, 0, 96));
-        txtQuantity1.setForeground(new java.awt.Color(255, 255, 255));
-        txtQuantity1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtQuantity1.addActionListener(new java.awt.event.ActionListener() {
+        issuebookqua.setBackground(new java.awt.Color(0, 0, 96));
+        issuebookqua.setForeground(new java.awt.Color(255, 255, 255));
+        issuebookqua.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuebookqua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQuantity1ActionPerformed(evt);
+                issuebookquaActionPerformed(evt);
             }
         });
-        jPanel18.add(txtQuantity1);
-        txtQuantity1.setBounds(10, 460, 330, 35);
+        jPanel18.add(issuebookqua);
+        issuebookqua.setBounds(10, 460, 330, 35);
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
@@ -1493,16 +1672,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel18.add(jLabel51);
         jLabel51.setBounds(10, 360, 41, 16);
 
-        txtGenre1.setBackground(new java.awt.Color(0, 0, 96));
-        txtGenre1.setForeground(new java.awt.Color(255, 255, 255));
-        txtGenre1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtGenre1.addActionListener(new java.awt.event.ActionListener() {
+        issuebookgnr.setBackground(new java.awt.Color(0, 0, 96));
+        issuebookgnr.setForeground(new java.awt.Color(255, 255, 255));
+        issuebookgnr.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        issuebookgnr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGenre1ActionPerformed(evt);
+                issuebookgnrActionPerformed(evt);
             }
         });
-        jPanel18.add(txtGenre1);
-        txtGenre1.setBounds(10, 390, 330, 35);
+        jPanel18.add(issuebookgnr);
+        issuebookgnr.setBounds(10, 390, 330, 35);
 
         issuebook.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 350, 780));
 
@@ -1534,14 +1713,14 @@ public class BOARD extends javax.swing.JFrame {
         jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setText("Issue Date :");
 
-        issuebook1.setBackground(new java.awt.Color(255, 0, 0));
-        issuebook1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        issuebook1.setForeground(new java.awt.Color(255, 255, 255));
-        issuebook1.setText("ISSUE BOOK");
-        issuebook1.setBorder(null);
-        issuebook1.addActionListener(new java.awt.event.ActionListener() {
+        issuebk_button.setBackground(new java.awt.Color(255, 0, 0));
+        issuebk_button.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        issuebk_button.setForeground(new java.awt.Color(255, 255, 255));
+        issuebk_button.setText("ISSUE BOOK");
+        issuebk_button.setBorder(null);
+        issuebk_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                issuebook1ActionPerformed(evt);
+                issuebk_buttonActionPerformed(evt);
             }
         });
 
@@ -1559,15 +1738,15 @@ public class BOARD extends javax.swing.JFrame {
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIssueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDueDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(issue_issuedate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(issue_duedate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel20Layout.createSequentialGroup()
                                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel53)
                                     .addComponent(jLabel54)
                                     .addGroup(jPanel20Layout.createSequentialGroup()
                                         .addGap(44, 44, 44)
-                                        .addComponent(issuebook1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(issuebk_button, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1590,13 +1769,13 @@ public class BOARD extends javax.swing.JFrame {
                 .addGap(81, 81, 81)
                 .addComponent(jLabel53)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(issue_issuedate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel54)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(issue_duedate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(issuebook1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(issuebk_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(357, Short.MAX_VALUE))
         );
 
@@ -1607,12 +1786,12 @@ public class BOARD extends javax.swing.JFrame {
         student.setBackground(new java.awt.Color(31, 25, 60));
         student.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable5.setAutoCreateRowSorter(true);
-        jTable5.setBackground(new java.awt.Color(255, 255, 255));
-        jTable5.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
-        jTable5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable5.setForeground(new java.awt.Color(0, 0, 0));
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        issuestudlist.setAutoCreateRowSorter(true);
+        issuestudlist.setBackground(new java.awt.Color(255, 255, 255));
+        issuestudlist.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
+        issuestudlist.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        issuestudlist.setForeground(new java.awt.Color(0, 0, 0));
+        issuestudlist.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1628,17 +1807,17 @@ public class BOARD extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable5.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable5.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable5.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable5.setShowGrid(true);
-        jTable5.getTableHeader().setReorderingAllowed(false);
-        jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
+        issuestudlist.setGridColor(new java.awt.Color(0, 0, 0));
+        issuestudlist.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        issuestudlist.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        issuestudlist.setShowGrid(true);
+        issuestudlist.getTableHeader().setReorderingAllowed(false);
+        issuestudlist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable5jTable1MouseClicked(evt);
+                issuestudlistjTable1MouseClicked(evt);
             }
         });
-        jScrollPane7.setViewportView(jTable5);
+        jScrollPane7.setViewportView(issuestudlist);
 
         student.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1070, 650));
 
@@ -1673,16 +1852,24 @@ public class BOARD extends javax.swing.JFrame {
         a10.setText("STUDENT LIST");
         student.add(a10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 425, 60));
 
+        issuefindstud.setText("FIND");
+        issuefindstud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                issuefindstudActionPerformed(evt);
+            }
+        });
+        student.add(issuefindstud, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, -1, -1));
+
         jTabbedPane1.addTab("STUDENT", student);
 
         book.setBackground(new java.awt.Color(31, 25, 60));
         book.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable6.setAutoCreateRowSorter(true);
-        jTable6.setBackground(new java.awt.Color(255, 255, 255));
-        jTable6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable6.setForeground(new java.awt.Color(0, 0, 0));
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        issuebooklist.setAutoCreateRowSorter(true);
+        issuebooklist.setBackground(new java.awt.Color(255, 255, 255));
+        issuebooklist.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        issuebooklist.setForeground(new java.awt.Color(0, 0, 0));
+        issuebooklist.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1698,17 +1885,17 @@ public class BOARD extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable6.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable6.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jTable6.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable6.setShowGrid(true);
-        jTable6.getTableHeader().setReorderingAllowed(false);
-        jTable6.addMouseListener(new java.awt.event.MouseAdapter() {
+        issuebooklist.setGridColor(new java.awt.Color(0, 0, 0));
+        issuebooklist.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        issuebooklist.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        issuebooklist.setShowGrid(true);
+        issuebooklist.getTableHeader().setReorderingAllowed(false);
+        issuebooklist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable6MouseClicked(evt);
+                issuebooklistMouseClicked(evt);
             }
         });
-        jScrollPane8.setViewportView(jTable6);
+        jScrollPane8.setViewportView(issuebooklist);
 
         book.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1070, 650));
 
@@ -1743,6 +1930,14 @@ public class BOARD extends javax.swing.JFrame {
         a11.setText("BOOK LIST");
         book.add(a11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 425, 60));
 
+        issuefindbooklist.setText("FIND");
+        issuefindbooklist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                issuefindbooklistActionPerformed(evt);
+            }
+        });
+        book.add(issuefindbooklist, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, -1, -1));
+
         jTabbedPane1.addTab("BOOK", book);
 
         returnbook.setBackground(new java.awt.Color(31, 25, 60));
@@ -1767,33 +1962,33 @@ public class BOARD extends javax.swing.JFrame {
         jPanel6.add(jLabel57);
         jLabel57.setBounds(20, 180, 67, 16);
 
-        jButton8.setBackground(new java.awt.Color(255, 0, 0));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Find");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+        finddetailsreturn.setBackground(new java.awt.Color(255, 0, 0));
+        finddetailsreturn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        finddetailsreturn.setForeground(new java.awt.Color(255, 255, 255));
+        finddetailsreturn.setText("Find");
+        finddetailsreturn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
+                finddetailsreturnMouseClicked(evt);
             }
         });
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        finddetailsreturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                finddetailsreturnActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton8);
-        jButton8.setBounds(360, 170, 80, 23);
+        jPanel6.add(finddetailsreturn);
+        finddetailsreturn.setBounds(360, 170, 80, 23);
 
-        txtStudentID2.setBackground(new java.awt.Color(0, 0, 51));
-        txtStudentID2.setForeground(new java.awt.Color(255, 255, 255));
-        txtStudentID2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtStudentID2.addActionListener(new java.awt.event.ActionListener() {
+        returnstudid.setBackground(new java.awt.Color(0, 0, 51));
+        returnstudid.setForeground(new java.awt.Color(255, 255, 255));
+        returnstudid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnstudid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStudentID2ActionPerformed(evt);
+                returnstudidActionPerformed(evt);
             }
         });
-        jPanel6.add(txtStudentID2);
-        txtStudentID2.setBounds(20, 200, 420, 36);
+        jPanel6.add(returnstudid);
+        returnstudid.setBounds(20, 200, 420, 36);
 
         jLabel58.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(255, 255, 255));
@@ -1801,16 +1996,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel6.add(jLabel58);
         jLabel58.setBounds(20, 240, 87, 20);
 
-        txtStudentName2.setBackground(new java.awt.Color(0, 0, 51));
-        txtStudentName2.setForeground(new java.awt.Color(255, 255, 255));
-        txtStudentName2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtStudentName2.addActionListener(new java.awt.event.ActionListener() {
+        returnstudnm.setBackground(new java.awt.Color(0, 0, 51));
+        returnstudnm.setForeground(new java.awt.Color(255, 255, 255));
+        returnstudnm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnstudnm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStudentName2ActionPerformed(evt);
+                returnstudnmActionPerformed(evt);
             }
         });
-        jPanel6.add(txtStudentName2);
-        txtStudentName2.setBounds(20, 260, 420, 35);
+        jPanel6.add(returnstudnm);
+        returnstudnm.setBounds(20, 260, 420, 35);
 
         jLabel59.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel59.setForeground(new java.awt.Color(255, 255, 255));
@@ -1818,16 +2013,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel6.add(jLabel59);
         jLabel59.setBounds(20, 300, 50, 16);
 
-        txtStrand2.setBackground(new java.awt.Color(0, 0, 51));
-        txtStrand2.setForeground(new java.awt.Color(255, 255, 255));
-        txtStrand2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtStrand2.addActionListener(new java.awt.event.ActionListener() {
+        returnstudstr.setBackground(new java.awt.Color(0, 0, 51));
+        returnstudstr.setForeground(new java.awt.Color(255, 255, 255));
+        returnstudstr.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnstudstr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStrand2ActionPerformed(evt);
+                returnstudstrActionPerformed(evt);
             }
         });
-        jPanel6.add(txtStrand2);
-        txtStrand2.setBounds(20, 320, 420, 35);
+        jPanel6.add(returnstudstr);
+        returnstudstr.setBounds(20, 320, 420, 35);
 
         jLabel60.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(255, 255, 255));
@@ -1835,16 +2030,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel6.add(jLabel60);
         jLabel60.setBounds(20, 360, 65, 16);
 
-        txtGrSec1.setBackground(new java.awt.Color(0, 0, 51));
-        txtGrSec1.setForeground(new java.awt.Color(255, 255, 255));
-        txtGrSec1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtGrSec1.addActionListener(new java.awt.event.ActionListener() {
+        returnstudgrsec.setBackground(new java.awt.Color(0, 0, 51));
+        returnstudgrsec.setForeground(new java.awt.Color(255, 255, 255));
+        returnstudgrsec.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnstudgrsec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGrSec1ActionPerformed(evt);
+                returnstudgrsecActionPerformed(evt);
             }
         });
-        jPanel6.add(txtGrSec1);
-        txtGrSec1.setBounds(20, 380, 420, 35);
+        jPanel6.add(returnstudgrsec);
+        returnstudgrsec.setBounds(20, 380, 420, 35);
 
         jLabel61.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(255, 255, 255));
@@ -1852,28 +2047,28 @@ public class BOARD extends javax.swing.JFrame {
         jPanel6.add(jLabel61);
         jLabel61.setBounds(20, 420, 61, 16);
 
-        txtIssueDate1.setBackground(new java.awt.Color(0, 0, 51));
-        txtIssueDate1.setForeground(new java.awt.Color(255, 255, 255));
-        txtIssueDate1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtIssueDate1.addActionListener(new java.awt.event.ActionListener() {
+        returnissudate.setBackground(new java.awt.Color(0, 0, 51));
+        returnissudate.setForeground(new java.awt.Color(255, 255, 255));
+        returnissudate.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnissudate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIssueDate1ActionPerformed(evt);
+                returnissudateActionPerformed(evt);
             }
         });
-        jPanel6.add(txtIssueDate1);
-        txtIssueDate1.setBounds(20, 440, 420, 35);
+        jPanel6.add(returnissudate);
+        returnissudate.setBounds(20, 440, 420, 35);
 
-        jButton5.setBackground(new java.awt.Color(204, 0, 0));
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Return");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        return_button.setBackground(new java.awt.Color(204, 0, 0));
+        return_button.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        return_button.setForeground(new java.awt.Color(255, 255, 255));
+        return_button.setText("Return");
+        return_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                return_buttonActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton5);
-        jButton5.setBounds(160, 510, 124, 29);
+        jPanel6.add(return_button);
+        return_button.setBounds(160, 510, 124, 29);
 
         returnbook.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 790));
 
@@ -1904,16 +2099,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel8.add(jLabel65);
         jLabel65.setBounds(20, 220, 71, 16);
 
-        txtBookName2.setBackground(new java.awt.Color(0, 0, 51));
-        txtBookName2.setForeground(new java.awt.Color(255, 255, 255));
-        txtBookName2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtBookName2.addActionListener(new java.awt.event.ActionListener() {
+        returnbooknm.setBackground(new java.awt.Color(0, 0, 51));
+        returnbooknm.setForeground(new java.awt.Color(255, 255, 255));
+        returnbooknm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnbooknm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBookName2ActionPerformed(evt);
+                returnbooknmActionPerformed(evt);
             }
         });
-        jPanel8.add(txtBookName2);
-        txtBookName2.setBounds(20, 240, 420, 35);
+        jPanel8.add(returnbooknm);
+        returnbooknm.setBounds(20, 240, 420, 35);
 
         jLabel66.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(255, 255, 255));
@@ -1921,16 +2116,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel8.add(jLabel66);
         jLabel66.setBounds(20, 280, 45, 16);
 
-        txtAuthor1.setBackground(new java.awt.Color(0, 0, 51));
-        txtAuthor1.setForeground(new java.awt.Color(255, 255, 255));
-        txtAuthor1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtAuthor1.addActionListener(new java.awt.event.ActionListener() {
+        returnbookau.setBackground(new java.awt.Color(0, 0, 51));
+        returnbookau.setForeground(new java.awt.Color(255, 255, 255));
+        returnbookau.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnbookau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAuthor1ActionPerformed(evt);
+                returnbookauActionPerformed(evt);
             }
         });
-        jPanel8.add(txtAuthor1);
-        txtAuthor1.setBounds(20, 300, 420, 35);
+        jPanel8.add(returnbookau);
+        returnbookau.setBounds(20, 300, 420, 35);
 
         jLabel67.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
@@ -1938,16 +2133,16 @@ public class BOARD extends javax.swing.JFrame {
         jPanel8.add(jLabel67);
         jLabel67.setBounds(20, 400, 54, 16);
 
-        txtQuantity2.setBackground(new java.awt.Color(0, 0, 51));
-        txtQuantity2.setForeground(new java.awt.Color(255, 255, 255));
-        txtQuantity2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtQuantity2.addActionListener(new java.awt.event.ActionListener() {
+        returnbookqua.setBackground(new java.awt.Color(0, 0, 51));
+        returnbookqua.setForeground(new java.awt.Color(255, 255, 255));
+        returnbookqua.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnbookqua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQuantity2ActionPerformed(evt);
+                returnbookquaActionPerformed(evt);
             }
         });
-        jPanel8.add(txtQuantity2);
-        txtQuantity2.setBounds(20, 420, 420, 35);
+        jPanel8.add(returnbookqua);
+        returnbookqua.setBounds(20, 420, 420, 35);
 
         jLabel68.setBackground(new java.awt.Color(153, 153, 255));
         jLabel68.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1955,19 +2150,19 @@ public class BOARD extends javax.swing.JFrame {
         jLabel68.setText("Due Date :");
         jPanel8.add(jLabel68);
         jLabel68.setBounds(20, 460, 80, 16);
-        jPanel8.add(txtReturnDate);
-        txtReturnDate.setBounds(20, 530, 240, 30);
+        jPanel8.add(return_datereturned);
+        return_datereturned.setBounds(20, 530, 240, 30);
 
-        txtBookID2.setBackground(new java.awt.Color(0, 0, 51));
-        txtBookID2.setForeground(new java.awt.Color(255, 255, 255));
-        txtBookID2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtBookID2.addActionListener(new java.awt.event.ActionListener() {
+        returnbookid.setBackground(new java.awt.Color(0, 0, 51));
+        returnbookid.setForeground(new java.awt.Color(255, 255, 255));
+        returnbookid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnbookid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBookID2ActionPerformed(evt);
+                returnbookidActionPerformed(evt);
             }
         });
-        jPanel8.add(txtBookID2);
-        txtBookID2.setBounds(20, 180, 420, 35);
+        jPanel8.add(returnbookid);
+        returnbookid.setBounds(20, 180, 420, 35);
 
         jLabel69.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel69.setForeground(new java.awt.Color(255, 255, 255));
@@ -1975,27 +2170,27 @@ public class BOARD extends javax.swing.JFrame {
         jPanel8.add(jLabel69);
         jLabel69.setBounds(20, 340, 41, 16);
 
-        txtGenre2.setBackground(new java.awt.Color(0, 0, 51));
-        txtGenre2.setForeground(new java.awt.Color(255, 255, 255));
-        txtGenre2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtGenre2.addActionListener(new java.awt.event.ActionListener() {
+        returnbookgnr.setBackground(new java.awt.Color(0, 0, 51));
+        returnbookgnr.setForeground(new java.awt.Color(255, 255, 255));
+        returnbookgnr.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnbookgnr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGenre2ActionPerformed(evt);
+                returnbookgnrActionPerformed(evt);
             }
         });
-        jPanel8.add(txtGenre2);
-        txtGenre2.setBounds(20, 360, 420, 35);
+        jPanel8.add(returnbookgnr);
+        returnbookgnr.setBounds(20, 360, 420, 35);
 
-        txtDueDate1.setBackground(new java.awt.Color(0, 0, 51));
-        txtDueDate1.setForeground(new java.awt.Color(255, 255, 255));
-        txtDueDate1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtDueDate1.addActionListener(new java.awt.event.ActionListener() {
+        returnduedate.setBackground(new java.awt.Color(0, 0, 51));
+        returnduedate.setForeground(new java.awt.Color(255, 255, 255));
+        returnduedate.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        returnduedate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDueDate1ActionPerformed(evt);
+                returnduedateActionPerformed(evt);
             }
         });
-        jPanel8.add(txtDueDate1);
-        txtDueDate1.setBounds(20, 480, 420, 35);
+        jPanel8.add(returnduedate);
+        returnduedate.setBounds(20, 480, 420, 35);
 
         returnbook.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 530, 790));
 
@@ -2070,6 +2265,14 @@ public class BOARD extends javax.swing.JFrame {
         a12.setForeground(new java.awt.Color(255, 255, 255));
         a12.setText("DETAILS");
         details.add(a12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 425, 50));
+
+        ret_find_but.setText("FIND");
+        ret_find_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ret_find_butActionPerformed(evt);
+            }
+        });
+        details.add(ret_find_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 770, -1, -1));
 
         jTabbedPane1.addTab("DETAILS", details);
 
@@ -2338,116 +2541,120 @@ public class BOARD extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+    private void manageb_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageb_tableMouseClicked
 
-        jTable1.setFocusable(true);
-        editbutton.setEnabled(true);
-        deletebutton.setEnabled(true);
-    }//GEN-LAST:event_jTable2MouseClicked
+        db_table.setFocusable(true);
+        book_edit.setEnabled(true);
+        book_delete.setEnabled(true);
+    }//GEN-LAST:event_manageb_tableMouseClicked
 
-    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        String searchString = txtSearch.getText();
+    private void manageb_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_manageb_searchKeyReleased
+        String searchString = manageb_search.getText();
         search(searchString);
-    }//GEN-LAST:event_txtSearchKeyReleased
+    }//GEN-LAST:event_manageb_searchKeyReleased
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+    private void manageb_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageb_searchActionPerformed
 
-    }//GEN-LAST:event_txtSearchActionPerformed
+    }//GEN-LAST:event_manageb_searchActionPerformed
 
-    private void updatebuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseExited
-        txtupdate.setVisible(false);
-    }//GEN-LAST:event_updatebuttonMouseExited
+    private void book_updateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_updateMouseExited
+        btxtupdate.setVisible(false);
+    }//GEN-LAST:event_book_updateMouseExited
 
-    private void updatebuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseEntered
-        txtupdate.setVisible(true);
-    }//GEN-LAST:event_updatebuttonMouseEntered
+    private void book_updateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_updateMouseEntered
+        btxtupdate.setVisible(true);
+    }//GEN-LAST:event_book_updateMouseEntered
 
-    private void updatebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebuttonMouseClicked
+    private void book_updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_updateMouseClicked
 
         int optionType = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure?","Update Book", optionType);
+        int result = JOptionPane.showConfirmDialog(null, "Are you sure?", "Update Book", optionType);
         try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            String BookID,BookName,BookAuthor,Quantity,Genre;
+            
+            String BookID, BookName, BookAuthor, Quantity, Genre;
             BookID = txtBookID.getText();
             BookName = txtBookName.getText();
             BookAuthor = txtBookAuthor.getText();
             Quantity = txtQuantity.getText();
             Genre = txtGenre.getSelectedItem().toString();
 
-            if (result == JOptionPane.YES_OPTION)
-            pst = con.prepareStatement("update books set bookid = ?, bookname = ?,bookauthor = ?,genre = ?, quantity = ? where bookid = ?");
-            pst.setString (1, BookID);
-            pst.setString (2, BookName);
-            pst.setString (3, BookAuthor);
-            pst.setString (4, Genre);
-            pst.setString (5, Quantity);
-            pst.setString (6, BookID);
+            if (result == JOptionPane.YES_OPTION) {
+                pst = con.prepareStatement("update books set bookid = ?, bookname = ?,bookauthor = ?,genre = ?, quantity = ? where bookid = ?");
+            }
+            pst.setString(1, BookID);
+            pst.setString(2, BookName);
+            pst.setString(3, BookAuthor);
+            pst.setString(4, Genre);
+            pst.setString(5, Quantity);
+            pst.setString(6, BookID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Updated");
-            table_update();
+            booktable_update();
+            issuebooktable_update();
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
             txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
-            addbutton.setVisible(true);
-            deletebutton.setVisible(true);
-            editbutton.setVisible(true);
-            updatebutton.setVisible(false);
-            jTable1.clearSelection();
+            book_add.setVisible(true);
+            book_delete.setVisible(true);
+            book_edit.setVisible(true);
+            book_update.setVisible(false);
+            db_table.clearSelection();
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_updatebuttonMouseClicked
+    }//GEN-LAST:event_book_updateMouseClicked
 
-    private void deletebuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseExited
-        txtremove.setVisible(false);
-    }//GEN-LAST:event_deletebuttonMouseExited
+    private void book_deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_deleteMouseExited
+        btxtremove.setVisible(false);
+    }//GEN-LAST:event_book_deleteMouseExited
 
-    private void deletebuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseEntered
-        txtremove.setVisible(true);
-    }//GEN-LAST:event_deletebuttonMouseEntered
+    private void book_deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_deleteMouseEntered
+        btxtremove.setVisible(true);
+    }//GEN-LAST:event_book_deleteMouseEntered
 
-    private void deletebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebuttonMouseClicked
+    private void book_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_deleteMouseClicked
 
         int optionType = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
         try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            
             String BookID;
             BookID = txtBookID.getText();
-            if (result == JOptionPane.YES_OPTION)
-            pst = con.prepareStatement("delete from books where bookid= ?");
+            if (result == JOptionPane.YES_OPTION) {
+                pst = con.prepareStatement("delete from books where bookid= ?");
+            }
             pst.setString(1, BookID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Deleted");
-            table_update();
+            booktable_update();
+            issuebooktable_update();
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
             txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_deletebuttonMouseClicked
+    }//GEN-LAST:event_book_deleteMouseClicked
 
-    private void editbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseExited
-        txtedit.setVisible(false);
-    }//GEN-LAST:event_editbuttonMouseExited
+    private void book_editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_editMouseExited
+        btxtedit.setVisible(false);
+    }//GEN-LAST:event_book_editMouseExited
 
-    private void editbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseEntered
-        txtedit.setVisible(true);
-    }//GEN-LAST:event_editbuttonMouseEntered
+    private void book_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_editMouseEntered
+        btxtedit.setVisible(true);
+    }//GEN-LAST:event_book_editMouseEntered
 
-    private void editbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbuttonMouseClicked
+    private void book_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_editMouseClicked
 
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int selectedIndex = jTable1.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) manageb_table.getModel();
+        int selectedIndex = manageb_table.getSelectedRow();
 
         txtBookID.setText(model.getValueAt(selectedIndex, 0).toString());
         txtBookName.setText(model.getValueAt(selectedIndex, 1).toString());
@@ -2455,23 +2662,23 @@ public class BOARD extends javax.swing.JFrame {
         txtGenre.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
         txtQuantity.setText(model.getValueAt(selectedIndex, 4).toString());
 
-        addbutton.setVisible(false);
-        deletebutton.setVisible(true);
-        editbutton.setVisible(true);
-        updatebutton.setVisible(true);
-    }//GEN-LAST:event_editbuttonMouseClicked
+        book_add.setVisible(false);
+        book_delete.setVisible(true);
+        book_edit.setVisible(true);
+        book_update.setVisible(true);
+    }//GEN-LAST:event_book_editMouseClicked
 
-    private void addbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseExited
-        textadd.setVisible(false);
-    }//GEN-LAST:event_addbuttonMouseExited
+    private void book_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_addMouseExited
+        btextadd.setVisible(false);
+    }//GEN-LAST:event_book_addMouseExited
 
-    private void addbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseEntered
-        textadd.setVisible(true);
-    }//GEN-LAST:event_addbuttonMouseEntered
+    private void book_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_addMouseEntered
+        btextadd.setVisible(true);
+    }//GEN-LAST:event_book_addMouseEntered
 
-    private void addbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbuttonMouseClicked
+    private void book_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_addMouseClicked
         try {
-            String BookID,BookName,BookAuthor,Quantity,Genre;
+            String BookID, BookName, BookAuthor, Quantity, Genre;
             BookID = txtBookID.getText();
             BookName = txtBookName.getText();
             BookAuthor = txtBookAuthor.getText();
@@ -2481,26 +2688,27 @@ public class BOARD extends javax.swing.JFrame {
             pst.setString(1, BookID);
             pst.setString(2, BookName);
             pst.setString(3, BookAuthor);
-            pst.setString(4,Genre);
+            pst.setString(4, Genre);
             pst.setString(5, Quantity);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Added");
-            table_update();
+            booktable_update();
+            issuebooktable_update();
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
             txtGenre.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
-            int lastRow = jTable1.convertRowIndexToView(jTable1.getRowCount()- 1);
-            jTable1.setRowSelectionInterval(lastRow, lastRow);
-            Rectangle cellrect = jTable1.getCellRect (lastRow, 0, true);
-            jTable1.scrollRectToVisible(cellrect);
-        }catch (SQLException ex) {
+            int lastRow = db_table.convertRowIndexToView(db_table.getRowCount() - 1);
+            db_table.setRowSelectionInterval(lastRow, lastRow);
+            Rectangle cellrect = db_table.getCellRect(lastRow, 0, true);
+            db_table.scrollRectToVisible(cellrect);
+        } catch (SQLException ex) {
             Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-    }//GEN-LAST:event_addbuttonMouseClicked
+    }//GEN-LAST:event_book_addMouseClicked
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
 
@@ -2510,13 +2718,13 @@ public class BOARD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtBookIDActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void db_filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_db_filterActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_db_filterActionPerformed
 
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void db_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_db_searchActionPerformed
+
+    }//GEN-LAST:event_db_searchActionPerformed
 
     private void txtStudentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentIDActionPerformed
 
@@ -2525,7 +2733,7 @@ public class BOARD extends javax.swing.JFrame {
     private void addbutton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbutton1MouseClicked
 
         try {
-            String StudentID,StudentName,Strand,GrandSec;
+            String StudentID, StudentName, Strand, GrandSec;
             StudentID = txtStudentID.getText();
             StudentName = txtStudentName.getText();
             Strand = txtStrand.getSelectedItem().toString();
@@ -2537,51 +2745,52 @@ public class BOARD extends javax.swing.JFrame {
             pst.setString(4, GrandSec);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Student Added");
-            table_update();
+            stud_table_update();
+            studenttable_update();
             txtStudentID.setText("");
             txtStudentName.setText("");
             txtStrand.setSelectedIndex(0);
             txtGrandSec.setSelectedIndex(0);
             txtGrandSec.requestFocus();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }//GEN-LAST:event_addbutton1MouseClicked
 
     private void addbutton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbutton1MouseEntered
-        textadd.setVisible(true);
+        btextadd.setVisible(true);
     }//GEN-LAST:event_addbutton1MouseEntered
 
     private void addbutton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbutton1MouseExited
-        textadd.setVisible(false);
+        btextadd.setVisible(false);
     }//GEN-LAST:event_addbutton1MouseExited
 
     private void editbutton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbutton1MouseClicked
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int SelectedRows = jTable1.convertRowIndexToModel( jTable1.getSelectedRow() );
+        DefaultTableModel model = (DefaultTableModel) studtable.getModel();
+        int SelectedRows = studtable.convertRowIndexToModel(studtable.getSelectedRow());
         txtStudentID.setText(model.getValueAt(SelectedRows, 0).toString());
         txtStudentName.setText(model.getValueAt(SelectedRows, 1).toString());
         txtStrand.setSelectedItem(model.getValueAt(SelectedRows, 2).toString());
         txtGrandSec.setSelectedItem(model.getValueAt(SelectedRows, 3).toString());
 
-        addbutton.setVisible(false);
-        deletebutton.setVisible(true);
-        editbutton.setVisible(false);
-        updatebutton.setVisible(true);
+        book_add.setVisible(false);
+        book_delete.setVisible(true);
+        book_edit.setVisible(false);
+        book_update.setVisible(true);
 
     }//GEN-LAST:event_editbutton1MouseClicked
 
     private void editbutton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbutton1MouseEntered
-        txtedit.setVisible(true);
+        btxtedit.setVisible(true);
     }//GEN-LAST:event_editbutton1MouseEntered
 
     private void editbutton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbutton1MouseExited
-        txtedit.setVisible(false);
+        btxtedit.setVisible(false);
     }//GEN-LAST:event_editbutton1MouseExited
 
     private void editbutton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editbutton1MousePressed
-        
+
     }//GEN-LAST:event_editbutton1MousePressed
 
     private void deletebutton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebutton1MouseClicked
@@ -2591,74 +2800,78 @@ public class BOARD extends javax.swing.JFrame {
         try {
             String StudentID;
             StudentID = txtStudentID.getText();
-            if (result == JOptionPane.YES_OPTION)
-            pst = con.prepareStatement("DELETE FROM students WHERE studentid= ?");
+            if (result == JOptionPane.YES_OPTION) {
+                pst = con.prepareStatement("DELETE FROM students WHERE studentid= ?");
+            }
             pst.setString(1, StudentID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Student Removed");
-            table_update();
+            stud_table_update();
+            studenttable_update();
             txtStudentID.setText("");
             txtStudentName.setText("");
             txtStrand.setSelectedIndex(0);
             txtGrandSec.setSelectedIndex(0);
             txtStudentName.requestFocus();
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deletebutton1MouseClicked
 
     private void deletebutton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebutton1MouseEntered
-        txtremove.setVisible(true);
+        btxtremove.setVisible(true);
     }//GEN-LAST:event_deletebutton1MouseEntered
 
     private void deletebutton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebutton1MouseExited
-        txtremove.setVisible(false);
+        btxtremove.setVisible(false);
     }//GEN-LAST:event_deletebutton1MouseExited
 
     private void updatebutton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebutton1MouseClicked
         int optionType = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure?","Update Student", optionType);
+        int result = JOptionPane.showConfirmDialog(null, "Are you sure?", "Update Student", optionType);
         try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            String StudentID,StudentName,Strand,GrandSec;
+            DefaultTableModel model = (DefaultTableModel) db_table.getModel();
+            String StudentID, StudentName, Strand, GrandSec;
             StudentID = txtStudentID.getText();
             StudentName = txtStudentName.getText();
             Strand = txtStrand.getSelectedItem().toString();
             GrandSec = txtGrandSec.getSelectedItem().toString();
 
-            if (result == JOptionPane.YES_OPTION)
-            pst = con.prepareStatement("update students set studentid = ?, studentname = ?,strand = ?,gradeandsection = ? where studentid = ?");
-            pst.setString (1, StudentID);
-            pst.setString (2, StudentName);
-            pst.setString (3, Strand);
-            pst.setString (4, GrandSec);
-            pst.setString (5, StudentID);
+            if (result == JOptionPane.YES_OPTION) {
+                pst = con.prepareStatement("update students set studentid = ?, studentname = ?,strand = ?,gradeandsection = ? where studentid = ?");
+            }
+            pst.setString(1, StudentID);
+            pst.setString(2, StudentName);
+            pst.setString(3, Strand);
+            pst.setString(4, GrandSec);
+            pst.setString(5, StudentID);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Book Updated");
-            table_update();
+            stud_table_update();
+            studenttable_update();
             txtStudentID.setText("");
             txtStudentName.setText("");
             txtStrand.setSelectedIndex(0);
             txtGrandSec.setSelectedIndex(0);
             txtStudentName.requestFocus();
-            addbutton.setVisible(true);
-            deletebutton.setVisible(true);
-            editbutton.setVisible(true);
-            updatebutton.setVisible(false);
-            jTable1.clearSelection();
+            book_add.setVisible(true);
+            book_delete.setVisible(true);
+            book_edit.setVisible(true);
+            book_update.setVisible(false);
+            db_table.clearSelection();
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_updatebutton1MouseClicked
 
     private void updatebutton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebutton1MouseEntered
-        txtupdate.setVisible(true);
+        btxtupdate.setVisible(true);
     }//GEN-LAST:event_updatebutton1MouseEntered
 
     private void updatebutton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatebutton1MouseExited
-        txtupdate.setVisible(false);
+        btxtupdate.setVisible(false);
     }//GEN-LAST:event_updatebutton1MouseExited
 
     private void txtupdate1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtupdate1MouseEntered
@@ -2666,7 +2879,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_txtupdate1MouseEntered
 
     private void txtupdate1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtupdate1MouseExited
-       
+
     }//GEN-LAST:event_txtupdate1MouseExited
 
     private void txtSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch1ActionPerformed
@@ -2674,7 +2887,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearch1ActionPerformed
 
     private void txtSearch1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch1KeyReleased
-        String searchString = txtSearch.getText();
+        String searchString = manageb_search.getText();
         search(searchString);
     }//GEN-LAST:event_txtSearch1KeyReleased
 
@@ -2683,29 +2896,29 @@ public class BOARD extends javax.swing.JFrame {
         filter(filterString);
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
-    private void jTable3jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3jTable1MouseClicked
+    private void studtablejTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studtablejTable1MouseClicked
 
-        jTable1.setFocusable(true);
-        editbutton.setEnabled(true);
-        deletebutton.setEnabled(true);
+        db_table.setFocusable(true);
+        book_edit.setEnabled(true);
+        book_delete.setEnabled(true);
 
-    }//GEN-LAST:event_jTable3jTable1MouseClicked
+    }//GEN-LAST:event_studtablejTable1MouseClicked
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
 
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
-        String searchString = jTextField1.getText();
+        String searchString = db_search.getText();
         search(searchString);
     }//GEN-LAST:event_jTextField2KeyReleased
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        String filterString = jComboBox1.getSelectedItem().toString();
+        String filterString = db_filter.getSelectedItem().toString();
         filter(filterString);
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
@@ -2720,7 +2933,7 @@ public class BOARD extends javax.swing.JFrame {
 
     private void issueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issueActionPerformed
         jTabbedPane1.setSelectedIndex(5);
-       
+
 
     }//GEN-LAST:event_issueActionPerformed
 
@@ -2731,7 +2944,7 @@ public class BOARD extends javax.swing.JFrame {
 
     private void returnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnsActionPerformed
         jTabbedPane1.setSelectedIndex(8);
-        
+
     }//GEN-LAST:event_returnsActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -2741,7 +2954,7 @@ public class BOARD extends javax.swing.JFrame {
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.PORTRAIT);
-            jTable1.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
+            recordstable.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
             JOptionPane.showMessageDialog(null, "\n" + "Downloaded Succesfully");
         } catch (java.awt.print.PrinterException e) {
             JOptionPane.showMessageDialog(null, "\n" + "Failed" + "\n" + e);
@@ -2754,13 +2967,13 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
-        String searchString = jTextField1.getText();
+        String searchString = db_search.getText();
         search(searchString);
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        ListSelectionModel selectionModel = jTable1.getSelectionModel();
-        int rowCount = jTable1.getRowCount();
+        ListSelectionModel selectionModel = db_table.getSelectionModel();
+        int rowCount = db_table.getRowCount();
         for (int i = 0; i < rowCount; i++) {
             selectionModel.addSelectionInterval(i, i);
         }
@@ -2772,7 +2985,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void A6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseExited
-        
+
     }//GEN-LAST:event_A6MouseExited
 
     private void A6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseEntered
@@ -2788,54 +3001,54 @@ public class BOARD extends javax.swing.JFrame {
 
     private void recMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMousePressed
 
-        
+
     }//GEN-LAST:event_recMousePressed
 
     private void recMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseExited
-        
+
     }//GEN-LAST:event_recMouseExited
 
     private void recMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseEntered
-        
+
     }//GEN-LAST:event_recMouseEntered
 
     private void recMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseClicked
-       jTabbedPane1.setSelectedIndex(4);
+        jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_recMouseClicked
 
     private void transMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMousePressed
 
-       
+
     }//GEN-LAST:event_transMousePressed
 
     private void transMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseExited
-      
+
     }//GEN-LAST:event_transMouseExited
 
     private void transMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseEntered
-       
+
     }//GEN-LAST:event_transMouseEntered
 
     private void transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseClicked
-    jTabbedPane1.setSelectedIndex(3);
-       
+        jTabbedPane1.setSelectedIndex(3);
+
     }//GEN-LAST:event_transMouseClicked
 
     private void studentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMousePressed
 
-        
+
     }//GEN-LAST:event_studentsMousePressed
 
     private void studentsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseExited
-       
+
     }//GEN-LAST:event_studentsMouseExited
 
     private void studentsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseEntered
-      
+
     }//GEN-LAST:event_studentsMouseEntered
 
     private void studentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseClicked
-    jTabbedPane1.setSelectedIndex(2);        
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_studentsMouseClicked
 
     private void booksMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseReleased
@@ -2844,27 +3057,27 @@ public class BOARD extends javax.swing.JFrame {
 
     private void booksMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMousePressed
 
-        
+
     }//GEN-LAST:event_booksMousePressed
 
     private void booksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseExited
-       
+
     }//GEN-LAST:event_booksMouseExited
 
     private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
-       
+
     }//GEN-LAST:event_booksMouseEntered
 
     private void booksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseClicked
-    jTabbedPane1.setSelectedIndex(1);       
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_booksMouseClicked
 
     private void dashMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseReleased
-       
+
     }//GEN-LAST:event_dashMouseReleased
 
     private void dashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMousePressed
-        
+
     }//GEN-LAST:event_dashMousePressed
 
     private void dashMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseExited
@@ -2872,32 +3085,32 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_dashMouseExited
 
     private void dashMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseEntered
-        
+
     }//GEN-LAST:event_dashMouseEntered
 
     private void dashMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseClicked
-    jTabbedPane1.setSelectedIndex(0);     
+        jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_dashMouseClicked
 
-    private void txtStudentID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentID1ActionPerformed
-        
-    }//GEN-LAST:event_txtStudentID1ActionPerformed
+    private void issuestudidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuestudidActionPerformed
 
-    private void txtStudentName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentName1ActionPerformed
-        
-    }//GEN-LAST:event_txtStudentName1ActionPerformed
+    }//GEN-LAST:event_issuestudidActionPerformed
 
-    private void txtGrSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrSecActionPerformed
-        
-    }//GEN-LAST:event_txtGrSecActionPerformed
+    private void issuestudnmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuestudnmActionPerformed
 
-    private void txtStrand1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrand1ActionPerformed
-        
-    }//GEN-LAST:event_txtStrand1ActionPerformed
+    }//GEN-LAST:event_issuestudnmActionPerformed
+
+    private void issuestudgrsecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuestudgrsecActionPerformed
+
+    }//GEN-LAST:event_issuestudgrsecActionPerformed
+
+    private void issuestudstrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuestudstrActionPerformed
+
+    }//GEN-LAST:event_issuestudstrActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
-       jTabbedPane1.setSelectedIndex(6);
-        
+        jTabbedPane1.setSelectedIndex(6);
+
     }//GEN-LAST:event_SearchActionPerformed
 
     private void Search2Search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search2Search1ActionPerformed
@@ -2906,114 +3119,119 @@ public class BOARD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Search2Search1ActionPerformed
 
-    private void txtBookID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookID1ActionPerformed
-        
-    }//GEN-LAST:event_txtBookID1ActionPerformed
+    private void issuebookidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebookidActionPerformed
 
-    private void txtBookName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookName1ActionPerformed
-        
-    }//GEN-LAST:event_txtBookName1ActionPerformed
+    }//GEN-LAST:event_issuebookidActionPerformed
 
-    private void txtAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAuthorActionPerformed
-        
-    }//GEN-LAST:event_txtAuthorActionPerformed
+    private void issuebooknmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebooknmActionPerformed
 
-    private void txtQuantity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantity1ActionPerformed
-        
-    }//GEN-LAST:event_txtQuantity1ActionPerformed
+    }//GEN-LAST:event_issuebooknmActionPerformed
 
-    private void txtGenre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenre1ActionPerformed
-        
-    }//GEN-LAST:event_txtGenre1ActionPerformed
+    private void issuebookauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebookauActionPerformed
 
-    private void issuebook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebook1ActionPerformed
-        String sql= "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date,Date_Return,Status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try{
-            pst= con.prepareStatement(sql);
-            pst.setString(1, txtStudentID.getText());
-            pst.setString(2, txtStudentName.getText());
-            pst.setString(3, txtStrand.getSelectedItem().toString());
-            pst.setString(4, txtGrSec.getText());
-            pst.setString(5, txtBookID.getText());
-            pst.setString(6, txtBookName.getText());
-            pst.setString(7, txtAuthor.getText());
-            pst.setString(8, txtGenre.getSelectedItem().toString());
-            pst.setString(9, txtQuantity.getText());
-            pst.setString(10, ((JTextField)txtIssueDate.getDateEditor().getUiComponent()).getText());
-            pst.setString(11, ((JTextField)txtDueDate.getDateEditor().getUiComponent()).getText());
+    }//GEN-LAST:event_issuebookauActionPerformed
+
+    private void issuebookquaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebookquaActionPerformed
+
+    }//GEN-LAST:event_issuebookquaActionPerformed
+
+    private void issuebookgnrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebookgnrActionPerformed
+
+    }//GEN-LAST:event_issuebookgnrActionPerformed
+
+    private void issuebk_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebk_buttonActionPerformed
+        String sql = "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date,Date_Return,Status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, issuestudid.getText());
+            pst.setString(2, issuestudnm.getText());
+            pst.setString(3, issuestudstr.getText());
+            pst.setString(4, issuestudgrsec.getText());
+            pst.setString(5, issuebookid.getText());
+            pst.setString(6, issuebooknm.getText());
+            pst.setString(7, issuebookau.getText());
+            pst.setString(8, issuebookgnr.getText());
+            pst.setString(9, issuebookqua.getText());
+            pst.setString(10, ((JTextField) issue_issuedate.getDateEditor().getUiComponent()).getText());
+            pst.setString(11, ((JTextField) issue_duedate.getDateEditor().getUiComponent()).getText());
             pst.setString(12, "---");
             pst.setString(13, "---");
             pst.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Book Issued");
-            TRANSACTION transaction = new TRANSACTION();
-            transaction.transactiontableupdate();
+            transactiontableupdate();
+            return_details();
+            
+            
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
-        dispose();
 
-    }//GEN-LAST:event_issuebook1ActionPerformed
+    }//GEN-LAST:event_issuebk_buttonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void finddetailsreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finddetailsreturnActionPerformed
         jTabbedPane1.setSelectedIndex(9);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_finddetailsreturnActionPerformed
 
-    private void txtStudentID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentID2ActionPerformed
-       
-    }//GEN-LAST:event_txtStudentID2ActionPerformed
+    private void returnstudidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnstudidActionPerformed
 
-    private void txtStudentName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudentName2ActionPerformed
-        
-    }//GEN-LAST:event_txtStudentName2ActionPerformed
+    }//GEN-LAST:event_returnstudidActionPerformed
 
-    private void txtStrand2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStrand2ActionPerformed
-       
-    }//GEN-LAST:event_txtStrand2ActionPerformed
+    private void returnstudnmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnstudnmActionPerformed
 
-    private void txtGrSec1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrSec1ActionPerformed
-       
-    }//GEN-LAST:event_txtGrSec1ActionPerformed
+    }//GEN-LAST:event_returnstudnmActionPerformed
 
-    private void txtIssueDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIssueDate1ActionPerformed
-        
-    }//GEN-LAST:event_txtIssueDate1ActionPerformed
+    private void returnstudstrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnstudstrActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_returnstudstrActionPerformed
+
+    private void returnstudgrsecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnstudgrsecActionPerformed
+
+    }//GEN-LAST:event_returnstudgrsecActionPerformed
+
+    private void returnissudateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnissudateActionPerformed
+
+    }//GEN-LAST:event_returnissudateActionPerformed
+
+    private void return_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_buttonActionPerformed
         Delete();
         ReturnUpdate();
-        dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void txtBookName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookName2ActionPerformed
-       
-    }//GEN-LAST:event_txtBookName2ActionPerformed
-
-    private void txtAuthor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAuthor1ActionPerformed
+        transactiontableupdate();
+        recordstable_update();
+        return_details();
         
-    }//GEN-LAST:event_txtAuthor1ActionPerformed
 
-    private void txtQuantity2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantity2ActionPerformed
-       
-    }//GEN-LAST:event_txtQuantity2ActionPerformed
+    }//GEN-LAST:event_return_buttonActionPerformed
 
-    private void txtBookID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBookID2ActionPerformed
-        
-    }//GEN-LAST:event_txtBookID2ActionPerformed
+    private void returnbooknmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbooknmActionPerformed
 
-    private void txtGenre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenre2ActionPerformed
-        
-    }//GEN-LAST:event_txtGenre2ActionPerformed
+    }//GEN-LAST:event_returnbooknmActionPerformed
 
-    private void txtDueDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDueDate1ActionPerformed
-       
-    }//GEN-LAST:event_txtDueDate1ActionPerformed
+    private void returnbookauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbookauActionPerformed
 
-    private void jTable5jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5jTable1MouseClicked
+    }//GEN-LAST:event_returnbookauActionPerformed
 
-    }//GEN-LAST:event_jTable5jTable1MouseClicked
+    private void returnbookquaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbookquaActionPerformed
+
+    }//GEN-LAST:event_returnbookquaActionPerformed
+
+    private void returnbookidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbookidActionPerformed
+
+    }//GEN-LAST:event_returnbookidActionPerformed
+
+    private void returnbookgnrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbookgnrActionPerformed
+
+    }//GEN-LAST:event_returnbookgnrActionPerformed
+
+    private void returnduedateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnduedateActionPerformed
+
+    }//GEN-LAST:event_returnduedateActionPerformed
+
+    private void issuestudlistjTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issuestudlistjTable1MouseClicked
+
+    }//GEN-LAST:event_issuestudlistjTable1MouseClicked
 
     private void txtSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch2ActionPerformed
 
@@ -3023,12 +3241,12 @@ public class BOARD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtSearch2KeyReleased
 
-    private void jTable6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable6MouseClicked
+    private void issuebooklistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issuebooklistMouseClicked
 
-    }//GEN-LAST:event_jTable6MouseClicked
+    }//GEN-LAST:event_issuebooklistMouseClicked
 
     private void txtSearch3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch3ActionPerformed
-        
+
     }//GEN-LAST:event_txtSearch3ActionPerformed
 
     private void txtSearch3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch3KeyReleased
@@ -3056,9 +3274,53 @@ public class BOARD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Search2MouseClicked
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+    private void finddetailsreturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finddetailsreturnMouseClicked
         jTabbedPane1.setSelectedIndex(9);
-    }//GEN-LAST:event_jButton8MouseClicked
+    }//GEN-LAST:event_finddetailsreturnMouseClicked
+
+    private void ret_find_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ret_find_butActionPerformed
+        DefaultTableModel model = (DefaultTableModel) findreturndetails.getModel();
+        int SelectedRows = findreturndetails.convertRowIndexToModel(findreturndetails.getSelectedRow());
+
+        returnstudid.setText(model.getValueAt(SelectedRows, 0).toString());
+        returnstudnm.setText(model.getValueAt(SelectedRows, 1).toString());
+        returnstudstr.setText(model.getValueAt(SelectedRows, 2).toString());
+        returnstudgrsec.setText(model.getValueAt(SelectedRows, 3).toString());
+        returnbookid.setText(model.getValueAt(SelectedRows, 4).toString());
+        returnbooknm.setText(model.getValueAt(SelectedRows, 5).toString());
+        returnbookau.setText(model.getValueAt(SelectedRows, 6).toString());
+        returnbookgnr.setText(model.getValueAt(SelectedRows, 7).toString());
+        returnbookqua.setText(model.getValueAt(SelectedRows, 8).toString());
+        returnissudate.setText(model.getValueAt(SelectedRows, 9).toString());
+        returnduedate.setText(model.getValueAt(SelectedRows, 10).toString());
+
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_ret_find_butActionPerformed
+
+    private void issuefindstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuefindstudActionPerformed
+        DefaultTableModel model = (DefaultTableModel) issuestudlist.getModel();
+        int SelectedRows = issuestudlist.convertRowIndexToModel(issuestudlist.getSelectedRow());
+
+        issuestudid.setText(model.getValueAt(SelectedRows, 0).toString());
+        issuestudnm.setText(model.getValueAt(SelectedRows, 1).toString());
+        issuestudstr.setText(model.getValueAt(SelectedRows, 2).toString());
+        issuestudgrsec.setText(model.getValueAt(SelectedRows, 3).toString());
+
+        jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_issuefindstudActionPerformed
+
+    private void issuefindbooklistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuefindbooklistActionPerformed
+        DefaultTableModel model = (DefaultTableModel) issuebooklist.getModel();
+        int SelectedRows = issuebooklist.convertRowIndexToModel(issuebooklist.getSelectedRow());
+
+        issuebookid.setText(model.getValueAt(SelectedRows, 0).toString());
+        issuebooknm.setText(model.getValueAt(SelectedRows, 1).toString());
+        issuebookau.setText(model.getValueAt(SelectedRows, 2).toString());
+        issuebookgnr.setText(model.getValueAt(SelectedRows, 3).toString());
+        issuebookqua.setText(model.getValueAt(SelectedRows, 4).toString());
+
+        jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_issuefindbooklistActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3106,30 +3368,50 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel a7;
     private javax.swing.JLabel a8;
     private javax.swing.JLabel a9;
-    private javax.swing.JLabel addbutton;
     private javax.swing.JLabel addbutton1;
     private javax.swing.JPanel book;
+    private javax.swing.JLabel book_add;
+    private javax.swing.JLabel book_delete;
+    private javax.swing.JLabel book_edit;
+    private javax.swing.JLabel book_update;
     private javax.swing.JLabel books;
+    private javax.swing.JLabel btextadd;
+    private javax.swing.JLabel btxtedit;
+    private javax.swing.JLabel btxtremove;
+    private javax.swing.JLabel btxtupdate;
     private javax.swing.JLabel dash;
     private javax.swing.JPanel dashboard;
-    private javax.swing.JLabel deletebutton;
+    private javax.swing.JComboBox<String> db_filter;
+    private javax.swing.JTextField db_search;
+    private javax.swing.JTable db_table;
     private javax.swing.JLabel deletebutton1;
     private javax.swing.JPanel details;
-    private javax.swing.JLabel editbutton;
     private javax.swing.JLabel editbutton1;
+    private javax.swing.JButton finddetailsreturn;
     private javax.swing.JTable findreturndetails;
     private javax.swing.JButton issue;
+    private com.toedter.calendar.JDateChooser issue_duedate;
+    private com.toedter.calendar.JDateChooser issue_issuedate;
+    private javax.swing.JButton issuebk_button;
     private javax.swing.JPanel issuebook;
-    private javax.swing.JButton issuebook1;
+    private javax.swing.JTextField issuebookau;
+    private javax.swing.JTextField issuebookgnr;
+    private javax.swing.JTextField issuebookid;
+    private javax.swing.JTable issuebooklist;
+    private javax.swing.JTextField issuebooknm;
+    private javax.swing.JTextField issuebookqua;
+    private javax.swing.JButton issuefindbooklist;
+    private javax.swing.JButton issuefindstud;
+    private javax.swing.JTextField issuestudgrsec;
+    private javax.swing.JTextField issuestudid;
+    private javax.swing.JTable issuestudlist;
+    private javax.swing.JTextField issuestudnm;
+    private javax.swing.JTextField issuestudstr;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -3236,77 +3518,60 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JComboBox<String> manageb_filter;
+    private javax.swing.JTextField manageb_search;
+    private javax.swing.JTable manageb_table;
     private javax.swing.JPanel managebook;
     private javax.swing.JPanel managestudent;
     private javax.swing.JLabel rec;
     private javax.swing.JPanel records;
+    private javax.swing.JTable recordstable;
+    private javax.swing.JButton ret_find_but;
+    private javax.swing.JButton return_button;
+    private com.toedter.calendar.JDateChooser return_datereturned;
     private javax.swing.JPanel returnbook;
+    private javax.swing.JTextField returnbookau;
+    private javax.swing.JTextField returnbookgnr;
+    private javax.swing.JTextField returnbookid;
+    private javax.swing.JTextField returnbooknm;
+    private javax.swing.JTextField returnbookqua;
+    private javax.swing.JTextField returnduedate;
+    private javax.swing.JTextField returnissudate;
     private javax.swing.JButton returns;
+    private javax.swing.JTextField returnstudgrsec;
+    private javax.swing.JTextField returnstudid;
+    private javax.swing.JTextField returnstudnm;
+    private javax.swing.JTextField returnstudstr;
     private javax.swing.JPanel student;
     private javax.swing.JLabel students;
+    private javax.swing.JTable studtable;
     private javax.swing.JPanel t1;
     private javax.swing.JPanel t2;
     private javax.swing.JPanel t3;
     private javax.swing.JPanel t4;
     private javax.swing.JPanel t5;
-    private javax.swing.JLabel textadd;
     private javax.swing.JLabel textadd1;
     private javax.swing.JLabel trans;
     private javax.swing.JPanel transaction;
     private javax.swing.JTable transactiontable;
-    private javax.swing.JTextField txtAuthor;
-    private javax.swing.JTextField txtAuthor1;
     private javax.swing.JTextField txtBookAuthor;
     private javax.swing.JTextField txtBookID;
-    private javax.swing.JTextField txtBookID1;
-    private javax.swing.JTextField txtBookID2;
     private javax.swing.JTextField txtBookName;
-    private javax.swing.JTextField txtBookName1;
-    private javax.swing.JTextField txtBookName2;
-    private com.toedter.calendar.JDateChooser txtDueDate;
-    private javax.swing.JTextField txtDueDate1;
     private javax.swing.JComboBox<String> txtGenre;
-    private javax.swing.JTextField txtGenre1;
-    private javax.swing.JTextField txtGenre2;
-    private javax.swing.JTextField txtGrSec;
-    private javax.swing.JTextField txtGrSec1;
     private javax.swing.JComboBox<String> txtGrandSec;
-    private com.toedter.calendar.JDateChooser txtIssueDate;
-    private javax.swing.JTextField txtIssueDate1;
     private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtQuantity1;
-    private javax.swing.JTextField txtQuantity2;
-    private com.toedter.calendar.JDateChooser txtReturnDate;
-    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtSearch1;
     private javax.swing.JTextField txtSearch2;
     private javax.swing.JTextField txtSearch3;
     private javax.swing.JTextField txtSearch4;
     private javax.swing.JComboBox<String> txtStrand;
-    private javax.swing.JTextField txtStrand1;
-    private javax.swing.JTextField txtStrand2;
     private javax.swing.JTextField txtStudentID;
-    private javax.swing.JTextField txtStudentID1;
-    private javax.swing.JTextField txtStudentID2;
     private javax.swing.JTextField txtStudentName;
-    private javax.swing.JTextField txtStudentName1;
-    private javax.swing.JTextField txtStudentName2;
-    private javax.swing.JLabel txtedit;
     private javax.swing.JLabel txtedit1;
-    private javax.swing.JLabel txtremove;
     private javax.swing.JLabel txtremove1;
-    private javax.swing.JLabel txtupdate;
     private javax.swing.JLabel txtupdate1;
-    private javax.swing.JLabel updatebutton;
     private javax.swing.JLabel updatebutton1;
     // End of variables declaration//GEN-END:variables
 }

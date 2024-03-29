@@ -26,9 +26,9 @@ public class Forgot extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/data", "root", "");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Forgot.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Forgot.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -38,7 +38,7 @@ public class Forgot extends javax.swing.JFrame {
         font = font.deriveFont(Font.PLAIN);
         txtpass.setFont(font);
         txtnew.setForeground(Color.gray); //font color
-  
+
     }
 
     public void removePlaceorderStyle(JTextField textfield) {
@@ -53,17 +53,17 @@ public class Forgot extends javax.swing.JFrame {
         font = font.deriveFont(Font.PLAIN);
         usertxt.setFont(font);
         oldpasstxt.setForeground(Color.gray); //font color
-  
+
     }
+
     public void oldPlaceorderStyle(JTextField textield) {
         Font font = oldpasstxt.getFont();
         font = font.deriveFont(Font.PLAIN);
         usertxt.setFont(font);
         oldpasstxt.setForeground(Color.gray); //font color
-  
+
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -79,6 +79,7 @@ public class Forgot extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         usertxt = new javax.swing.JTextField();
         oldpasstxt = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +140,11 @@ public class Forgot extends javax.swing.JFrame {
                 txtnewFocusLost(evt);
             }
         });
+        txtnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnewActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 320, 40));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
@@ -173,6 +179,14 @@ public class Forgot extends javax.swing.JFrame {
         });
         jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 320, 40));
 
+        jButton3.setText("GO BACK BUTTON");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         setSize(new java.awt.Dimension(989, 415));
@@ -193,7 +207,7 @@ public class Forgot extends javax.swing.JFrame {
             txtnew.setText(null);
             txtnew.requestFocus();
 
-            txtnew.setEchoChar('@');
+            txtnew.setEchoChar('•');
 
             removePlaceorderStyle(txtnew);
         }
@@ -222,8 +236,11 @@ public class Forgot extends javax.swing.JFrame {
             Rs = pst.executeQuery();
 
             if (Rs.next()) {
+                JOptionPane.showMessageDialog(null, "Current Password Shown.");
                 String add1 = Rs.getString("password");
                 oldpasstxt.setText(add1);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid Username");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -231,27 +248,37 @@ public class Forgot extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String user, newpass, confirmpass;
+        String user, newpass, confirmpass, none;
         user = usertxt.getText();
         newpass = txtpass.getText();
         confirmpass = txtnew.getText();
+        none = "";
 
-        if (newpass.equals("")) {
-            JOptionPane.showMessageDialog(null, "Input Password");
-
-        } else if (newpass.equals("") && !confirmpass.equals("")) {
-            JOptionPane.showMessageDialog(null, "Incorrect Password");
-        } else {
-            try {
+        if (user.equals(user) && (newpass.equals(confirmpass)))
+        try {
+            int optionType = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "Confirm Change Password?", "Change Password", optionType);
+            if (result == JOptionPane.YES_OPTION) {
                 pst = con.prepareStatement("update account set password = ? where username = ? ");
                 pst.setString(1, confirmpass);
                 pst.setString(2, user);
                 pst.executeUpdate();
-            } catch (Exception e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Password Updated");
+                usertxt.setText("");
+                oldpasstxt.setText("");
+                txtpass.setText("");
+                txtnew.setText("");
             }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } else if (!confirmpass.equals(none)) {
+            JOptionPane.showMessageDialog(null, "Password Does Not Match2");
+        } else if (!newpass.equals(none)) {
+            JOptionPane.showMessageDialog(null, "Password Does Not Match");
         }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void usertxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usertxtFocusGained
@@ -264,14 +291,14 @@ public class Forgot extends javax.swing.JFrame {
     }//GEN-LAST:event_usertxtFocusGained
 
     private void usertxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usertxtFocusLost
-         if (usertxt.getText().length() == 0) {
+        if (usertxt.getText().length() == 0) {
             addPlaceorderStyle(usertxt);
             usertxt.setText("Username");
         }
     }//GEN-LAST:event_usertxtFocusLost
 
     private void oldpasstxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldpasstxtFocusGained
-       if (oldpasstxt.getText().equals("Old Password")) {
+        if (oldpasstxt.getText().equals("Old Password")) {
             oldpasstxt.setText(null);
             oldpasstxt.requestFocus();
 
@@ -286,6 +313,16 @@ public class Forgot extends javax.swing.JFrame {
             oldpasstxt.setText("Old Password");
         }
     }//GEN-LAST:event_oldpasstxtFocusLost
+
+    private void txtnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnewActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+        Login lg = new Login();
+        lg.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,6 +362,7 @@ public class Forgot extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

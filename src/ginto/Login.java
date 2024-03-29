@@ -1,25 +1,40 @@
-
 package ginto;
 
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
-
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
 
-    
     public Login() {
         initComponents();
+        Connect();
     }
-    
-    public void close (){
+
+    Connection con;
+    PreparedStatement pst;
+    ResultSet Rs;
+
+    public void Connect() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/data", "root", "");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -207,82 +222,87 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        String username = "CFSI_Admin";
-        String password = "CFSI2024";
+        String username, password;
 
-        String user = u1.getText();
-        String pass = p1.getText();
+        username = u1.getText();
+        password = p1.getText();
 
-        if(user.equals(username)&&pass.equals(password)){
-            close();
-            HomePage pg = new HomePage();
-            pg.setVisible(true);
+        try {
+            pst = con.prepareStatement("select * from account where username=?");
+            pst.setString(1, username);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                close();
+                BOARD bd = new BOARD();
+                bd.setVisible(true);
+            } else if (u1.getText().equals("") && p1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please input user and pass");
+            } else if (u1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please input username");
+            } else if (p1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please input password");
+            } else if (!u1.getText().equals("") && !p1.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "invalid user or pass");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else if (u1.getText().equals("")&&p1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Please input user and pass");
-        }
-        else if (u1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Please input username");
-        }
-        else if (p1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Please input password");
-        }
-        else if (!u1.getText().equals("")&&!p1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "invalid user or pass");
-        }
+
     }//GEN-LAST:event_b1ActionPerformed
 
     private void p1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1ActionPerformed
-        
+
     }//GEN-LAST:event_p1ActionPerformed
 
     private void u1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u1ActionPerformed
-        
+
     }//GEN-LAST:event_u1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if (jCheckBox1.isSelected())
-        {
-            p1.setEchoChar((char)0);
-        }
-        else
-        {
+        if (jCheckBox1.isSelected()) {
+            p1.setEchoChar((char) 0);
+        } else {
             p1.setEchoChar('*');
-        }    
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void p1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_p1KeyPressed
-       if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            String username = "CFSI_Admin";
-            String password = "CFSI2024";
-            
-            String user = u1.getText();
-            String pass = p1.getText();
-            
-            if(user.equals(username)&&pass.equals(password)){
-                close();
-                HomePage pg = new HomePage();
-                pg.setVisible(true);
+            String username, password;
+
+            username = u1.getText();
+            password = p1.getText();
+
+            try {
+                pst = con.prepareStatement("select * from account where username=?");
+                pst.setString(1, username);
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    close();
+                    BOARD bd = new BOARD();
+                    bd.setVisible(true);
+                } else if (u1.getText().equals("") && p1.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please input user and pass");
+                } else if (u1.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please input username");
+                } else if (p1.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please input password");
+                } else if (!u1.getText().equals("") && !p1.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "invalid user or pass");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            else if (u1.getText().equals("")&&p1.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Please input user and pass");
-            }
-            else if (u1.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Please input username");
-            }
-            else if (p1.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Please input password");
-            }
-            else if (!u1.getText().equals("")&&!p1.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "invalid user or pass");
-            }
-        }                
-       
+        }
+
+
     }//GEN-LAST:event_p1KeyPressed
 
     private void b1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b1KeyPressed
-        
+
     }//GEN-LAST:event_b1KeyPressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -291,11 +311,13 @@ public class Login extends javax.swing.JFrame {
 
     private void ChangeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChangeKeyPressed
 
-         
+
     }//GEN-LAST:event_ChangeKeyPressed
 
     private void ChangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChangeMouseClicked
-       
+        dispose();
+        Forgot forgot = new Forgot();
+        forgot.setVisible(true);
     }//GEN-LAST:event_ChangeMouseClicked
 
     /**

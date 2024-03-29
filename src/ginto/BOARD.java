@@ -374,7 +374,7 @@ public class BOARD extends javax.swing.JFrame {
         txtBookAuthor = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        txtGenre = new javax.swing.JComboBox<>();
+        genrecombobox = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -387,6 +387,7 @@ public class BOARD extends javax.swing.JFrame {
         btxtedit = new javax.swing.JLabel();
         btxtremove = new javax.swing.JLabel();
         btxtupdate = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -772,9 +773,9 @@ public class BOARD extends javax.swing.JFrame {
         jLabel21.setText("Genre :");
         jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 50, -1));
 
-        txtGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        txtGenre.setPreferredSize(new java.awt.Dimension(129, 35));
-        jPanel4.add(txtGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 240, 40));
+        genrecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
+        genrecombobox.setPreferredSize(new java.awt.Dimension(129, 35));
+        jPanel4.add(genrecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 240, 40));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-book-28.png"))); // NOI18N
         jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, 40));
@@ -883,6 +884,14 @@ public class BOARD extends javax.swing.JFrame {
         btxtupdate.setText("UPDATE");
         jPanel4.add(btxtupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 700, -1, -1));
         btxtupdate.setVisible(false);
+
+        jButton2.setText("+");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 30, -1));
 
         managebook.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 810));
 
@@ -2576,7 +2585,7 @@ public class BOARD extends javax.swing.JFrame {
             BookName = txtBookName.getText();
             BookAuthor = txtBookAuthor.getText();
             Quantity = txtQuantity.getText();
-            Genre = txtGenre.getSelectedItem().toString();
+            Genre = genrecombobox.getSelectedItem().toString();
 
             if (result == JOptionPane.YES_OPTION) {
                 pst = con.prepareStatement("update books set bookid = ?, bookname = ?,bookauthor = ?,genre = ?, quantity = ? where bookid = ?");
@@ -2594,7 +2603,7 @@ public class BOARD extends javax.swing.JFrame {
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
-            txtGenre.setSelectedIndex(0);
+            genrecombobox.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
             book_add.setVisible(true);
@@ -2635,7 +2644,7 @@ public class BOARD extends javax.swing.JFrame {
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
-            txtGenre.setSelectedIndex(0);
+            genrecombobox.setSelectedIndex(0);
             txtQuantity.setText("");
 
         } catch (SQLException ex) {
@@ -2659,7 +2668,7 @@ public class BOARD extends javax.swing.JFrame {
         txtBookID.setText(model.getValueAt(selectedIndex, 0).toString());
         txtBookName.setText(model.getValueAt(selectedIndex, 1).toString());
         txtBookAuthor.setText(model.getValueAt(selectedIndex, 2).toString());
-        txtGenre.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
+        genrecombobox.setSelectedItem(model.getValueAt(selectedIndex, 3).toString());
         txtQuantity.setText(model.getValueAt(selectedIndex, 4).toString());
 
         book_add.setVisible(false);
@@ -2683,7 +2692,7 @@ public class BOARD extends javax.swing.JFrame {
             BookName = txtBookName.getText();
             BookAuthor = txtBookAuthor.getText();
             Quantity = txtQuantity.getText();
-            Genre = txtGenre.getSelectedItem().toString();
+            Genre = genrecombobox.getSelectedItem().toString();
             pst = con.prepareStatement("insert into books (bookid,bookname,bookauthor,genre,quantity)values(?,?,?,?,?)");
             pst.setString(1, BookID);
             pst.setString(2, BookName);
@@ -2697,7 +2706,7 @@ public class BOARD extends javax.swing.JFrame {
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
-            txtGenre.setSelectedIndex(0);
+            genrecombobox.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
             int lastRow = db_table.convertRowIndexToView(db_table.getRowCount() - 1);
@@ -3322,6 +3331,28 @@ public class BOARD extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_issuefindbooklistActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       try {
+           String input = JOptionPane.showInputDialog("Add a genre");
+           pst = con.prepareStatement("insert into combobox (genre) values(?)");
+           pst.setString(1, input);
+           pst.executeUpdate();
+       }catch (Exception e) {
+           e.printStackTrace();
+       }
+       try {
+           Statement st = con.createStatement();
+           ResultSet Rs = st.executeQuery("SELECT genre from combobox");
+           while (Rs.next()) {
+               String genre = Rs.getString("genre");
+               genrecombobox.addItem(genre);
+           }
+       }catch (Exception e) {
+           e.printStackTrace();
+       }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3389,6 +3420,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel editbutton1;
     private javax.swing.JButton finddetailsreturn;
     private javax.swing.JTable findreturndetails;
+    private javax.swing.JComboBox<String> genrecombobox;
     private javax.swing.JButton issue;
     private com.toedter.calendar.JDateChooser issue_duedate;
     private com.toedter.calendar.JDateChooser issue_issuedate;
@@ -3408,6 +3440,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField issuestudnm;
     private javax.swing.JTextField issuestudstr;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
@@ -3559,7 +3592,6 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField txtBookAuthor;
     private javax.swing.JTextField txtBookID;
     private javax.swing.JTextField txtBookName;
-    private javax.swing.JComboBox<String> txtGenre;
     private javax.swing.JComboBox<String> txtGrandSec;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearch1;

@@ -35,9 +35,10 @@ public class Forgot extends javax.swing.JFrame {
 
     public void addPlaceorderStyle(JTextField textield) {
         Font font = txtpass.getFont();
-        font = font.deriveFont(Font.ITALIC);
+        font = font.deriveFont(Font.PLAIN);
         txtpass.setFont(font);
         txtnew.setForeground(Color.gray); //font color
+  
     }
 
     public void removePlaceorderStyle(JTextField textfield) {
@@ -47,6 +48,22 @@ public class Forgot extends javax.swing.JFrame {
         txtnew.setForeground(Color.black);
     }
 
+    public void userPlaceorderStyle(JTextField textield) {
+        Font font = usertxt.getFont();
+        font = font.deriveFont(Font.PLAIN);
+        usertxt.setFont(font);
+        oldpasstxt.setForeground(Color.gray); //font color
+  
+    }
+    public void oldPlaceorderStyle(JTextField textield) {
+        Font font = oldpasstxt.getFont();
+        font = font.deriveFont(Font.PLAIN);
+        usertxt.setFont(font);
+        oldpasstxt.setForeground(Color.gray); //font color
+  
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -59,8 +76,8 @@ public class Forgot extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtnew = new javax.swing.JPasswordField();
-        usertxt = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        usertxt = new javax.swing.JTextField();
         oldpasstxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,7 +99,7 @@ public class Forgot extends javax.swing.JFrame {
                 txtpassFocusLost(evt);
             }
         });
-        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 320, 40));
+        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 320, 40));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 153));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -92,7 +109,7 @@ public class Forgot extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 320, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 180, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -122,17 +139,39 @@ public class Forgot extends javax.swing.JFrame {
                 txtnewFocusLost(evt);
             }
         });
-        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 192, 320, 40));
-        jPanel1.add(usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 110, -1));
+        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 320, 40));
 
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("FIND");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, -1, -1));
-        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 110, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 60, -1));
+
+        usertxt.setText("Username");
+        usertxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usertxtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usertxtFocusLost(evt);
+            }
+        });
+        jPanel1.add(usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 320, 40));
+
+        oldpasstxt.setText("Old Password");
+        oldpasstxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                oldpasstxtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                oldpasstxtFocusLost(evt);
+            }
+        });
+        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 320, 40));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -214,6 +253,39 @@ public class Forgot extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void usertxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usertxtFocusGained
+        if (usertxt.getText().equals("Username")) {
+            usertxt.setText(null);
+            usertxt.requestFocus();
+
+            removePlaceorderStyle(usertxt);
+        }
+    }//GEN-LAST:event_usertxtFocusGained
+
+    private void usertxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usertxtFocusLost
+         if (usertxt.getText().length() == 0) {
+            addPlaceorderStyle(usertxt);
+            usertxt.setText("Username");
+        }
+    }//GEN-LAST:event_usertxtFocusLost
+
+    private void oldpasstxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldpasstxtFocusGained
+       if (oldpasstxt.getText().equals("Old Password")) {
+            oldpasstxt.setText(null);
+            oldpasstxt.requestFocus();
+
+            removePlaceorderStyle(oldpasstxt);
+        }
+
+    }//GEN-LAST:event_oldpasstxtFocusGained
+
+    private void oldpasstxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldpasstxtFocusLost
+        if (oldpasstxt.getText().length() == 0) {
+            addPlaceorderStyle(oldpasstxt);
+            oldpasstxt.setText("Old Password");
+        }
+    }//GEN-LAST:event_oldpasstxtFocusLost
 
     /**
      * @param args the command line arguments

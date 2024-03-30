@@ -33,59 +33,61 @@ public class BOARD extends javax.swing.JFrame {
         return_details();
         studenttable_update();
         issuebooktable_update();
-        
-        
-        setBackground(new Color(0,0,0,0));
-        
-        db_table.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+        book_count();
+        student_count();
+        issue_count();
+        return_count();
+
+        setBackground(new Color(0, 0, 0, 0));
+
+        db_table.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         db_table.getTableHeader().setOpaque(false);
-        db_table.getTableHeader().setBackground(new Color(19,22,40));
-        db_table.getTableHeader().setForeground(new Color(0,0,0));
+        db_table.getTableHeader().setBackground(new Color(19, 22, 40));
+        db_table.getTableHeader().setForeground(new Color(0, 0, 0));
         db_table.setRowHeight(25);
-        
-        manageb_table.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+
+        manageb_table.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         manageb_table.getTableHeader().setOpaque(false);
-        manageb_table.getTableHeader().setBackground(new Color(19,22,40));
-        manageb_table.getTableHeader().setForeground(new Color(0,0,0));
+        manageb_table.getTableHeader().setBackground(new Color(19, 22, 40));
+        manageb_table.getTableHeader().setForeground(new Color(0, 0, 0));
         manageb_table.setRowHeight(25);
-        
-        studtable.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+
+        studtable.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         studtable.getTableHeader().setOpaque(false);
-        studtable.getTableHeader().setBackground(new Color(19,22,40));
-        studtable.getTableHeader().setForeground(new Color(0,0,0));
+        studtable.getTableHeader().setBackground(new Color(19, 22, 40));
+        studtable.getTableHeader().setForeground(new Color(0, 0, 0));
         studtable.setRowHeight(25);
-        
-        transactiontable.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+
+        transactiontable.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         transactiontable.getTableHeader().setOpaque(false);
-        transactiontable.getTableHeader().setBackground(new Color(19,22,40));
-        transactiontable.getTableHeader().setForeground(new Color(0,0,0));
+        transactiontable.getTableHeader().setBackground(new Color(19, 22, 40));
+        transactiontable.getTableHeader().setForeground(new Color(0, 0, 0));
         transactiontable.setRowHeight(25);
-        
-        recordstable.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+
+        recordstable.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         recordstable.getTableHeader().setOpaque(false);
-        recordstable.getTableHeader().setBackground(new Color(19,22,40));
-        recordstable.getTableHeader().setForeground(new Color(0,0,0));
+        recordstable.getTableHeader().setBackground(new Color(19, 22, 40));
+        recordstable.getTableHeader().setForeground(new Color(0, 0, 0));
         recordstable.setRowHeight(25);
-        
-        issuestudlist.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+
+        issuestudlist.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         issuestudlist.getTableHeader().setOpaque(false);
-        issuestudlist.getTableHeader().setBackground(new Color(19,22,40));
-        issuestudlist.getTableHeader().setForeground(new Color(0,0,0));
+        issuestudlist.getTableHeader().setBackground(new Color(19, 22, 40));
+        issuestudlist.getTableHeader().setForeground(new Color(0, 0, 0));
         issuestudlist.setRowHeight(25);
-        
-        issuebooklist.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+
+        issuebooklist.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         issuebooklist.getTableHeader().setOpaque(false);
-        issuebooklist.getTableHeader().setBackground(new Color(19,22,40));
-        issuebooklist.getTableHeader().setForeground(new Color(0,0,0));
+        issuebooklist.getTableHeader().setBackground(new Color(19, 22, 40));
+        issuebooklist.getTableHeader().setForeground(new Color(0, 0, 0));
         issuebooklist.setRowHeight(25);
-        
-        findreturndetails.getTableHeader().setFont(new Font("Century Gothic",Font.BOLD, 12));
+
+        findreturndetails.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         findreturndetails.getTableHeader().setOpaque(false);
-        findreturndetails.getTableHeader().setBackground(new Color(19,22,40));
-        findreturndetails.getTableHeader().setForeground(new Color(0,0,0));
+        findreturndetails.getTableHeader().setBackground(new Color(19, 22, 40));
+        findreturndetails.getTableHeader().setForeground(new Color(0, 0, 0));
         findreturndetails.setRowHeight(25);
-        
-       
+
     }
 
     Connection con;
@@ -373,6 +375,82 @@ public class BOARD extends javax.swing.JFrame {
         }
     }
 
+    private void book_count() {
+        try {
+            pst = con.prepareStatement("SELECT COUNT(*) AS bookCount from books");
+            ResultSet Rs = pst.executeQuery();
+
+            while (Rs.next()) {
+                int bcount = Rs.getInt("bookcount");
+                bookcount.setText(String.valueOf(bcount));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            {
+
+            }
+        }
+
+    }
+
+    private void student_count() {
+        try {
+            pst = con.prepareStatement("SELECT COUNT(*) AS studentCount from students");
+            ResultSet Rs = pst.executeQuery();
+
+            while (Rs.next()) {
+                int scount = Rs.getInt("studentcount");
+                studentcount.setText(String.valueOf(scount));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            {
+
+            }
+        }
+
+    }
+
+    private void issue_count() {
+        try {
+            pst = con.prepareStatement("SELECT COUNT(*) AS issueCount from issue");
+            ResultSet Rs = pst.executeQuery();
+
+            while (Rs.next()) {
+                int icount = Rs.getInt("issuecount");
+                issuedbcount.setText(String.valueOf(icount));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            {
+
+            }
+        }
+
+    }
+
+    private void return_count() {
+        try {
+            pst = con.prepareStatement("SELECT COUNT(*) AS returnCount from returnbook");
+            ResultSet Rs = pst.executeQuery();
+
+            while (Rs.next()) {
+                int rcount = Rs.getInt("returncount");
+                returnedbcount.setText(String.valueOf(rcount));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            {
+
+            }
+        }
+
+    }
+
     public void search(String str) {
         model = (DefaultTableModel) db_table.getModel();
         TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
@@ -396,16 +474,16 @@ public class BOARD extends javax.swing.JFrame {
         dashboard = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        bookcount = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        studentcount = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        returnedbcount = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        issuedbcount = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         db_search = new javax.swing.JTextField();
         db_filter = new javax.swing.JComboBox<>();
@@ -648,11 +726,11 @@ public class BOARD extends javax.swing.JFrame {
         jPanel14.add(jLabel12);
         jLabel12.setBounds(10, 10, 126, 30);
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("100");
-        jPanel14.add(jLabel13);
-        jLabel13.setBounds(150, 0, 87, 110);
+        bookcount.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        bookcount.setForeground(new java.awt.Color(255, 255, 255));
+        bookcount.setText("100");
+        jPanel14.add(bookcount);
+        bookcount.setBounds(150, 0, 87, 110);
 
         dashboard.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 270, 110));
 
@@ -666,10 +744,10 @@ public class BOARD extends javax.swing.JFrame {
         jLabel14.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel15.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 30));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("559");
-        jPanel15.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 110));
+        studentcount.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        studentcount.setForeground(new java.awt.Color(255, 255, 255));
+        studentcount.setText("559");
+        jPanel15.add(studentcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 110));
 
         dashboard.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 270, -1));
 
@@ -679,14 +757,14 @@ public class BOARD extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("ISSUED BOOKS");
+        jLabel16.setText("RETURNED BOOKS");
         jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel16.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 30));
+        jPanel16.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("459");
-        jPanel16.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 110));
+        returnedbcount.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        returnedbcount.setForeground(new java.awt.Color(255, 255, 255));
+        returnedbcount.setText("459");
+        jPanel16.add(returnedbcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 110));
 
         dashboard.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 270, -1));
 
@@ -696,14 +774,14 @@ public class BOARD extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("OVERDUE");
+        jLabel18.setText("ISSUED BOOKS");
         jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel17.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
+        jPanel17.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 30));
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("599");
-        jPanel17.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 110));
+        issuedbcount.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        issuedbcount.setForeground(new java.awt.Color(255, 255, 255));
+        issuedbcount.setText("599");
+        jPanel17.add(issuedbcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 110));
 
         dashboard.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 270, -1));
 
@@ -1800,7 +1878,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel18.add(Search2);
-        Search2.setBounds(260, 180, 72, 22);
+        Search2.setBounds(260, 180, 72, 23);
 
         jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -2199,7 +2277,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(finddetailsreturn);
-        finddetailsreturn.setBounds(450, 200, 60, 22);
+        finddetailsreturn.setBounds(450, 200, 60, 23);
 
         returnstudid.setBackground(new java.awt.Color(16, 1, 59));
         returnstudid.setForeground(new java.awt.Color(255, 255, 255));
@@ -2290,7 +2368,8 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(return_button);
-        return_button.setBounds(180, 530, 180, 28);
+        return_button.setBounds(180, 530, 180, 29);
+        return_button.setEnabled(false);
 
         returnbook.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 530, 600));
 
@@ -2767,17 +2846,14 @@ public class BOARD extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-     public void setColor (JPanel p)
-    {
-        p.setBackground(new Color(16,0,61));
+    public void setColor(JPanel p) {
+        p.setBackground(new Color(16, 0, 61));
     }
-    
-     public void resetColor (JPanel p1)
-    {
-        p1.setBackground(new Color(0,5,87));
+
+    public void resetColor(JPanel p1) {
+        p1.setBackground(new Color(0, 5, 87));
     }
-     
+
     private void manageb_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageb_tableMouseClicked
 
         db_table.setFocusable(true);
@@ -2807,7 +2883,7 @@ public class BOARD extends javax.swing.JFrame {
         int optionType = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Are you sure?", "Update Book", optionType);
         try {
-            
+
             String BookID, BookName, BookAuthor, Quantity, Genre;
             BookID = txtBookID.getText();
             BookName = txtBookName.getText();
@@ -2858,7 +2934,7 @@ public class BOARD extends javax.swing.JFrame {
         int optionType = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this book", "Delete", optionType);
         try {
-            
+
             String BookID;
             BookID = txtBookID.getText();
             if (result == JOptionPane.YES_OPTION) {
@@ -2931,6 +3007,8 @@ public class BOARD extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Book Added");
             booktable_update();
             issuebooktable_update();
+            JOptionPane.showMessageDialog(null, "Book Count Updated");
+            book_count();
             txtBookID.setText("");
             txtBookName.setText("");
             txtBookAuthor.setText("");
@@ -2984,6 +3062,8 @@ public class BOARD extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Student Added");
             stud_table_update();
             studenttable_update();
+            JOptionPane.showMessageDialog(null, "Student Count Updated");
+            student_count();
             txtStudentID.setText("");
             txtStudentName.setText("");
             txtStrand.setSelectedIndex(0);
@@ -3237,12 +3317,12 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_A6MouseClicked
 
     private void recMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMousePressed
-     resetColor(t5);
+        resetColor(t5);
 
     }//GEN-LAST:event_recMousePressed
 
     private void recMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseExited
-       setColor(t5);
+        setColor(t5);
     }//GEN-LAST:event_recMouseExited
 
     private void recMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recMouseEntered
@@ -3254,12 +3334,12 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_recMouseClicked
 
     private void transMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMousePressed
-     resetColor(t4);
+        resetColor(t4);
 
     }//GEN-LAST:event_transMousePressed
 
     private void transMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseExited
-      setColor(t4);
+        setColor(t4);
     }//GEN-LAST:event_transMouseExited
 
     private void transMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseEntered
@@ -3272,13 +3352,13 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_transMouseClicked
 
     private void studentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMousePressed
-       resetColor(t3); 
+        resetColor(t3);
 
 
     }//GEN-LAST:event_studentsMousePressed
 
     private void studentsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseExited
-       setColor(t3); 
+        setColor(t3);
     }//GEN-LAST:event_studentsMouseExited
 
     private void studentsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsMouseEntered
@@ -3299,7 +3379,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_booksMousePressed
 
     private void booksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseExited
-        setColor(t2);  
+        setColor(t2);
     }//GEN-LAST:event_booksMouseExited
 
     private void booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksMouseEntered
@@ -3315,11 +3395,11 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_dashMouseReleased
 
     private void dashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMousePressed
-      resetColor(t1); 
+        resetColor(t1);
     }//GEN-LAST:event_dashMousePressed
 
     private void dashMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseExited
-        setColor(t1); 
+        setColor(t1);
     }//GEN-LAST:event_dashMouseExited
 
     private void dashMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashMouseEntered
@@ -3395,13 +3475,22 @@ public class BOARD extends javax.swing.JFrame {
             pst.setString(12, "---");
             pst.setString(13, "---");
             pst.executeUpdate();
-
             JOptionPane.showMessageDialog(null, "Book Issued");
             transactiontableupdate();
             return_details();
-            
-            
-
+            JOptionPane.showMessageDialog(null, "Issue Count Updated");
+            issue_count();
+            issuestudid.setText("");
+            issuestudnm.setText("");
+            issuestudstr.setText("");
+            issuestudgrsec.setText("");
+            issuebookid.setText("");
+            issuebooknm.setText("");
+            issuebookau.setText("");
+            issuebookgnr.setText("");
+            issuebookqua.setText("");
+            issue_issuedate.setCalendar(null);
+            issue_duedate.setCalendar(null);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -3436,11 +3525,24 @@ public class BOARD extends javax.swing.JFrame {
     private void return_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_buttonActionPerformed
         Delete();
         ReturnUpdate();
+        returnstudid.setText("");
+        returnstudnm.setText("");
+        returnstudstr.setText("");
+        returnstudgrsec.setText("");
+        returnbookid.setText("");
+        returnbooknm.setText("");
+        returnbookau.setText("");
+        returnbookgnr.setText("");
+        returnbookqua.setText("");
+        returnissudate.setText("");
+        returnduedate.setText("");
+        return_datereturned.setCalendar(null);
         transactiontableupdate();
         recordstable_update();
         return_details();
-        
-
+        return_count();
+        issue_count();
+        JOptionPane.showMessageDialog(null, "Return Count Updated");
     }//GEN-LAST:event_return_buttonActionPerformed
 
     private void returnbooknmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbooknmActionPerformed
@@ -3533,6 +3635,7 @@ public class BOARD extends javax.swing.JFrame {
         returnduedate.setText(model.getValueAt(SelectedRows, 10).toString());
 
         jTabbedPane1.setSelectedIndex(8);
+        return_button.setEnabled(true);
     }//GEN-LAST:event_ret_find_butActionPerformed
 
     private void issuefindstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuefindstudActionPerformed
@@ -3561,24 +3664,24 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_issuefindbooklistActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       try {
-           String input = JOptionPane.showInputDialog("Add a genre");
-           pst = con.prepareStatement("insert into combobox (genre) values(?)");
-           pst.setString(1, input);
-           pst.executeUpdate();
-       }catch (Exception e) {
-           e.printStackTrace();
-       }
-       try {
-           Statement st = con.createStatement();
-           ResultSet Rs = st.executeQuery("SELECT genre from combobox");
-           while (Rs.next()) {
-               String genre = Rs.getString("genre");
-               genrecombobox.addItem(genre);
-           }
-       }catch (Exception e) {
-           e.printStackTrace();
-       }
+        try {
+            String input = JOptionPane.showInputDialog("Add a genre");
+            pst = con.prepareStatement("insert into combobox (genre) values(?)");
+            pst.setString(1, input);
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Statement st = con.createStatement();
+            ResultSet Rs = st.executeQuery("SELECT genre from combobox");
+            while (Rs.next()) {
+                String genre = Rs.getString("genre");
+                genrecombobox.addItem(genre);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -3654,6 +3757,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel book_delete;
     private javax.swing.JLabel book_edit;
     private javax.swing.JLabel book_update;
+    private javax.swing.JLabel bookcount;
     private javax.swing.JLabel books;
     private javax.swing.JLabel btextadd;
     private javax.swing.JLabel btxtedit;
@@ -3681,6 +3785,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTable issuebooklist;
     private javax.swing.JTextField issuebooknm;
     private javax.swing.JTextField issuebookqua;
+    private javax.swing.JLabel issuedbcount;
     private javax.swing.JButton issuefindbooklist;
     private javax.swing.JButton issuefindstud;
     private javax.swing.JTextField issuestudgrsec;
@@ -3714,13 +3819,9 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -3830,6 +3931,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField returnbooknm;
     private javax.swing.JTextField returnbookqua;
     private javax.swing.JTextField returnduedate;
+    private javax.swing.JLabel returnedbcount;
     private javax.swing.JTextField returnissudate;
     private javax.swing.JButton returns;
     private javax.swing.JTextField returnstudgrsec;
@@ -3837,6 +3939,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField returnstudnm;
     private javax.swing.JTextField returnstudstr;
     private javax.swing.JPanel student;
+    private javax.swing.JLabel studentcount;
     private javax.swing.JLabel students;
     private javax.swing.JTable studtable;
     private javax.swing.JPanel t1;

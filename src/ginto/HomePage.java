@@ -45,7 +45,7 @@ public class HomePage extends javax.swing.JFrame {
         jTable1.getTableHeader().setForeground(new Color(0,0,0));
         jTable1.setRowHeight(25);
         
-    }
+           }
       
      Connection con;
      PreparedStatement pst;
@@ -346,7 +346,9 @@ public class HomePage extends javax.swing.JFrame {
         t1.setLayout(t1Layout);
         t1Layout.setHorizontalGroup(
             t1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(a1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+            .addGroup(t1Layout.createSequentialGroup()
+                .addComponent(a1)
+                .addGap(0, 55, Short.MAX_VALUE))
         );
         t1Layout.setVerticalGroup(
             t1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

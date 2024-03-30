@@ -189,7 +189,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setBounds(80, 100, 256, 274);
 
         Change.setForeground(new java.awt.Color(255, 255, 255));
-        Change.setText("Forgot/Change Password");
+        Change.setText("Change Password");
         Change.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ChangeMouseClicked(evt);
@@ -201,7 +201,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(Change);
-        Change.setBounds(530, 330, 140, 16);
+        Change.setBounds(550, 330, 110, 16);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);

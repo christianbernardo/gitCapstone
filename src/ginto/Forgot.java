@@ -82,8 +82,11 @@ public class Forgot extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(380, 380));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 38)); // NOI18N
@@ -100,7 +103,7 @@ public class Forgot extends javax.swing.JFrame {
                 txtpassFocusLost(evt);
             }
         });
-        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 320, 40));
+        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 320, 40));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 153));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -110,7 +113,7 @@ public class Forgot extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 180, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 180, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,7 +148,7 @@ public class Forgot extends javax.swing.JFrame {
                 txtnewActionPerformed(evt);
             }
         });
-        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 320, 40));
+        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 320, 40));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,7 +158,7 @@ public class Forgot extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 60, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 60, -1));
 
         usertxt.setText("Username");
         usertxt.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -166,7 +169,12 @@ public class Forgot extends javax.swing.JFrame {
                 usertxtFocusLost(evt);
             }
         });
-        jPanel1.add(usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 320, 40));
+        usertxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usertxtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 320, 40));
 
         oldpasstxt.setText("Old Password");
         oldpasstxt.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -177,19 +185,20 @@ public class Forgot extends javax.swing.JFrame {
                 oldpasstxtFocusLost(evt);
             }
         });
-        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 320, 40));
+        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 320, 40));
 
-        jButton3.setText("GO BACK BUTTON");
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/arrow-small-right.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 20, 20));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(989, 415));
+        setSize(new java.awt.Dimension(399, 435));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -323,6 +332,10 @@ public class Forgot extends javax.swing.JFrame {
         Login lg = new Login();
         lg.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void usertxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usertxtActionPerformed
 
     /**
      * @param args the command line arguments

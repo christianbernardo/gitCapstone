@@ -199,18 +199,15 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(transactiontable);
         if (transactiontable.getColumnModel().getColumnCount() > 0) {
-            transactiontable.getColumnModel().getColumn(0).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(0).setResizable(false);
             transactiontable.getColumnModel().getColumn(0).setPreferredWidth(0);
-            transactiontable.getColumnModel().getColumn(0).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(1).setResizable(false);
             transactiontable.getColumnModel().getColumn(1).setPreferredWidth(170);
             transactiontable.getColumnModel().getColumn(2).setResizable(false);
-            transactiontable.getColumnModel().getColumn(3).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(3).setResizable(false);
             transactiontable.getColumnModel().getColumn(3).setPreferredWidth(0);
-            transactiontable.getColumnModel().getColumn(3).setMaxWidth(0);
-            transactiontable.getColumnModel().getColumn(4).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(4).setResizable(false);
             transactiontable.getColumnModel().getColumn(4).setPreferredWidth(0);
-            transactiontable.getColumnModel().getColumn(4).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(5).setResizable(false);
             transactiontable.getColumnModel().getColumn(6).setResizable(false);
             transactiontable.getColumnModel().getColumn(6).setPreferredWidth(120);
@@ -304,13 +301,14 @@ public class TRANSACTION extends javax.swing.JInternalFrame {
                         .addGap(89, 89, 89)
                         .addComponent(jButton3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(247, 247, 247)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(105, 105, 105)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(244, Short.MAX_VALUE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

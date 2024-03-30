@@ -79,7 +79,7 @@ public class Forgot extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         usertxt = new javax.swing.JTextField();
         oldpasstxt = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -107,6 +107,7 @@ public class Forgot extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 0, 153));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Change");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,14 +188,13 @@ public class Forgot extends javax.swing.JFrame {
         });
         jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 320, 40));
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/arrow-small-right.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-curved-arrow-20.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 20, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 30, 30));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -327,15 +327,15 @@ public class Forgot extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnewActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        dispose();
-        Login lg = new Login();
-        lg.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void usertxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usertxtActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+          dispose();
+        Login lg = new Login();
+        lg.setVisible(true);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -375,10 +375,10 @@ public class Forgot extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField oldpasstxt;

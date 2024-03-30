@@ -184,9 +184,9 @@ public class Login extends javax.swing.JFrame {
         Rigth.add(jLabel9);
         jLabel9.setBounds(10, 10, 20, 20);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1710378165978.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/gr-removebg-preview.png"))); // NOI18N
         Rigth.add(jLabel7);
-        jLabel7.setBounds(80, 100, 256, 274);
+        jLabel7.setBounds(90, 100, 250, 280);
 
         Change.setForeground(new java.awt.Color(255, 255, 255));
         Change.setText("Change Password");

@@ -70,7 +70,6 @@ public class Forgot extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtpass = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -78,12 +77,12 @@ public class Forgot extends javax.swing.JFrame {
         txtnew = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         usertxt = new javax.swing.JTextField();
-        oldpasstxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        oldpasstxt = new javax.swing.JPasswordField();
+        txtpass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(380, 380));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
@@ -93,17 +92,6 @@ public class Forgot extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("New Password");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 50));
-
-        txtpass.setText("Create New Password");
-        txtpass.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtpassFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtpassFocusLost(evt);
-            }
-        });
-        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 320, 40));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 153));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -177,17 +165,6 @@ public class Forgot extends javax.swing.JFrame {
         });
         jPanel1.add(usertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 320, 40));
 
-        oldpasstxt.setText("Old Password");
-        oldpasstxt.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                oldpasstxtFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                oldpasstxtFocusLost(evt);
-            }
-        });
-        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 320, 40));
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-curved-arrow-20.png"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,21 +172,14 @@ public class Forgot extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 30, 30));
+        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 192, 320, 40));
+        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 242, 320, 40));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         setSize(new java.awt.Dimension(399, 435));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtpassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpassFocusGained
-        if (txtpass.getText().equals("Create New Password")) {
-            txtpass.setText(null);
-            txtpass.requestFocus();
-
-            removePlaceorderStyle(txtpass);
-        }
-    }//GEN-LAST:event_txtpassFocusGained
 
     private void txtnewFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnewFocusGained
         if (txtnew.getText().equals("Confirm Password")) {
@@ -221,13 +191,6 @@ public class Forgot extends javax.swing.JFrame {
             removePlaceorderStyle(txtnew);
         }
     }//GEN-LAST:event_txtnewFocusGained
-
-    private void txtpassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpassFocusLost
-        if (txtpass.getText().length() == 0) {
-            addPlaceorderStyle(txtpass);
-            txtpass.setText("Create New Password");
-        }
-    }//GEN-LAST:event_txtpassFocusLost
 
     private void txtnewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnewFocusLost
         if (txtnew.getText().length() == 0) {
@@ -306,23 +269,6 @@ public class Forgot extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_usertxtFocusLost
 
-    private void oldpasstxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldpasstxtFocusGained
-        if (oldpasstxt.getText().equals("Old Password")) {
-            oldpasstxt.setText(null);
-            oldpasstxt.requestFocus();
-
-            removePlaceorderStyle(oldpasstxt);
-        }
-
-    }//GEN-LAST:event_oldpasstxtFocusGained
-
-    private void oldpasstxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldpasstxtFocusLost
-        if (oldpasstxt.getText().length() == 0) {
-            addPlaceorderStyle(oldpasstxt);
-            oldpasstxt.setText("Old Password");
-        }
-    }//GEN-LAST:event_oldpasstxtFocusLost
-
     private void txtnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnewActionPerformed
@@ -381,9 +327,9 @@ public class Forgot extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField oldpasstxt;
+    private javax.swing.JPasswordField oldpasstxt;
     private javax.swing.JPasswordField txtnew;
-    private javax.swing.JTextField txtpass;
+    private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField usertxt;
     // End of variables declaration//GEN-END:variables
 

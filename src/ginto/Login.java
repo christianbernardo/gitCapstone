@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
     public void Connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/data", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://sql6.freesqldatabase.com/sql6695512", "sql6695512", "GFTh9FuTKq");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -185,7 +185,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 23);
+        jLabel2.setBounds(560, 70, 70, 24);
 
         jButton3.setBackground(new java.awt.Color(204, 0, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -213,6 +213,11 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setBounds(420, 220, 30, 40);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-circled-i-20.png"))); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
         Rigth.add(jLabel9);
         jLabel9.setBounds(10, 10, 20, 20);
 
@@ -366,6 +371,10 @@ public class Login extends javax.swing.JFrame {
     private void passtxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passtxtFocusGained
         
     }//GEN-LAST:event_passtxtFocusGained
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        JOptionPane.showMessageDialog(this, "Group 4\nAropo,Kristine Jane\nBernardo,Christian\nCastro,Mark Ivan\nCastro,Raphael Luis\nCruz,Alden Euan Raine\nGalvez,Mitchie\nGarcia,Kyron Lee\nLacson,Tiffany Mae\nPerlas,Angelo");
+    }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
      * @param args the command line arguments

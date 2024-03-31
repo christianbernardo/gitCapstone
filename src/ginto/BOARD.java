@@ -63,7 +63,7 @@ public class BOARD extends javax.swing.JFrame {
         db2_table.getTableHeader().setBackground(new Color(11, 0, 50));
         db2_table.getTableHeader().setForeground(new Color(11, 0, 50));
         db2_table.setRowHeight(25);
-        
+
         manageb_table.getTableHeader().setFont(new Font("Century Gothic", Font.BOLD, 12));
         manageb_table.getTableHeader().setOpaque(false);
         manageb_table.getTableHeader().setBackground(new Color(11, 0, 50));
@@ -115,7 +115,7 @@ public class BOARD extends javax.swing.JFrame {
     public void Connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/data", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://sql6.freesqldatabase.com/sql6695512", "sql6695512", "GFTh9FuTKq");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(BOARD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -1094,7 +1094,6 @@ public class BOARD extends javax.swing.JFrame {
 
         a7.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a7.setForeground(new java.awt.Color(255, 255, 255));
-        a7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Camillebernardo\\Downloads\\icons8-dashboard-50.png")); // NOI18N
         a7.setText(" Dashboard");
         dashboard.add(a7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 310, 50));
 
@@ -1986,6 +1985,7 @@ public class BOARD extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(0, 0, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-download-24.png"))); // NOI18N
         jButton4.setText("DOWNLOAD ");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -2085,6 +2085,7 @@ public class BOARD extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-delete-24.png"))); // NOI18N
         jButton1.setText("DELETE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -2443,9 +2444,9 @@ public class BOARD extends javax.swing.JFrame {
         jPanel33Layout.setHorizontalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel33Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel17)
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addContainerGap(485, Short.MAX_VALUE))
         );
         jPanel33Layout.setVerticalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2599,14 +2600,14 @@ public class BOARD extends javax.swing.JFrame {
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel80)
-                .addContainerGap(476, Short.MAX_VALUE))
+                .addContainerGap(486, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        student.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 510, 50));
+        student.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 520, 50));
 
         jTabbedPane1.addTab("STUDENT", student);
 
@@ -2776,7 +2777,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(finddetailsreturn);
-        finddetailsreturn.setBounds(240, 210, 60, 22);
+        finddetailsreturn.setBounds(240, 210, 60, 23);
 
         returnstudid.setBackground(new java.awt.Color(16, 1, 59));
         returnstudid.setForeground(new java.awt.Color(255, 255, 255));
@@ -3629,10 +3630,10 @@ public class BOARD extends javax.swing.JFrame {
             genrecombobox.setSelectedIndex(0);
             txtQuantity.setText("");
             txtBookName.requestFocus();
-            int lastRow = db_table.convertRowIndexToView(db_table.getRowCount() - 1);
-            db_table.setRowSelectionInterval(lastRow, lastRow);
-            Rectangle cellrect = db_table.getCellRect(lastRow, 0, true);
-            db_table.scrollRectToVisible(cellrect);
+            int lastRow = manageb_table.convertRowIndexToView(manageb_table.getRowCount() - 1);
+            manageb_table.setRowSelectionInterval(lastRow, lastRow);
+            Rectangle cellrect = manageb_table.getCellRect(lastRow, 0, true);
+            manageb_table.scrollRectToVisible(cellrect);
         } catch (SQLException ex) {
             Logger.getLogger(MANAGEBOOK.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -3683,6 +3684,10 @@ public class BOARD extends javax.swing.JFrame {
             txtStrand.setSelectedIndex(0);
             txtGrandSec.setSelectedIndex(0);
             txtGrandSec.requestFocus();
+            int lastRow = studtable.convertRowIndexToView(studtable.getRowCount() - 1);
+            studtable.setRowSelectionInterval(lastRow, lastRow);
+            Rectangle cellrect = studtable.getCellRect(lastRow, 0, true);
+            studtable.scrollRectToVisible(cellrect);
         } catch (SQLException ex) {
             Logger.getLogger(MANAGESTUDENT.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -3904,7 +3909,24 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void issuebk_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuebk_buttonActionPerformed
-        String sql = "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date,Date_Return,Status)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        Date date = Calendar.getInstance().getTime();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyy");
+        String strDate = dateFormat.format(date);
+
+        try {
+            pst = con.prepareStatement("update issue set Date_Today=? ");
+            pst.setString(1, strDate);
+
+            pst.executeUpdate();
+
+            transactiontableupdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String sql = "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date,Date_Return,Status,Date_Today)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, issuestudid.getText());
@@ -3920,6 +3942,8 @@ public class BOARD extends javax.swing.JFrame {
             pst.setString(11, ((JTextField) issue_duedate.getDateEditor().getUiComponent()).getText());
             pst.setString(12, "---");
             pst.setString(13, "---");
+            pst.setString(14, strDate);
+
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Book Issued");
             transactiontableupdate();
@@ -3937,6 +3961,11 @@ public class BOARD extends javax.swing.JFrame {
             issuebookqua.setText("");
             issue_issuedate.setCalendar(null);
             issue_duedate.setCalendar(null);
+            int lastRow = transactiontable.convertRowIndexToView(transactiontable.getRowCount() - 1);
+            transactiontable.setRowSelectionInterval(lastRow, lastRow);
+            Rectangle cellrect = transactiontable.getCellRect(lastRow, 0, true);
+            transactiontable.scrollRectToVisible(cellrect);
+             jTabbedPane1.setSelectedIndex(3);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -3945,7 +3974,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_issuebk_buttonActionPerformed
 
     private void finddetailsreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finddetailsreturnActionPerformed
-         jTabbedPane1.setSelectedIndex(9);
+        jTabbedPane1.setSelectedIndex(9);
     }//GEN-LAST:event_finddetailsreturnActionPerformed
 
     private void returnstudidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnstudidActionPerformed
@@ -3989,6 +4018,11 @@ public class BOARD extends javax.swing.JFrame {
         return_count();
         issue_count();
         JOptionPane.showMessageDialog(null, "Return Count Updated");
+        int lastRow = recordstable.convertRowIndexToView(recordstable.getRowCount() - 1);
+        recordstable.setRowSelectionInterval(lastRow, lastRow);
+        Rectangle cellrect = recordstable.getCellRect(lastRow, 0, true);
+        recordstable.scrollRectToVisible(cellrect);
+        jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_return_buttonActionPerformed
 
     private void returnbooknmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbooknmActionPerformed
@@ -4052,7 +4086,7 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearch4KeyReleased
 
     private void finddetailsreturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finddetailsreturnMouseClicked
-       
+
     }//GEN-LAST:event_finddetailsreturnMouseClicked
 
     private void ret_find_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ret_find_butActionPerformed
@@ -4172,8 +4206,8 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_issuebookidActionPerformed
 
     private void Search2Search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search2Search1ActionPerformed
-       jTabbedPane1.setSelectedIndex(7);
-     
+        jTabbedPane1.setSelectedIndex(7);
+
     }//GEN-LAST:event_Search2Search1ActionPerformed
 
     private void Search2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search2MouseClicked
@@ -4182,7 +4216,7 @@ public class BOARD extends javax.swing.JFrame {
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
         jTabbedPane1.setSelectedIndex(6);
-        
+
 
     }//GEN-LAST:event_SearchActionPerformed
 
@@ -4485,11 +4519,11 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel80MouseClicked
 
     private void jLabel81MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel81MouseClicked
-         jTabbedPane1.setSelectedIndex(5);
+        jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_jLabel81MouseClicked
 
     private void jLabel82MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel82MouseClicked
-       jTabbedPane1.setSelectedIndex(8);
+        jTabbedPane1.setSelectedIndex(8);
     }//GEN-LAST:event_jLabel82MouseClicked
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed

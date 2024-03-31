@@ -45,7 +45,7 @@ public class Forgot extends javax.swing.JFrame {
         Font font = txtnew.getFont();
         font = font.deriveFont(Font.PLAIN);
         txtpass.setFont(font);
-        txtnew.setForeground(Color.black);
+        txtnew.setForeground(Color.white);
     }
 
     public void userPlaceorderStyle(JTextField textield) {
@@ -69,19 +69,20 @@ public class Forgot extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtnew = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         usertxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jCheckBox2 = new javax.swing.JCheckBox();
         oldpasstxt = new javax.swing.JPasswordField();
+        jCheckBox1 = new javax.swing.JCheckBox();
         txtpass = new javax.swing.JPasswordField();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        txtnew = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -89,24 +90,6 @@ public class Forgot extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jCheckBox1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
-        jCheckBox1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
-
-        jCheckBox2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
-        jCheckBox2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 38)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,23 +125,6 @@ public class Forgot extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 320, 40));
 
-        txtnew.setText("Confirm Password");
-        txtnew.setEchoChar('\u0000');
-        txtnew.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtnewFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtnewFocusLost(evt);
-            }
-        });
-        txtnew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnewActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 320, 40));
-
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("FIND");
@@ -169,7 +135,10 @@ public class Forgot extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 60, -1));
 
+        usertxt.setBackground(new java.awt.Color(0, 0, 51));
+        usertxt.setForeground(new java.awt.Color(255, 255, 255));
         usertxt.setText("Username");
+        usertxt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         usertxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 usertxtFocusGained(evt);
@@ -193,7 +162,19 @@ public class Forgot extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 30, 30));
 
+        jCheckBox2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
+        jCheckBox2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+
+        oldpasstxt.setBackground(new java.awt.Color(0, 0, 51));
+        oldpasstxt.setForeground(new java.awt.Color(255, 255, 255));
         oldpasstxt.setText("old password");
+        oldpasstxt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         oldpasstxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 oldpasstxtFocusGained(evt);
@@ -209,7 +190,19 @@ public class Forgot extends javax.swing.JFrame {
         });
         jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 192, 320, 40));
 
+        jCheckBox1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
+        jCheckBox1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+
+        txtpass.setBackground(new java.awt.Color(0, 0, 51));
+        txtpass.setForeground(new java.awt.Color(255, 255, 255));
         txtpass.setText("New Password");
+        txtpass.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txtpass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtpassFocusGained(evt);
@@ -218,33 +211,36 @@ public class Forgot extends javax.swing.JFrame {
                 txtpassFocusLost(evt);
             }
         });
-        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 242, 320, 40));
+        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 320, 40));
+
+        jCheckBox3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
+        jCheckBox3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
+
+        txtnew.setBackground(new java.awt.Color(0, 0, 51));
+        txtnew.setForeground(new java.awt.Color(255, 255, 255));
+        txtnew.setText("Confirm Password");
+        txtnew.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtnew.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtnewFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtnewFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 320, 40));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         setSize(new java.awt.Dimension(399, 435));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtnewFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnewFocusGained
-        if (txtnew.getText().equals("Confirm Password")) {
-            txtnew.setText(null);
-            txtnew.requestFocus();
-
-            txtnew.setEchoChar('•');
-
-            removePlaceorderStyle(txtnew);
-        }
-    }//GEN-LAST:event_txtnewFocusGained
-
-    private void txtnewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnewFocusLost
-        if (txtnew.getText().length() == 0) {
-            addPlaceorderStyle(txtnew);
-            txtnew.setText("Confirm Password");
-            txtnew.setEchoChar('\u0000');
-
-        }
-    }//GEN-LAST:event_txtnewFocusLost
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
@@ -314,10 +310,6 @@ public class Forgot extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_usertxtFocusLost
 
-    private void txtnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnewActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnewActionPerformed
-
     private void usertxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usertxtActionPerformed
@@ -380,6 +372,34 @@ public class Forgot extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtpassFocusLost
 
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+         if (jCheckBox3.isSelected()) {
+            txtnew.setEchoChar((char) 0);
+        } else {
+            txtnew.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void txtnewFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnewFocusGained
+          if (txtnew.getText().equals("Confirm Password")) {
+            txtnew.setText(null);
+            txtnew.requestFocus();
+
+            txtnew.setEchoChar('•');
+
+            removePlaceorderStyle(txtnew);
+        }
+    }//GEN-LAST:event_txtnewFocusGained
+
+    private void txtnewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnewFocusLost
+         if (txtnew.getText().length() == 0) {
+            addPlaceorderStyle(txtnew);
+            txtnew.setText("Confirm Password");
+            txtnew.setEchoChar('\u0000');
+
+        }
+    }//GEN-LAST:event_txtnewFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -420,6 +440,7 @@ public class Forgot extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

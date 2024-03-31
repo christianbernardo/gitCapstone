@@ -88,6 +88,45 @@ public class DASHBOARD extends javax.swing.JInternalFrame {
           }
           
       }
+      focusgaine
+       if (txtnew.getText().equals("Confirm Password")) {
+            txtnew.setText(null);
+            txtnew.requestFocus();
+
+            txtnew.setEchoChar('•');
+
+            removePlaceorderStyle(txtnew);
+        }
+      focus lost
+       if (txtnew.getText().length() == 0) {
+            addPlaceorderStyle(txtnew);
+            txtnew.setText("Confirm Password");
+            txtnew.setEchoChar('\u0000');
+
+        }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       

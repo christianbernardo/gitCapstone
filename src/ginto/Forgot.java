@@ -133,7 +133,7 @@ public class Forgot extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 60, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 60, -1));
 
         usertxt.setBackground(new java.awt.Color(0, 0, 51));
         usertxt.setForeground(new java.awt.Color(255, 255, 255));

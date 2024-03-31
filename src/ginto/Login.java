@@ -1,5 +1,7 @@
 package ginto;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
@@ -7,6 +9,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 
 public class Login extends javax.swing.JFrame {
 
@@ -30,6 +33,21 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
+    
+    public void addPlaceorderStyle(JTextField textield) {
+        Font font = nametxt.getFont();
+        font = font.deriveFont(Font.PLAIN);
+        nametxt.setFont(font);
+        passtxt.setForeground(Color.gray); //font color
+
+    }
+    
+     public void removePlaceorderStyle(JTextField textfield) {
+        Font font = passtxt.getFont();
+        font = font.deriveFont(Font.PLAIN);
+        nametxt.setFont(font);
+        passtxt.setForeground(Color.black);
+    }
     public void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
@@ -44,8 +62,8 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        u1 = new javax.swing.JTextField();
-        p1 = new javax.swing.JPasswordField();
+        nametxt = new javax.swing.JTextField();
+        passtxt = new javax.swing.JPasswordField();
         b1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -94,35 +112,49 @@ public class Login extends javax.swing.JFrame {
         Rigth.add(jLabel5);
         jLabel5.setBounds(460, 200, 50, 16);
 
-        u1.setBackground(new java.awt.Color(0, 0, 51));
-        u1.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
-        u1.setForeground(new java.awt.Color(255, 255, 255));
-        u1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        u1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                u1ActionPerformed(evt);
+        nametxt.setBackground(new java.awt.Color(0, 0, 51));
+        nametxt.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
+        nametxt.setForeground(new java.awt.Color(255, 255, 255));
+        nametxt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        nametxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nametxtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nametxtFocusLost(evt);
             }
         });
-        Rigth.add(u1);
-        u1.setBounds(460, 160, 290, 30);
+        nametxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nametxtActionPerformed(evt);
+            }
+        });
+        Rigth.add(nametxt);
+        nametxt.setBounds(460, 160, 290, 30);
 
-        p1.setBackground(new java.awt.Color(0, 0, 51));
-        p1.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
-        p1.setForeground(new java.awt.Color(255, 255, 255));
-        p1.setAutoscrolls(false);
-        p1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        p1.addActionListener(new java.awt.event.ActionListener() {
+        passtxt.setBackground(new java.awt.Color(0, 0, 51));
+        passtxt.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
+        passtxt.setForeground(new java.awt.Color(255, 255, 255));
+        passtxt.setAutoscrolls(false);
+        passtxt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        passtxt.setDoubleBuffered(true);
+        passtxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passtxtFocusGained(evt);
+            }
+        });
+        passtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p1ActionPerformed(evt);
+                passtxtActionPerformed(evt);
             }
         });
-        p1.addKeyListener(new java.awt.event.KeyAdapter() {
+        passtxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                p1KeyPressed(evt);
+                passtxtKeyPressed(evt);
             }
         });
-        Rigth.add(p1);
-        p1.setBounds(460, 230, 290, 30);
+        Rigth.add(passtxt);
+        passtxt.setBounds(460, 230, 290, 30);
 
         b1.setBackground(new java.awt.Color(255, 255, 255));
         b1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -221,11 +253,14 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+                
+
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         String username, password;
 
-        username = u1.getText();
-        password = p1.getText();
+        username = nametxt.getText();
+        password = passtxt.getText();
 
         try {
             pst = con.prepareStatement("select * from account where username=?");
@@ -236,13 +271,13 @@ public class Login extends javax.swing.JFrame {
                 close();
                 BOARD bd = new BOARD();
                 bd.setVisible(true);
-            } else if (u1.getText().equals("") && p1.getText().equals("")) {
+            } else if (nametxt.getText().equals("") && passtxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Please input user and pass");
-            } else if (u1.getText().equals("")) {
+            } else if (nametxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Please input username");
-            } else if (p1.getText().equals("")) {
+            } else if (passtxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Please input password");
-            } else if (!u1.getText().equals("") && !p1.getText().equals("")) {
+            } else if (!nametxt.getText().equals("") && !passtxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "invalid user or pass");
             }
         } catch (Exception e) {
@@ -251,29 +286,29 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_b1ActionPerformed
 
-    private void p1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1ActionPerformed
+    private void passtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passtxtActionPerformed
 
-    }//GEN-LAST:event_p1ActionPerformed
+    }//GEN-LAST:event_passtxtActionPerformed
 
-    private void u1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u1ActionPerformed
+    private void nametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nametxtActionPerformed
 
-    }//GEN-LAST:event_u1ActionPerformed
+    }//GEN-LAST:event_nametxtActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected()) {
-            p1.setEchoChar((char) 0);
+            passtxt.setEchoChar((char) 0);
         } else {
-            p1.setEchoChar('*');
+            passtxt.setEchoChar('*');
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    private void p1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_p1KeyPressed
+    private void passtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passtxtKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
             String username, password;
 
-            username = u1.getText();
-            password = p1.getText();
+            username = nametxt.getText();
+            password = passtxt.getText();
 
             try {
                 pst = con.prepareStatement("select * from account where username=?");
@@ -284,13 +319,13 @@ public class Login extends javax.swing.JFrame {
                     close();
                     BOARD bd = new BOARD();
                     bd.setVisible(true);
-                } else if (u1.getText().equals("") && p1.getText().equals("")) {
+                } else if (nametxt.getText().equals("") && passtxt.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please input user and pass");
-                } else if (u1.getText().equals("")) {
+                } else if (nametxt.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please input username");
-                } else if (p1.getText().equals("")) {
+                } else if (passtxt.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please input password");
-                } else if (!u1.getText().equals("") && !p1.getText().equals("")) {
+                } else if (!nametxt.getText().equals("") && !passtxt.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "invalid user or pass");
                 }
             } catch (Exception e) {
@@ -299,7 +334,7 @@ public class Login extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_p1KeyPressed
+    }//GEN-LAST:event_passtxtKeyPressed
 
     private void b1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b1KeyPressed
 
@@ -319,6 +354,18 @@ public class Login extends javax.swing.JFrame {
         Forgot forgot = new Forgot();
         forgot.setVisible(true);
     }//GEN-LAST:event_ChangeMouseClicked
+
+    private void nametxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nametxtFocusGained
+     
+    }//GEN-LAST:event_nametxtFocusGained
+
+    private void nametxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nametxtFocusLost
+      
+    }//GEN-LAST:event_nametxtFocusLost
+
+    private void passtxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passtxtFocusGained
+        
+    }//GEN-LAST:event_passtxtFocusGained
 
     /**
      * @param args the command line arguments
@@ -371,7 +418,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField p1;
-    private javax.swing.JTextField u1;
+    private javax.swing.JTextField nametxt;
+    private javax.swing.JPasswordField passtxt;
     // End of variables declaration//GEN-END:variables
 }

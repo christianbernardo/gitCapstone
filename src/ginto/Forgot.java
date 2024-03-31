@@ -69,6 +69,8 @@ public class Forgot extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -87,6 +89,24 @@ public class Forgot extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jCheckBox1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
+        jCheckBox1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+
+        jCheckBox2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
+        jCheckBox2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 38)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,7 +192,32 @@ public class Forgot extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 30, 30));
+
+        oldpasstxt.setText("old password");
+        oldpasstxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                oldpasstxtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                oldpasstxtFocusLost(evt);
+            }
+        });
+        oldpasstxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oldpasstxtActionPerformed(evt);
+            }
+        });
         jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 192, 320, 40));
+
+        txtpass.setText("New Password");
+        txtpass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtpassFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtpassFocusLost(evt);
+            }
+        });
         jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 242, 320, 40));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -283,6 +328,58 @@ public class Forgot extends javax.swing.JFrame {
         lg.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void oldpasstxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldpasstxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oldpasstxtActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+         if (jCheckBox1.isSelected()) {
+            txtpass.setEchoChar((char) 0);
+        } else {
+            txtpass.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+          if (jCheckBox2.isSelected()) {
+            oldpasstxt.setEchoChar((char) 0);
+        } else {
+            oldpasstxt.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void oldpasstxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldpasstxtFocusGained
+        if (oldpasstxt.getText().equals("old password")) {
+            oldpasstxt.setText(null);
+            oldpasstxt.requestFocus();
+
+            removePlaceorderStyle(oldpasstxt);
+        }
+    }//GEN-LAST:event_oldpasstxtFocusGained
+
+    private void oldpasstxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldpasstxtFocusLost
+        if (oldpasstxt.getText().length() == 0) {
+            addPlaceorderStyle(oldpasstxt);
+            oldpasstxt.setText("old password");
+        }
+    }//GEN-LAST:event_oldpasstxtFocusLost
+
+    private void txtpassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpassFocusGained
+        if (txtpass.getText().equals("New Password")) {
+            txtpass.setText(null);
+            txtpass.requestFocus();
+
+            removePlaceorderStyle(txtpass);
+        }
+    }//GEN-LAST:event_txtpassFocusGained
+
+    private void txtpassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpassFocusLost
+          if (txtpass.getText().length() == 0) {
+             addPlaceorderStyle(txtpass);
+             txtpass.setText("New Password");
+        }
+    }//GEN-LAST:event_txtpassFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -321,6 +418,8 @@ public class Forgot extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

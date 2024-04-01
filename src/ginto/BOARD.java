@@ -582,12 +582,16 @@ public class BOARD extends javax.swing.JFrame {
 
     private void combobxforgenre() {
         genrecombobox.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        manageb_filter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        booklistfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         try {
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery("SELECT genre from combobox");
             while (Rs.next()) {
                 String genre = Rs.getString("genre");
                 genrecombobox.addItem(genre);
+                manageb_filter.addItem(genre);
+                booklistfilter.addItem(genre);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -598,6 +602,9 @@ public class BOARD extends javax.swing.JFrame {
         txtGrandSec.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         db_filter2.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         studfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        recordsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        retdetailsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        studlist.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         try {
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery("SELECT grsec from grandseccombo");
@@ -606,6 +613,9 @@ public class BOARD extends javax.swing.JFrame {
                 txtGrandSec.addItem(grandsec);
                 db_filter2.addItem(grandsec);
                 studfilter.addItem(grandsec);
+                recordsfilter.addItem(grandsec);
+                retdetailsfilter.addItem(grandsec);
+                studlist.addItem(grandsec);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -693,6 +703,62 @@ public class BOARD extends javax.swing.JFrame {
         trs.setRowFilter(RowFilter.regexFilter(str));
     }
 
+    public void db2filter(String str) {
+        model = (DefaultTableModel) db2_table.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        db2_table.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
+    public void managebfilter(String str) {
+        model = (DefaultTableModel) manageb_table.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        manageb_table.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
+    public void studfiltertab(String str) {
+        model = (DefaultTableModel) studtable.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        studtable.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
+    public void transactionfiltertab(String str) {
+        model = (DefaultTableModel) transactiontable.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        transactiontable.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
+    public void recordfiltertab(String str) {
+        model = (DefaultTableModel) recordstable.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        recordstable.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
+    public void issuestudfilter(String str) {
+        model = (DefaultTableModel) issuestudlist.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        issuestudlist.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
+    public void issuebookfilter(String str) {
+        model = (DefaultTableModel) issuebooklist.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        issuebooklist.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
+    public void findreturnfilter(String str) {
+        model = (DefaultTableModel) findreturndetails.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        findreturndetails.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -717,8 +783,6 @@ public class BOARD extends javax.swing.JFrame {
         db_filter = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         db_table = new javax.swing.JTable();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        db2_table = new javax.swing.JTable();
         db_search1 = new javax.swing.JTextField();
         jLabel78 = new javax.swing.JLabel();
         db_filter2 = new javax.swing.JComboBox<>();
@@ -726,6 +790,8 @@ public class BOARD extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         a7 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        db2_table = new javax.swing.JTable();
         managebook = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -809,7 +875,7 @@ public class BOARD extends javax.swing.JFrame {
         transaction = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         transactionssearch = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        transacfilter = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         transactiontable = new javax.swing.JTable();
         issue = new javax.swing.JButton();
@@ -820,7 +886,7 @@ public class BOARD extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         records = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        recordsfilter = new javax.swing.JComboBox<>();
         recordssearch = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -876,7 +942,7 @@ public class BOARD extends javax.swing.JFrame {
         issuestudlist = new javax.swing.JTable();
         jLabel70 = new javax.swing.JLabel();
         studlistsearch = new javax.swing.JTextField();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        studlist = new javax.swing.JComboBox<>();
         issuefindstud = new javax.swing.JButton();
         jPanel27 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
@@ -888,7 +954,7 @@ public class BOARD extends javax.swing.JFrame {
         issuebooklist = new javax.swing.JTable();
         jLabel71 = new javax.swing.JLabel();
         booklistsearch = new javax.swing.JTextField();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        booklistfilter = new javax.swing.JComboBox<>();
         issuefindbooklist = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jButton22 = new javax.swing.JButton();
@@ -940,7 +1006,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel72 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         findreturndetails = new javax.swing.JTable();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        retdetailsfilter = new javax.swing.JComboBox<>();
         ret_find_but = new javax.swing.JButton();
         jPanel31 = new javax.swing.JPanel();
         jButton26 = new javax.swing.JButton();
@@ -1079,7 +1145,7 @@ public class BOARD extends javax.swing.JFrame {
                 db_filterActionPerformed(evt);
             }
         });
-        dashboard.add(db_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, 30));
+        dashboard.add(db_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 120, 30));
 
         db_table.setBackground(new java.awt.Color(255, 255, 255));
         db_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1112,6 +1178,7 @@ public class BOARD extends javax.swing.JFrame {
             db_table.getColumnModel().getColumn(0).setMinWidth(0);
             db_table.getColumnModel().getColumn(0).setPreferredWidth(0);
             db_table.getColumnModel().getColumn(0).setMaxWidth(0);
+            db_table.getColumnModel().getColumn(1).setPreferredWidth(150);
             db_table.getColumnModel().getColumn(2).setMinWidth(0);
             db_table.getColumnModel().getColumn(2).setPreferredWidth(0);
             db_table.getColumnModel().getColumn(2).setMaxWidth(0);
@@ -1121,6 +1188,7 @@ public class BOARD extends javax.swing.JFrame {
             db_table.getColumnModel().getColumn(4).setMinWidth(0);
             db_table.getColumnModel().getColumn(4).setPreferredWidth(0);
             db_table.getColumnModel().getColumn(4).setMaxWidth(0);
+            db_table.getColumnModel().getColumn(5).setPreferredWidth(150);
             db_table.getColumnModel().getColumn(6).setMinWidth(0);
             db_table.getColumnModel().getColumn(6).setPreferredWidth(0);
             db_table.getColumnModel().getColumn(6).setMaxWidth(0);
@@ -1130,55 +1198,21 @@ public class BOARD extends javax.swing.JFrame {
             db_table.getColumnModel().getColumn(8).setMinWidth(0);
             db_table.getColumnModel().getColumn(8).setPreferredWidth(0);
             db_table.getColumnModel().getColumn(8).setMaxWidth(0);
+            db_table.getColumnModel().getColumn(9).setMinWidth(80);
+            db_table.getColumnModel().getColumn(9).setPreferredWidth(80);
+            db_table.getColumnModel().getColumn(9).setMaxWidth(80);
             db_table.getColumnModel().getColumn(10).setMinWidth(0);
             db_table.getColumnModel().getColumn(10).setPreferredWidth(0);
             db_table.getColumnModel().getColumn(10).setMaxWidth(0);
+            db_table.getColumnModel().getColumn(11).setMinWidth(0);
+            db_table.getColumnModel().getColumn(11).setPreferredWidth(0);
+            db_table.getColumnModel().getColumn(11).setMaxWidth(0);
+            db_table.getColumnModel().getColumn(12).setMinWidth(80);
+            db_table.getColumnModel().getColumn(12).setPreferredWidth(80);
+            db_table.getColumnModel().getColumn(12).setMaxWidth(80);
         }
 
         dashboard.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 530, 520));
-
-        db2_table.setBackground(new java.awt.Color(255, 255, 255));
-        db2_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        db2_table.setForeground(new java.awt.Color(0, 0, 0));
-        db2_table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Student ID", "Student Name", "Strand", "Gr. & Sec.", "Book ID", "Book Name", "Book Author", "Genre", "Quantity", "Issue Date", "Due Date", "Return Date", "Status"
-            }
-        ));
-        db2_table.setShowGrid(true);
-        db2_table.setSurrendersFocusOnKeystroke(true);
-        jScrollPane9.setViewportView(db2_table);
-        if (db2_table.getColumnModel().getColumnCount() > 0) {
-            db2_table.getColumnModel().getColumn(0).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(0).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(0).setMaxWidth(0);
-            db2_table.getColumnModel().getColumn(2).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(2).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(2).setMaxWidth(0);
-            db2_table.getColumnModel().getColumn(4).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(4).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(4).setMaxWidth(0);
-            db2_table.getColumnModel().getColumn(6).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(6).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(6).setMaxWidth(0);
-            db2_table.getColumnModel().getColumn(7).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(7).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(7).setMaxWidth(0);
-            db2_table.getColumnModel().getColumn(8).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(8).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(8).setMaxWidth(0);
-            db2_table.getColumnModel().getColumn(9).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(9).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(9).setMaxWidth(0);
-            db2_table.getColumnModel().getColumn(10).setMinWidth(0);
-            db2_table.getColumnModel().getColumn(10).setPreferredWidth(0);
-            db2_table.getColumnModel().getColumn(10).setMaxWidth(0);
-        }
-
-        dashboard.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 530, 520));
 
         db_search1.setBackground(new java.awt.Color(11, 0, 40));
         db_search1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1235,6 +1269,73 @@ public class BOARD extends javax.swing.JFrame {
         jPanel13.add(a7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 410, 60));
 
         dashboard.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
+
+        db2_table.setBackground(new java.awt.Color(255, 255, 255));
+        db2_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        db2_table.setForeground(new java.awt.Color(0, 0, 0));
+        db2_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Student ID", "Student Name", "Strand", "Gr. & Sec.", "Book ID", "Book Name", "Book Author", "Genre", "Quantity", "Issue Date", "Due Date", "Return Date", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        db2_table.setGridColor(new java.awt.Color(0, 0, 0));
+        db2_table.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        db2_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        db2_table.setShowGrid(true);
+        db2_table.setSurrendersFocusOnKeystroke(true);
+        db2_table.getTableHeader().setResizingAllowed(false);
+        db2_table.getTableHeader().setReorderingAllowed(false);
+        jScrollPane10.setViewportView(db2_table);
+        if (db2_table.getColumnModel().getColumnCount() > 0) {
+            db2_table.getColumnModel().getColumn(0).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(0).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(0).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(1).setPreferredWidth(150);
+            db2_table.getColumnModel().getColumn(2).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(2).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(2).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(3).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(3).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(3).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(4).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(4).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(4).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(5).setPreferredWidth(150);
+            db2_table.getColumnModel().getColumn(6).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(6).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(6).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(7).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(7).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(7).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(8).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(8).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(8).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(9).setMinWidth(80);
+            db2_table.getColumnModel().getColumn(9).setPreferredWidth(80);
+            db2_table.getColumnModel().getColumn(9).setMaxWidth(80);
+            db2_table.getColumnModel().getColumn(10).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(10).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(10).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(11).setMinWidth(0);
+            db2_table.getColumnModel().getColumn(11).setPreferredWidth(0);
+            db2_table.getColumnModel().getColumn(11).setMaxWidth(0);
+            db2_table.getColumnModel().getColumn(12).setMinWidth(80);
+            db2_table.getColumnModel().getColumn(12).setPreferredWidth(80);
+            db2_table.getColumnModel().getColumn(12).setMaxWidth(80);
+        }
+
+        dashboard.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 530, 520));
 
         jTabbedPane1.addTab("DASHBOARD", dashboard);
 
@@ -1523,6 +1624,11 @@ public class BOARD extends javax.swing.JFrame {
         jPanel10.add(manageb_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 260, 30));
 
         manageb_filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
+        manageb_filter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageb_filterActionPerformed(evt);
+            }
+        });
         jPanel10.add(manageb_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, 30));
 
         manageb_table.setAutoCreateRowSorter(true);
@@ -1921,13 +2027,13 @@ public class BOARD extends javax.swing.JFrame {
         });
         transaction.add(transactionssearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 270, 30));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "JOBS", "GATES", "ROBERTS", "DELL" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        transacfilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Pending", "Overdue" }));
+        transacfilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                transacfilterActionPerformed(evt);
             }
         });
-        transaction.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 160, 30));
+        transaction.add(transacfilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 130, 30));
 
         transactiontable.setAutoCreateRowSorter(true);
         transactiontable.setBackground(new java.awt.Color(255, 255, 255));
@@ -1941,7 +2047,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1977,14 +2083,16 @@ public class BOARD extends javax.swing.JFrame {
             transactiontable.getColumnModel().getColumn(6).setResizable(false);
             transactiontable.getColumnModel().getColumn(6).setPreferredWidth(120);
             transactiontable.getColumnModel().getColumn(7).setResizable(false);
-            transactiontable.getColumnModel().getColumn(8).setResizable(false);
-            transactiontable.getColumnModel().getColumn(8).setPreferredWidth(60);
+            transactiontable.getColumnModel().getColumn(8).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(8).setPreferredWidth(0);
+            transactiontable.getColumnModel().getColumn(8).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(9).setResizable(false);
             transactiontable.getColumnModel().getColumn(9).setPreferredWidth(90);
             transactiontable.getColumnModel().getColumn(10).setResizable(false);
             transactiontable.getColumnModel().getColumn(10).setPreferredWidth(90);
-            transactiontable.getColumnModel().getColumn(11).setResizable(false);
-            transactiontable.getColumnModel().getColumn(11).setPreferredWidth(90);
+            transactiontable.getColumnModel().getColumn(11).setMinWidth(0);
+            transactiontable.getColumnModel().getColumn(11).setPreferredWidth(0);
+            transactiontable.getColumnModel().getColumn(11).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(12).setResizable(false);
             transactiontable.getColumnModel().getColumn(12).setPreferredWidth(50);
         }
@@ -2070,8 +2178,13 @@ public class BOARD extends javax.swing.JFrame {
         });
         records.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 720, -1, 30));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT" }));
-        records.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 160, 30));
+        recordsfilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT" }));
+        recordsfilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recordsfilterActionPerformed(evt);
+            }
+        });
+        records.add(recordsfilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 160, 30));
 
         recordssearch.setBackground(new java.awt.Color(11, 0, 40));
         recordssearch.setForeground(new java.awt.Color(255, 255, 255));
@@ -2131,9 +2244,6 @@ public class BOARD extends javax.swing.JFrame {
             recordstable.getColumnModel().getColumn(2).setMinWidth(0);
             recordstable.getColumnModel().getColumn(2).setPreferredWidth(0);
             recordstable.getColumnModel().getColumn(2).setMaxWidth(0);
-            recordstable.getColumnModel().getColumn(3).setMinWidth(0);
-            recordstable.getColumnModel().getColumn(3).setPreferredWidth(0);
-            recordstable.getColumnModel().getColumn(3).setMaxWidth(0);
             recordstable.getColumnModel().getColumn(4).setMinWidth(0);
             recordstable.getColumnModel().getColumn(4).setPreferredWidth(0);
             recordstable.getColumnModel().getColumn(4).setMaxWidth(0);
@@ -2590,8 +2700,13 @@ public class BOARD extends javax.swing.JFrame {
         });
         student.add(studlistsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 250, 30));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        student.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 150, 30));
+        studlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
+        studlist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studlistActionPerformed(evt);
+            }
+        });
+        student.add(studlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 150, 30));
 
         issuefindstud.setBackground(new java.awt.Color(255, 0, 0));
         issuefindstud.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -2704,8 +2819,13 @@ public class BOARD extends javax.swing.JFrame {
         });
         book.add(booklistsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 250, 30));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        book.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 150, 30));
+        booklistfilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
+        booklistfilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                booklistfilterActionPerformed(evt);
+            }
+        });
+        book.add(booklistfilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 150, 30));
 
         issuefindbooklist.setBackground(new java.awt.Color(255, 0, 0));
         issuefindbooklist.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -3115,11 +3235,36 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(findreturndetails);
+        if (findreturndetails.getColumnModel().getColumnCount() > 0) {
+            findreturndetails.getColumnModel().getColumn(2).setMinWidth(0);
+            findreturndetails.getColumnModel().getColumn(2).setPreferredWidth(0);
+            findreturndetails.getColumnModel().getColumn(2).setMaxWidth(0);
+            findreturndetails.getColumnModel().getColumn(4).setMinWidth(0);
+            findreturndetails.getColumnModel().getColumn(4).setPreferredWidth(0);
+            findreturndetails.getColumnModel().getColumn(4).setMaxWidth(0);
+            findreturndetails.getColumnModel().getColumn(6).setMinWidth(0);
+            findreturndetails.getColumnModel().getColumn(6).setPreferredWidth(0);
+            findreturndetails.getColumnModel().getColumn(6).setMaxWidth(0);
+            findreturndetails.getColumnModel().getColumn(7).setMinWidth(0);
+            findreturndetails.getColumnModel().getColumn(7).setPreferredWidth(0);
+            findreturndetails.getColumnModel().getColumn(7).setMaxWidth(0);
+            findreturndetails.getColumnModel().getColumn(8).setMinWidth(0);
+            findreturndetails.getColumnModel().getColumn(8).setPreferredWidth(0);
+            findreturndetails.getColumnModel().getColumn(8).setMaxWidth(0);
+            findreturndetails.getColumnModel().getColumn(11).setMinWidth(0);
+            findreturndetails.getColumnModel().getColumn(11).setPreferredWidth(0);
+            findreturndetails.getColumnModel().getColumn(11).setMaxWidth(0);
+        }
 
         details.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 1060, 560));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
-        details.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 150, 30));
+        retdetailsfilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
+        retdetailsfilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retdetailsfilterActionPerformed(evt);
+            }
+        });
+        details.add(retdetailsfilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 150, 30));
 
         ret_find_but.setBackground(new java.awt.Color(255, 0, 0));
         ret_find_but.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -3815,6 +3960,9 @@ public class BOARD extends javax.swing.JFrame {
 
     private void studfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studfilterActionPerformed
 
+        String searchString = studfilter.getSelectedItem().toString();
+        studfiltertab(searchString);
+
     }//GEN-LAST:event_studfilterActionPerformed
 
     private void studtablejTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studtablejTable1MouseClicked
@@ -3834,9 +3982,13 @@ public class BOARD extends javax.swing.JFrame {
         transactionsearch(searchString);
     }//GEN-LAST:event_transactionssearchKeyReleased
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void transacfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transacfilterActionPerformed
 
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+        String searchString = transacfilter.getSelectedItem().toString();
+        transactionfiltertab(searchString);
+
+
+    }//GEN-LAST:event_transacfilterActionPerformed
 
     private void transactiontableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactiontableMouseClicked
 
@@ -3898,18 +4050,6 @@ public class BOARD extends javax.swing.JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyy");
         String strDate = dateFormat.format(date);
 
-        try {
-            pst = con.prepareStatement("update issue set Date_Today=? ");
-            pst.setString(1, strDate);
-
-            pst.executeUpdate();
-
-            transactiontableupdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         String sql = "insert into issue(Student_ID,Student_Name,Strand,Grade_Section,Book_ID,Book_Name,Book_Author,Genre,Book_Quantity,Issue_Date,Due_Date,Date_Return,Status,Date_Today)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
@@ -3924,12 +4064,13 @@ public class BOARD extends javax.swing.JFrame {
             pst.setString(9, issuebookqua.getText());
             pst.setString(10, ((JTextField) issue_issuedate.getDateEditor().getUiComponent()).getText());
             pst.setString(11, ((JTextField) issue_duedate.getDateEditor().getUiComponent()).getText());
-            pst.setString(12, "Pending");
-            pst.setString(13, "---");
+            pst.setString(12, "---");
+            pst.setString(13, "Pending");
             pst.setString(14, strDate);
-
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Book Issued");
+            overdue();
+            overdue_update();
             transactiontableupdate();
             return_details();
             JOptionPane.showMessageDialog(null, "Issue Count Updated");
@@ -4118,12 +4259,16 @@ public class BOARD extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String input = JOptionPane.showInputDialog("Add a genre");
         genrecombobox.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        manageb_filter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        booklistfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         try {
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery("SELECT genre from combobox");
             while (Rs.next()) {
                 String genre = Rs.getString("genre");
                 genrecombobox.addItem(genre);
+                manageb_filter.addItem(genre);
+                booklistfilter.addItem(genre);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -4131,6 +4276,8 @@ public class BOARD extends javax.swing.JFrame {
 
         if (input == null) {
             genrecombobox.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            manageb_filter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            booklistfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
 
             try {
                 Statement st = con.createStatement();
@@ -4138,6 +4285,8 @@ public class BOARD extends javax.swing.JFrame {
                 while (Rs.next()) {
                     String genre = Rs.getString("genre");
                     genrecombobox.addItem(genre);
+                    manageb_filter.addItem(genre);
+                    booklistfilter.addItem(genre);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -4153,6 +4302,8 @@ public class BOARD extends javax.swing.JFrame {
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Genre Added.");
                 genrecombobox.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                manageb_filter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                booklistfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -4163,6 +4314,8 @@ public class BOARD extends javax.swing.JFrame {
                 while (Rs.next()) {
                     String genre = Rs.getString("genre");
                     genrecombobox.addItem(genre);
+                    manageb_filter.addItem(genre);
+                    booklistfilter.addItem(genre);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -4394,6 +4547,9 @@ public class BOARD extends javax.swing.JFrame {
         txtGrandSec.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         db_filter2.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         studfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        recordsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        retdetailsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        studlist.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         try {
             Statement st = con.createStatement();
             ResultSet Rs = st.executeQuery("SELECT grsec from grandseccombo");
@@ -4402,6 +4558,9 @@ public class BOARD extends javax.swing.JFrame {
                 txtGrandSec.addItem(grandsec);
                 db_filter2.addItem(grandsec);
                 studfilter.addItem(grandsec);
+                recordsfilter.addItem(grandsec);
+                retdetailsfilter.addItem(grandsec);
+                studlist.addItem(grandsec);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -4411,6 +4570,9 @@ public class BOARD extends javax.swing.JFrame {
             txtGrandSec.setModel(new DefaultComboBoxModel(new String[]{"..."}));
             db_filter2.setModel(new DefaultComboBoxModel(new String[]{"..."}));
             studfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            recordsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            retdetailsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            studlist.setModel(new DefaultComboBoxModel(new String[]{"..."}));
 
             try {
                 Statement st = con.createStatement();
@@ -4420,11 +4582,14 @@ public class BOARD extends javax.swing.JFrame {
                     txtGrandSec.addItem(grandsec);
                     db_filter2.addItem(grandsec);
                     studfilter.addItem(grandsec);
+                    recordsfilter.addItem(grandsec);
+                    retdetailsfilter.addItem(grandsec);
+                    studlist.addItem(grandsec);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-          JOptionPane.showMessageDialog(null, "Invalid Section");
+            JOptionPane.showMessageDialog(null, "Invalid Section");
         } else {
             try {
 
@@ -4435,6 +4600,9 @@ public class BOARD extends javax.swing.JFrame {
                 txtGrandSec.setModel(new DefaultComboBoxModel(new String[]{"..."}));
                 db_filter2.setModel(new DefaultComboBoxModel(new String[]{"..."}));
                 studfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                recordsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                retdetailsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                studlist.setModel(new DefaultComboBoxModel(new String[]{"..."}));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -4447,6 +4615,9 @@ public class BOARD extends javax.swing.JFrame {
                     txtGrandSec.addItem(grandsec);
                     db_filter2.addItem(grandsec);
                     studfilter.addItem(grandsec);
+                    recordsfilter.addItem(grandsec);
+                    retdetailsfilter.addItem(grandsec);
+                    studlist.addItem(grandsec);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -4459,10 +4630,14 @@ public class BOARD extends javax.swing.JFrame {
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
 
         genrecombobox.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        manageb_filter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        booklistfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         String input = JOptionPane.showInputDialog("Enter the genre that you want to delete.");
         if (input == null) {
             JOptionPane.showMessageDialog(null, "Invalid Genre");
             genrecombobox.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            manageb_filter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            booklistfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         } else {
             int optionType = JOptionPane.YES_NO_OPTION;
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete" + input + "?", "Delete", optionType);
@@ -4473,6 +4648,8 @@ public class BOARD extends javax.swing.JFrame {
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Genre Deleted");
                     genrecombobox.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                    manageb_filter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                    booklistfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -4485,6 +4662,8 @@ public class BOARD extends javax.swing.JFrame {
             while (Rs.next()) {
                 String genre = Rs.getString("genre");
                 genrecombobox.addItem(genre);
+                manageb_filter.addItem(genre);
+                booklistfilter.addItem(genre);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -4494,10 +4673,20 @@ public class BOARD extends javax.swing.JFrame {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         txtGrandSec.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        db_filter2.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        studfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        recordsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        retdetailsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+        studlist.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         String input = JOptionPane.showInputDialog("Enter the section that you want to delete.");
         if (input == null) {
             JOptionPane.showMessageDialog(null, "Invalid Section");
             txtGrandSec.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            db_filter2.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            studfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            recordsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            retdetailsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+            studlist.setModel(new DefaultComboBoxModel(new String[]{"..."}));
         } else {
             int optionType = JOptionPane.YES_NO_OPTION;
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete" + input + "?", "Delete", optionType);
@@ -4508,6 +4697,11 @@ public class BOARD extends javax.swing.JFrame {
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Section Deleted");
                     txtGrandSec.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                    db_filter2.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                    studfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                    recordsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                    retdetailsfilter.setModel(new DefaultComboBoxModel(new String[]{"..."}));
+                    studlist.setModel(new DefaultComboBoxModel(new String[]{"..."}));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -4520,6 +4714,11 @@ public class BOARD extends javax.swing.JFrame {
             while (Rs.next()) {
                 String grandsec = Rs.getString("grsec");
                 txtGrandSec.addItem(grandsec);
+                db_filter2.addItem(grandsec);
+                studfilter.addItem(grandsec);
+                recordsfilter.addItem(grandsec);
+                retdetailsfilter.addItem(grandsec);
+                studlist.addItem(grandsec);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -4559,7 +4758,8 @@ public class BOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_db_search1KeyReleased
 
     private void db_filter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_db_filter2ActionPerformed
-        // TODO add your handling code here:
+        String searchString = db_filter2.getSelectedItem().toString();
+        db2filter(searchString);
     }//GEN-LAST:event_db_filter2ActionPerformed
 
     private void jLabel80MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel80MouseClicked
@@ -4655,6 +4855,37 @@ public class BOARD extends javax.swing.JFrame {
         optdel.setVisible(false);
     }//GEN-LAST:event_jButton18MouseExited
 
+    private void manageb_filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageb_filterActionPerformed
+        String searchString = manageb_filter.getSelectedItem().toString();
+        managebfilter(searchString);
+
+    }//GEN-LAST:event_manageb_filterActionPerformed
+
+    private void recordsfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recordsfilterActionPerformed
+
+        String searchString = recordsfilter.getSelectedItem().toString();
+        recordfiltertab(searchString);
+
+    }//GEN-LAST:event_recordsfilterActionPerformed
+
+    private void studlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studlistActionPerformed
+
+        String searchString = studlist.getSelectedItem().toString();
+        issuestudfilter(searchString);
+    }//GEN-LAST:event_studlistActionPerformed
+
+    private void booklistfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booklistfilterActionPerformed
+
+        String searchString = booklistfilter.getSelectedItem().toString();
+        issuebookfilter(searchString);
+    }//GEN-LAST:event_booklistfilterActionPerformed
+
+    private void retdetailsfilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retdetailsfilterActionPerformed
+
+        String searchString = retdetailsfilter.getSelectedItem().toString();
+        findreturnfilter(searchString);
+    }//GEN-LAST:event_retdetailsfilterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4718,6 +4949,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel book_edit;
     private javax.swing.JLabel book_update;
     private javax.swing.JLabel bookcount;
+    private javax.swing.JComboBox<String> booklistfilter;
     private javax.swing.JTextField booklistsearch;
     private javax.swing.JLabel books;
     private javax.swing.JLabel btextadd;
@@ -4784,11 +5016,6 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4898,6 +5125,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4905,7 +5133,6 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JComboBox<String> manageb_filter;
     private javax.swing.JTextField manageb_search;
@@ -4916,9 +5143,11 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel optdel;
     private javax.swing.JLabel rec;
     private javax.swing.JPanel records;
+    private javax.swing.JComboBox<String> recordsfilter;
     private javax.swing.JTextField recordssearch;
     private javax.swing.JTable recordstable;
     private javax.swing.JButton ret_find_but;
+    private javax.swing.JComboBox<String> retdetailsfilter;
     private javax.swing.JButton return_button;
     private com.toedter.calendar.JDateChooser return_datereturned;
     private javax.swing.JPanel returnbook;
@@ -4944,6 +5173,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel studentcount;
     private javax.swing.JLabel students;
     private javax.swing.JComboBox<String> studfilter;
+    private javax.swing.JComboBox<String> studlist;
     private javax.swing.JTextField studlistsearch;
     private javax.swing.JTable studtable;
     private javax.swing.JPanel t1;
@@ -4953,6 +5183,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JPanel t5;
     private javax.swing.JLabel textadd1;
     private javax.swing.JLabel trans;
+    private javax.swing.JComboBox<String> transacfilter;
     private javax.swing.JPanel transaction;
     private javax.swing.JTextField transactionssearch;
     private javax.swing.JTable transactiontable;

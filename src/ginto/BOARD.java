@@ -790,6 +790,7 @@ public class BOARD extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         a7 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         db2_table = new javax.swing.JTable();
         managebook = new javax.swing.JPanel();
@@ -828,6 +829,8 @@ public class BOARD extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         manageb_search = new javax.swing.JTextField();
@@ -862,10 +865,15 @@ public class BOARD extends javax.swing.JFrame {
         jButton19 = new javax.swing.JButton();
         addopt = new javax.swing.JLabel();
         delopt = new javax.swing.JLabel();
+        jButton28 = new javax.swing.JButton();
+        jButton29 = new javax.swing.JButton();
+        addopt1 = new javax.swing.JLabel();
+        delopt1 = new javax.swing.JLabel();
         jPanel39 = new javax.swing.JPanel();
         jButton10 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         searchmanagstud = new javax.swing.JTextField();
@@ -884,6 +892,7 @@ public class BOARD extends javax.swing.JFrame {
         a8 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jLabel84 = new javax.swing.JLabel();
         records = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         recordsfilter = new javax.swing.JComboBox<>();
@@ -896,6 +905,7 @@ public class BOARD extends javax.swing.JFrame {
         a9 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jLabel85 = new javax.swing.JLabel();
         issuebook = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
@@ -937,6 +947,7 @@ public class BOARD extends javax.swing.JFrame {
         a13 = new javax.swing.JLabel();
         jButton17 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jLabel86 = new javax.swing.JLabel();
         student = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         issuestudlist = new javax.swing.JTable();
@@ -949,6 +960,7 @@ public class BOARD extends javax.swing.JFrame {
         jButton20 = new javax.swing.JButton();
         jLabel80 = new javax.swing.JLabel();
         a10 = new javax.swing.JLabel();
+        jLabel89 = new javax.swing.JLabel();
         book = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         issuebooklist = new javax.swing.JTable();
@@ -961,6 +973,7 @@ public class BOARD extends javax.swing.JFrame {
         jButton23 = new javax.swing.JButton();
         jLabel81 = new javax.swing.JLabel();
         a11 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
         returnbook = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
@@ -1002,6 +1015,7 @@ public class BOARD extends javax.swing.JFrame {
         jButton25 = new javax.swing.JButton();
         jLabel76 = new javax.swing.JLabel();
         a15 = new javax.swing.JLabel();
+        jLabel87 = new javax.swing.JLabel();
         details = new javax.swing.JPanel();
         jLabel72 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -1013,6 +1027,7 @@ public class BOARD extends javax.swing.JFrame {
         jButton27 = new javax.swing.JButton();
         jLabel82 = new javax.swing.JLabel();
         a16 = new javax.swing.JLabel();
+        jLabel90 = new javax.swing.JLabel();
         detailsssearch = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         t1 = new javax.swing.JPanel();
@@ -1068,7 +1083,7 @@ public class BOARD extends javax.swing.JFrame {
         jPanel14.add(bookcount);
         bookcount.setBounds(150, 0, 87, 110);
 
-        dashboard.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 270, 110));
+        dashboard.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 270, 110));
 
         jPanel15.setBackground(new java.awt.Color(11, 0, 50));
         jPanel15.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 2, new java.awt.Color(255, 255, 255)));
@@ -1085,7 +1100,7 @@ public class BOARD extends javax.swing.JFrame {
         studentcount.setText("559");
         jPanel15.add(studentcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 110));
 
-        dashboard.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 270, -1));
+        dashboard.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 270, -1));
 
         jPanel16.setBackground(new java.awt.Color(11, 0, 50));
         jPanel16.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 2, new java.awt.Color(255, 255, 255)));
@@ -1102,7 +1117,7 @@ public class BOARD extends javax.swing.JFrame {
         returnedbcount.setText("459");
         jPanel16.add(returnedbcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 110));
 
-        dashboard.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 270, -1));
+        dashboard.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, 270, -1));
 
         jPanel17.setBackground(new java.awt.Color(11, 0, 50));
         jPanel17.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 2, new java.awt.Color(255, 255, 255)));
@@ -1119,10 +1134,10 @@ public class BOARD extends javax.swing.JFrame {
         issuedbcount.setText("599");
         jPanel17.add(issuedbcount, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 110));
 
-        dashboard.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 270, -1));
+        dashboard.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 270, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
-        dashboard.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        dashboard.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         db_search.setBackground(new java.awt.Color(11, 0, 40));
         db_search.setForeground(new java.awt.Color(255, 255, 255));
@@ -1137,7 +1152,7 @@ public class BOARD extends javax.swing.JFrame {
                 db_searchKeyReleased(evt);
             }
         });
-        dashboard.add(db_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 250, 30));
+        dashboard.add(db_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 250, 30));
 
         db_filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Pending", "Overdue" }));
         db_filter.addActionListener(new java.awt.event.ActionListener() {
@@ -1145,7 +1160,7 @@ public class BOARD extends javax.swing.JFrame {
                 db_filterActionPerformed(evt);
             }
         });
-        dashboard.add(db_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 120, 30));
+        dashboard.add(db_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 120, 30));
 
         db_table.setBackground(new java.awt.Color(255, 255, 255));
         db_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1212,7 +1227,7 @@ public class BOARD extends javax.swing.JFrame {
             db_table.getColumnModel().getColumn(12).setMaxWidth(80);
         }
 
-        dashboard.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 530, 520));
+        dashboard.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 530, 500));
 
         db_search1.setBackground(new java.awt.Color(11, 0, 40));
         db_search1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1227,10 +1242,10 @@ public class BOARD extends javax.swing.JFrame {
                 db_search1KeyReleased(evt);
             }
         });
-        dashboard.add(db_search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 250, 30));
+        dashboard.add(db_search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 250, 30));
 
         jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
-        dashboard.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
+        dashboard.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, -1, -1));
 
         db_filter2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
         db_filter2.addActionListener(new java.awt.event.ActionListener() {
@@ -1238,7 +1253,7 @@ public class BOARD extends javax.swing.JFrame {
                 db_filter2ActionPerformed(evt);
             }
         });
-        dashboard.add(db_filter2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, -1, 30));
+        dashboard.add(db_filter2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 220, -1, 30));
 
         jPanel13.setBackground(new java.awt.Color(16, 0, 61));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1266,7 +1281,10 @@ public class BOARD extends javax.swing.JFrame {
         a7.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a7.setForeground(new java.awt.Color(255, 255, 255));
         a7.setText("Dashboard");
-        jPanel13.add(a7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 410, 60));
+        jPanel13.add(a7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 350, 60));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-dashboard-60.png"))); // NOI18N
+        jPanel13.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 60, 60));
 
         dashboard.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -1335,7 +1353,7 @@ public class BOARD extends javax.swing.JFrame {
             db2_table.getColumnModel().getColumn(12).setMaxWidth(80);
         }
 
-        dashboard.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 530, 520));
+        dashboard.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 530, 500));
 
         jTabbedPane1.addTab("DASHBOARD", dashboard);
 
@@ -1593,7 +1611,11 @@ public class BOARD extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 204));
         jLabel25.setText("Manage Books");
         jLabel25.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel38.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 480, 60));
+        jPanel38.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 400, 60));
+        jPanel38.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 60));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-knowledge-60.png"))); // NOI18N
+        jPanel38.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, -1, 60));
 
         managebook.add(jPanel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -1689,7 +1711,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Add a Student");
-        jPanel11.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+        jPanel11.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -1889,6 +1911,54 @@ public class BOARD extends javax.swing.JFrame {
         jPanel11.add(delopt, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
         delopt.setVisible(false);
 
+        jButton28.setBackground(new java.awt.Color(0, 0, 255));
+        jButton28.setForeground(new java.awt.Color(255, 255, 255));
+        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-plus-20.png"))); // NOI18N
+        jButton28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton28MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton28MouseExited(evt);
+            }
+        });
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 30, 40));
+
+        jButton29.setBackground(new java.awt.Color(255, 0, 0));
+        jButton29.setForeground(new java.awt.Color(255, 255, 255));
+        jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-delete-20.png"))); // NOI18N
+        jButton29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton29MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton29MouseExited(evt);
+            }
+        });
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 30, 40));
+
+        addopt1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addopt1.setForeground(new java.awt.Color(0, 0, 255));
+        addopt1.setText("ADD");
+        jPanel11.add(addopt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 30, -1));
+        addopt.setVisible(false);
+
+        delopt1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        delopt1.setForeground(new java.awt.Color(255, 0, 0));
+        delopt1.setText("DELETE");
+        jPanel11.add(delopt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
+        delopt.setVisible(false);
+
         managestudent.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 340, 620));
 
         jPanel39.setBackground(new java.awt.Color(16, 0, 61));
@@ -1917,7 +1987,10 @@ public class BOARD extends javax.swing.JFrame {
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 204));
         jLabel37.setText("Manage Student");
-        jPanel39.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 450, 60));
+        jPanel39.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 460, 60));
+
+        jLabel77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-notepad-user-60.png"))); // NOI18N
+        jPanel39.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 60, 60));
 
         managestudent.add(jPanel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -2137,7 +2210,7 @@ public class BOARD extends javax.swing.JFrame {
         a8.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a8.setForeground(new java.awt.Color(255, 255, 255));
         a8.setText("Transaction");
-        jPanel24.add(a8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 390, 60));
+        jPanel24.add(a8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 330, 60));
 
         jButton12.setBackground(new java.awt.Color(255, 0, 0));
         jButton12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -2158,6 +2231,9 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel24.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 20, 30, 20));
+
+        jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-check-book-60.png"))); // NOI18N
+        jPanel24.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 60, 60));
 
         transaction.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -2280,7 +2356,7 @@ public class BOARD extends javax.swing.JFrame {
         a9.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a9.setForeground(new java.awt.Color(255, 255, 255));
         a9.setText("Records");
-        jPanel26.add(a9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 340, 60));
+        jPanel26.add(a9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 250, 60));
 
         jButton13.setBackground(new java.awt.Color(102, 102, 102));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1.png"))); // NOI18N
@@ -2301,6 +2377,9 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel26.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, 30, 20));
+
+        jLabel85.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-records-60.png"))); // NOI18N
+        jPanel26.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 60, 60));
 
         records.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -2353,7 +2432,15 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel20.add(issuebk_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 220, 35));
+
+        issue_issuedate.setBackground(new java.awt.Color(16, 1, 59));
+        issue_issuedate.setForeground(new java.awt.Color(255, 0, 0));
+        issue_issuedate.setDateFormatString("dd-MM-yy");
         jPanel20.add(issue_issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 265, 32));
+
+        issue_duedate.setBackground(new java.awt.Color(16, 1, 59));
+        issue_duedate.setForeground(new java.awt.Color(255, 0, 0));
+        issue_duedate.setDateFormatString("dd-MM-yy");
         jPanel20.add(issue_duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 265, 32));
 
         jLabel54.setBackground(new java.awt.Color(0, 0, 102));
@@ -2613,7 +2700,7 @@ public class BOARD extends javax.swing.JFrame {
         a13.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a13.setForeground(new java.awt.Color(255, 255, 255));
         a13.setText("Issue Book");
-        jPanel33.add(a13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 350, 60));
+        jPanel33.add(a13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 320, 60));
 
         jButton17.setBackground(new java.awt.Color(255, 0, 0));
         jButton17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -2634,6 +2721,9 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel33.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 20, 30, 20));
+
+        jLabel86.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-course-assign-60.png"))); // NOI18N
+        jPanel33.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, -1, -1));
 
         issuebook.add(jPanel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1110, 60));
 
@@ -2675,7 +2765,7 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(issuestudlist);
 
-        student.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 1060, 570));
+        student.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 1060, 560));
 
         jLabel70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
         student.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -2753,7 +2843,10 @@ public class BOARD extends javax.swing.JFrame {
         a10.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a10.setForeground(new java.awt.Color(255, 255, 255));
         a10.setText("Student List");
-        jPanel27.add(a10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 410, 60));
+        jPanel27.add(a10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 340, 60));
+
+        jLabel89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-drag-list-down-60.png"))); // NOI18N
+        jPanel27.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, -1, -1));
 
         student.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -2794,7 +2887,7 @@ public class BOARD extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(issuebooklist);
 
-        book.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 1060, 570));
+        book.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 1060, 560));
 
         jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1w.png"))); // NOI18N
         book.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -2872,7 +2965,10 @@ public class BOARD extends javax.swing.JFrame {
         a11.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a11.setForeground(new java.awt.Color(255, 255, 255));
         a11.setText("Book List");
-        jPanel30.add(a11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 330, 60));
+        jPanel30.add(a11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 280, 60));
+
+        jLabel88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-drag-list-down-60.png"))); // NOI18N
+        jPanel30.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
 
         book.add(jPanel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -2910,7 +3006,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(finddetailsreturn);
-        finddetailsreturn.setBounds(230, 180, 60, 23);
+        finddetailsreturn.setBounds(230, 180, 60, 22);
 
         returnstudid.setBackground(new java.awt.Color(16, 1, 59));
         returnstudid.setForeground(new java.awt.Color(255, 255, 255));
@@ -3101,6 +3197,9 @@ public class BOARD extends javax.swing.JFrame {
         jPanel9.add(return_button);
         return_button.setBounds(110, 390, 220, 35);
         return_button.setEnabled(false);
+
+        return_datereturned.setBackground(new java.awt.Color(16, 1, 59));
+        return_datereturned.setDateFormatString("dd-MM-yy");
         jPanel9.add(return_datereturned);
         return_datereturned.setBounds(100, 300, 220, 30);
 
@@ -3191,7 +3290,10 @@ public class BOARD extends javax.swing.JFrame {
         a15.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a15.setForeground(new java.awt.Color(255, 255, 255));
         a15.setText("Return Book");
-        jPanel35.add(a15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 460, 60));
+        jPanel35.add(a15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 350, 60));
+
+        jLabel87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-study-60.png"))); // NOI18N
+        jPanel35.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, -1, 60));
 
         returnbook.add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -3256,7 +3358,7 @@ public class BOARD extends javax.swing.JFrame {
             findreturndetails.getColumnModel().getColumn(11).setMaxWidth(0);
         }
 
-        details.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 1060, 560));
+        details.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 1060, 550));
 
         retdetailsfilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT", "General Reference", "Fiction", "Core Subject" }));
         retdetailsfilter.addActionListener(new java.awt.event.ActionListener() {
@@ -3311,7 +3413,10 @@ public class BOARD extends javax.swing.JFrame {
         a16.setFont(new java.awt.Font("Tahoma", 0, 50)); // NOI18N
         a16.setForeground(new java.awt.Color(255, 255, 255));
         a16.setText("Details");
-        jPanel31.add(a16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 410, 60));
+        jPanel31.add(a16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 150, 60));
+
+        jLabel90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-view-details-60.png"))); // NOI18N
+        jPanel31.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, -1, -1));
 
         details.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
@@ -3429,7 +3534,7 @@ public class BOARD extends javax.swing.JFrame {
         students.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
         students.setForeground(new java.awt.Color(255, 255, 255));
         students.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        students.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/student-removebg-preview.png"))); // NOI18N
+        students.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-user-groups-60.png"))); // NOI18N
         students.setText("        MANAGE STUDENTS");
         students.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -4886,6 +4991,30 @@ public class BOARD extends javax.swing.JFrame {
         findreturnfilter(searchString);
     }//GEN-LAST:event_retdetailsfilterActionPerformed
 
+    private void jButton28MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton28MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton28MouseEntered
+
+    private void jButton28MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton28MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton28MouseExited
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton29MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton29MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton29MouseEntered
+
+    private void jButton29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton29MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton29MouseExited
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton29ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4943,6 +5072,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel a8;
     private javax.swing.JLabel a9;
     private javax.swing.JLabel addopt;
+    private javax.swing.JLabel addopt1;
     private javax.swing.JPanel book;
     private javax.swing.JLabel book_add;
     private javax.swing.JLabel book_delete;
@@ -4965,6 +5095,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField db_search1;
     private javax.swing.JTable db_table;
     private javax.swing.JLabel delopt;
+    private javax.swing.JLabel delopt1;
     private javax.swing.JPanel details;
     private javax.swing.JTextField detailsssearch;
     private javax.swing.JButton finddetailsreturn;
@@ -5009,6 +5140,8 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -5020,10 +5153,13 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -5087,6 +5223,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
@@ -5094,7 +5231,14 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

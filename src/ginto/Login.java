@@ -187,7 +187,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 23);
+        jLabel2.setBounds(560, 70, 70, 24);
 
         jButton3.setBackground(new java.awt.Color(204, 0, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -240,7 +240,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(Change);
-        Change.setBounds(550, 330, 110, 16);
+        Change.setBounds(540, 330, 110, 16);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);

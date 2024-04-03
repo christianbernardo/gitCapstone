@@ -69,13 +69,14 @@ public class Login extends javax.swing.JFrame {
         b1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Change = new javax.swing.JLabel();
+        ex1 = new javax.swing.JLabel();
+        hide1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
@@ -189,17 +190,6 @@ public class Login extends javax.swing.JFrame {
         Rigth.add(jLabel2);
         jLabel2.setBounds(560, 70, 70, 24);
 
-        jButton3.setBackground(new java.awt.Color(204, 0, 0));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        Rigth.add(jButton3);
-        jButton3.setBounds(770, 10, 20, 20);
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("LIBRARY MANAGEMENT SYSTEM");
@@ -240,7 +230,34 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(Change);
-        Change.setBounds(540, 330, 110, 16);
+        Change.setBounds(550, 330, 110, 16);
+
+        ex1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-30.png"))); // NOI18N
+        ex1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ex1MouseClicked(evt);
+            }
+        });
+        Rigth.add(ex1);
+        ex1.setBounds(760, 10, 30, 30);
+
+        hide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-minus-30.png"))); // NOI18N
+        hide1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hide1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hide1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                hide1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                hide1MousePressed(evt);
+            }
+        });
+        Rigth.add(hide1);
+        hide1.setBounds(720, 10, 20, 30);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
@@ -347,10 +364,6 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_b1KeyPressed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void ChangeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChangeKeyPressed
 
 
@@ -377,6 +390,26 @@ public class Login extends javax.swing.JFrame {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         JOptionPane.showMessageDialog(this, "Group 4\nAropo,Kristine Jane\nBernardo,Christian\nCastro,Mark Ivan\nCastro,Raphael Luis\nCruz,Alden Euan Raine\nGalvez,Mitchie\nGarcia,Kyron Lee\nLacson,Tiffany Mae\nPerlas,Angelo");
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void ex1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex1MouseClicked
+        dispose();
+    }//GEN-LAST:event_ex1MouseClicked
+
+    private void hide1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MouseClicked
+        this.setExtendedState(BOARD.ICONIFIED);
+    }//GEN-LAST:event_hide1MouseClicked
+
+    private void hide1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MouseEntered
+
+    }//GEN-LAST:event_hide1MouseEntered
+
+    private void hide1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MouseExited
+        
+    }//GEN-LAST:event_hide1MouseExited
+
+    private void hide1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MousePressed
+        
+    }//GEN-LAST:event_hide1MousePressed
 
     /**
      * @param args the command line arguments
@@ -417,7 +450,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Change;
     private javax.swing.JPanel Rigth;
     private javax.swing.JButton b1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel ex1;
+    private javax.swing.JLabel hide1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

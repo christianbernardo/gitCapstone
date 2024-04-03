@@ -78,7 +78,7 @@ public class Forgot extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 180, 30));
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setBackground(new java.awt.Color(0, 0, 153));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("FIND");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

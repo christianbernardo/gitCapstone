@@ -69,13 +69,16 @@ public class Login extends javax.swing.JFrame {
         b1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Change = new javax.swing.JLabel();
+        jPanel44 = new javax.swing.JPanel();
+        hide6 = new javax.swing.JLabel();
+        jPanel43 = new javax.swing.JPanel();
+        ex6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
@@ -187,18 +190,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 24);
-
-        jButton3.setBackground(new java.awt.Color(204, 0, 0));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        Rigth.add(jButton3);
-        jButton3.setBounds(770, 10, 20, 20);
+        jLabel2.setBounds(560, 70, 70, 23);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,6 +233,34 @@ public class Login extends javax.swing.JFrame {
         });
         Rigth.add(Change);
         Change.setBounds(540, 330, 110, 16);
+
+        jPanel44.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel44.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        hide6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-minus-30.png"))); // NOI18N
+        hide6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hide6MouseClicked(evt);
+            }
+        });
+        jPanel44.add(hide6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+
+        Rigth.add(jPanel44);
+        jPanel44.setBounds(730, 10, 30, 30);
+
+        jPanel43.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel43.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ex6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-30.png"))); // NOI18N
+        ex6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ex6MouseClicked(evt);
+            }
+        });
+        jPanel43.add(ex6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+
+        Rigth.add(jPanel43);
+        jPanel43.setBounds(760, 10, 30, 30);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
@@ -347,10 +367,6 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_b1KeyPressed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void ChangeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChangeKeyPressed
 
 
@@ -377,6 +393,14 @@ public class Login extends javax.swing.JFrame {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         JOptionPane.showMessageDialog(this, "Group 4\nAropo,Kristine Jane\nBernardo,Christian\nCastro,Mark Ivan\nCastro,Raphael Luis\nCruz,Alden Euan Raine\nGalvez,Mitchie\nGarcia,Kyron Lee\nLacson,Tiffany Mae\nPerlas,Angelo");
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void hide6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide6MouseClicked
+        this.setExtendedState(BOARD.ICONIFIED);
+    }//GEN-LAST:event_hide6MouseClicked
+
+    private void ex6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex6MouseClicked
+        dispose();
+    }//GEN-LAST:event_ex6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -417,7 +441,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Change;
     private javax.swing.JPanel Rigth;
     private javax.swing.JButton b1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel ex6;
+    private javax.swing.JLabel hide6;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -429,6 +454,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
     private javax.swing.JTextField nametxt;
     private javax.swing.JPasswordField passtxt;
     // End of variables declaration//GEN-END:variables

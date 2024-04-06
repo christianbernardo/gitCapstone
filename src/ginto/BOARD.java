@@ -1481,7 +1481,7 @@ public class BOARD extends javax.swing.JFrame {
         });
         jPanel4.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 270, 40));
 
-        book_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
+        book_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-plus-40.png"))); // NOI18N
         book_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 book_addMouseClicked(evt);
@@ -1493,9 +1493,9 @@ public class BOARD extends javax.swing.JFrame {
                 book_addMouseExited(evt);
             }
         });
-        jPanel4.add(book_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, -1, -1));
+        jPanel4.add(book_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, 50));
 
-        book_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
+        book_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-edit-40.png"))); // NOI18N
         book_edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 book_editMouseClicked(evt);
@@ -1507,9 +1507,9 @@ public class BOARD extends javax.swing.JFrame {
                 book_editMouseExited(evt);
             }
         });
-        jPanel4.add(book_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, -1, -1));
+        jPanel4.add(book_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, -1, 50));
 
-        book_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
+        book_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-40.png"))); // NOI18N
         book_delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 book_deleteMouseClicked(evt);
@@ -1521,9 +1521,9 @@ public class BOARD extends javax.swing.JFrame {
                 book_deleteMouseExited(evt);
             }
         });
-        jPanel4.add(book_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 50, 50));
+        jPanel4.add(book_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 40, 50));
 
-        book_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
+        book_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-40.png"))); // NOI18N
         book_update.setPreferredSize(new java.awt.Dimension(48, 48));
         book_update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1536,34 +1536,34 @@ public class BOARD extends javax.swing.JFrame {
                 book_updateMouseExited(evt);
             }
         });
-        jPanel4.add(book_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, -1, -1));
+        jPanel4.add(book_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 40, -1));
 
         btextadd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btextadd.setForeground(new java.awt.Color(255, 255, 255));
         btextadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btextadd.setText("ADD");
-        jPanel4.add(btextadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 50, -1));
+        jPanel4.add(btextadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 60, -1));
         btextadd.setVisible(false);
 
         btxtedit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btxtedit.setForeground(new java.awt.Color(255, 255, 255));
         btxtedit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btxtedit.setText("EDIT");
-        jPanel4.add(btxtedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 50, -1));
+        jPanel4.add(btxtedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 60, -1));
         btxtedit.setVisible(false);
 
         btxtremove.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btxtremove.setForeground(new java.awt.Color(255, 255, 255));
         btxtremove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btxtremove.setText("DELETE");
-        jPanel4.add(btxtremove, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, 50, -1));
+        jPanel4.add(btxtremove, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, 60, -1));
         btxtremove.setVisible(false);
 
         btxtupdate.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btxtupdate.setForeground(new java.awt.Color(255, 255, 255));
         btxtupdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btxtupdate.setText("UPDATE");
-        jPanel4.add(btxtupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, -1, -1));
+        jPanel4.add(btxtupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 60, -1));
         btxtupdate.setVisible(false);
 
         jButton2.setBackground(new java.awt.Color(0, 0, 255));
@@ -1808,7 +1808,7 @@ public class BOARD extends javax.swing.JFrame {
         jPanel11.add(txtGrandSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 200, 30));
 
         stud_add.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        stud_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-add-48.png"))); // NOI18N
+        stud_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-plus-40.png"))); // NOI18N
         stud_add.setToolTipText("");
         stud_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1821,9 +1821,9 @@ public class BOARD extends javax.swing.JFrame {
                 stud_addMouseExited(evt);
             }
         });
-        jPanel11.add(stud_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, 50));
+        jPanel11.add(stud_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, 50));
 
-        stud_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-pen-squared-48.png"))); // NOI18N
+        stud_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-edit-40.png"))); // NOI18N
         stud_edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 stud_editMouseClicked(evt);
@@ -1838,9 +1838,9 @@ public class BOARD extends javax.swing.JFrame {
                 stud_editMousePressed(evt);
             }
         });
-        jPanel11.add(stud_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, 50));
+        jPanel11.add(stud_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, 50));
 
-        stud_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-48.png"))); // NOI18N
+        stud_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-40.png"))); // NOI18N
         stud_delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 stud_deleteMouseClicked(evt);
@@ -1852,9 +1852,9 @@ public class BOARD extends javax.swing.JFrame {
                 stud_deleteMouseExited(evt);
             }
         });
-        jPanel11.add(stud_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, 50));
+        jPanel11.add(stud_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, -1, 50));
 
-        stud_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/PG-removebg-preview.png"))); // NOI18N
+        stud_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-40.png"))); // NOI18N
         stud_update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 stud_updateMouseClicked(evt);
@@ -1866,20 +1866,20 @@ public class BOARD extends javax.swing.JFrame {
                 stud_updateMouseExited(evt);
             }
         });
-        jPanel11.add(stud_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 50, 50));
+        jPanel11.add(stud_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, 50));
 
         textadd1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         textadd1.setForeground(new java.awt.Color(255, 255, 255));
         textadd1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textadd1.setText("ADD");
-        jPanel11.add(textadd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 50, -1));
+        jPanel11.add(textadd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 60, -1));
         textadd1.setVisible(false);
 
         txtedit1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtedit1.setForeground(new java.awt.Color(255, 255, 255));
         txtedit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtedit1.setText("EDIT");
-        jPanel11.add(txtedit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 50, -1));
+        jPanel11.add(txtedit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 60, -1));
         txtedit1.setVisible(false);
 
         txtupdate1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -1894,14 +1894,14 @@ public class BOARD extends javax.swing.JFrame {
                 txtupdate1MouseExited(evt);
             }
         });
-        jPanel11.add(txtupdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 50, -1));
+        jPanel11.add(txtupdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 60, -1));
         txtupdate1.setVisible(false);
 
         txtremove1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtremove1.setForeground(new java.awt.Color(255, 255, 255));
         txtremove1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtremove1.setText("DELETE");
-        jPanel11.add(txtremove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 50, -1));
+        jPanel11.add(txtremove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 480, 60, -1));
         txtremove1.setVisible(false);
 
         jButton15.setBackground(new java.awt.Color(0, 0, 255));
@@ -2303,7 +2303,7 @@ public class BOARD extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        records.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 720, -1, 30));
+        records.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 720, -1, 30));
 
         recordsfilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ABM", "HUMSS", "ICT" }));
         recordsfilter.addActionListener(new java.awt.event.ActionListener() {
@@ -2399,7 +2399,7 @@ public class BOARD extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        records.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 720, -1, 30));
+        records.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 720, -1, 30));
 
         jPanel26.setBackground(new java.awt.Color(16, 0, 61));
         jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2520,7 +2520,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-details-85.png"))); // NOI18N
         jLabel46.setText("Book Details");
-        jPanel18.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
+        jPanel18.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 200, -1));
 
         Search2.setBackground(new java.awt.Color(0, 0, 153));
         Search2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -2666,7 +2666,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-student-registration-85.png"))); // NOI18N
         jLabel44.setText("Student Details");
-        jPanel5.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        jPanel5.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 220, -1));
 
         issuestudnm.setBackground(new java.awt.Color(16, 1, 59));
         issuestudnm.setForeground(new java.awt.Color(255, 255, 255));

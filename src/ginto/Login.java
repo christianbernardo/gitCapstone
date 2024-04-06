@@ -190,7 +190,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 23);
+        jLabel2.setBounds(560, 70, 70, 24);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,33 +233,6 @@ public class Login extends javax.swing.JFrame {
         });
         Rigth.add(Change);
         Change.setBounds(550, 330, 110, 16);
-
-        ex1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-30.png"))); // NOI18N
-        ex1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ex1MouseClicked(evt);
-            }
-        });
-        Rigth.add(ex1);
-        ex1.setBounds(760, 10, 30, 30);
-
-        hide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-minus-30.png"))); // NOI18N
-        hide1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                hide1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                hide1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                hide1MouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                hide1MousePressed(evt);
-            }
-        });
-        Rigth.add(hide1);
-        hide1.setBounds(720, 10, 20, 30);
 
         jPanel44.setBackground(new java.awt.Color(0, 0, 51));
         jPanel44.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

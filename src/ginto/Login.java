@@ -73,7 +73,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Change = new javax.swing.JLabel();
         hide = new javax.swing.JPanel();
@@ -81,6 +80,8 @@ public class Login extends javax.swing.JFrame {
         exs = new javax.swing.JPanel();
         ex6 = new javax.swing.JLabel();
         newaccount = new javax.swing.JLabel();
+        w1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
@@ -174,7 +175,7 @@ public class Login extends javax.swing.JFrame {
         b1.setBackground(new java.awt.Color(255, 255, 255));
         b1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         b1.setForeground(new java.awt.Color(0, 0, 0));
-        b1.setText("Log in");
+        b1.setText("Login");
         b1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +188,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(b1);
-        b1.setBounds(560, 300, 80, 30);
+        b1.setBounds(540, 300, 110, 30);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
@@ -208,15 +209,6 @@ public class Login extends javax.swing.JFrame {
         Rigth.add(jLabel6);
         jLabel6.setBounds(30, 410, 750, 60);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-circled-i-20.png"))); // NOI18N
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
-        });
-        Rigth.add(jLabel9);
-        jLabel9.setBounds(10, 10, 20, 20);
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/gr-removebg-preview.png"))); // NOI18N
         Rigth.add(jLabel7);
         jLabel7.setBounds(90, 100, 250, 280);
@@ -234,7 +226,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(Change);
-        Change.setBounds(670, 270, 110, 16);
+        Change.setBounds(650, 270, 110, 16);
 
         hide.setBackground(new java.awt.Color(0, 0, 51));
         hide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -278,7 +270,7 @@ public class Login extends javax.swing.JFrame {
 
         newaccount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         newaccount.setForeground(new java.awt.Color(255, 255, 255));
-        newaccount.setText("Sign up");
+        newaccount.setText("Create new account");
         newaccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 newaccountMouseClicked(evt);
@@ -293,7 +285,40 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(newaccount);
-        newaccount.setBounds(580, 340, 60, 18);
+        newaccount.setBounds(540, 340, 130, 20);
+
+        w1.setBackground(new java.awt.Color(0, 0, 51));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-circled-i-20.png"))); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel9MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout w1Layout = new javax.swing.GroupLayout(w1);
+        w1.setLayout(w1Layout);
+        w1Layout.setHorizontalGroup(
+            w1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, w1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel9))
+        );
+        w1Layout.setVerticalGroup(
+            w1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, w1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel9))
+        );
+
+        Rigth.add(w1);
+        w1.setBounds(10, 10, 20, 20);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
@@ -480,6 +505,14 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_newaccountMouseEntered
 
+    private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
+        mini(w1);
+    }//GEN-LAST:event_jLabel9MouseEntered
+
+    private void jLabel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseExited
+         close(w1);
+    }//GEN-LAST:event_jLabel9MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -537,5 +570,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField nametxt;
     private javax.swing.JLabel newaccount;
     private javax.swing.JPasswordField passtxt;
+    private javax.swing.JPanel w1;
     // End of variables declaration//GEN-END:variables
 }

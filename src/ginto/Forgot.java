@@ -120,6 +120,7 @@ public class Forgot extends javax.swing.JFrame {
 
         oldpasstxt.setBackground(new java.awt.Color(0, 0, 51));
         oldpasstxt.setForeground(new java.awt.Color(255, 255, 255));
+        oldpasstxt.setText("1232");
         oldpasstxt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         oldpasstxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {

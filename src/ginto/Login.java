@@ -111,17 +111,17 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username");
         Rigth.add(jLabel4);
-        jLabel4.setBounds(440, 130, 52, 16);
+        jLabel4.setBounds(450, 130, 52, 16);
 
         jLabel5.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Password");
         Rigth.add(jLabel5);
-        jLabel5.setBounds(440, 200, 50, 16);
+        jLabel5.setBounds(450, 200, 50, 16);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-user-32.png"))); // NOI18N
         Rigth.add(jLabel3);
-        jLabel3.setBounds(440, 150, 32, 30);
+        jLabel3.setBounds(410, 150, 32, 30);
 
         nametxt.setBackground(new java.awt.Color(0, 0, 51));
         nametxt.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
@@ -141,11 +141,11 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(nametxt);
-        nametxt.setBounds(440, 160, 320, 30);
+        nametxt.setBounds(450, 160, 310, 30);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-lock-32.png"))); // NOI18N
         Rigth.add(jLabel8);
-        jLabel8.setBounds(440, 220, 30, 32);
+        jLabel8.setBounds(410, 220, 30, 32);
 
         passtxt.setBackground(new java.awt.Color(0, 0, 51));
         passtxt.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
@@ -169,7 +169,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(passtxt);
-        passtxt.setBounds(440, 230, 320, 30);
+        passtxt.setBounds(450, 230, 310, 30);
 
         b1.setBackground(new java.awt.Color(255, 255, 255));
         b1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -187,14 +187,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(b1);
-        b1.setBounds(560, 300, 70, 30);
+        b1.setBounds(560, 300, 80, 30);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Welcome!");
         Rigth.add(jLabel1);
-        jLabel1.setBounds(90, 30, 240, 70);
+        jLabel1.setBounds(90, 30, 250, 70);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,8 +276,9 @@ public class Login extends javax.swing.JFrame {
         Rigth.add(exs);
         exs.setBounds(760, 10, 30, 30);
 
+        newaccount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         newaccount.setForeground(new java.awt.Color(255, 255, 255));
-        newaccount.setText("Creat New Account");
+        newaccount.setText("Sign up");
         newaccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 newaccountMouseClicked(evt);
@@ -292,7 +293,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(newaccount);
-        newaccount.setBounds(550, 340, 120, 16);
+        newaccount.setBounds(580, 340, 60, 18);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);

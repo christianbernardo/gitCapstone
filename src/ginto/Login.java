@@ -65,14 +65,14 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         nametxt = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         passtxt = new javax.swing.JPasswordField();
         b1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Change = new javax.swing.JLabel();
@@ -105,19 +105,23 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(jCheckBox1);
-        jCheckBox1.setBounds(730, 230, 20, 20);
+        jCheckBox1.setBounds(740, 230, 20, 20);
 
         jLabel4.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username");
         Rigth.add(jLabel4);
-        jLabel4.setBounds(460, 130, 52, 16);
+        jLabel4.setBounds(440, 130, 52, 16);
 
         jLabel5.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Password");
         Rigth.add(jLabel5);
-        jLabel5.setBounds(460, 200, 50, 16);
+        jLabel5.setBounds(440, 200, 50, 16);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-user-32.png"))); // NOI18N
+        Rigth.add(jLabel3);
+        jLabel3.setBounds(440, 150, 32, 30);
 
         nametxt.setBackground(new java.awt.Color(0, 0, 51));
         nametxt.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
@@ -137,7 +141,11 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(nametxt);
-        nametxt.setBounds(460, 160, 290, 30);
+        nametxt.setBounds(440, 160, 320, 30);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-lock-32.png"))); // NOI18N
+        Rigth.add(jLabel8);
+        jLabel8.setBounds(440, 220, 30, 32);
 
         passtxt.setBackground(new java.awt.Color(0, 0, 51));
         passtxt.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 12)); // NOI18N
@@ -161,7 +169,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(passtxt);
-        passtxt.setBounds(460, 230, 290, 30);
+        passtxt.setBounds(440, 230, 320, 30);
 
         b1.setBackground(new java.awt.Color(255, 255, 255));
         b1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -179,7 +187,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(b1);
-        b1.setBounds(560, 290, 70, 30);
+        b1.setBounds(560, 300, 70, 30);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
@@ -192,21 +200,13 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 24);
+        jLabel2.setBounds(560, 70, 70, 23);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("LIBRARY MANAGEMENT SYSTEM");
         Rigth.add(jLabel6);
         jLabel6.setBounds(30, 410, 750, 60);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-user-32.png"))); // NOI18N
-        Rigth.add(jLabel3);
-        jLabel3.setBounds(420, 150, 32, 40);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-lock-32.png"))); // NOI18N
-        Rigth.add(jLabel8);
-        jLabel8.setBounds(420, 220, 30, 40);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-circled-i-20.png"))); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,7 +222,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setBounds(90, 100, 250, 280);
 
         Change.setForeground(new java.awt.Color(255, 255, 255));
-        Change.setText("Change Password");
+        Change.setText("Forgot Password");
         Change.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ChangeMouseClicked(evt);
@@ -234,7 +234,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(Change);
-        Change.setBounds(610, 330, 110, 16);
+        Change.setBounds(670, 270, 110, 16);
 
         hide.setBackground(new java.awt.Color(0, 0, 51));
         hide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -292,7 +292,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(newaccount);
-        newaccount.setBounds(470, 330, 120, 16);
+        newaccount.setBounds(550, 340, 120, 16);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
@@ -316,7 +316,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     public void close(JPanel a1) {
-        a1.setBackground(new Color(16,0,61));
+        a1.setBackground(new Color(0,0,51));
     }
     
      public void hide(JPanel a2) {
@@ -324,7 +324,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     public void ex(JPanel a3) {
-        a3.setBackground(new Color(16,0,61));
+        a3.setBackground(new Color(0,0,51));
     }
 
     

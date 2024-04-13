@@ -828,6 +828,7 @@ public class BOARD extends javax.swing.JFrame {
         optdel = new javax.swing.JLabel();
         txtCopy = new javax.swing.JTextField();
         jLabel91 = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -941,6 +942,8 @@ public class BOARD extends javax.swing.JFrame {
         issuebookqua = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
         issuebookgnr = new javax.swing.JTextField();
+        copyright = new javax.swing.JTextField();
+        jLabel92 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
         issuestudid = new javax.swing.JTextField();
@@ -1472,8 +1475,8 @@ public class BOARD extends javax.swing.JFrame {
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-book-28.png"))); // NOI18N
         jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, 40));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-unit-28 (1).png"))); // NOI18N
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, 40));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-copy-28.png"))); // NOI18N
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, 40));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -1638,6 +1641,9 @@ public class BOARD extends javax.swing.JFrame {
         jLabel91.setForeground(new java.awt.Color(255, 255, 255));
         jLabel91.setText("Quantity :");
         jPanel4.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 70, -1));
+
+        jLabel93.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-unit-28 (1).png"))); // NOI18N
+        jPanel4.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, 40));
 
         managebook.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 340, 650));
 
@@ -2627,7 +2633,7 @@ public class BOARD extends javax.swing.JFrame {
                 Search2Search1ActionPerformed(evt);
             }
         });
-        jPanel18.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
+        jPanel18.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -2637,7 +2643,7 @@ public class BOARD extends javax.swing.JFrame {
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 259, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2649,7 +2655,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("Book ID :");
-        jPanel18.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jPanel18.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         issuebookid.setBackground(new java.awt.Color(16, 1, 59));
         issuebookid.setForeground(new java.awt.Color(255, 255, 255));
@@ -2659,13 +2665,13 @@ public class BOARD extends javax.swing.JFrame {
                 issuebookidActionPerformed(evt);
             }
         });
-        jPanel18.add(issuebookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 290, 35));
+        jPanel18.add(issuebookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 290, 35));
 
         jLabel48.setBackground(new java.awt.Color(153, 153, 255));
         jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Book Name :");
-        jPanel18.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+        jPanel18.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         issuebooknm.setBackground(new java.awt.Color(16, 1, 59));
         issuebooknm.setForeground(new java.awt.Color(255, 255, 255));
@@ -2675,12 +2681,12 @@ public class BOARD extends javax.swing.JFrame {
                 issuebooknmActionPerformed(evt);
             }
         });
-        jPanel18.add(issuebooknm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 290, 35));
+        jPanel18.add(issuebooknm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 290, 35));
 
         jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("Author :");
-        jPanel18.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        jPanel18.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         issuebookau.setBackground(new java.awt.Color(16, 1, 59));
         issuebookau.setForeground(new java.awt.Color(255, 255, 255));
@@ -2690,12 +2696,12 @@ public class BOARD extends javax.swing.JFrame {
                 issuebookauActionPerformed(evt);
             }
         });
-        jPanel18.add(issuebookau, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 290, 35));
+        jPanel18.add(issuebookau, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 35));
 
         jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel50.setText("Quantity :");
-        jPanel18.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
+        jLabel50.setText("Copyright :");
+        jPanel18.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
 
         issuebookqua.setBackground(new java.awt.Color(16, 1, 59));
         issuebookqua.setForeground(new java.awt.Color(255, 255, 255));
@@ -2705,12 +2711,12 @@ public class BOARD extends javax.swing.JFrame {
                 issuebookquaActionPerformed(evt);
             }
         });
-        jPanel18.add(issuebookqua, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 290, 35));
+        jPanel18.add(issuebookqua, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 290, 35));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Genre :");
-        jPanel18.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
+        jPanel18.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         issuebookgnr.setBackground(new java.awt.Color(16, 1, 59));
         issuebookgnr.setForeground(new java.awt.Color(255, 255, 255));
@@ -2720,7 +2726,22 @@ public class BOARD extends javax.swing.JFrame {
                 issuebookgnrActionPerformed(evt);
             }
         });
-        jPanel18.add(issuebookgnr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 290, 35));
+        jPanel18.add(issuebookgnr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 290, 35));
+
+        copyright.setBackground(new java.awt.Color(16, 1, 59));
+        copyright.setForeground(new java.awt.Color(255, 255, 255));
+        copyright.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        copyright.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyrightActionPerformed(evt);
+            }
+        });
+        jPanel18.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 290, 35));
+
+        jLabel92.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel92.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel92.setText("Quantity :");
+        jPanel18.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
         issuebook.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 310, 600));
 
@@ -2731,7 +2752,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("Student Name :");
-        jPanel5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+        jPanel5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         issuestudid.setBackground(new java.awt.Color(16, 1, 59));
         issuestudid.setForeground(new java.awt.Color(255, 255, 255));
@@ -2741,17 +2762,17 @@ public class BOARD extends javax.swing.JFrame {
                 issuestudidActionPerformed(evt);
             }
         });
-        jPanel5.add(issuestudid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 290, 36));
+        jPanel5.add(issuestudid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 290, 36));
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setText("Gr. & Sec.  :");
-        jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
+        jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("Student ID :");
-        jPanel5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jPanel5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
@@ -2767,7 +2788,7 @@ public class BOARD extends javax.swing.JFrame {
                 issuestudnmActionPerformed(evt);
             }
         });
-        jPanel5.add(issuestudnm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 290, 35));
+        jPanel5.add(issuestudnm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 290, 35));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -2794,7 +2815,7 @@ public class BOARD extends javax.swing.JFrame {
                 issuestudgrsecActionPerformed(evt);
             }
         });
-        jPanel5.add(issuestudgrsec, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 290, 35));
+        jPanel5.add(issuestudgrsec, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 290, 35));
 
         issuestudstr.setBackground(new java.awt.Color(16, 1, 59));
         issuestudstr.setForeground(new java.awt.Color(255, 255, 255));
@@ -2804,12 +2825,12 @@ public class BOARD extends javax.swing.JFrame {
                 issuestudstrActionPerformed(evt);
             }
         });
-        jPanel5.add(issuestudstr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 290, 35));
+        jPanel5.add(issuestudstr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 35));
 
         jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Strand :");
-        jPanel5.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        jPanel5.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         Search.setBackground(new java.awt.Color(0, 0, 153));
         Search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -2828,7 +2849,7 @@ public class BOARD extends javax.swing.JFrame {
                 SearchActionPerformed(evt);
             }
         });
-        jPanel5.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
+        jPanel5.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         issuebook.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 310, 600));
         jPanel5.getAccessibleContext().setAccessibleName("");
@@ -3207,7 +3228,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(finddetailsreturn);
-        finddetailsreturn.setBounds(230, 180, 60, 23);
+        finddetailsreturn.setBounds(230, 180, 60, 22);
 
         returnstudid.setBackground(new java.awt.Color(16, 1, 59));
         returnstudid.setForeground(new java.awt.Color(255, 255, 255));
@@ -3882,7 +3903,7 @@ public class BOARD extends javax.swing.JFrame {
         A6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         A6.setForeground(new java.awt.Color(255, 255, 255));
         A6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        A6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-log-out-40.png"))); // NOI18N
+        A6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-log-out-32.png"))); // NOI18N
         A6.setText("Log Out");
         A6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -5467,6 +5488,10 @@ public class BOARD extends javax.swing.JFrame {
         ex(s4);
     }//GEN-LAST:event_ex9MouseExited
 
+    private void copyrightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyrightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_copyrightActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5544,6 +5569,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel btxtedit;
     private javax.swing.JLabel btxtremove;
     private javax.swing.JLabel btxtupdate;
+    private javax.swing.JTextField copyright;
     private javax.swing.JLabel dash;
     private javax.swing.JPanel dashboard;
     private javax.swing.JTable db2_table;
@@ -5707,6 +5733,8 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

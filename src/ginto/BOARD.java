@@ -1023,6 +1023,8 @@ public class BOARD extends javax.swing.JFrame {
         returnbookid = new javax.swing.JTextField();
         jLabel69 = new javax.swing.JLabel();
         returnbookgnr = new javax.swing.JTextField();
+        jLabel94 = new javax.swing.JLabel();
+        copyright1 = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         return_button = new javax.swing.JButton();
         return_datereturned = new com.toedter.calendar.JDateChooser();
@@ -2613,7 +2615,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel83.setText("Issue");
         jPanel20.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
-        issuebook.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 440, 480));
+        issuebook.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 440, 470));
 
         jPanel18.setBackground(new java.awt.Color(16, 1, 59));
         jPanel18.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(255, 255, 255)));
@@ -3439,6 +3441,23 @@ public class BOARD extends javax.swing.JFrame {
         });
         jPanel8.add(returnbookgnr);
         returnbookgnr.setBounds(10, 420, 290, 35);
+
+        jLabel94.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel94.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel94.setText("Copyright :");
+        jPanel8.add(jLabel94);
+        jLabel94.setBounds(10, 540, 60, 16);
+
+        copyright1.setBackground(new java.awt.Color(16, 1, 59));
+        copyright1.setForeground(new java.awt.Color(255, 255, 255));
+        copyright1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        copyright1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyright1ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(copyright1);
+        copyright1.setBounds(10, 560, 290, 40);
 
         returnbook.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 310, 620));
 
@@ -5608,6 +5627,10 @@ public class BOARD extends javax.swing.JFrame {
          close(q5);
     }//GEN-LAST:event_jLabel82MouseExited
 
+    private void copyright1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyright1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_copyright1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5686,6 +5709,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel btxtremove;
     private javax.swing.JLabel btxtupdate;
     private javax.swing.JTextField copyright;
+    private javax.swing.JTextField copyright1;
     private javax.swing.JLabel dash;
     private javax.swing.JPanel dashboard;
     private javax.swing.JTable db2_table;
@@ -5851,6 +5875,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

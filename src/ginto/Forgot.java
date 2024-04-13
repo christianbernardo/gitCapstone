@@ -213,7 +213,7 @@ public class Forgot extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(399, 445));
+        setSize(new java.awt.Dimension(400, 445));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

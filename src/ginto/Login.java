@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Login extends javax.swing.JFrame {
@@ -75,10 +76,11 @@ public class Login extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Change = new javax.swing.JLabel();
-        jPanel44 = new javax.swing.JPanel();
+        hide = new javax.swing.JPanel();
         hide6 = new javax.swing.JLabel();
-        jPanel43 = new javax.swing.JPanel();
+        exs = new javax.swing.JPanel();
         ex6 = new javax.swing.JLabel();
+        newaccount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
@@ -232,35 +234,65 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(Change);
-        Change.setBounds(550, 330, 110, 16);
+        Change.setBounds(610, 330, 110, 16);
 
-        jPanel44.setBackground(new java.awt.Color(0, 0, 51));
-        jPanel44.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        hide.setBackground(new java.awt.Color(0, 0, 51));
+        hide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hide6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-minus-30.png"))); // NOI18N
         hide6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 hide6MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hide6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                hide6MouseExited(evt);
+            }
         });
-        jPanel44.add(hide6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+        hide.add(hide6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
-        Rigth.add(jPanel44);
-        jPanel44.setBounds(730, 10, 30, 30);
+        Rigth.add(hide);
+        hide.setBounds(730, 10, 30, 30);
 
-        jPanel43.setBackground(new java.awt.Color(0, 0, 51));
-        jPanel43.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        exs.setBackground(new java.awt.Color(0, 0, 51));
+        exs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ex6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-30.png"))); // NOI18N
         ex6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ex6MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ex6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ex6MouseExited(evt);
+            }
         });
-        jPanel43.add(ex6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+        exs.add(ex6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
-        Rigth.add(jPanel43);
-        jPanel43.setBounds(760, 10, 30, 30);
+        Rigth.add(exs);
+        exs.setBounds(760, 10, 30, 30);
+
+        newaccount.setForeground(new java.awt.Color(255, 255, 255));
+        newaccount.setText("Creat New Account");
+        newaccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                newaccountMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                newaccountMouseEntered(evt);
+            }
+        });
+        newaccount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                newaccountKeyPressed(evt);
+            }
+        });
+        Rigth.add(newaccount);
+        newaccount.setBounds(470, 330, 120, 16);
 
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
@@ -279,6 +311,21 @@ public class Login extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(800, 500));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+      public void mini(JPanel a) {
+        a.setBackground(new Color(153,153,153));
+    }
+
+    public void close(JPanel a1) {
+        a1.setBackground(new Color(16,0,61));
+    }
+    
+     public void hide(JPanel a2) {
+        a2.setBackground(new Color(204,0,0));
+    }
+
+    public void ex(JPanel a3) {
+        a3.setBackground(new Color(16,0,61));
+    }
 
     
                 
@@ -402,6 +449,36 @@ public class Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ex6MouseClicked
 
+    private void hide6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide6MouseEntered
+        mini(hide);
+    }//GEN-LAST:event_hide6MouseEntered
+
+    private void hide6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide6MouseExited
+       close(hide);
+    }//GEN-LAST:event_hide6MouseExited
+
+    private void ex6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex6MouseEntered
+      hide(exs);
+    }//GEN-LAST:event_ex6MouseEntered
+
+    private void ex6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex6MouseExited
+       ex(exs);
+    }//GEN-LAST:event_ex6MouseExited
+
+    private void newaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccountMouseClicked
+         dispose();
+        NewAccount newaccount = new NewAccount();
+        newaccount.setVisible(true);
+    }//GEN-LAST:event_newaccountMouseClicked
+
+    private void newaccountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newaccountKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newaccountKeyPressed
+
+    private void newaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccountMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newaccountMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +519,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel Rigth;
     private javax.swing.JButton b1;
     private javax.swing.JLabel ex6;
+    private javax.swing.JPanel exs;
+    private javax.swing.JPanel hide;
     private javax.swing.JLabel hide6;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -454,9 +533,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel43;
-    private javax.swing.JPanel jPanel44;
     private javax.swing.JTextField nametxt;
+    private javax.swing.JLabel newaccount;
     private javax.swing.JPasswordField passtxt;
     // End of variables declaration//GEN-END:variables
 }

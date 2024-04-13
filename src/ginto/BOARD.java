@@ -549,7 +549,7 @@ public class BOARD extends javax.swing.JFrame {
 
     private void overdue() {
         Date date = Calendar.getInstance().getTime();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MM, yyy");
         String strDate = dateFormat.format(date);
 
         try {
@@ -942,7 +942,7 @@ public class BOARD extends javax.swing.JFrame {
         issuebookqua = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
         issuebookgnr = new javax.swing.JTextField();
-        copyright = new javax.swing.JTextField();
+        txtcopyright = new javax.swing.JTextField();
         jLabel92 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
@@ -2736,15 +2736,15 @@ public class BOARD extends javax.swing.JFrame {
         });
         jPanel18.add(issuebookgnr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 290, 35));
 
-        copyright.setBackground(new java.awt.Color(16, 1, 59));
-        copyright.setForeground(new java.awt.Color(255, 255, 255));
-        copyright.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        copyright.addActionListener(new java.awt.event.ActionListener() {
+        txtcopyright.setBackground(new java.awt.Color(16, 1, 59));
+        txtcopyright.setForeground(new java.awt.Color(255, 255, 255));
+        txtcopyright.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtcopyright.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                copyrightActionPerformed(evt);
+                txtcopyrightActionPerformed(evt);
             }
         });
-        jPanel18.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 290, 35));
+        jPanel18.add(txtcopyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 290, 35));
 
         jLabel92.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel92.setForeground(new java.awt.Color(255, 255, 255));
@@ -3269,7 +3269,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(finddetailsreturn);
-        finddetailsreturn.setBounds(230, 180, 60, 22);
+        finddetailsreturn.setBounds(230, 180, 60, 23);
 
         returnstudid.setBackground(new java.awt.Color(16, 1, 59));
         returnstudid.setForeground(new java.awt.Color(255, 255, 255));
@@ -4537,8 +4537,7 @@ public class BOARD extends javax.swing.JFrame {
             pst.setString(14, strDate);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Book Issued");
-            overdue();
-            overdue_update();
+            
             transactiontableupdate();
             return_details();
             JOptionPane.showMessageDialog(null, "Issue Count Updated");
@@ -5579,9 +5578,9 @@ public class BOARD extends javax.swing.JFrame {
         ex(s4);
     }//GEN-LAST:event_ex9MouseExited
 
-    private void copyrightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyrightActionPerformed
+    private void txtcopyrightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcopyrightActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_copyrightActionPerformed
+    }//GEN-LAST:event_txtcopyrightActionPerformed
 
     private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
         mini(q1);
@@ -5708,7 +5707,6 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel btxtedit;
     private javax.swing.JLabel btxtremove;
     private javax.swing.JLabel btxtupdate;
-    private javax.swing.JTextField copyright;
     private javax.swing.JTextField copyright1;
     private javax.swing.JLabel dash;
     private javax.swing.JPanel dashboard;
@@ -5986,6 +5984,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtStrand;
     private javax.swing.JTextField txtStudentID;
     private javax.swing.JTextField txtStudentName;
+    private javax.swing.JTextField txtcopyright;
     private javax.swing.JLabel txtedit1;
     private javax.swing.JLabel txtremove1;
     private javax.swing.JLabel txtupdate1;

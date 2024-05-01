@@ -34,6 +34,69 @@ public class NewAccount extends javax.swing.JFrame {
 
     }
 
+    private void deletebooks() {
+        try {
+            pst = con.prepareStatement("TRUNCATE books");
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deletestudents() {
+        try {
+            pst = con.prepareStatement("TRUNCATE students");
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteissue() {
+        try {
+            pst = con.prepareStatement("TRUNCATE issue");
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleterecords() {
+        try {
+            pst = con.prepareStatement("TRUNCATE returnbook");
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deletesec() {
+        try {
+            pst = con.prepareStatement("TRUNCATE grandseccombo");
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deletecombobox() {
+        try {
+            pst = con.prepareStatement("TRUNCATE combobox");
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deletestrand() {
+        try {
+            pst = con.prepareStatement("TRUNCATE strandcombobox");
+            pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,12 +114,15 @@ public class NewAccount extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         a = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPanel1.setMinimumSize(new java.awt.Dimension(360, 420));
+        jPanel1.setPreferredSize(new java.awt.Dimension(360, 420));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 38)); // NOI18N
@@ -172,9 +238,22 @@ public class NewAccount extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        a.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 40));
+        a.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 20));
 
-        jPanel1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
+        jPanel1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 20, 20));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel2MouseDragged(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel2MousePressed(evt);
+            }
+        });
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 50));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -272,6 +351,13 @@ public class NewAccount extends javax.swing.JFrame {
                     txtconfirm.setText("");
 
                     txtuser.requestFocus();
+                    deletebooks();
+                    deletestudents();
+                    deleteissue();
+                    deleterecords();
+                    deletecombobox();
+                    deletesec();
+                    deletestrand();
 
                 }
 
@@ -289,6 +375,18 @@ public class NewAccount extends javax.swing.JFrame {
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
         close(a);
     }//GEN-LAST:event_jLabel4MouseExited
+
+    private int xMouse, yMouse;
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_jPanel2MouseDragged
 
     /**
      * @param args the command line arguments
@@ -337,6 +435,7 @@ public class NewAccount extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txtconfirm;
     private javax.swing.JPasswordField txtnew;
     private javax.swing.JTextField txtuser;

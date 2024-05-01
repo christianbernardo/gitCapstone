@@ -56,12 +56,15 @@ public class Forgot extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         a = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPanel1.setMinimumSize(new java.awt.Dimension(360, 420));
+        jPanel1.setPreferredSize(new java.awt.Dimension(360, 420));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 38)); // NOI18N
@@ -89,7 +92,7 @@ public class Forgot extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 60, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 60, -1));
 
         usertxt.setBackground(new java.awt.Color(0, 0, 51));
         usertxt.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,7 +123,6 @@ public class Forgot extends javax.swing.JFrame {
 
         oldpasstxt.setBackground(new java.awt.Color(0, 0, 51));
         oldpasstxt.setForeground(new java.awt.Color(255, 255, 255));
-        oldpasstxt.setText("1232");
         oldpasstxt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         oldpasstxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -221,9 +223,22 @@ public class Forgot extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        a.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
+        a.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 20, 40));
+        jPanel1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 20, 20));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel2MouseDragged(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel2MousePressed(evt);
+            }
+        });
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 30));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -284,12 +299,10 @@ public class Forgot extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         } else if (!confirmpass.equals(none)) {
-            JOptionPane.showMessageDialog(null, "Password Does Not Match2");
+            JOptionPane.showMessageDialog(null, "Password Does Not Match");
         } else if (!newpass.equals(none)) {
             JOptionPane.showMessageDialog(null, "Password Does Not Match");
         }
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void usertxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usertxtFocusGained
@@ -376,6 +389,18 @@ public class Forgot extends javax.swing.JFrame {
         close(a);
     }//GEN-LAST:event_jLabel4MouseExited
 
+     private int xMouse, yMouse;
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_jPanel2MouseDragged
+
     /**
      * @param args the command line arguments
      */
@@ -425,6 +450,7 @@ public class Forgot extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField oldpasstxt;
     private javax.swing.JPasswordField txtnew;
     private javax.swing.JPasswordField txtpass;

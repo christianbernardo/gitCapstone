@@ -36,7 +36,6 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
-    
     public void addPlaceorderStyle(JTextField textield) {
         Font font = nametxt.getFont();
         font = font.deriveFont(Font.PLAIN);
@@ -44,13 +43,14 @@ public class Login extends javax.swing.JFrame {
         passtxt.setForeground(Color.gray); //font color
 
     }
-    
-     public void removePlaceorderStyle(JTextField textfield) {
+
+    public void removePlaceorderStyle(JTextField textfield) {
         Font font = passtxt.getFont();
         font = font.deriveFont(Font.PLAIN);
         nametxt.setFont(font);
         passtxt.setForeground(Color.black);
     }
+
     public void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
@@ -82,6 +82,7 @@ public class Login extends javax.swing.JFrame {
         newaccount = new javax.swing.JLabel();
         w1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
@@ -188,20 +189,20 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(b1);
-        b1.setBounds(540, 300, 110, 30);
+        b1.setBounds(560, 300, 100, 30);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Welcome!");
         Rigth.add(jLabel1);
-        jLabel1.setBounds(90, 30, 250, 70);
+        jLabel1.setBounds(100, 30, 250, 70);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SIGN IN");
         Rigth.add(jLabel2);
-        jLabel2.setBounds(560, 70, 70, 23);
+        jLabel2.setBounds(560, 90, 70, 24);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,7 +227,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(Change);
-        Change.setBounds(650, 270, 110, 16);
+        Change.setBounds(670, 270, 110, 16);
 
         hide.setBackground(new java.awt.Color(0, 0, 51));
         hide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -270,7 +271,7 @@ public class Login extends javax.swing.JFrame {
 
         newaccount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         newaccount.setForeground(new java.awt.Color(255, 255, 255));
-        newaccount.setText("Create new account");
+        newaccount.setText("Sign up");
         newaccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 newaccountMouseClicked(evt);
@@ -285,7 +286,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Rigth.add(newaccount);
-        newaccount.setBounds(540, 340, 130, 20);
+        newaccount.setBounds(590, 340, 50, 20);
 
         w1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -320,6 +321,32 @@ public class Login extends javax.swing.JFrame {
         Rigth.add(w1);
         w1.setBounds(10, 10, 20, 20);
 
+        jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel2MouseDragged(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel2MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 780, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        Rigth.add(jPanel2);
+        jPanel2.setBounds(10, 10, 780, 30);
+
         jPanel1.add(Rigth);
         Rigth.setBounds(0, 0, 800, 500);
 
@@ -338,23 +365,21 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
       public void mini(JPanel a) {
-        a.setBackground(new Color(153,153,153));
+        a.setBackground(new Color(153, 153, 153));
     }
 
     public void close(JPanel a1) {
-        a1.setBackground(new Color(0,0,51));
+        a1.setBackground(new Color(0, 0, 51));
     }
-    
-     public void hide(JPanel a2) {
-        a2.setBackground(new Color(204,0,0));
+
+    public void hide(JPanel a2) {
+        a2.setBackground(new Color(204, 0, 0));
     }
 
     public void ex(JPanel a3) {
-        a3.setBackground(new Color(0,0,51));
+        a3.setBackground(new Color(0, 0, 51));
     }
 
-    
-                
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         String username, password;
@@ -363,8 +388,9 @@ public class Login extends javax.swing.JFrame {
         password = passtxt.getText();
 
         try {
-            pst = con.prepareStatement("select * from account where username=?");
+            pst = con.prepareStatement("select * from account where username=? and password =?");
             pst.setString(1, username);
+            pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
@@ -411,8 +437,9 @@ public class Login extends javax.swing.JFrame {
             password = passtxt.getText();
 
             try {
-                pst = con.prepareStatement("select * from account where username=?");
+                pst = con.prepareStatement("select * from account where username=? and password=?");
                 pst.setString(1, username);
+                pst.setString(2, password);
                 ResultSet rs = pst.executeQuery();
 
                 if (rs.next()) {
@@ -452,15 +479,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ChangeMouseClicked
 
     private void nametxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nametxtFocusGained
-     
+
     }//GEN-LAST:event_nametxtFocusGained
 
     private void nametxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nametxtFocusLost
-      
+
     }//GEN-LAST:event_nametxtFocusLost
 
     private void passtxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passtxtFocusGained
-        
+
     }//GEN-LAST:event_passtxtFocusGained
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
@@ -480,19 +507,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_hide6MouseEntered
 
     private void hide6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide6MouseExited
-       close(hide);
+        close(hide);
     }//GEN-LAST:event_hide6MouseExited
 
     private void ex6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex6MouseEntered
-      hide(exs);
+        hide(exs);
     }//GEN-LAST:event_ex6MouseEntered
 
     private void ex6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex6MouseExited
-       ex(exs);
+        ex(exs);
     }//GEN-LAST:event_ex6MouseExited
 
     private void newaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccountMouseClicked
-         dispose();
+        dispose();
         NewAccount newaccount = new NewAccount();
         newaccount.setVisible(true);
     }//GEN-LAST:event_newaccountMouseClicked
@@ -510,8 +537,20 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel9MouseEntered
 
     private void jLabel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseExited
-         close(w1);
+        close(w1);
     }//GEN-LAST:event_jLabel9MouseExited
+
+    private int xMouse, yMouse;
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_jPanel2MouseDragged
 
     /**
      * @param args the command line arguments
@@ -567,6 +606,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nametxt;
     private javax.swing.JLabel newaccount;
     private javax.swing.JPasswordField passtxt;

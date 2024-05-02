@@ -1111,6 +1111,35 @@ public class BOARD extends javax.swing.JFrame {
         q5 = new javax.swing.JPanel();
         jLabel82 = new javax.swing.JLabel();
         detailsssearch = new javax.swing.JTextField();
+        about = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        a14 = new javax.swing.JLabel();
+        jLabel98 = new javax.swing.JLabel();
+        j12 = new javax.swing.JPanel();
+        hide10 = new javax.swing.JLabel();
+        s5 = new javax.swing.JPanel();
+        ex10 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        a18 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel96 = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
+        jLabel100 = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
+        jLabel103 = new javax.swing.JLabel();
+        jLabel104 = new javax.swing.JLabel();
+        jLabel105 = new javax.swing.JLabel();
+        jLabel106 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        jLabel108 = new javax.swing.JLabel();
+        jLabel109 = new javax.swing.JLabel();
+        jLabel110 = new javax.swing.JLabel();
+        jLabel111 = new javax.swing.JLabel();
+        jLabel112 = new javax.swing.JLabel();
+        jLabel113 = new javax.swing.JLabel();
+        jLabel114 = new javax.swing.JLabel();
+        jLabel99 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         t1 = new javax.swing.JPanel();
         dash = new javax.swing.JLabel();
@@ -1122,9 +1151,10 @@ public class BOARD extends javax.swing.JFrame {
         trans = new javax.swing.JLabel();
         t5 = new javax.swing.JPanel();
         rec = new javax.swing.JLabel();
+        t6 = new javax.swing.JPanel();
+        abo = new javax.swing.JLabel();
         a6 = new javax.swing.JPanel();
         A6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
@@ -3422,7 +3452,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         });
         jPanel6.add(finddetailsreturn);
-        finddetailsreturn.setBounds(230, 180, 60, 23);
+        finddetailsreturn.setBounds(230, 180, 60, 22);
 
         returnstudid.setBackground(new java.awt.Color(16, 1, 59));
         returnstudid.setForeground(new java.awt.Color(255, 255, 255));
@@ -3955,6 +3985,197 @@ public class BOARD extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("DETAILS", details);
 
+        about.setBackground(new java.awt.Color(11, 0, 40));
+        about.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel22.setBackground(new java.awt.Color(16, 0, 61));
+        jPanel22.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel22MouseDragged(evt);
+            }
+        });
+        jPanel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel22MousePressed(evt);
+            }
+        });
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        a14.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        a14.setForeground(new java.awt.Color(255, 255, 255));
+        a14.setText("ABOUT");
+        jPanel22.add(a14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 210, 60));
+
+        jLabel98.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-rules-60.png"))); // NOI18N
+        jPanel22.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 60, 60));
+
+        j12.setBackground(new java.awt.Color(16, 0, 61));
+        j12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        hide10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-minus-30.png"))); // NOI18N
+        hide10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hide10MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hide10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                hide10MouseExited(evt);
+            }
+        });
+        j12.add(hide10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 20));
+
+        jPanel22.add(j12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 20, 30, 20));
+
+        s5.setBackground(new java.awt.Color(16, 0, 61));
+        s5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ex10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-x-30.png"))); // NOI18N
+        ex10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ex10MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ex10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ex10MouseExited(evt);
+            }
+        });
+        s5.add(ex10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 20));
+
+        jPanel22.add(s5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, 30, 20));
+
+        about.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
+
+        jPanel3.setBackground(new java.awt.Color(16, 1, 59));
+        jPanel3.setLayout(null);
+
+        a18.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        a18.setForeground(new java.awt.Color(255, 255, 255));
+        a18.setText("LIBRARY RULES AND REGULATION");
+        jPanel3.add(a18);
+        a18.setBounds(110, 0, 825, 70);
+
+        jLabel95.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel95.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel95.setText("are strictly prohibited.");
+        jPanel3.add(jLabel95);
+        jLabel95.setBounds(20, 100, 1020, 30);
+
+        jLabel96.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel96.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel96.setText("to be borrowed by an hour only, subject to renewal if not an demand, only two (2) renewal may be allowed, Book may be borrowed after a period of one week.");
+        jPanel3.add(jLabel96);
+        jLabel96.setBounds(20, 430, 1020, 30);
+
+        jLabel97.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel97.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel97.setText("2. Courtesy must be practiced in the Library at all times especially when borrowing/returning Library material.");
+        jPanel3.add(jLabel97);
+        jLabel97.setBounds(20, 130, 1020, 30);
+
+        jLabel100.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel100.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel100.setText("3. Only bonafide student, Faculty members and staff may use the Library subject to its rules and regulations.");
+        jPanel3.add(jLabel100);
+        jLabel100.setBounds(20, 160, 1020, 30);
+
+        jLabel101.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel101.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel101.setText("6. No student is allowed to borrow Library materials unless he/she has a Library card.");
+        jPanel3.add(jLabel101);
+        jLabel101.setBounds(20, 250, 1020, 30);
+
+        jLabel102.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel102.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel102.setText("Library card will deprived of his/her privileges to use the Library. ");
+        jPanel3.add(jLabel102);
+        jLabel102.setBounds(20, 310, 1020, 30);
+
+        jLabel103.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel103.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel103.setText("8. The owner of the card is responsible for all of the books, issued in his name. ");
+        jPanel3.add(jLabel103);
+        jLabel103.setBounds(20, 340, 1020, 30);
+
+        jLabel104.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel104.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel104.setText("15. All books must be returned to their respective shelves or to the Librarian before leaving the Library. ");
+        jPanel3.add(jLabel104);
+        jLabel104.setBounds(20, 610, 1020, 30);
+
+        jLabel105.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel105.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel105.setText("4. Students applying for Library Card must submit a clear 1 x 1 I.D. Photo.");
+        jPanel3.add(jLabel105);
+        jLabel105.setBounds(20, 190, 1020, 30);
+
+        jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel106.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel106.setText("5. Lost Library cards should be reported immediately to the librarian. A corresponding fine will be imposed on borrowers requesting for another Library card.");
+        jPanel3.add(jLabel106);
+        jLabel106.setBounds(20, 220, 1020, 30);
+
+        jLabel107.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel107.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel107.setText("10. Students may borrow only one non fiction book for a day or for one week, subject to renewal if not in demand. Textbooks with limited copies are ");
+        jPanel3.add(jLabel107);
+        jLabel107.setBounds(20, 400, 1020, 30);
+
+        jLabel108.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel108.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel108.setText("12. When a student loses a book, he/she should report it immediately to the librarian, otherwise it should be replaced and pay the corresponding overdue fines. ");
+        jPanel3.add(jLabel108);
+        jLabel108.setBounds(20, 490, 1020, 30);
+
+        jLabel109.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel109.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel109.setText("13. Your lost book account should be settled within 15 days after report of loss. ");
+        jPanel3.add(jLabel109);
+        jLabel109.setBounds(20, 520, 1020, 30);
+
+        jLabel110.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel110.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel110.setText("14. A student caught mutilating or defacing a book, magazine or any Library materials will be deprived of his/her Library privileges and must replace or pay ");
+        jPanel3.add(jLabel110);
+        jLabel110.setBounds(20, 550, 1020, 30);
+
+        jLabel111.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel111.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel111.setText("9. General Reference books and Periodicals may be read inside the Library only. ");
+        jPanel3.add(jLabel111);
+        jLabel111.setBounds(20, 370, 1020, 30);
+
+        jLabel112.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel112.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel112.setText("11. Fine for an overdue book is P1.00 per day including Saturdays, Sundays and Holidays. ");
+        jPanel3.add(jLabel112);
+        jLabel112.setBounds(20, 460, 1020, 30);
+
+        jLabel113.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel113.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel113.setText("for the destroyed materials and he/she will be suspended from using the Library for one (1) month. ");
+        jPanel3.add(jLabel113);
+        jLabel113.setBounds(20, 580, 1020, 30);
+
+        jLabel114.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel114.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel114.setText("7. Library cards are non-transferable. A student caught using somebody else's Library card or allowing another student to use his ");
+        jPanel3.add(jLabel114);
+        jLabel114.setBounds(20, 280, 1020, 30);
+
+        jLabel99.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel99.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel99.setText("1. The Library is a place for reading, studying and researching. Complete silence should be observed at all times. Eating, smoking. sleeping and littering");
+        jPanel3.add(jLabel99);
+        jLabel99.setBounds(20, 70, 1020, 30);
+
+        about.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 1060, 660));
+
+        jTabbedPane1.addTab("ABOUT", about);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -40, 1100, 840));
 
         jPanel2.setBackground(new java.awt.Color(16, 0, 61));
@@ -4158,15 +4379,59 @@ public class BOARD extends javax.swing.JFrame {
             t5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(t5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(rec, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(rec, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         t5Layout.setVerticalGroup(
             t5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rec, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, t5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(rec, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel2.add(t5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, 80));
+
+        t6.setBackground(new java.awt.Color(16, 0, 61));
+        t6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+
+        abo.setBackground(new java.awt.Color(31, 25, 60));
+        abo.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        abo.setForeground(new java.awt.Color(255, 255, 255));
+        abo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        abo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-info-popup-60.png"))); // NOI18N
+        abo.setText("      ABOUT");
+        abo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aboMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aboMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                aboMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout t6Layout = new javax.swing.GroupLayout(t6);
+        t6.setLayout(t6Layout);
+        t6Layout.setHorizontalGroup(
+            t6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(t6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(abo, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        t6Layout.setVerticalGroup(
+            t6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, t6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(abo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(t6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 270, 80));
 
         a6.setBackground(new java.awt.Color(16, 0, 61));
 
@@ -4200,9 +4465,6 @@ public class BOARD extends javax.swing.JFrame {
         );
 
         jPanel2.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 700, 250, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/small.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 80));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -5713,10 +5975,6 @@ public class BOARD extends javax.swing.JFrame {
         mini(j2);
     }//GEN-LAST:event_hide1MouseEntered
 
-    private void ex10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex10MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ex10MouseClicked
-
     private void txtCopyrightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCopyrightActionPerformed
 
     }//GEN-LAST:event_txtCopyrightActionPerformed
@@ -6070,6 +6328,54 @@ public class BOARD extends javax.swing.JFrame {
         setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_jPanel31MouseDragged
 
+    private void jPanel22MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel22MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel22MouseDragged
+
+    private void jPanel22MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel22MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel22MousePressed
+
+    private void aboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboMouseClicked
+       jTabbedPane1.setSelectedIndex(10);
+    }//GEN-LAST:event_aboMouseClicked
+
+    private void aboMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboMouseEntered
+        resetColor(t6);
+    }//GEN-LAST:event_aboMouseEntered
+
+    private void aboMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboMouseExited
+         setColor(t6);
+    }//GEN-LAST:event_aboMouseExited
+
+    private void aboMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aboMousePressed
+
+    private void hide10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide10MouseClicked
+        this.setExtendedState(BOARD.ICONIFIED);
+    }//GEN-LAST:event_hide10MouseClicked
+
+    private void hide10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide10MouseEntered
+        mini(j12);
+    }//GEN-LAST:event_hide10MouseEntered
+
+    private void hide10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide10MouseExited
+        close(j12);
+    }//GEN-LAST:event_hide10MouseExited
+
+    private void ex10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex10MouseClicked
+        dispose();
+    }//GEN-LAST:event_ex10MouseClicked
+
+    private void ex10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex10MouseEntered
+        hide(s5);
+    }//GEN-LAST:event_ex10MouseEntered
+
+    private void ex10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ex10MouseExited
+        ex(s5);
+    }//GEN-LAST:event_ex10MouseExited
+
     private int xMouse, yMouse;
 
     /**
@@ -6124,8 +6430,10 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel a10;
     private javax.swing.JLabel a11;
     private javax.swing.JLabel a13;
+    private javax.swing.JLabel a14;
     private javax.swing.JLabel a15;
     private javax.swing.JLabel a16;
+    private javax.swing.JLabel a18;
     private javax.swing.JPanel a2;
     private javax.swing.JPanel a3;
     private javax.swing.JPanel a4;
@@ -6134,6 +6442,8 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel a7;
     private javax.swing.JLabel a8;
     private javax.swing.JLabel a9;
+    private javax.swing.JLabel abo;
+    private javax.swing.JPanel about;
     private javax.swing.JLabel addopt;
     private javax.swing.JLabel addopt1;
     private javax.swing.JPanel book;
@@ -6163,6 +6473,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField detailsssearch;
     private javax.swing.JLabel ex;
     private javax.swing.JLabel ex1;
+    private javax.swing.JLabel ex10;
     private javax.swing.JLabel ex2;
     private javax.swing.JLabel ex3;
     private javax.swing.JLabel ex4;
@@ -6176,6 +6487,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> genrecombobox;
     private javax.swing.JLabel hide;
     private javax.swing.JLabel hide1;
+    private javax.swing.JLabel hide10;
     private javax.swing.JLabel hide2;
     private javax.swing.JLabel hide3;
     private javax.swing.JLabel hide4;
@@ -6206,6 +6518,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JTextField issuestudstr;
     private javax.swing.JPanel j10;
     private javax.swing.JPanel j11;
+    private javax.swing.JPanel j12;
     private javax.swing.JPanel j2;
     private javax.swing.JPanel j3;
     private javax.swing.JPanel j4;
@@ -6224,7 +6537,22 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel110;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -6233,7 +6561,6 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -6316,6 +6643,11 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -6330,9 +6662,11 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel33;
@@ -6395,6 +6729,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JPanel s2;
     private javax.swing.JPanel s3;
     private javax.swing.JPanel s4;
+    private javax.swing.JPanel s5;
     private javax.swing.JTextField searchmanagstud;
     private javax.swing.JLabel stud_add;
     private javax.swing.JLabel stud_delete;
@@ -6412,6 +6747,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JPanel t3;
     private javax.swing.JPanel t4;
     private javax.swing.JPanel t5;
+    private javax.swing.JPanel t6;
     private javax.swing.JLabel textadd1;
     private javax.swing.JLabel trans;
     private javax.swing.JComboBox<String> transacfilter;

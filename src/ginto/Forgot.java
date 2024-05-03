@@ -81,7 +81,7 @@ public class Forgot extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 180, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, 40));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 153));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -92,7 +92,7 @@ public class Forgot extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 60, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 60, -1));
 
         usertxt.setBackground(new java.awt.Color(0, 0, 51));
         usertxt.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,7 +119,7 @@ public class Forgot extends javax.swing.JFrame {
                 jCheckBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
 
         oldpasstxt.setBackground(new java.awt.Color(0, 0, 51));
         oldpasstxt.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,7 +137,7 @@ public class Forgot extends javax.swing.JFrame {
                 oldpasstxtActionPerformed(evt);
             }
         });
-        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 320, 30));
+        jPanel1.add(oldpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 320, 30));
 
         jCheckBox1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
         jCheckBox1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
@@ -146,7 +146,7 @@ public class Forgot extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
 
         txtpass.setBackground(new java.awt.Color(0, 0, 51));
         txtpass.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,7 +164,7 @@ public class Forgot extends javax.swing.JFrame {
                 txtpassActionPerformed(evt);
             }
         });
-        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 320, 30));
+        jPanel1.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 320, 30));
 
         jCheckBox3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18.png"))); // NOI18N
         jCheckBox3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-eye-18 (1).png"))); // NOI18N
@@ -173,7 +173,7 @@ public class Forgot extends javax.swing.JFrame {
                 jCheckBox3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
+        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
         txtnew.setBackground(new java.awt.Color(0, 0, 51));
         txtnew.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,7 +186,7 @@ public class Forgot extends javax.swing.JFrame {
                 txtnewFocusLost(evt);
             }
         });
-        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 320, 30));
+        jPanel1.add(txtnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 320, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,12 +201,12 @@ public class Forgot extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("New Password :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Confirm Password :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         a.setBackground(new java.awt.Color(0, 0, 51));
         a.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

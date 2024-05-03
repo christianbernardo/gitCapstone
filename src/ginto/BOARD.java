@@ -1128,18 +1128,21 @@ public class BOARD extends javax.swing.JFrame {
         jLabel101 = new javax.swing.JLabel();
         jLabel102 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
-        jLabel104 = new javax.swing.JLabel();
         jLabel105 = new javax.swing.JLabel();
         jLabel106 = new javax.swing.JLabel();
-        jLabel107 = new javax.swing.JLabel();
         jLabel108 = new javax.swing.JLabel();
         jLabel109 = new javax.swing.JLabel();
         jLabel110 = new javax.swing.JLabel();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
-        jLabel113 = new javax.swing.JLabel();
         jLabel114 = new javax.swing.JLabel();
         jLabel99 = new javax.swing.JLabel();
+        jLabel115 = new javax.swing.JLabel();
+        jLabel116 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        jLabel113 = new javax.swing.JLabel();
+        jLabel104 = new javax.swing.JLabel();
+        jLabel117 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         t1 = new javax.swing.JPanel();
         dash = new javax.swing.JLabel();
@@ -1158,6 +1161,7 @@ public class BOARD extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -1275,7 +1279,7 @@ public class BOARD extends javax.swing.JFrame {
         dashboard.add(db_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 140, 30));
 
         db_table.setBackground(new java.awt.Color(255, 255, 255));
-        db_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        db_table.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         db_table.setForeground(new java.awt.Color(0, 0, 0));
         db_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1438,7 +1442,7 @@ public class BOARD extends javax.swing.JFrame {
         dashboard.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 60));
 
         db2_table.setBackground(new java.awt.Color(255, 255, 255));
-        db2_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        db2_table.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         db2_table.setForeground(new java.awt.Color(0, 0, 0));
         db2_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1867,7 +1871,7 @@ public class BOARD extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, true
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1889,11 +1893,12 @@ public class BOARD extends javax.swing.JFrame {
             manageb_table.getColumnModel().getColumn(0).setMinWidth(0);
             manageb_table.getColumnModel().getColumn(0).setPreferredWidth(0);
             manageb_table.getColumnModel().getColumn(0).setMaxWidth(0);
-            manageb_table.getColumnModel().getColumn(1).setPreferredWidth(80);
-            manageb_table.getColumnModel().getColumn(5).setPreferredWidth(80);
-            manageb_table.getColumnModel().getColumn(6).setMinWidth(80);
-            manageb_table.getColumnModel().getColumn(6).setPreferredWidth(80);
-            manageb_table.getColumnModel().getColumn(6).setMaxWidth(80);
+            manageb_table.getColumnModel().getColumn(1).setPreferredWidth(50);
+            manageb_table.getColumnModel().getColumn(2).setPreferredWidth(150);
+            manageb_table.getColumnModel().getColumn(3).setPreferredWidth(150);
+            manageb_table.getColumnModel().getColumn(4).setPreferredWidth(50);
+            manageb_table.getColumnModel().getColumn(5).setPreferredWidth(50);
+            manageb_table.getColumnModel().getColumn(6).setPreferredWidth(50);
         }
 
         jPanel10.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 730, 590));
@@ -2384,34 +2389,28 @@ public class BOARD extends javax.swing.JFrame {
             transactiontable.getColumnModel().getColumn(0).setMinWidth(0);
             transactiontable.getColumnModel().getColumn(0).setPreferredWidth(0);
             transactiontable.getColumnModel().getColumn(0).setMaxWidth(0);
-            transactiontable.getColumnModel().getColumn(1).setResizable(false);
             transactiontable.getColumnModel().getColumn(1).setPreferredWidth(150);
-            transactiontable.getColumnModel().getColumn(2).setResizable(false);
+            transactiontable.getColumnModel().getColumn(2).setPreferredWidth(40);
             transactiontable.getColumnModel().getColumn(3).setMinWidth(0);
             transactiontable.getColumnModel().getColumn(3).setPreferredWidth(0);
             transactiontable.getColumnModel().getColumn(3).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(4).setMinWidth(0);
             transactiontable.getColumnModel().getColumn(4).setPreferredWidth(0);
             transactiontable.getColumnModel().getColumn(4).setMaxWidth(0);
-            transactiontable.getColumnModel().getColumn(5).setResizable(false);
             transactiontable.getColumnModel().getColumn(5).setPreferredWidth(150);
-            transactiontable.getColumnModel().getColumn(6).setResizable(false);
-            transactiontable.getColumnModel().getColumn(6).setPreferredWidth(130);
-            transactiontable.getColumnModel().getColumn(7).setResizable(false);
+            transactiontable.getColumnModel().getColumn(6).setPreferredWidth(150);
+            transactiontable.getColumnModel().getColumn(7).setPreferredWidth(50);
             transactiontable.getColumnModel().getColumn(8).setMinWidth(0);
             transactiontable.getColumnModel().getColumn(8).setPreferredWidth(0);
             transactiontable.getColumnModel().getColumn(8).setMaxWidth(0);
             transactiontable.getColumnModel().getColumn(9).setMinWidth(0);
             transactiontable.getColumnModel().getColumn(9).setPreferredWidth(0);
             transactiontable.getColumnModel().getColumn(9).setMaxWidth(0);
-            transactiontable.getColumnModel().getColumn(10).setResizable(false);
-            transactiontable.getColumnModel().getColumn(10).setPreferredWidth(50);
-            transactiontable.getColumnModel().getColumn(11).setResizable(false);
-            transactiontable.getColumnModel().getColumn(11).setPreferredWidth(50);
+            transactiontable.getColumnModel().getColumn(10).setPreferredWidth(40);
+            transactiontable.getColumnModel().getColumn(11).setPreferredWidth(40);
             transactiontable.getColumnModel().getColumn(12).setMinWidth(0);
             transactiontable.getColumnModel().getColumn(12).setPreferredWidth(0);
             transactiontable.getColumnModel().getColumn(12).setMaxWidth(0);
-            transactiontable.getColumnModel().getColumn(13).setResizable(false);
             transactiontable.getColumnModel().getColumn(13).setPreferredWidth(40);
         }
 
@@ -2568,11 +2567,11 @@ public class BOARD extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Student ID", "Student Name", "Strand", "Gr. & Sec", "Book ID", "Book Name", "Author", "Genre", "Quantity", "Issue Date", "Due Date", "Return Date", "Status", "Copyright"
+                "Student ID", "Student Name", "Strand", "Gr. & Sec", "Book ID", "Book Name", "Author", "Genre", "Quantity", "Copyright", "Issue Date", "Due Date", "Return Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2612,10 +2611,10 @@ public class BOARD extends javax.swing.JFrame {
             recordstable.getColumnModel().getColumn(8).setMinWidth(0);
             recordstable.getColumnModel().getColumn(8).setPreferredWidth(0);
             recordstable.getColumnModel().getColumn(8).setMaxWidth(0);
-            recordstable.getColumnModel().getColumn(12).setPreferredWidth(50);
-            recordstable.getColumnModel().getColumn(13).setMinWidth(0);
-            recordstable.getColumnModel().getColumn(13).setPreferredWidth(0);
-            recordstable.getColumnModel().getColumn(13).setMaxWidth(0);
+            recordstable.getColumnModel().getColumn(9).setMinWidth(0);
+            recordstable.getColumnModel().getColumn(9).setPreferredWidth(0);
+            recordstable.getColumnModel().getColumn(9).setMaxWidth(0);
+            recordstable.getColumnModel().getColumn(13).setPreferredWidth(50);
         }
 
         records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 1060, 580));
@@ -4056,123 +4055,141 @@ public class BOARD extends javax.swing.JFrame {
         a18.setForeground(new java.awt.Color(255, 255, 255));
         a18.setText("LIBRARY RULES AND REGULATION");
         jPanel3.add(a18);
-        a18.setBounds(110, 0, 825, 70);
+        a18.setBounds(110, 0, 825, 60);
 
-        jLabel95.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel95.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel95.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel95.setText("are strictly prohibited.");
+        jLabel95.setText("Sleeping and littering are strictly prohibited.");
         jPanel3.add(jLabel95);
-        jLabel95.setBounds(20, 100, 1020, 30);
+        jLabel95.setBounds(20, 80, 1020, 30);
 
-        jLabel96.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel96.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel96.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel96.setText("to be borrowed by an hour only, subject to renewal if not an demand, only two (2) renewal may be allowed, Book may be borrowed after a period of one week.");
+        jLabel96.setText("Book may be borrowed after a period of one week.");
         jPanel3.add(jLabel96);
         jLabel96.setBounds(20, 430, 1020, 30);
 
-        jLabel97.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel97.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel97.setForeground(new java.awt.Color(255, 255, 255));
         jLabel97.setText("2. Courtesy must be practiced in the Library at all times especially when borrowing/returning Library material.");
         jPanel3.add(jLabel97);
-        jLabel97.setBounds(20, 130, 1020, 30);
+        jLabel97.setBounds(20, 110, 1020, 30);
 
-        jLabel100.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel100.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel100.setForeground(new java.awt.Color(255, 255, 255));
         jLabel100.setText("3. Only bonafide student, Faculty members and staff may use the Library subject to its rules and regulations.");
         jPanel3.add(jLabel100);
-        jLabel100.setBounds(20, 160, 1020, 30);
+        jLabel100.setBounds(20, 140, 1020, 30);
 
-        jLabel101.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel101.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel101.setForeground(new java.awt.Color(255, 255, 255));
         jLabel101.setText("6. No student is allowed to borrow Library materials unless he/she has a Library card.");
         jPanel3.add(jLabel101);
         jLabel101.setBounds(20, 250, 1020, 30);
 
-        jLabel102.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel102.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel102.setForeground(new java.awt.Color(255, 255, 255));
         jLabel102.setText("Library card will deprived of his/her privileges to use the Library. ");
         jPanel3.add(jLabel102);
-        jLabel102.setBounds(20, 310, 1020, 30);
+        jLabel102.setBounds(20, 300, 1020, 30);
 
-        jLabel103.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel103.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel103.setForeground(new java.awt.Color(255, 255, 255));
         jLabel103.setText("8. The owner of the card is responsible for all of the books, issued in his name. ");
         jPanel3.add(jLabel103);
-        jLabel103.setBounds(20, 340, 1020, 30);
+        jLabel103.setBounds(20, 330, 1020, 30);
 
-        jLabel104.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel104.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel104.setText("15. All books must be returned to their respective shelves or to the Librarian before leaving the Library. ");
-        jPanel3.add(jLabel104);
-        jLabel104.setBounds(20, 610, 1020, 30);
-
-        jLabel105.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel105.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel105.setForeground(new java.awt.Color(255, 255, 255));
         jLabel105.setText("4. Students applying for Library Card must submit a clear 1 x 1 I.D. Photo.");
         jPanel3.add(jLabel105);
-        jLabel105.setBounds(20, 190, 1020, 30);
+        jLabel105.setBounds(20, 170, 1020, 30);
 
-        jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel106.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel106.setText("5. Lost Library cards should be reported immediately to the librarian. A corresponding fine will be imposed on borrowers requesting for another Library card.");
+        jLabel106.setText("for another Library card.");
         jPanel3.add(jLabel106);
         jLabel106.setBounds(20, 220, 1020, 30);
 
-        jLabel107.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel107.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel107.setText("10. Students may borrow only one non fiction book for a day or for one week, subject to renewal if not in demand. Textbooks with limited copies are ");
-        jPanel3.add(jLabel107);
-        jLabel107.setBounds(20, 400, 1020, 30);
-
-        jLabel108.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel108.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel108.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel108.setText("12. When a student loses a book, he/she should report it immediately to the librarian, otherwise it should be replaced and pay the corresponding overdue fines. ");
+        jLabel108.setText("corresponding overdue fines. ");
         jPanel3.add(jLabel108);
-        jLabel108.setBounds(20, 490, 1020, 30);
+        jLabel108.setBounds(20, 510, 1020, 30);
 
-        jLabel109.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel109.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel109.setForeground(new java.awt.Color(255, 255, 255));
         jLabel109.setText("13. Your lost book account should be settled within 15 days after report of loss. ");
         jPanel3.add(jLabel109);
-        jLabel109.setBounds(20, 520, 1020, 30);
+        jLabel109.setBounds(20, 540, 1020, 30);
 
-        jLabel110.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel110.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel110.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel110.setText("14. A student caught mutilating or defacing a book, magazine or any Library materials will be deprived of his/her Library privileges and must replace or pay ");
+        jLabel110.setText("14. A student caught mutilating or defacing a book, magazine or any Library materials will be deprived of his/her Library privileges and ");
         jPanel3.add(jLabel110);
-        jLabel110.setBounds(20, 550, 1020, 30);
+        jLabel110.setBounds(20, 570, 1020, 30);
 
-        jLabel111.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel111.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel111.setForeground(new java.awt.Color(255, 255, 255));
         jLabel111.setText("9. General Reference books and Periodicals may be read inside the Library only. ");
         jPanel3.add(jLabel111);
-        jLabel111.setBounds(20, 370, 1020, 30);
+        jLabel111.setBounds(20, 360, 1020, 30);
 
-        jLabel112.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel112.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel112.setForeground(new java.awt.Color(255, 255, 255));
         jLabel112.setText("11. Fine for an overdue book is P1.00 per day including Saturdays, Sundays and Holidays. ");
         jPanel3.add(jLabel112);
         jLabel112.setBounds(20, 460, 1020, 30);
 
-        jLabel113.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel113.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel113.setText("for the destroyed materials and he/she will be suspended from using the Library for one (1) month. ");
-        jPanel3.add(jLabel113);
-        jLabel113.setBounds(20, 580, 1020, 30);
-
-        jLabel114.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel114.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel114.setForeground(new java.awt.Color(255, 255, 255));
         jLabel114.setText("7. Library cards are non-transferable. A student caught using somebody else's Library card or allowing another student to use his ");
         jPanel3.add(jLabel114);
         jLabel114.setBounds(20, 280, 1020, 30);
 
-        jLabel99.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel99.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel99.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel99.setText("1. The Library is a place for reading, studying and researching. Complete silence should be observed at all times. Eating, smoking. sleeping and littering");
+        jLabel99.setText("1. The Library is a place for reading, studying and researching. Complete silence should be observed at all times. Eating, smoking.");
         jPanel3.add(jLabel99);
-        jLabel99.setBounds(20, 70, 1020, 30);
+        jLabel99.setBounds(20, 60, 1020, 30);
 
-        about.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 1060, 660));
+        jLabel115.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel115.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel115.setText("5. Lost Library cards should be reported immediately to the librarian. A corresponding fine will be imposed on borrowers requesting ");
+        jPanel3.add(jLabel115);
+        jLabel115.setBounds(20, 200, 1020, 30);
+
+        jLabel116.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel116.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel116.setText("10. Students may borrow only one non fiction book for a day or for one week, subject to renewal if not in demand. Textbooks with");
+        jPanel3.add(jLabel116);
+        jLabel116.setBounds(20, 390, 1020, 30);
+
+        jLabel107.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel107.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel107.setText("limited copies are to be borrowed by an hour only, subject to renewal if not an demand, only two (2) renewal may be allowed,");
+        jPanel3.add(jLabel107);
+        jLabel107.setBounds(20, 410, 1020, 30);
+
+        jLabel113.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel113.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel113.setText("must replace or pay for the destroyed materials and he/she will be suspended from using the Library for one (1) month. ");
+        jPanel3.add(jLabel113);
+        jLabel113.setBounds(20, 590, 1020, 30);
+
+        jLabel104.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel104.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel104.setText("15. All books must be returned to their respective shelves or to the Librarian before leaving the Library. ");
+        jPanel3.add(jLabel104);
+        jLabel104.setBounds(20, 620, 1020, 30);
+
+        jLabel117.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel117.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel117.setText("12. When a student loses a book, he/she should report it immediately to the librarian, otherwise it should be replaced and pay the");
+        jPanel3.add(jLabel117);
+        jLabel117.setBounds(20, 490, 1020, 30);
+
+        about.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 1060, 670));
 
         jTabbedPane1.addTab("ABOUT", about);
 
@@ -4398,7 +4415,7 @@ public class BOARD extends javax.swing.JFrame {
         abo.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
         abo.setForeground(new java.awt.Color(255, 255, 255));
         abo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        abo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-info-popup-60.png"))); // NOI18N
+        abo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-info-60.png"))); // NOI18N
         abo.setText("      ABOUT");
         abo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -4484,6 +4501,9 @@ public class BOARD extends javax.swing.JFrame {
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel79.setText("LIBRARY MANAGEMENT");
         jPanel2.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, 20));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/asm.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 80));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 800));
 
@@ -6553,6 +6573,9 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -6561,6 +6584,7 @@ public class BOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
